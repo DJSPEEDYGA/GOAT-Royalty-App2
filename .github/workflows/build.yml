@@ -1,39 +1,36 @@
-name: Build GOAT App for Windows & macOS
+name: Build GOAT App Installers
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [windows-latest, macos-latest]
 
-    name: Build on ${{ matrix.os }}
-
     steps:
-      - name: Checkout code
+      - name: 🔄 Checkout repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: ⚙️ Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: 18
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm install
 
-      - name: Build app
+      - name: 🛠 Run Electron Builder
         run: npm run electron-builder
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      - name: 📤 Upload installers
+        uses: actions/upload-artifact@v3
         with:
-          name: GOAT-Royalty-App-Builds
+          name: GOAT-App-${{ matrix.os }}
           path: |
             dist/*.exe
             dist/*.dmg
