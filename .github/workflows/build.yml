@@ -13,7 +13,7 @@ jobs:
         os: [windows-latest, macos-latest]
 
     steps:
-      - name: 🔄 Checkout repo
+      - name: 🔄 Checkout repository
         uses: actions/checkout@v3
 
       - name: ⚙️ Set up Node.js
@@ -24,11 +24,11 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🛠 Run Electron Builder
+      - name: 🛠 Build installers with Electron Builder
         run: npm run electron-builder
 
-      - name: 📤 Upload installers
-        uses: actions/upload-artifact@v3
+      - name: 📤 Upload build artifacts
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: GOAT-App-${{ matrix.os }}
           path: |
