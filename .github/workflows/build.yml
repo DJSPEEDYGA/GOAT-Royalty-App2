@@ -27,8 +27,8 @@ jobs:
       - name: 🛠 Build installers with Electron Builder
         run: npm run electron-builder
 
-      - name: 📤 Upload build artifacts
-        uses: actions/upload-artifact@v3.1.2
+      - name: 📤 Upload installers
+        uses: actions/upload-artifact@main
         with:
           name: GOAT-App-${{ matrix.os }}
           path: |
