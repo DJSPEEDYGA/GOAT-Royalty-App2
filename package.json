@@ -10,12 +10,17 @@
     "build": "next build",
     "start": "next start",
     "electron": "electron .",
-    "electron-builder": "electron-builder"
+    "start-electron": "npm run build && electron .",
+    "electron-builder": "electron-builder",
+    "postinstall": "echo 'Postinstall complete'"
+  },
+  "build": {
+    "publish": null
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "electron": "^28.1.3",
