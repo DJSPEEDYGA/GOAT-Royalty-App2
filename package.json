@@ -1,6 +1,8 @@
 {
   "name": "goat-royalty-app",
   "version": "1.0.0",
+  "description": "GREATEST OF ALL TIME royalty collection APP",
+  "author": "Harvey L. Miller Jr. (DJ Speedy)",
   "main": "main.js",
   "license": "MIT",
   "scripts": {
@@ -11,12 +13,12 @@
     "electron-builder": "electron-builder"
   },
   "dependencies": {
-    "electron": "^28.1.3",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
   },
   "devDependencies": {
+    "electron": "^28.1.3",
     "electron-builder": "^24.13.2"
   }
 }
