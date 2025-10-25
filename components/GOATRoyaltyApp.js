@@ -177,7 +177,21 @@ export default function GOATRoyaltyApp() {
 
           {/* SuperNinja AI Tab */}
           <TabsContent value="superninja" className="mt-6">
-            <SuperNinjaAI />
+            <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 mb-4">
+                <h2 className="text-2xl font-bold mb-4">SuperNinja AI Assistant</h2>
+                <p className="text-gray-400 mb-4">
+                  Your intelligent AI companion for royalty management. 
+                  Apply the 10X Rule principles to achieve extraordinary results in your music business operations:
+                </p>
+                <ul className="list-disc list-inside text-gray-300 space-y-2">
+                  <li>Set targets 10 times higher than what you think you want</li>
+                  <li>Take 10 times the action to achieve those targets</li>
+                  <li>Massive thoughts must be followed by massive actions</li>
+                  <li>Think and act in a wildly different way than you previously have been</li>
+                  <li>Be willing to do what others won't do</li>
+                </ul>
+              </div>
+              <SuperNinjaAI />
           </TabsContent>
         </Tabs>
 

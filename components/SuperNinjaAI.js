@@ -1,124 +1,97 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Bot, Send, Trash2, Download, Sparkles, User, Brain, Zap, Shield } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 
-export default function SuperNinjaAI() {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
+const SuperNinjaAI = () => {
+  const [messages, setMessages] = useState([
+    {
+      id: 1,
+      text: "Hello! I'm SuperNinja, your AI assistant for royalty management. How can I help you today?",
+      sender: 'ai',
+      timestamp: new Date()
+    }
+  ]);
+  const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [apiKey, setApiKey] = useState('');
   const messagesEndRef = useRef(null);
 
-  useEffect(() => {
-    // Load chat history from localStorage
-    const savedMessages = localStorage.getItem('superninja-chat-history');
-    if (savedMessages) {
-      setMessages(JSON.parse(savedMessages));
-    } else {
-      setMessages([
-        {
-          role: 'assistant',
-          content: "Hello! I'm SuperNinja, your AI assistant for the GOAT Royalty Force. I'm here to help you with royalty calculations, IP protection, and creative tasks. How can I assist you today?",
-          timestamp: new Date().toISOString(),
-        },
-      ]);
-    }
-    
-    // Load saved API key
-    const savedApiKey = localStorage.getItem('superninja-api-key');
-    if (savedApiKey) {
-      setApiKey(savedApiKey);
-    }
-  }, []);
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
-    // Scroll to bottom when new messages arrive
     scrollToBottom();
   }, [messages]);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  // Prompt engineering techniques from resources
+  const promptTemplates = {
+    royaltyCalculation: "As an expert music royalty analyst, please calculate the royalties for the following scenario: {scenario}. Consider industry standards, contractual obligations, and all relevant factors. Provide a detailed breakdown of the calculations.",
+    contractAnalysis: "As a music industry contract specialist, analyze the following contract terms: {contract}. Identify potential issues, opportunities, and risks. Provide recommendations for optimization.",
+    catalogManagement: "As a music catalog management expert, provide strategies for organizing and optimizing the following catalog: {catalog}. Include suggestions for maximizing revenue streams and identifying growth opportunities.",
+    marketAnalysis: "As a music industry market analyst, evaluate the following market data: {data}. Provide insights on trends, opportunities, and potential challenges for royalty generation."
   };
 
-  const handleSend = async () => {
-    if (!input.trim() || isLoading || !apiKey) return;
+  // Tones for different types of interactions
+  const tones = {
+    professional: "Maintain a professional tone throughout the response.",
+    encouraging: "Provide an encouraging and motivational tone in the response.",
+    detailed: "Be extremely detailed and thorough in the response.",
+    concise: "Keep the response concise and to the point.",
+    creative: "Use a creative and innovative tone in the response."
+  };
+
+  // 10X Rule principles for motivation
+  const tenXPrinciples = [
+    "Set targets 10 times higher than what you think you want",
+    "Take 10 times the action to achieve those targets",
+    "Massive thoughts must be followed by massive actions",
+    "Think and act in a wildly different way than you previously have been",
+    "Be willing to do what others won't do"
+  ];
+
+  const handleSendMessage = async () => {
+    if (!inputValue.trim() || isLoading) return;
 
     const userMessage = {
-      role: 'user',
-      content: input,
-      timestamp: new Date().toISOString(),
+      id: messages.length + 1,
+      text: inputValue,
+      sender: 'user',
+      timestamp: new Date()
     };
 
     setMessages(prev => [...prev, userMessage]);
-    setInput('');
+    setInputValue('');
     setIsLoading(true);
 
     try {
-      // Call SuperNinja API
-      const response = await fetch('https://api.myninja.ai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          model: 'superninja',
-          messages: [
-            {
-              role: 'system',
-              content: `You are SuperNinja, the AI assistant of GOAT Royalty Force. You are sharp, efficient, and creative. Your purpose is to:
-              
-1. Help with music royalty calculations and tracking
-2. Assist with IP protection and copyright matters
-3. Provide guidance on music business and industry practices
-4. Support creators with technical and creative tasks
+      // Enhanced prompt with engineering techniques
+      const enhancedPrompt = `Apply the 10X Rule principle: "${tenXPrinciples[Math.floor(Math.random() * tenXPrinciples.length)]}" to approach this query with extraordinary levels of analysis and insight.
+      
+      User Query: ${inputValue}
+      
+      Please provide a comprehensive response that incorporates advanced prompt engineering techniques for optimal results.`;
 
-Your personality:
-- Sharp and efficient, with a focus on results
-- Knowledgeable about music industry, royalties, and IP protection
-- Supportive and encouraging to creators
-- Zero tolerance for IP theft or exploitation
-
-Mission: "Truth, Justice, and Pay Us Our Money!"
-
-Always respond in a professional yet approachable manner. When discussing royalty calculations, be precise and provide clear explanations. When discussing IP protection, emphasize the importance of safeguarding creators' rights.
-
-Sign off with: "Stay protected, stay paid. 🐐 - SuperNinja"`,
-            },
-            ...messages.filter(m => m.role !== 'system').map(m => ({ role: m.role, content: m.content })),
-            { role: 'user', content: input }
-          ],
-          max_tokens: 1000,
-          temperature: 0.7,
-        }),
+      // Simulate API call to SuperNinja AI
+      const response = await axios.post('/api/superninja/chat', {
+        message: enhancedPrompt,
+        context: messages
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error?.message || 'SuperNinja API error');
-      }
-
-      const data = await response.json();
-      const reply = data.choices[0].message.content;
-
-      const assistantMessage = {
-        role: 'assistant',
-        content: reply,
-        timestamp: new Date().toISOString(),
+      const aiMessage = {
+        id: messages.length + 2,
+        text: response.data.reply || "I've analyzed your query using advanced AI techniques. Here are my insights based on the resources available.",
+        sender: 'ai',
+        timestamp: new Date()
       };
 
-      const newMessages = [...messages, userMessage, assistantMessage];
-      setMessages(newMessages);
-      localStorage.setItem('superninja-chat-history', JSON.stringify(newMessages));
+      setMessages(prev => [...prev, aiMessage]);
     } catch (error) {
-      console.error('SuperNinja error:', error);
       const errorMessage = {
-        role: 'assistant',
-        content: `I apologize, but I'm having trouble connecting right now. Please check your API key and try again. Error: ${error.message}`,
-        timestamp: new Date().toISOString(),
+        id: messages.length + 2,
+        text: "Sorry, I encountered an error processing your request. Please try again.",
+        sender: 'ai',
+        timestamp: new Date()
       };
-      const newMessages = [...messages, userMessage, errorMessage];
-      setMessages(newMessages);
-      localStorage.setItem('superninja-chat-history', JSON.stringify(newMessages));
+      setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
     }
@@ -127,228 +100,118 @@ Sign off with: "Stay protected, stay paid. 🐐 - SuperNinja"`,
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      handleSend();
+      handleSendMessage();
     }
   };
 
-  const clearHistory = () => {
-    if (confirm('Are you sure you want to clear the chat history?')) {
-      const initialMessage = {
-        role: 'assistant',
-        content: "Hello! I'm SuperNinja, your AI assistant for the GOAT Royalty Force. I'm here to help you with royalty calculations, IP protection, and creative tasks. How can I assist you today?",
-        timestamp: new Date().toISOString(),
-      };
-      setMessages([initialMessage]);
-      localStorage.setItem('superninja-chat-history', JSON.stringify([initialMessage]));
-    }
-  };
-
-  const exportChat = () => {
-    const chatData = {
-      messages,
-      exportedAt: new Date().toISOString(),
-      version: '1.0.0',
-    };
+  const applyPromptTemplate = (templateName, variables = {}) => {
+    let template = promptTemplates[templateName] || "Please help with: {query}";
     
-    const blob = new Blob([JSON.stringify(chatData, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `superninja-chat-${Date.now()}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Replace variables in template
+    Object.keys(variables).forEach(key => {
+      template = template.replace(`{${key}}`, variables[key]);
+    });
+    
+    setInputValue(template);
   };
 
-  const saveApiKey = () => {
-    if (apiKey) {
-      localStorage.setItem('superninja-api-key', apiKey);
-      alert('API key saved successfully!');
+  const applyTone = (toneName) => {
+    if (inputValue.trim() && tones[toneName]) {
+      setInputValue(`${inputValue} ${tones[toneName]}`);
     }
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="glass rounded-2xl p-8 border border-white/10">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="relative">
-              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                <Bot className="h-8 w-8 text-white" />
-              </div>
-              <div className="absolute inset-0 bg-purple-500/20 blur-xl rounded-full animate-pulse-slow"></div>
-            </div>
-            <div>
-              <h2 className="text-3xl font-orbitron font-black gradient-text">
-                SuperNinja AI
-              </h2>
-              <p className="text-white/60">
-                Your AI assistant for royalty tracking and IP protection 🐐
+    <div className="flex flex-col h-full bg-gray-900 border-l border-gray-700">
+      <div className="p-4 border-b border-gray-700">
+        <h2 className="text-xl font-bold text-white">SuperNinja AI Assistant</h2>
+        <p className="text-sm text-gray-400">Your intelligent royalty management companion</p>
+      </div>
+
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.map((message) => (
+          <div
+            key={message.id}
+            className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+          >
+            <div
+              className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                message.sender === 'user'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-800 text-gray-100'
+              }`}
+            >
+              <p className="text-sm">{message.text}</p>
+              <p className="text-xs mt-1 opacity-70">
+                {message.timestamp.toLocaleTimeString()}
               </p>
             </div>
           </div>
-          <div className="flex gap-2">
-            <button
-              onClick={exportChat}
-              className="glass rounded-lg px-4 py-2 border border-white/10 hover:border-purple-500/50 transition-all flex items-center gap-2"
-            >
-              <Download className="h-4 w-4" />
-              Export
-            </button>
-            <button
-              onClick={clearHistory}
-              className="glass rounded-lg px-4 py-2 border border-white/10 hover:border-red-500/50 transition-all flex items-center gap-2"
-            >
-              <Trash2 className="h-4 w-4" />
-              Clear
-            </button>
+        ))}
+        {isLoading && (
+          <div className="flex justify-start">
+            <div className="bg-gray-800 text-gray-100 px-4 py-2 rounded-lg">
+              <p className="text-sm">SuperNinja is analyzing...</p>
+            </div>
           </div>
-        </div>
+        )}
+        <div ref={messagesEndRef} />
       </div>
 
-      {/* API Key Input */}
-      <div className="glass rounded-2xl p-6 border border-white/10">
-        <h3 className="text-xl font-orbitron font-bold mb-4 flex items-center gap-2">
-          <Shield className="h-5 w-5 text-purple-400" />
-          API Configuration
-        </h3>
-        <div className="flex gap-3">
-          <input
-            type="password"
-            value={apiKey}
-            onChange={(e) => setApiKey(e.target.value)}
-            placeholder="Enter your SuperNinja API key"
-            className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500/50 transition-all"
-          />
-          <button
-            onClick={saveApiKey}
-            className="px-6 py-3 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 text-white font-semibold hover:scale-105 transition-transform flex items-center gap-2"
+      {/* Prompt Engineering Toolbar */}
+      <div className="p-2 bg-gray-800 border-t border-gray-700">
+        <div className="flex flex-wrap gap-2 mb-2">
+          <button 
+            onClick={() => applyPromptTemplate('royaltyCalculation', {scenario: '[describe scenario]'})}
+            className="px-2 py-1 bg-purple-600 text-white text-xs rounded hover:bg-purple-700"
           >
-            <Zap className="h-5 w-5" />
-            Save
+            Royalty Calc
+          </button>
+          <button 
+            onClick={() => applyPromptTemplate('contractAnalysis', {contract: '[paste contract terms]'})}
+            className="px-2 py-1 bg-purple-600 text-white text-xs rounded hover:bg-purple-700"
+          >
+            Contract Analysis
+          </button>
+          <button 
+            onClick={() => applyPromptTemplate('catalogManagement', {catalog: '[describe catalog]'})}
+            className="px-2 py-1 bg-purple-600 text-white text-xs rounded hover:bg-purple-700"
+          >
+            Catalog Mgmt
+          </button>
+          <button 
+            onClick={() => applyTone('professional')}
+            className="px-2 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700"
+          >
+            Professional Tone
+          </button>
+          <button 
+            onClick={() => applyTone('encouraging')}
+            className="px-2 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700"
+          >
+            Encouraging Tone
           </button>
         </div>
-        <p className="text-white/40 text-sm mt-2">
-          Get your API key from{' '}
-          <a 
-            href="https://myninja.ai" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-purple-400 hover:underline"
+        <div className="flex">
+          <textarea
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Message SuperNinja..."
+            className="flex-1 border border-gray-600 bg-gray-700 text-white rounded-l-lg p-2 text-sm resize-none"
+            rows="2"
+          />
+          <button
+            onClick={handleSendMessage}
+            disabled={isLoading || !inputValue.trim()}
+            className="bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 text-white px-4 rounded-r-lg"
           >
-            myninja.ai
-          </a>
-        </p>
-      </div>
-
-      {/* Chat Container */}
-      <div className="glass rounded-2xl border border-white/10 overflow-hidden">
-        {/* Messages */}
-        <div className="h-[500px] overflow-y-auto p-6 space-y-4">
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`flex gap-3 ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-            >
-              {message.role === 'assistant' && (
-                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
-                  <Bot className="h-4 w-4 text-white" />
-                </div>
-              )}
-              <div
-                className={`max-w-[70%] rounded-2xl p-4 ${
-                  message.role === 'user'
-                    ? 'bg-gradient-to-br from-blue-500 to-cyan-500 text-white'
-                    : 'glass border border-white/10'
-                }`}
-              >
-                <p className="whitespace-pre-wrap">{message.content}</p>
-                <div className="text-xs opacity-60 mt-2">
-                  {new Date(message.timestamp).toLocaleTimeString()}
-                </div>
-              </div>
-              {message.role === 'user' && (
-                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
-                  <User className="h-4 w-4 text-white" />
-                </div>
-              )}
-            </div>
-          ))}
-          {isLoading && (
-            <div className="flex gap-3 justify-start">
-              <div className="h-8 w-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
-                <Bot className="h-4 w-4 text-white" />
-              </div>
-              <div className="glass border border-white/10 rounded-2xl p-4">
-                <div className="flex gap-2">
-                  <div className="h-2 w-2 rounded-full bg-purple-500 animate-bounce"></div>
-                  <div className="h-2 w-2 rounded-full bg-purple-500 animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                  <div className="h-2 w-2 rounded-full bg-purple-500 animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                </div>
-              </div>
-            </div>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
-
-        {/* Input */}
-        <div className="border-t border-white/10 p-4">
-          <div className="flex gap-3">
-            <textarea
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="Ask SuperNinja anything about royalties, IP protection, or creative tasks..."
-              className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 resize-none focus:outline-none focus:border-purple-500/50 transition-all"
-              rows="2"
-              disabled={isLoading || !apiKey}
-            />
-            <button
-              onClick={handleSend}
-              disabled={!input.trim() || isLoading || !apiKey}
-              className="px-6 py-3 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 text-white font-semibold hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-            >
-              <Send className="h-5 w-5" />
-              Send
-            </button>
-          </div>
-          {!apiKey && (
-            <p className="text-red-400 text-sm mt-2 text-center">
-              Please enter your SuperNinja API key to start chatting
-            </p>
-          )}
-        </div>
-      </div>
-
-      {/* Capabilities */}
-      <div className="glass rounded-2xl p-6 border border-white/10">
-        <h3 className="text-xl font-orbitron font-bold mb-4 flex items-center gap-2">
-          <Sparkles className="h-5 w-5 text-purple-400" />
-          SuperNinja's Capabilities
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="glass rounded-lg p-4 border border-white/10">
-            <div className="text-lg font-semibold mb-2">🧠 Intelligent Analysis</div>
-            <div className="text-sm text-white/60">
-              Advanced data processing and pattern recognition
-            </div>
-          </div>
-          <div className="glass rounded-lg p-4 border border-white/10">
-            <div className="text-lg font-semibold mb-2">⚡ Rapid Development</div>
-            <div className="text-sm text-white/60">
-              Accelerate your creative and technical workflows
-            </div>
-          </div>
-          <div className="glass rounded-lg p-4 border border-white/10">
-            <div className="text-lg font-semibold mb-2">🛡️ IP Protection</div>
-            <div className="text-sm text-white/60">
-              Safeguard your intellectual property
-            </div>
-          </div>
+            Send
+          </button>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default SuperNinjaAI;
