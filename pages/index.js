@@ -1,4 +1,4 @@
-import GOATRoyaltyApp from '../components/GOATRoyaltyApp';
+import GOATRoyaltyAppEnhanced from '../components/GOATRoyaltyAppEnhanced';
 export default function Home() {
-  return <GOATRoyaltyApp />;
+  return <GOATRoyaltyAppEnhanced />;
 }

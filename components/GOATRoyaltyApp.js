@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BarChart3, Search, Globe, ShieldCheck, Music2, Youtube, BadgeDollarSign, Bot, Crown } from "lucide-react";
+import { BarChart3, Search, Globe, ShieldCheck, Music2, Youtube, BadgeDollarSign, Bot, Crown, Camera, Sparkles, Film, Zap } from "lucide-react";
 import SuperNinjaAI from "./SuperNinjaAI";
+import AdvancedCameraSystem from "./AdvancedCameraSystem";
+import Sora2AIStudio from "./Sora2AIStudio";
 
 export default function GOATRoyaltyApp() {
   const [activeTab, setActiveTab] = useState("dashboard");
