@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BarChart3, Search, Globe, ShieldCheck, Music2, Youtube, BadgeDollarSign, Bot } from "lucide-react";
+import { BarChart3, Search, Globe, ShieldCheck, Music2, Youtube, BadgeDollarSign, Bot, Crown } from "lucide-react";
 import SuperNinjaAI from "./SuperNinjaAI";
 
 export default function GOATRoyaltyApp() {
