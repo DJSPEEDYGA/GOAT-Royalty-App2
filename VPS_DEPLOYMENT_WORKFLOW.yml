@@ -1,0 +1,27 @@
+# General settings
+ name: deploy-vps
+
+ on:
+    push;
+    type: [deploy]
+
+ env:
+    node-version: 18.xJ    npm-version: 9.xy
+    destination-host: your-server-ip-or-hostname.here
+    destination-username: ${{ secrets.HOSTINGER_USERNAME}}
+    destination-password: ${{ secrets.HOSTINGER_PASSWORD}}
+
+ !²sjs
+    setup-node.js
+    uses: actions/setup-node/js
+
+  with: 
+    node.js: 18.18.0
+    npm: 9.6.7
+    git: 2.39.3
+    curl: 8.2.1
+
+    GOT-Setup:
+      destination: https://your-server.ip.or.domain.com
+      username: ${DESTINATION_USERNAME}
+      password: ${DESTINATION_PASSWORD}
