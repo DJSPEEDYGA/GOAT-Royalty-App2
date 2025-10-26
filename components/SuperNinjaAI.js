@@ -5,13 +5,14 @@ const SuperNinjaAI = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hello! I'm SuperNinja, your AI assistant for royalty management. How can I help you today?",
+      text: "Hello! I'm SuperNinja, your AI assistant for royalty management. I can help you with:\n\n• Cinema Camera controls\n• Sora 2 AI video generation\n• Royalty calculations\n• Contract analysis\n• IP protection\n• Music studio management\n• Performance tracking\n• And much more!\n\nHow can I help you today?",
       sender: 'ai',
       timestamp: new Date()
     }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [availableTools, setAvailableTools] = useState([]);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -20,6 +21,18 @@ const SuperNinjaAI = () => {
 
   useEffect(() => {
     scrollToBottom();
+    // Initialize available tools
+    setAvailableTools([
+      "Cinema Camera System",
+      "Sora 2 AI Studio", 
+      "Royalty Calculator",
+      "Contract Analyzer",
+      "IP Protection Vault",
+      "Music Studio",
+      "Tracking Dashboard",
+      "Moneypenny AI Search",
+      "Codex Engine Tracker"
+    ]);
   }, [messages]);
 
   // Prompt engineering techniques from resources
@@ -73,7 +86,8 @@ const SuperNinjaAI = () => {
       // Simulate API call to SuperNinja AI
       const response = await axios.post('/api/superninja/chat', {
         message: enhancedPrompt,
-        context: messages
+        context: messages,
+        tools: availableTools
       });
 
       const aiMessage = {
@@ -124,8 +138,9 @@ const SuperNinjaAI = () => {
   return (
     <div className="flex flex-col h-full bg-gray-900 border-l border-gray-700">
       <div className="p-4 border-b border-gray-700">
-        <h2 className="text-xl font-bold text-white">SuperNinja AI Assistant</h2>
+        <h2 className="text-xl font-bold text-white">🥷 SuperNinja AI Assistant</h2>
         <p className="text-sm text-gray-400">Your intelligent royalty management companion</p>
+        <p className="text-xs text-purple-400 mt-1">Integrated with all GOAT app tools</p>
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -151,7 +166,7 @@ const SuperNinjaAI = () => {
         {isLoading && (
           <div className="flex justify-start">
             <div className="bg-gray-800 text-gray-100 px-4 py-2 rounded-lg">
-              <p className="text-sm">SuperNinja is analyzing...</p>
+              <p className="text-sm">🥷 SuperNinja is analyzing...</p>
             </div>
           </div>
         )}
@@ -197,7 +212,7 @@ const SuperNinjaAI = () => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Message SuperNinja..."
+            placeholder="Message SuperNinja... (e.g. 'Help me set up the cinema camera' or 'Calculate royalties for 1M streams')"
             className="flex-1 border border-gray-600 bg-gray-700 text-white rounded-l-lg p-2 text-sm resize-none"
             rows="2"
           />
@@ -208,6 +223,9 @@ const SuperNinjaAI = () => {
           >
             Send
           </button>
+        </div>
+        <div className="mt-2 text-xs text-gray-400">
+          Available tools: {availableTools.slice(0, 5).join(', ')}...
         </div>
       </div>
     </div>
