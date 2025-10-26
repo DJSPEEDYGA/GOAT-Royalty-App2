@@ -206,3 +206,4 @@ export default function GOATRoyaltyApp() {
     </div>
   );
 }
+export default GOATRoyaltyApp;
