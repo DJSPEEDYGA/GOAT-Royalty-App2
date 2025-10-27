@@ -9,9 +9,11 @@ import {
   Camera, Zap, TrendingUp, Users, DollarSign
 } from 'lucide-react';
 import NVIDIADGXCloudIntegration from './NVIDIADGXCloudIntegration';
+import IntegrationsHub from './IntegrationsHub';
 
 const GOATRoyaltyAppEnhanced = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [showIntegrations, setShowIntegrations] = useState(false);
   const [royaltyStats, setRoyaltyStats] = useState({
     totalEarnings: 125840.50,
     pendingPayments: 8450.25,
@@ -270,7 +272,7 @@ const GOATRoyaltyAppEnhanced = () => {
 
         {/* Main Navigation */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid grid-cols-10 gap-2 bg-gray-800/50 p-2">
+          <TabsList className="grid grid-cols-11 gap-2 bg-gray-800/50 p-2">
             <TabsTrigger value="dashboard" className="data-[state=active]:bg-green-600">
               <BarChart3 className="w-4 h-4 mr-2" />
               Dashboard
@@ -311,6 +313,10 @@ const GOATRoyaltyAppEnhanced = () => {
               <Cpu className="w-4 h-4 mr-2" />
               NVIDIA DGX
             </TabsTrigger>
+            <TabsTrigger value="integrations" className="data-[state=active]:bg-purple-600">
+              <Zap className="w-4 h-4 mr-2" />
+              Integrations
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="dashboard">{renderDashboard()}</TabsContent>
@@ -324,6 +330,9 @@ const GOATRoyaltyAppEnhanced = () => {
           <TabsContent value="superninja">{renderPlaceholder('SuperNinja AI', <Sparkles className="w-5 h-5 text-yellow-400" />)}</TabsContent>
           <TabsContent value="nvidia-dgx">
             <NVIDIADGXCloudIntegration />
+          </TabsContent>
+          <TabsContent value="integrations">
+            <IntegrationsHub />
           </TabsContent>
         </Tabs>
       </div>
