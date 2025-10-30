@@ -10,11 +10,48 @@
     "build": "next build",
     "start": "next start",
     "electron": "electron .",
-    "start-electron": "npm run build && electron .",
+    "start-electron": "npm run build &amp;&amp; electron .",
+    "build:win": "npm run build &amp;&amp; electron-builder --win",
+    "build:portable": "npm run build &amp;&amp; electron-builder --win portable",
     "electron-builder": "electron-builder",
     "postinstall": "echo 'Postinstall complete'"
   },
   "build": {
+    "appId": "com.goatroyalty.app",
+    "productName": "GOAT Royalty App",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      ".next/**/*",
+      "public/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "public/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "portable": {
+      "artifactName": "GOAT-Royalty-App-Portable.exe"
+    },
     "publish": null
   },
   "dependencies": {
