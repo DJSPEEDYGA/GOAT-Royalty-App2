@@ -64,11 +64,13 @@
     "publish": null
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.78.0",
     "axios": "^1.6.0",
     "dotenv": "^17.2.3",
     "lucide-react": "^0.309.0",
+    "marked": "^16.4.1",
     "next": "^14.1.0",
     "next-auth": "^4.24.13",
     "react": "^18.2.0",
