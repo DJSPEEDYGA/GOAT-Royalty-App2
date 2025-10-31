@@ -18,7 +18,13 @@
 - [x] Create comprehensive build guides
 - [x] User chose Option A: GitHub Actions ✅
 - [x] Push workflow to GitHub repository
-- [x] GitHub Actions build started (queued)
+- [x] First build attempt (failed - npm install timeout)
+- [x] Identified and fixed 3 issues:
+  - Added --legacy-peer-deps flag
+  - Added 30-minute timeout
+  - Added missing electron build scripts
+- [x] Push fixes to GitHub
+- [x] New build started (Build ID: 18979861391)
 - [ ] ⏳ Wait for build completion (10-15 minutes)
 - [ ] Download executables from GitHub Actions artifacts
 - [ ] Test Windows .exe
