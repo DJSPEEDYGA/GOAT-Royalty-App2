@@ -10,9 +10,12 @@
     "build": "next build",
     "start": "next start",
     "electron": "electron .",
-    "start-electron": "npm run build && electron .",
+    "start-electron": "npm run build &amp;&amp; electron .",
     "build:win": "electron-builder --win",
     "build:portable": "electron-builder --win portable",
+    "electron:build:win": "electron-builder --win",
+    "electron:build:mac": "electron-builder --mac",
+    "electron:build:linux": "electron-builder --linux",
     "electron-builder": "electron-builder",
     "postinstall": "echo 'Postinstall complete'"
   },
