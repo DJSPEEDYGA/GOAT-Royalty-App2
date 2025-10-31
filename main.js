@@ -1,85 +1,40 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const { spawn } = require('child_process');
 const http = require('http');
 
 let mainWindow;
-let nextServer;
 const PORT = 3000;
 
-// Check if Next.js server is already running
-function checkServerRunning() {
-  return new Promise((resolve) => {
-    const req = http.get(`http://localhost:${PORT}`, (res) => {
-      resolve(true);
-    });
-    req.on('error', () => {
-      resolve(false);
-    });
-    req.setTimeout(1000, () => {
-      req.destroy();
-      resolve(false);
-    });
-  });
-}
-
-// Start Next.js server
-async function startNextServer() {
-  // Check if server is already running
-  const isRunning = await checkServerRunning();
-  if (isRunning) {
-    console.log('Next.js server already running on port', PORT);
-    return Promise.resolve();
-  }
-
+// Simple function to check if server is responding
+function waitForServer(maxAttempts = 30) {
   return new Promise((resolve, reject) => {
-    console.log('Starting Next.js server...');
+    let attempts = 0;
     
-    // Determine if we're in development or production
-    const isDev = !app.isPackaged;
-    
-    if (isDev) {
-      // Development mode - use npm run dev
-      nextServer = spawn('npm', ['run', 'dev'], {
-        cwd: __dirname,
-        shell: true,
-        stdio: 'pipe'
-      });
-    } else {
-      // Production mode - use next start
-      const nextPath = path.join(__dirname, 'node_modules', '.bin', 'next');
-      nextServer = spawn(nextPath, ['start'], {
-        cwd: __dirname,
-        shell: true,
-        stdio: 'pipe'
-      });
-    }
-
-    nextServer.stdout.on('data', (data) => {
-      const output = data.toString();
-      console.log('Next.js:', output);
+    const checkServer = () => {
+      attempts++;
+      console.log(`Checking server... attempt ${attempts}/${maxAttempts}`);
       
-      // Check if server is ready
-      if (output.includes('Ready') || output.includes('started server') || output.includes('Local:')) {
-        console.log('Next.js server is ready!');
+      const req = http.get(`http://localhost:${PORT}`, (res) => {
+        console.log('Server is ready!');
         resolve();
-      }
-    });
-
-    nextServer.stderr.on('data', (data) => {
-      console.error('Next.js Error:', data.toString());
-    });
-
-    nextServer.on('error', (error) => {
-      console.error('Failed to start Next.js server:', error);
-      reject(error);
-    });
-
-    // Timeout after 30 seconds
-    setTimeout(() => {
-      console.log('Server startup timeout - proceeding anyway');
-      resolve();
-    }, 30000);
+      });
+      
+      req.on('error', (err) => {
+        if (attempts >= maxAttempts) {
+          console.error('Server failed to start after', maxAttempts, 'attempts');
+          reject(new Error('Server timeout'));
+        } else {
+          // Try again in 1 second
+          setTimeout(checkServer, 1000);
+        }
+      });
+      
+      req.setTimeout(1000, () => {
+        req.destroy();
+      });
+    };
+    
+    checkServer();
   });
 }
 
@@ -93,15 +48,13 @@ function createWindow() {
       nodeIntegration: false
     },
     icon: path.join(__dirname, 'public', 'icon.png'),
-    show: false // Don't show until ready
+    show: false
   });
 
-  // Show window when ready to avoid white flash
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
   });
 
-  // Load the Next.js app
   mainWindow.loadURL(`http://localhost:${PORT}`);
 
   // Open DevTools in development
@@ -113,11 +66,9 @@ function createWindow() {
     mainWindow = null;
   });
 
-  // Handle navigation errors
+  // Reload on fail
   mainWindow.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
     console.error('Failed to load:', errorCode, errorDescription);
-    
-    // Retry loading after a delay
     setTimeout(() => {
       if (mainWindow) {
         mainWindow.loadURL(`http://localhost:${PORT}`);
@@ -127,14 +78,30 @@ function createWindow() {
 }
 
 app.whenReady().then(async () => {
-  console.log('Electron app ready, starting Next.js server...');
+  console.log('Electron app starting...');
+  console.log('App is packaged:', app.isPackaged);
+  console.log('App path:', app.getAppPath());
   
   try {
-    await startNextServer();
+    console.log('Waiting for Next.js server on port', PORT);
+    await waitForServer();
     console.log('Creating window...');
     createWindow();
   } catch (error) {
-    console.error('Failed to start application:', error);
+    console.error('Failed to connect to server:', error);
+    
+    // Show error dialog
+    const { dialog } = require('electron');
+    dialog.showErrorBox(
+      'Server Error',
+      'Could not connect to the application server.\n\n' +
+      'Please make sure:\n' +
+      '1. Port 3000 is not in use by another application\n' +
+      '2. You have run "npm run dev" in a separate terminal\n\n' +
+      'For packaged app: The server should start automatically.\n' +
+      'If this error persists, please contact support.'
+    );
+    
     app.quit();
   }
 
@@ -146,25 +113,7 @@ app.whenReady().then(async () => {
 });
 
 app.on('window-all-closed', function () {
-  // Kill Next.js server when app closes
-  if (nextServer) {
-    console.log('Stopping Next.js server...');
-    nextServer.kill();
-  }
-  
   if (process.platform !== 'darwin') {
     app.quit();
   }
-});
-
-app.on('before-quit', () => {
-  // Ensure Next.js server is killed
-  if (nextServer) {
-    nextServer.kill();
-  }
-});
-
-// Handle uncaught exceptions
-process.on('uncaughtException', (error) => {
-  console.error('Uncaught exception:', error);
 });

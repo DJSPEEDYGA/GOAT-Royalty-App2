@@ -25,10 +25,15 @@
     "files": [
       "main.js",
       "preload.js",
+      "start-server.js",
       ".next/**/*",
       "public/**/*",
+      "pages/**/*",
+      "components/**/*",
+      "styles/**/*",
       "node_modules/**/*",
-      "package.json"
+      "package.json",
+      "next.config.js"
     ],
     "win": {
       "target": [
