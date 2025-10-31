@@ -10,6 +10,14 @@ import {
 } from 'lucide-react';
 import NVIDIADGXCloudIntegration from './NVIDIADGXCloudIntegration';
 import IntegrationsHub from './IntegrationsHub';
+import MoneypennyAI from './MoneypennyAI';
+import CodexEngine from './CodexEngine';
+import IPProtectionVault from './IPProtectionVault';
+import MusicStudio from './MusicStudio';
+import TrackingDashboard from './TrackingDashboard';
+import CinemaCamera from './CinemaCamera';
+import Sora2AIStudio from './Sora2AIStudio';
+import SuperNinjaAI from './SuperNinjaAI';
 
 const GOATRoyaltyAppEnhanced = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -320,14 +328,14 @@ const GOATRoyaltyAppEnhanced = () => {
           </TabsList>
 
           <TabsContent value="dashboard">{renderDashboard()}</TabsContent>
-          <TabsContent value="moneypenny">{renderPlaceholder('Moneypenny AI Search', <Search className="w-5 h-5 text-blue-400" />)}</TabsContent>
-          <TabsContent value="codex">{renderPlaceholder('Codex Engine', <Globe className="w-5 h-5 text-purple-400" />)}</TabsContent>
-          <TabsContent value="ip-vault">{renderPlaceholder('IP Protection Vault', <ShieldCheck className="w-5 h-5 text-orange-400" />)}</TabsContent>
-          <TabsContent value="music-studio">{renderPlaceholder('Music Studio', <Music2 className="w-5 h-5 text-pink-400" />)}</TabsContent>
-          <TabsContent value="tracking">{renderPlaceholder('Tracking Dashboard', <Youtube className="w-5 h-5 text-cyan-400" />)}</TabsContent>
-          <TabsContent value="camera">{renderPlaceholder('Cinema Camera System', <Camera className="w-5 h-5 text-red-400" />)}</TabsContent>
-          <TabsContent value="sora">{renderPlaceholder('Sora 2 AI Studio', <Video className="w-5 h-5 text-indigo-400" />)}</TabsContent>
-          <TabsContent value="superninja">{renderPlaceholder('SuperNinja AI', <Sparkles className="w-5 h-5 text-yellow-400" />)}</TabsContent>
+          <TabsContent value="moneypenny"><MoneypennyAI /></TabsContent>
+          <TabsContent value="codex"><CodexEngine /></TabsContent>
+          <TabsContent value="ip-vault"><IPProtectionVault /></TabsContent>
+          <TabsContent value="music-studio"><MusicStudio /></TabsContent>
+          <TabsContent value="tracking"><TrackingDashboard /></TabsContent>
+          <TabsContent value="camera"><CinemaCamera /></TabsContent>
+          <TabsContent value="sora"><Sora2AIStudio /></TabsContent>
+          <TabsContent value="superninja"><SuperNinjaAI /></TabsContent>
           <TabsContent value="nvidia-dgx">
             <NVIDIADGXCloudIntegration />
           </TabsContent>
