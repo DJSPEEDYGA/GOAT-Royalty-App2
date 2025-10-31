@@ -18,6 +18,7 @@ import TrackingDashboard from './TrackingDashboard';
 import CinemaCamera from './CinemaCamera';
 import Sora2AIStudio from './Sora2AIStudio';
 import SuperNinjaAI from './SuperNinjaAI';
+import GeminiAICopilot from './GeminiAICopilot';
 
 const GOATRoyaltyAppEnhanced = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -317,6 +318,10 @@ const GOATRoyaltyAppEnhanced = () => {
               <Sparkles className="w-4 h-4 mr-2" />
               SuperNinja AI
             </TabsTrigger>
+              <TabsTrigger value="gemini" className="data-[state=active]:bg-gradient-to-r from-purple-600 to-pink-600">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Gemini AI
+              </TabsTrigger>
             <TabsTrigger value="nvidia-dgx" className="data-[state=active]:bg-green-600">
               <Cpu className="w-4 h-4 mr-2" />
               NVIDIA DGX
@@ -336,6 +341,7 @@ const GOATRoyaltyAppEnhanced = () => {
           <TabsContent value="camera"><CinemaCamera /></TabsContent>
           <TabsContent value="sora"><Sora2AIStudio /></TabsContent>
           <TabsContent value="superninja"><SuperNinjaAI /></TabsContent>
+          <TabsContent value="gemini"><GeminiAICopilot /></TabsContent>
           <TabsContent value="nvidia-dgx">
             <NVIDIADGXCloudIntegration />
           </TabsContent>
