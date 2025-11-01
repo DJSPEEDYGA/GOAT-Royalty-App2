@@ -12,25 +12,6 @@ const IntegrationsHub = () => {
   const [selectedIntegration, setSelectedIntegration] = useState(null);
 
   const integrations = [
-      {
-        id: 'tiktok-integration',
-        name: 'TikTok Integration',
-        icon: <Video className='w-8 h-8 text-black' />,
-        category: 'Social Media',
-        size: '2.5 MB',
-        description: 'Connect your TikTok account to track royalties, manage content, and analyze performance',
-        version: '1.0.0',
-        status: 'available',
-        color: 'black',
-        author: 'GOAT Team',
-        features: [
-          'Direct video publishing',
-          'Royalty tracking',
-          'Performance analytics',
-          'Content management'
-        ],
-        integration: 'TikTokIntegration'
-      },
     {
       id: 'nvidia-workbench',
       name: 'NVIDIA AI Workbench',
