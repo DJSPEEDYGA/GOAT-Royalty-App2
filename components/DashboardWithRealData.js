@@ -1,7 +1,7 @@
 // Dashboard Component with Real Supabase Data
 import { useState, useEffect } from 'react'
 import { useAuth } from './AuthProvider'
-import { supabase, supabaseHelpers } from '../lib/supabase'
+// Using local auth instead of Supabase
 import { 
   DollarSign, 
   TrendingUp, 

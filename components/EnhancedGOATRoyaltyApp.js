@@ -41,6 +41,7 @@ import {
   Award
 } from 'lucide-react';
 import EnhancedSpotifyIntegration from './EnhancedSpotifyIntegration';
+import SearchInput from './SearchInput';
 
 const EnhancedGOATRoyaltyApp = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -48,6 +49,7 @@ const EnhancedGOATRoyaltyApp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [dashboardData, setDashboardData] = useState(null);
   const [error, setError] = useState('');
+  const [searchResults, setSearchResults] = useState(null);
 
   // Fetch dashboard data on mount
   useEffect(() => {

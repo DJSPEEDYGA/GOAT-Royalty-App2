@@ -74,10 +74,12 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.78.0",
     "axios": "^1.6.0",
     "dotenv": "^17.2.3",
+    "libreoffice-convert": "^1.7.0",
     "lucide-react": "^0.309.0",
     "marked": "^16.4.1",
     "next": "^14.1.0",
