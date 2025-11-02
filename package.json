@@ -1,10 +1,16 @@
 {
   "name": "goat-royalty-app",
   "version": "1.0.0",
-  "description": "GREATEST OF ALL TIME royalty collection APP",
-  "author": "Harvey L. Miller Jr. (DJ Speedy)",
+  "description": "Music royalty management platform for artists and rights holders",
+  "authors": [
+    "HARVEY L MILLER JR <harvey@goatroyaltyapp.com>",
+    "JUAQUIN J MALPHURS <juaquin@goatroyaltyapp.com>",
+    "KEVIN W HALLINGQUEST <kevin@goatroyaltyapp.com>"
+  ],
   "main": "main.js",
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "copyright": "Copyright © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST. All rights reserved.",
+  "owner": "HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
