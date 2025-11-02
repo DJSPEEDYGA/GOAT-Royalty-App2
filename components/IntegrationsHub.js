@@ -5,109 +5,13 @@ import { Button } from '@/components/ui/button';
 import { 
   Download, ExternalLink, Play, Cpu, Code, 
   Video, Mic, Gamepad2, Sparkles, CheckCircle,
-  ArrowRight, FileVideo, Zap, Settings, Camera, Music, Film, Headphones
+  ArrowRight, FileVideo, Zap, Settings
 } from 'lucide-react';
 
 const IntegrationsHub = () => {
   const [selectedIntegration, setSelectedIntegration] = useState(null);
 
   const integrations = [
-      {
-        id: 'tiktok-integration',
-        name: 'TikTok Integration',
-        icon: <Video className='w-8 h-8 text-black' />,
-        category: 'Social Media',
-        size: '2.5 MB',
-        description: 'Connect your TikTok account to track royalties, manage content, and analyze performance',
-        version: '1.0.0',
-        status: 'available',
-        color: 'black',
-        author: 'GOAT Team',
-        features: [
-          'Direct video publishing',
-          'Royalty tracking',
-          'Performance analytics',
-          'Content management'
-        ],
-        integration: 'TikTokIntegration'
-      },
-      },
-      {
-        id: 'youtube-integration',
-        name: 'YouTube Integration',
-        icon: <Play className='w-8 h-8 text-red-600' />,
-        category: 'Video Platform',
-        size: '3.2 MB',
-        description: 'Track YouTube performance, calculate Content ID royalties, and analyze video monetization',
-        version: '1.0.0',
-        status: 'available',
-        color: 'red',
-        author: 'GOAT Team',
-        features: [
-          'Content ID tracking',
-          'Revenue analytics',
-          'Video performance',
-          'Royalty calculation'
-        ],
-        integration: 'YouTubeIntegration'
-      },
-      {
-        id: 'instagram-integration',
-        name: 'Instagram Integration',
-        icon: <Camera className='w-8 h-8 text-pink-600' />,
-        category: 'Social Media',
-        size: '2.8 MB',
-        description: 'Track Instagram content, calculate branded content royalties, and analyze engagement metrics',
-        version: '1.0.0',
-        status: 'available',
-        color: 'pink',
-        author: 'GOAT Team',
-        features: [
-          'Branded content tracking',
-          'Engagement analytics',
-          'Royalty estimation',
-          'Content performance'
-        ],
-        integration: 'InstagramIntegration'
-      },
-      {
-        id: 'spotify-integration',
-        name: 'Spotify Integration',
-        icon: <Music className='w-8 h-8 text-green-600' />,
-        category: 'Music Streaming',
-        size: '2.1 MB',
-        description: 'Track streaming performance, calculate streaming royalties, and analyze playlist placements',
-        version: '1.0.0',
-        status: 'available',
-        color: 'green',
-        author: 'GOAT Team',
-        features: [
-          'Streaming analytics',
-          'Playlist tracking',
-          'Royalty calculation',
-          'Performance metrics'
-        ],
-        integration: 'SpotifyIntegration'
-      },
-      {
-        id: 'adobe-integration',
-        name: 'Adobe Creative Cloud',
-        icon: <Film className='w-8 h-8 text-red-700' />,
-        category: 'Creative Tools',
-        size: '4.5 MB',
-        description: 'Track Adobe project usage, calculate creative royalties, and analyze production workflows',
-        version: '1.0.0',
-        status: 'available',
-        color: 'red',
-        author: 'GOAT Team',
-        features: [
-          'Project tracking',
-          'Creative royalties',
-          'Workflow analytics',
-          'Asset management'
-        ],
-        integration: 'AdobeIntegration'
-
     {
       id: 'nvidia-workbench',
       name: 'NVIDIA AI Workbench',
