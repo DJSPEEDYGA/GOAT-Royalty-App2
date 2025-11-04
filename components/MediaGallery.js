@@ -19,53 +19,159 @@ const MediaGallery = () => {
     {
       id: 1,
       type: 'video',
-      title: "GOAT Hero - Origin Story",
-      description: "The legendary tale of how the GOAT became music royalty",
-      thumbnail: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=450&fit=crop",
-      videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-      duration: "2:45",
-      views: "125K",
-      likes: "8.2K"
+      title: "Grok Video Episode 1",
+      description: "The beginning of the GOAT superhero saga",
+      thumbnail: "/artwork/DALL·E 2025-04-27 13.50.52 - Create a highly realistic Marvel superhero-style logo for the GOAT Royalty App by DJ Speedy. The design should feature a powerful superhero goat chara(1).webp",
+      videoSrc: "/videos/grok-video- (1).mp4",
+      duration: "3:24",
+      views: "425K",
+      likes: "24.2K"
     },
     {
       id: 2,
-      type: 'image',
-      title: "GOAT Supreme - Official Artwork",
-      description: "Limited edition superhero artwork",
-      imageSrc: "https://images.unsplash.com/photo-1557683316-973673baf926?w=800&h=600&fit=crop",
-      views: "89K",
-      likes: "6.1K"
+      type: 'video',
+      title: "Grok Video Episode 2",
+      description: "The Gangsta Nerds assemble their powers",
+      thumbnail: "/artwork/DALL·E 2025-05-10 22.26.34 - A group of ultra-realistic Marvel-inspired cartoon superheroes called _The Gangsta Nerds_ in a comic book style. The characters have a blend of nerdy .webp",
+      videoSrc: "/videos/grok-video- (2).mp4",
+      duration: "3:18",
+      views: "387K",
+      likes: "21.8K"
     },
     {
       id: 3,
       type: 'video',
-      title: "Royalty Records - Studio Session",
-      description: "Behind the scenes at the GOAT studio",
-      thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=450&fit=crop",
-      videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-      duration: "3:12",
-      views: "203K",
-      likes: "12.5K"
+      title: "Grok Video Episode 3",
+      description: "Waka Flocka Flame transforms into superhero mode",
+      thumbnail: "/artwork/DALL·E 2025-05-10 22.26.08 - Create an ultra-realistic superhero cartoon of Waka Flocka Flame in a Marvel-style cinematic comic universe. He is wearing a tactical armored superher.webp",
+      videoSrc: "/videos/grok-video- (3).mp4",
+      duration: "2:58",
+      views: "523K",
+      likes: "31.5K"
     },
     {
       id: 4,
-      type: 'image',
-      title: "The Gangsta Nerds - Team Photo",
-      description: "Music superheroes assembled",
-      imageSrc: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
-      views: "156K",
-      likes: "9.8K"
+      type: 'video',
+      title: "Grok Video Episode 4",
+      description: "The GOAT superhero takes flight",
+      thumbnail: "/artwork/DALL·E 2025-05-10 22.25.53 - Create an ultra-realistic animated cartoon of Waka Flocka Flame as a superhero alongside a flying superhero goat. Both characters are in a dynamic Mar.webp",
+      videoSrc: "/videos/grok-video- (4).mp4",
+      duration: "1:46",
+      views: "298K",
+      likes: "18.3K"
     },
     {
       id: 5,
       type: 'video',
-      title: "Waka x GOAT - Epic Collab",
-      description: "The collaboration that changed the game",
-      thumbnail: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&h=450&fit=crop",
-      videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-      duration: "4:08",
-      views: "342K",
-      likes: "18.7K"
+      title: "Grok Video Episode 5",
+      description: "Epic battle scene in the GOAT universe",
+      thumbnail: "/artwork/DALL·E 2025-04-27 13.55.47 - Create a highly realistic Marvel superhero-style logo for the GOAT Royalty App by DJ Speedy. The design should feature a powerful superhero goat chara(1).webp",
+      videoSrc: "/videos/grok-video- (5).mp4",
+      duration: "4:52",
+      views: "642K",
+      likes: "45.7K"
+    },
+    {
+      id: 6,
+      type: 'video',
+      title: "Grok Video Episode 6",
+      description: "The rise of the superhero alliance",
+      thumbnail: "/artwork/DALL·E 2025-04-27 13.51.17 - Create a highly realistic Marvel-style cartoon movie logo for the GOAT Royalty App by DJ Speedy. The logo should feature a powerful superhero goat cha(1).webp",
+      videoSrc: "/videos/grok-video- (6).mp4",
+      duration: "3:15",
+      views: "418K",
+      likes: "27.9K"
+    },
+    {
+      id: 7,
+      type: 'video',
+      title: "Grok Video Episode 7",
+      description: "Musical powers unleashed",
+      thumbnail: "/artwork/DALL·E 2025-04-27 14.36.55 - Create a realistic app icon mockup for the GOAT Royalty App by DJ Speedy. Use a clean, vivid square design featuring the red superhero goat head with (1).webp",
+      videoSrc: "/videos/grok-video- (7).mp4",
+      duration: "2:44",
+      views: "356K",
+      likes: "22.1K"
+    },
+    {
+      id: 8,
+      type: 'video',
+      title: "Grok Video Episode 8",
+      description: "The final showdown",
+      thumbnail: "/artwork/DALL·E 2025-05-10 22.25.58 - Create an ultra-realistic animated cartoon of Waka Flocka Flame as a superhero alongside a flying superhero goat. Both characters are in a dynamic Mar.webp",
+      videoSrc: "/videos/grok-video- (8).mp4",
+      duration: "3:37",
+      views: "789K",
+      likes: "52.3K"
+    },
+    {
+      id: 9,
+      type: 'video',
+      title: "Grok Video Episode 9",
+      description: "Heroes united in victory",
+      thumbnail: "/artwork/DALL·E 2025-05-10 22.26.18 - Create ultra-realistic cartoon superhero versions of two characters inspired by Waka Flocka Flame and another stylish individual with a confident nerd.webp",
+      videoSrc: "/videos/grok-video- (9).mp4",
+      duration: "4:12",
+      views: "567K",
+      likes: "38.6K"
+    },
+    {
+      id: 10,
+      type: 'video',
+      title: "Grok Video Episode 10",
+      description: "The legend continues",
+      thumbnail: "/artwork/DALL·E 2025-05-10 22.26.30 - A group of ultra-realistic Marvel-inspired cartoon superheroes called _The Gangsta Nerds_ in a comic book style. The characters have a blend of nerdy .webp",
+      videoSrc: "/videos/grok-video- (10).mp4",
+      duration: "3:55",
+      views: "892K",
+      likes: "61.4K"
+    },
+    {
+      id: 11,
+      type: 'video',
+      title: "Grok Video Episode 11 - NERD BITCH3",
+      description: "The ultimate transformation finale",
+      thumbnail: "/artwork/DALL·E 2025-05-10 22.26.15 - Create ultra-realistic cartoon superhero versions of two characters inspired by Waka Flocka Flame and another stylish individual with a confident nerd.webp",
+      videoSrc: "/videos/grok-video- NERD BITCH3.mp4",
+      duration: "5:23",
+      views: "1.2M",
+      likes: "87.5K"
+    },
+    {
+      id: 12,
+      type: 'image',
+      title: "GOAT Superhero Logo - Official",
+      description: "The iconic Marvel-style superhero logo",
+      imageSrc: "/artwork/DALL·E 2025-04-27 13.50.52 - Create a highly realistic Marvel superhero-style logo for the GOAT Royalty App by DJ Speedy. The design should feature a powerful superhero goat chara.webp",
+      views: "245K",
+      likes: "18.9K"
+    },
+    {
+      id: 13,
+      type: 'image',
+      title: "GOAT Logo - Enhanced Version",
+      description: "High-definition superhero logo variant",
+      imageSrc: "/artwork/DALL·E 2025-04-27 13.50.52 - Create a highly realistic Marvel superhero-style logo for the GOAT Royalty App by DJ Speedy. The design should feature a powerful superhero goat chara(1).webp",
+      views: "198K",
+      likes: "15.2K"
+    },
+    {
+      id: 14,
+      type: 'image',
+      title: "GOAT Movie Logo",
+      description: "Cinematic movie-style logo",
+      imageSrc: "/artwork/DALL·E 2025-04-27 13.51.17 - Create a highly realistic Marvel-style cartoon movie logo for the GOAT Royalty App by DJ Speedy. The logo should feature a powerful superhero goat cha.webp",
+      views: "167K",
+      likes: "12.4K"
+    },
+    {
+      id: 15,
+      type: 'image',
+      title: "GOAT App Icon - Square Design",
+      description: "Professional app icon with superhero theme",
+      imageSrc: "/artwork/DALL·E 2025-04-27 14.36.55 - Create a realistic app icon mockup for the GOAT Royalty App by DJ Speedy. Use a clean, vivid square design featuring the red superhero goat head with (1).webp",
+      views: "134K",
+      likes: "9.8K"
     }
   ];
 
@@ -147,7 +253,18 @@ const MediaGallery = () => {
             GOAT Media Gallery
           </span>
         </h2>
-        <p className="text-white/70">Exclusive videos and artwork from the GOAT universe</p>
+        <p className="text-white/70">Exclusive 11-episode video series and 35+ superhero artworks from the GOAT universe</p>
+              <div className="flex items-center justify-center space-x-4 mt-4 text-sm">
+                <span className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full">
+                  11 Original Episodes
+                </span>
+                <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">
+                  35+ Superhero Artworks
+                </span>
+                <span className="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full">
+                  1M+ Total Views
+                </span>
+              </div>
       </div>
 
       {/* Main Media Display */}
@@ -263,33 +380,46 @@ const MediaGallery = () => {
         </div>
       </div>
 
-      {/* Thumbnail Gallery */}
-      <div className="grid grid-cols-5 gap-4">
-        {mediaCollection.map((media, index) => (
-          <button
-            key={media.id}
-            onClick={() => setCurrentMediaIndex(index)}
-            className={`relative rounded-lg overflow-hidden transition-all ${
-              index === currentMediaIndex
-                ? 'ring-2 ring-purple-500 scale-105'
-                : 'hover:scale-105'
-            }`}
-          >
-            <img
-              src={media.type === 'video' ? media.thumbnail : media.imageSrc}
-              alt={media.title}
-              className="w-full h-24 object-cover"
-            />
-            {media.type === 'video' && (
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                <Play className="w-4 h-4 text-white" />
-              </div>
-            )}
-            {index === currentMediaIndex && (
-              <div className="absolute inset-0 ring-2 ring-purple-500 pointer-events-none"></div>
-            )}
-          </button>
-        ))}
+      {/* Thumbnail Gallery - Enhanced Layout */}
+      <div className="bg-black/30 rounded-xl p-4">
+        <div className="flex items-center justify-between mb-4">
+          <h4 className="text-white font-semibold">Media Collection</h4>
+          <div className="text-white/60 text-sm">
+            {mediaCollection.filter(m => m.type === 'video').length} Videos • {mediaCollection.filter(m => m.type === 'image').length} Images
+          </div>
+        </div>
+        <div className="grid grid-cols-5 gap-3 max-h-64 overflow-y-auto">
+          {mediaCollection.map((media, index) => (
+            <button
+              key={media.id}
+              onClick={() => setCurrentMediaIndex(index)}
+              className={`relative rounded-lg overflow-hidden transition-all ${
+                index === currentMediaIndex
+                  ? 'ring-2 ring-purple-500 scale-105'
+                  : 'hover:scale-105'
+              }`}
+            >
+              <img
+                src={media.type === 'video' ? media.thumbnail : media.imageSrc}
+                alt={media.title}
+                className="w-full h-20 object-cover"
+              />
+              {media.type === 'video' && (
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <Play className="w-3 h-3 text-white" />
+                </div>
+              )}
+              {media.type === 'video' && (
+                <div className="absolute bottom-1 right-1 bg-black/70 px-1 py-0.5 rounded text-xs text-white">
+                  {media.duration}
+                </div>
+              )}
+              {index === currentMediaIndex && (
+                <div className="absolute inset-0 ring-2 ring-purple-500 pointer-events-none"></div>
+              )}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Keyboard Shortcuts */}

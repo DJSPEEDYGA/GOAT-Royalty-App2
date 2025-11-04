@@ -356,7 +356,7 @@ const ProductionDeploy = () => {
           
           <div className="mt-4 text-xs text-white/50">
             <p>Estimated deployment time: 15-20 minutes</p>
-            <p>Downtime: <5 minutes during final switch</p>
+            <p>Downtime: &lt;5 minutes during final switch</p>
           </div>
         </div>
       </div>

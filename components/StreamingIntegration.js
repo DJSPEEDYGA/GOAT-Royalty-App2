@@ -43,7 +43,7 @@ const StreamingIntegration = () => {
           artist: 'Waka Flocka Flame',
           album: 'Flockaveli',
           duration: '4:01',
-          image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
+          image: '/artwork/DALL·E 2025-05-10 22.26.08 - Create an ultra-realistic superhero cartoon of Waka Flocka Flame in a Marvel-style cinematic comic universe. He is wearing a tactical armored superher.webp',
           preview: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
         },
         {
@@ -52,7 +52,7 @@ const StreamingIntegration = () => {
           artist: 'Waka Flocka Flame',
           album: 'Flockaveli',
           duration: '3:48',
-          image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop',
+          image: '/artwork/DALL·E 2025-05-10 22.25.53 - Create an ultra-realistic animated cartoon of Waka Flocka Flame as a superhero alongside a flying superhero goat. Both characters are in a dynamic Mar.webp',
           preview: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'
         },
         {
@@ -61,7 +61,7 @@ const StreamingIntegration = () => {
           artist: 'Waka Flocka Flame',
           album: 'Flockaveli',
           duration: '3:56',
-          image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
+          image: '/artwork/DALL·E 2025-05-10 22.26.34 - A group of ultra-realistic Marvel-inspired cartoon superheroes called _The Gangsta Nerds_ in a comic book style. The characters have a blend of nerdy .webp',
           preview: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3'
         }
       ]

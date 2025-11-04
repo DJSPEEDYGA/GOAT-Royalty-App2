@@ -39,11 +39,11 @@ const InteractiveFeatures = () => {
   ]);
 
   const [leaderboard] = useState([
-    { rank: 1, name: 'DJ Speedy', level: 42, earnings: '$2.3M', avatar: '👑' },
-    { rank: 2, name: 'Waka Flocka', level: 38, earnings: '$1.8M', avatar: '🔥' },
-    { rank: 3, name: 'Harvey Miller', level: 35, earnings: '$1.2M', avatar: '💎' },
-    { rank: 4, name: 'Kevin Hallingquest', level: 28, earnings: '$850K', avatar: '⚡' },
-    { rank: 5, name: 'Juaquin Malphurs', level: 15, earnings: '$342K', avatar: '🎵' }
+    { rank: 1, name: 'The Gangsta Nerds', level: 50, earnings: '$5.2M', avatar: '🦸‍♂️' },
+    { rank: 2, name: 'Waka Flocka Flame', level: 48, earnings: '$4.8M', avatar: '🔥' },
+    { rank: 3, name: 'DJ Speedy', level: 42, earnings: '$2.3M', avatar: '👑' },
+    { rank: 4, name: 'Harvey Miller', level: 35, earnings: '$1.2M', avatar: '💎' },
+    { rank: 5, name: 'Kevin Hallingquest', level: 28, earnings: '$850K', avatar: '⚡' }
   ]);
 
   const [collectibles, setCollectibles] = useState([

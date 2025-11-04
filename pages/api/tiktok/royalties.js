@@ -1,4 +1,4 @@
-import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@supabase/supabase-js';
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
@@ -7,7 +7,15 @@ export default async function handler(req, res) {
 
   try {
     // Get Supabase client
-    const supabase = createServerSupabaseClient(req, res);
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+      {
+        auth: {
+          autoRefreshToken: false,
+        },
+      }
+    );
 
     // Get authenticated user
     const { data: { user }, error: authError } = await supabase.auth.getUser();
