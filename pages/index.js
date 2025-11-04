@@ -94,6 +94,12 @@ const EnhancedLandingPage = () => {
                 <a href="/asap-catalog" className="text-white/80 hover:text-white transition-colors">
                   Catalog
                 </a>
+                <a href="/ms-vanessa" className="text-white/80 hover:text-white transition-colors">
+                  AI Assistant
+                </a>
+                <a href="/fingerprint-auth" className="text-white/80 hover:text-white transition-colors">
+                  Security
+                </a>
                 <button 
                   onClick={() => setShowVideo(!showVideo)}
                   className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:from-purple-700 hover:to-pink-700 transition-all"
