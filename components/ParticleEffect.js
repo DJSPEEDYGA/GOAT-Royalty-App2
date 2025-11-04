@@ -7,6 +7,7 @@ import React, { useEffect, useRef } from 'react';
 
 const ParticleEffect = ({ particleCount = 100, colors = ['#a855f7', '#ec4899', '#3b82f6'] }) => {
   const canvasRef = useRef(null);
+  const animationId = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -17,7 +18,6 @@ const ParticleEffect = ({ particleCount = 100, colors = ['#a855f7', '#ec4899', '
     canvas.height = window.innerHeight;
 
     const particles = [];
-    const animationId = useRef(null);
 
     class Particle {
       constructor() {
