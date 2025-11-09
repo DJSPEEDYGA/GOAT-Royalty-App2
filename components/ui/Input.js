@@ -10,9 +10,9 @@ const Input = ({
   className = '',
   ...props 
 }) => {
-  const baseClasses = 'block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm disabled:bg-gray-100 disabled:cursor-not-allowed';
+  const baseClasses = 'block w-full rounded-md border-gray-600 bg-gray-700 text-white shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm disabled:bg-gray-600 disabled:cursor-not-allowed placeholder-gray-400';
   const errorClasses = error ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : '';
-  
+
   const classes = `${baseClasses} ${errorClasses} ${className}`;
 
   return (
@@ -27,7 +27,7 @@ const Input = ({
         {...props}
       />
       {error && (
-        <p className="mt-1 text-sm text-red-600">
+        <p className="mt-1 text-sm text-red-400">
           {error}
         </p>
       )}

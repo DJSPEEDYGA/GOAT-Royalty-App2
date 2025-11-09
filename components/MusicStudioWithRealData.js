@@ -1,7 +1,7 @@
 // Music Studio Component with Real Supabase Data
 import { useState, useEffect } from 'react'
 import { useAuth } from './AuthProvider'
-import { supabase } from '../lib/supabase'
+// Using local auth instead of Supabase
 import { 
   Music, 
   Play, 

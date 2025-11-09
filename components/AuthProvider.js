@@ -11,7 +11,8 @@ const AuthContext = createContext({
   signIn: async () => {},
   signUp: async () => {},
   signOut: async () => {},
-  resetPassword: async () => {}
+  resetPassword: async () => {},
+  updateUser: async () => {}
 })
 
 export function AuthProvider({ children }) {
@@ -21,14 +22,23 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     // Get initial session
-    auth.getSession().then(({ session }) => {
-      setSession(session)
-      setUser(session?.user ?? null)
-      setLoading(false)
-    })
+    const initializeAuth = async () => {
+      try {
+        const { session } = await auth.getSession()
+        setSession(session)
+        setUser(session?.user ?? null)
+      } catch (error) {
+        console.error('Error initializing auth:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    initializeAuth()
 
     // Listen for auth changes
-    const { data: { subscription } } = auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = auth.onAuthStateChange(async (_event, session) => {
+      console.log('Auth state changed:', _event, session?.user?.email)
       setSession(session)
       setUser(session?.user ?? null)
       setLoading(false)
@@ -41,10 +51,48 @@ export function AuthProvider({ children }) {
     user,
     session,
     loading,
-    signIn: auth.signIn,
-    signUp: auth.signUp,
-    signOut: auth.signOut,
-    resetPassword: auth.resetPassword
+    signIn: async (email, password) => {
+      setLoading(true)
+      try {
+        const result = await auth.signIn(email, password)
+        return result
+      } finally {
+        setLoading(false)
+      }
+    },
+    signUp: async (email, password, metadata) => {
+      setLoading(true)
+      try {
+        const result = await auth.signUp(email, password, metadata)
+        return result
+      } finally {
+        setLoading(false)
+      }
+    },
+    signOut: async () => {
+      setLoading(true)
+      try {
+        const result = await auth.signOut()
+        setUser(null)
+        setSession(null)
+        return result
+      } finally {
+        setLoading(false)
+      }
+    },
+    resetPassword: auth.resetPassword,
+    updateUser: async (updates) => {
+      try {
+        const result = await auth.updateUser(updates)
+        if (result.data?.user) {
+          setUser(result.data.user)
+        }
+        return result
+      } catch (error) {
+        console.error('Error updating user:', error)
+        return { data: null, error: { message: error.message } }
+      }
+    }
   }
 
   return (
@@ -61,3 +109,5 @@ export function useAuth() {
   }
   return context
 }
+
+export default AuthContext

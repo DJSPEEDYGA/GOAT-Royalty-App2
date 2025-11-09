@@ -1,10 +1,16 @@
 {
   "name": "goat-royalty-app",
   "version": "1.0.0",
-  "description": "GREATEST OF ALL TIME royalty collection APP",
-  "author": "Harvey L. Miller Jr. (DJ Speedy)",
+  "description": "Music royalty management platform for artists and rights holders",
+  "authors": [
+    "HARVEY L MILLER JR <harvey@goatroyaltyapp.com>",
+    "JUAQUIN J MALPHURS <juaquin@goatroyaltyapp.com>",
+    "KEVIN W HALLINGQUEST <kevin@goatroyaltyapp.com>"
+  ],
   "main": "main.js",
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "copyright": "Copyright © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST. All rights reserved.",
+  "owner": "HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -68,18 +74,25 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "@sentry/nextjs": "^10.22.0",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.78.0",
     "axios": "^1.6.0",
+    "compression": "^1.8.1",
     "dotenv": "^17.2.3",
+    "libreoffice-convert": "^1.7.0",
     "lucide-react": "^0.309.0",
     "marked": "^16.4.1",
     "next": "^14.1.0",
     "next-auth": "^4.24.13",
+    "next-compose-plugins": "^2.2.1",
+    "next-pwa": "^5.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.0.1",
     "autoprefixer": "^10.4.16",
     "electron": "^28.1.3",
     "electron-builder": "^24.13.2",
