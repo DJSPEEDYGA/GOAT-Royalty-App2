@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { 
   Music, 
   TrendingUp, 
@@ -26,6 +27,7 @@ import MusicPlayer from '../components/MusicPlayer';
 import ParticleEffect from '../components/ParticleEffect';
 
 const EnhancedLandingPage = () => {
+  const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
 
   // Demo tracks for the music player
@@ -223,7 +225,10 @@ const EnhancedLandingPage = () => {
               Join thousands of artists who are already using GOAT Royalty to transform their music publishing business
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full overflow-hidden transform hover:scale-105 transition-all">
+              <button 
+                   onClick={() => router.push('/login')}
+                   className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full overflow-hidden transform hover:scale-105 transition-all"
+                 >
                 <span className="relative z-10 flex items-center space-x-2">
                   <Crown className="w-5 h-5" />
                   <span>Get Started Free</span>
@@ -231,8 +236,11 @@ const EnhancedLandingPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               
-              <button className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all">
-                Schedule Demo
+              <button 
+                   onClick={() => router.push('/login')}
+                   className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all"
+                 >
+                Launch Dashboard
               </button>
             </div>
           </div>
