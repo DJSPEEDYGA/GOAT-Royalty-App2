@@ -1,7 +1,8 @@
 // Tracks API Endpoint
 import { supabaseHelpers } from '../../lib/supabase'
+import { withCors } from '../../lib/cors'
 
-export default async function handler(req, res) {
+async function tracksHandler(req, res) {
   // Only allow POST, GET, PUT, DELETE
   if (!['GET', 'POST', 'PUT', 'DELETE'].includes(req.method)) {
     return res.status(405).json({ error: 'Method not allowed' })
@@ -59,3 +60,5 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Internal server error' })
   }
 }
+
+export default withCors(tracksHandler)
