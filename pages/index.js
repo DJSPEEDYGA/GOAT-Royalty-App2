@@ -22,13 +22,15 @@ import {
 // Import our new components
 import AnimatedHero from '../components/AnimatedHero';
 import VideoBackground from '../components/VideoBackground';
+import EnhancedVideoBackground from '../components/EnhancedVideoBackground';
+import GoatBranding from '../components/GoatBranding';
 import AudioVisualizer from '../components/AudioVisualizer';
 import MusicPlayer from '../components/MusicPlayer';
 import ParticleEffect from '../components/ParticleEffect';
 
 const EnhancedLandingPage = () => {
   const router = useRouter();
-  const [showVideo, setShowVideo] = useState(false);
+  const [showVideo, setShowVideo] = useState(true);
 
   // Demo tracks for the music player
   const demoTracks = [
@@ -60,15 +62,20 @@ const EnhancedLandingPage = () => {
       {/* Particle Effect Background */}
       <ParticleEffect particleCount={50} />
       
-      {/* Video Background (Conditional) */}
-      {showVideo && (
-        <VideoBackground
-          videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-          audioSrc="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-          poster="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1920&h=1080&fit=crop"
-          overlayOpacity={0.4}
-        />
-      )}
+      {/* Enhanced Video Background with GOAT Branding */}
+      <EnhancedVideoBackground
+        showGoatLogo={true}
+        logoPosition="top-right"
+        autoPlay={true}
+        muted={true}
+        loop={true}
+        overlayOpacity={0.3}
+      />
+
+      {/* GOAT Header Branding */}
+      <div className="absolute top-8 left-8 z-30">
+        <GoatBranding size="medium" variant="neon" glow={true} />
+      </div>
 
       {/* Animated Hero Section */}
       <AnimatedHero />
@@ -102,12 +109,17 @@ const EnhancedLandingPage = () => {
                 <a href="/fingerprint-auth" className="text-white/80 hover:text-white transition-colors">
                   Security
                 </a>
-                <button 
-                  onClick={() => setShowVideo(!showVideo)}
-                  className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:from-purple-700 hover:to-pink-700 transition-all"
-                >
-                  {showVideo ? 'Hide Video' : 'Show Video'}
-                </button>
+                <div className="flex items-center space-x-2">
+                  <div className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm border border-green-500/30">
+                    🐐 GOAT Video Active
+                  </div>
+                  <button 
+                    onClick={() => setShowVideo(!showVideo)}
+                    className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:from-purple-700 hover:to-pink-700 transition-all"
+                  >
+                    {showVideo ? 'Hide Video' : 'Show Video'}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
