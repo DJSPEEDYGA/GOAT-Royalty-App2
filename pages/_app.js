@@ -5,7 +5,7 @@ import ProtectedRoute from '../components/ProtectedRoute'
 import { useRouter } from 'next/router'
 
 // Pages that don't require authentication
-const publicPages = ['/', '/login', '/signup', '/forgot-password', '/reset-password', '/dashboard', '/media-gallery', '/streaming', '/interactive', '/deploy', '/artwork', '/documents', '/ms-vanessa', '/fingerprint-auth', '/tracks']
+const publicPages = ['/', '/login', '/signup', '/forgot-password', '/reset-password', '/dashboard', '/media-gallery', '/streaming', '/interactive', '/deploy', '/artwork', '/documents', '/ms-vanessa', '/fingerprint-auth', '/tracks', '/super-ninja-dashboard', '/super-ninja/ai-agent']
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
