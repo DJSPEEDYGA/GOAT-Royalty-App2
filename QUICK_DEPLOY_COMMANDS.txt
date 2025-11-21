@@ -1,0 +1,82 @@
+# GOAT Royalty App - Quick Deploy Commands
+# Copy and paste these commands into your VPS terminal
+
+# ============================================
+# OPTION 1: Quick One-Line Deploy
+# ============================================
+cd /var/www/goat-royalty-app && git fetch origin && git checkout feature/complete-platform && git pull origin feature/complete-platform && npm install && npm run build && pm2 restart goat-royalty-app && pm2 save && echo "✅ Enhanced Dashboard Deployed!"
+
+# ============================================
+# OPTION 2: Step-by-Step Deploy
+# ============================================
+
+# Step 1: Navigate to app directory
+cd /var/www/goat-royalty-app
+
+# Step 2: Fetch latest changes
+git fetch origin
+
+# Step 3: Switch to feature branch
+git checkout feature/complete-platform
+
+# Step 4: Pull latest code
+git pull origin feature/complete-platform
+
+# Step 5: Install dependencies
+npm install
+
+# Step 6: Build application
+npm run build
+
+# Step 7: Restart PM2
+pm2 restart goat-royalty-app
+
+# Step 8: Save PM2 configuration
+pm2 save
+
+# Step 9: Check status
+pm2 status
+
+# ============================================
+# OPTION 3: Using Deployment Script
+# ============================================
+cd /var/www/goat-royalty-app && bash DEPLOY_ENHANCED_DASHBOARD.sh
+
+# ============================================
+# After Deployment - Access URLs
+# ============================================
+# Main Dashboard: http://93.127.214.171:3000/dashboard
+# Enhanced Dashboard: http://93.127.214.171:3000/enhanced-dashboard
+# Homepage: http://93.127.214.171:3000
+
+# ============================================
+# Troubleshooting Commands
+# ============================================
+
+# Check PM2 logs
+pm2 logs goat-royalty-app
+
+# Check PM2 status
+pm2 status
+
+# Restart if needed
+pm2 restart goat-royalty-app
+
+# Check if port 3000 is listening
+netstat -tulpn | grep 3000
+
+# Test local access
+curl http://localhost:3000
+
+# ============================================
+# New Features in Enhanced Dashboard
+# ============================================
+# ✅ Collapsible sidebar navigation (9 sections)
+# ✅ Real-time platform performance (Spotify, Apple Music, YouTube, Amazon, Tidal)
+# ✅ Top 5 performing tracks with trend indicators
+# ✅ Recent activity feed with payment tracking
+# ✅ 4 animated stat cards with growth metrics
+# ✅ Quick action buttons (Upload, Analytics, AI Studio, Export)
+# ✅ Professional gradient design with glassmorphism effects
+# ✅ Fully responsive mobile design
+# ✅ Investor-ready presentation mode
