@@ -1,5 +1,5 @@
 import EnhancedDashboard from '../components/EnhancedDashboard'
 
-export default function DashboardPage() {
+export default function EnhancedDashboardPage() {
   return <EnhancedDashboard />
 }
