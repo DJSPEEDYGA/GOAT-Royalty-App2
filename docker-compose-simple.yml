@@ -1,0 +1,27 @@
+services:
+  goat-royalty-app:
+    image: node:20-alpine
+    container_name: goat-royalty-app
+    restart: always
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - NEXT_TELEMETRY_DISABLED=1
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    command: >
+      sh -c "
+        npm install &&
+        npm run build &&
+        npm start
+      "
+    networks:
+      - goat-network
+
+networks:
+  goat-network:
+    driver: bridge
