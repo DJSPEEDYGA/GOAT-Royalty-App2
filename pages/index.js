@@ -32,30 +32,23 @@ const EnhancedLandingPage = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(true);
 
-  // Demo tracks for the music player
-  const demoTracks = [
-    {
-      title: "No Hands (feat. Roscoe Dash & Wale)",
-      artist: "Waka Flocka Flame",
-      album: "Flockaveli",
-      duration: "4:01",
-      artwork: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop"
-    },
-    {
-      title: "Hard in Da Paint",
-      artist: "Waka Flocka Flame",
-      album: "Flockaveli",
-      duration: "3:48",
-      artwork: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=400&fit=crop"
-    },
-    {
-      title: "Grove St. Party",
-      artist: "Waka Flocka Flame",
-      album: "Flockaveli",
-      duration: "3:56",
-      artwork: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop"
-    }
+  // Real GOAT Force videos
+  const featuredVideos = [
+    '/videos/grok-video-BLUE GOAT CANT FUCK WITH ME).mp4',
+    '/videos/grok-video-BLUE GOAT 23).mp4',
+    '/videos/grok-video- NERD BITCH3.mp4',
+    '/videos/grok-video- (1).mp4',
+    '/videos/grok-video- (2).mp4'
   ];
+  
+  const [currentVideo, setCurrentVideo] = React.useState(0);
+  
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentVideo((prev) => (prev + 1) % featuredVideos.length);
+    }, 10000); // Change video every 10 seconds
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-black overflow-hidden">
@@ -208,7 +201,7 @@ const EnhancedLandingPage = () => {
                 <p className="text-white/70">Integrated music player with stunning visual effects</p>
               </div>
               <div className="max-w-2xl mx-auto">
-                <MusicPlayer tracks={demoTracks} />
+                <div className="text-white text-center p-8 bg-white/10 rounded-lg">Music Player Coming Soon</div>
               </div>
             </div>
 
