@@ -38,7 +38,8 @@
     },
     "mac": {
       "target": [
-        { "target": "dmg", "arch": ["x64", "arm64"] }
+        { "target": "dmg", "arch": ["x64"] },
+        { "target": "zip", "arch": ["x64", "arm64"] }
       ],
       "icon": "assets/icon.png",
       "category": "public.app-category.productivity",
@@ -82,6 +83,9 @@
     "electron": "^30.0.0",
     "electron-builder": "^24.13.0"
   },
-  "author": "Harvey Miller (DJ Speedy)",
+  "author": {
+    "name": "Harvey Miller (DJ Speedy)",
+    "email": "djspeedyga@gmail.com"
+  },
   "license": "MIT"
 }

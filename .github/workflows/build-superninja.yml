@@ -50,6 +50,7 @@ jobs:
           name: macos-build
           path: |
             super-ninja-app/dist/*.dmg
+            super-ninja-app/dist/*.zip
 
   build-linux:
     runs-on: ubuntu-latest
