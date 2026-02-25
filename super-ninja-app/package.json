@@ -25,10 +25,19 @@
     },
     "files": [
       "src/**/*",
-      "assets/**/*",
-      "tools/**/*",
-      "node_modules/**/*"
+      "assets/icon.png",
+      "assets/icon.svg",
+      "package.json"
     ],
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "assets",
+        "filter": ["**/*"]
+      }
+    ],
+    "asar": true,
+    "publish": null,
     "win": {
       "target": [
         {
@@ -79,7 +88,6 @@
     "portable": {
       "artifactName": "SuperNinja-AI-${version}-Portable.${ext}"
     },
-    "publish": null,
     "dmg": {
       "contents": [
         { "x": 130, "y": 220 },
@@ -87,24 +95,20 @@
       ]
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DJSPEEDYGA/GOAT-Royalty-App2.git"
+  },
   "dependencies": {
-    "electron-store": "^8.2.0",
+    "electron-store": "^6.0.1",
     "axios": "^1.7.0",
-    "marked": "^12.0.0",
+    "marked": "^4.3.0",
     "highlight.js": "^11.9.0",
-    "chokidar": "^3.6.0",
-    "cheerio": "^1.0.0",
-    "openai": "^4.73.0",
-    "@google/generative-ai": "^0.24.0",
-    "@anthropic-ai/sdk": "^0.37.0"
+    "cheerio": "^1.0.0"
   },
   "devDependencies": {
     "electron": "^30.0.0",
     "electron-builder": "^24.13.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/DJSPEEDYGA/GOAT-Royalty-App2.git"
   },
   "author": "Harvey Miller (DJ Speedy)",
   "license": "MIT"

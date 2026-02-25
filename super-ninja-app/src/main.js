@@ -5,7 +5,18 @@
 const { app, BrowserWindow, ipcMain, dialog, Menu, Tray, shell, globalShortcut, nativeTheme } = require('electron');
 const path = require('path');
 const fs = require('fs');
-const Store = require('electron-store');
+let Store;
+try {
+  Store = require('electron-store');
+} catch (e) {
+  // Fallback simple store
+  Store = class {
+    constructor(opts) { this._data = opts?.defaults || {}; }
+    get(key) { return this._data[key]; }
+    set(key, val) { this._data[key] = val; }
+    get store() { return this._data; }
+  };
+}
 
 const store = new Store({
   defaults: {
