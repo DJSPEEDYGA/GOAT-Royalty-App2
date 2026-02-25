@@ -63,6 +63,10 @@
             <span class="tool-icon">&#128202;</span>
             <span class="tool-label">Data</span>
           </button>
+          <button class="tool-btn" onclick="openTool('axiom')" title="Axiom AI" style="border-color:var(--accent)">
+            <span class="tool-icon">&#129302;</span>
+            <span class="tool-label">Axiom</span>
+          </button>
         </div>
       </div>
     </aside>
@@ -139,6 +143,16 @@
               <div class="qa-icon">&#128202;</div>
               <div class="qa-title">Data Analysis</div>
               <div class="qa-desc">Process CSV, JSON, Excel files with visualizations</div>
+            </button>
+            <button class="quick-action" onclick="openTool('axiom')">
+              <div class="qa-icon">&#129302;</div>
+              <div class="qa-title">Axiom AI Automation</div>
+              <div class="qa-desc">No-code browser bots, web scraping, and AI-powered automation</div>
+            </button>
+            <button class="quick-action" onclick="quickAction('Scrape data from a website and export to CSV')">
+              <div class="qa-icon">&#128375;</div>
+              <div class="qa-title">Web Scraping</div>
+              <div class="qa-desc">Extract data from any website with AI-powered scraping</div>
             </button>
           </div>
         </div>
@@ -235,6 +249,7 @@
     </div>
   </div>
 
+  <script src="../axiom/axiom-ui.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

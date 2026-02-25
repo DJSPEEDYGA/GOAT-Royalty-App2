@@ -470,7 +470,8 @@ function openTool(toolName) {
     pdftools: { title: '&#128196; PDF Tools', render: renderPDFTools },
     dataanalysis: { title: '&#128202; Data Analysis', render: renderDataAnalysis },
     musicprod: { title: '&#127925; Music Production', render: renderMusicProd },
-    royaltycalc: { title: '&#128176; Royalty Calculator', render: renderRoyaltyCalc }
+    royaltycalc: { title: '&#128176; Royalty Calculator', render: renderRoyaltyCalc },
+    axiom: { title: '&#129302; Axiom AI - Browser Automation', render: renderAxiomPanel }
   };
 
   const tool = tools[toolName];
