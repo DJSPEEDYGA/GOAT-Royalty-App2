@@ -79,6 +79,7 @@
     "portable": {
       "artifactName": "SuperNinja-AI-${version}-Portable.${ext}"
     },
+    "publish": null,
     "dmg": {
       "contents": [
         { "x": 130, "y": 220 },
@@ -100,6 +101,10 @@
   "devDependencies": {
     "electron": "^30.0.0",
     "electron-builder": "^24.13.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DJSPEEDYGA/GOAT-Royalty-App2.git"
   },
   "author": "Harvey Miller (DJ Speedy)",
   "license": "MIT"
