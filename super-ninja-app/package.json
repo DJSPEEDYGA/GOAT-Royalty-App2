@@ -1,19 +1,16 @@
 {
   "name": "super-ninja-ai",
   "version": "1.0.0",
-  "description": "SuperNinja AI - Autonomous AI Desktop Assistant with Full Tool Suite. Built for Harvey Miller (DJ Speedy)",
+  "description": "SuperNinja AI - Autonomous AI Desktop Assistant",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
     "dev": "electron . --dev",
-    "build": "electron-builder",
     "build:win": "electron-builder --win --x64",
     "build:mac": "electron-builder --mac --x64 --arm64",
     "build:linux": "electron-builder --linux --x64",
     "build:portable": "electron-builder --win portable",
-    "build:all": "electron-builder --win --mac --linux",
-    "pack": "electron-builder --dir",
-    "postinstall": "electron-builder install-app-deps"
+    "build:all": "electron-builder --win --mac --linux"
   },
   "build": {
     "appId": "com.goatroyalty.superninja",
@@ -24,40 +21,24 @@
       "buildResources": "assets"
     },
     "files": [
-      "src/**/*",
-      "assets/icon.png",
-      "assets/icon.svg",
-      "package.json"
+      "**/*",
+      "!dist/**",
+      "!.github/**",
+      "!build.sh",
+      "!README.md"
     ],
-    "extraResources": [
-      {
-        "from": "assets",
-        "to": "assets",
-        "filter": ["**/*"]
-      }
-    ],
-    "asar": true,
     "publish": null,
     "win": {
       "target": [
-        {
-          "target": "nsis",
-          "arch": ["x64"]
-        },
-        {
-          "target": "portable",
-          "arch": ["x64"]
-        }
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
       ],
       "icon": "assets/icon.png",
       "artifactName": "SuperNinja-AI-${version}-Setup.${ext}"
     },
     "mac": {
       "target": [
-        {
-          "target": "dmg",
-          "arch": ["x64", "arm64"]
-        }
+        { "target": "dmg", "arch": ["x64", "arm64"] }
       ],
       "icon": "assets/icon.png",
       "category": "public.app-category.productivity",
@@ -65,14 +46,8 @@
     },
     "linux": {
       "target": [
-        {
-          "target": "AppImage",
-          "arch": ["x64"]
-        },
-        {
-          "target": "deb",
-          "arch": ["x64"]
-        }
+        { "target": "AppImage", "arch": ["x64"] },
+        { "target": "deb", "arch": ["x64"] }
       ],
       "icon": "assets/icon.png",
       "category": "Utility",
@@ -100,10 +75,7 @@
     "url": "https://github.com/DJSPEEDYGA/GOAT-Royalty-App2.git"
   },
   "dependencies": {
-    "electron-store": "^6.0.1",
     "axios": "^1.7.0",
-    "marked": "^4.3.0",
-    "highlight.js": "^11.9.0",
     "cheerio": "^1.0.0"
   },
   "devDependencies": {

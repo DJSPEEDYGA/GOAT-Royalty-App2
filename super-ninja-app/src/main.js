@@ -5,18 +5,25 @@
 const { app, BrowserWindow, ipcMain, dialog, Menu, Tray, shell, globalShortcut, nativeTheme } = require('electron');
 const path = require('path');
 const fs = require('fs');
-let Store;
-try {
-  Store = require('electron-store');
-} catch (e) {
-  // Fallback simple store
-  Store = class {
-    constructor(opts) { this._data = opts?.defaults || {}; }
-    get(key) { return this._data[key]; }
-    set(key, val) { this._data[key] = val; }
-    get store() { return this._data; }
-  };
-}
+// Simple built-in settings store (no external dependency needed)
+const Store = class {
+  constructor(opts) {
+    this._defaults = opts?.defaults || {};
+    this._path = path.join(app.getPath('userData'), 'settings.json');
+    this._data = { ...this._defaults };
+    try {
+      if (fs.existsSync(this._path)) {
+        this._data = { ...this._defaults, ...JSON.parse(fs.readFileSync(this._path, 'utf-8')) };
+      }
+    } catch (e) { /* use defaults */ }
+  }
+  get(key) { return this._data[key]; }
+  set(key, val) { this._data[key] = val; this._save(); }
+  get store() { return this._data; }
+  _save() {
+    try { fs.writeFileSync(this._path, JSON.stringify(this._data, null, 2)); } catch (e) { /* ignore */ }
+  }
+};
 
 const store = new Store({
   defaults: {
