@@ -40,7 +40,7 @@
           "arch": ["x64"]
         }
       ],
-      "icon": "assets/icon.ico",
+      "icon": "assets/icon.png",
       "artifactName": "SuperNinja-AI-${version}-Setup.${ext}"
     },
     "mac": {
@@ -50,7 +50,7 @@
           "arch": ["x64", "arm64"]
         }
       ],
-      "icon": "assets/icon.icns",
+      "icon": "assets/icon.png",
       "category": "public.app-category.productivity",
       "artifactName": "SuperNinja-AI-${version}.${ext}"
     },
@@ -72,9 +72,6 @@
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "installerIcon": "assets/icon.ico",
-      "uninstallerIcon": "assets/icon.ico",
-      "installerHeaderIcon": "assets/icon.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "SuperNinja AI"
@@ -90,21 +87,15 @@
     }
   },
   "dependencies": {
-    "electron-store": "^8.1.0",
+    "electron-store": "^8.2.0",
     "axios": "^1.7.0",
     "marked": "^12.0.0",
     "highlight.js": "^11.9.0",
-    "node-pty": "^1.0.0",
     "chokidar": "^3.6.0",
-    "sharp": "^0.33.0",
-    "pdf-parse": "^1.1.1",
-    "csv-parse": "^5.5.0",
-    "mammoth": "^1.7.0",
     "cheerio": "^1.0.0",
-    "node-fetch": "^3.3.0",
-    "openai": "^4.50.0",
-    "@google/generative-ai": "^0.12.0",
-    "anthropic": "^0.24.0"
+    "openai": "^4.73.0",
+    "@google/generative-ai": "^0.24.0",
+    "@anthropic-ai/sdk": "^0.37.0"
   },
   "devDependencies": {
     "electron": "^30.0.0",
