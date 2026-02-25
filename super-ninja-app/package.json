@@ -1,7 +1,7 @@
 {
-  "name": "super-ninja-ai",
-  "version": "1.0.0",
-  "description": "SuperNinja AI - Autonomous AI Desktop Assistant",
+  "name": "super-goat-royalty",
+  "version": "2.0.0",
+  "description": "Super GOAT Royalty - AI-Powered Music Production & Royalty Management Command Center",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
@@ -13,9 +13,9 @@
     "build:all": "electron-builder --win --mac --linux"
   },
   "build": {
-    "appId": "com.goatroyalty.superninja",
-    "productName": "SuperNinja AI",
-    "copyright": "Copyright 2025 Harvey Miller (DJ Speedy)",
+    "appId": "com.goatroyalty.supergoat",
+    "productName": "Super GOAT Royalty",
+    "copyright": "Copyright 2025 Harvey Miller (DJ Speedy) / GOAT Royalty",
     "directories": {
       "output": "dist",
       "buildResources": "assets"
@@ -34,15 +34,15 @@
         { "target": "portable", "arch": ["x64"] }
       ],
       "icon": "assets/icon.png",
-      "artifactName": "SuperNinja-AI-${version}-Setup.${ext}"
+      "artifactName": "Super-GOAT-Royalty-${version}-Setup.${ext}"
     },
     "mac": {
       "target": [
         { "target": "zip", "arch": ["x64", "arm64"] }
       ],
       "icon": "assets/icon.png",
-      "category": "public.app-category.productivity",
-      "artifactName": "SuperNinja-AI-${version}.${ext}"
+      "category": "public.app-category.music",
+      "artifactName": "Super-GOAT-Royalty-${version}.${ext}"
     },
     "linux": {
       "target": [
@@ -50,18 +50,18 @@
         { "target": "deb", "arch": ["x64"] }
       ],
       "icon": "assets/icon.png",
-      "category": "Utility",
-      "artifactName": "SuperNinja-AI-${version}.${ext}"
+      "category": "Audio",
+      "artifactName": "Super-GOAT-Royalty-${version}.${ext}"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "SuperNinja AI"
+      "shortcutName": "Super GOAT Royalty"
     },
     "portable": {
-      "artifactName": "SuperNinja-AI-${version}-Portable.${ext}"
+      "artifactName": "Super-GOAT-Royalty-${version}-Portable.${ext}"
     },
     "dmg": {
       "contents": [

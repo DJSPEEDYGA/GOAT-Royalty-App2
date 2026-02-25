@@ -16,7 +16,12 @@ import {
   Star,
   Zap,
   Crown,
-  Shield
+  Shield,
+  Rocket,
+  Sparkles,
+  Terminal,
+  Globe,
+  Cpu
 } from 'lucide-react';
 
 // Import our new components
@@ -218,6 +223,70 @@ const EnhancedLandingPage = () => {
           </div>
         </section>
 
+        {/* SUPER GOAT COMMAND CENTER - NEW */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-black to-blue-900/30" />
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(108, 92, 231, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%)'
+          }} />
+          <div className="max-w-6xl mx-auto relative z-10">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600/20 to-yellow-600/20 rounded-full border border-purple-500/30 mb-6">
+                <Sparkles className="w-4 h-4 text-yellow-400" />
+                <span className="text-sm font-semibold text-yellow-400">NEW — SUPER GOAT COMMAND CENTER</span>
+                <Sparkles className="w-4 h-4 text-yellow-400" />
+              </div>
+              <h2 className="text-4xl md:text-6xl font-black mb-4">
+                <span className="bg-gradient-to-r from-purple-400 via-yellow-400 to-purple-400 bg-clip-text text-transparent">
+                  🐐 SUPER GOAT
+                </span>
+              </h2>
+              <p className="text-xl text-white/70 max-w-3xl mx-auto mb-2">
+                The ultimate fusion of GOAT Royalty + SuperNinja AI
+              </p>
+              <p className="text-lg text-white/50 max-w-2xl mx-auto">
+                AI Chat • Music Production • Royalty Calculator • Browser Automation • Terminal • Code Editor — All in one command center
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+              {[
+                { icon: '🧠', label: 'AI Chat', desc: 'Multi-LLM', color: 'from-purple-600 to-blue-600' },
+                { icon: '💰', label: 'Royalties', desc: '$865K+', color: 'from-yellow-600 to-orange-600' },
+                { icon: '🎵', label: '346 Tracks', desc: '1.2B Streams', color: 'from-cyan-600 to-blue-600' },
+                { icon: '🤖', label: 'Automation', desc: '5 Active Bots', color: 'from-green-600 to-teal-600' },
+                { icon: '💻', label: 'Dev Tools', desc: 'Terminal + Code', color: 'from-pink-600 to-red-600' },
+              ].map((item, i) => (
+                <div key={i} className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all cursor-pointer">
+                  <div className="text-3xl mb-2">{item.icon}</div>
+                  <div className="text-sm font-bold text-white">{item.label}</div>
+                  <div className="text-xs text-white/50">{item.desc}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+              <button 
+                onClick={() => router.push('/super-goat-command')}
+                className="group relative px-10 py-5 bg-gradient-to-r from-purple-600 via-yellow-500 to-purple-600 text-white font-bold text-lg rounded-full overflow-hidden transform hover:scale-105 transition-all shadow-lg shadow-purple-500/25"
+              >
+                <span className="relative z-10 flex items-center space-x-3">
+                  <Rocket className="w-6 h-6" />
+                  <span>Launch Super GOAT Command Center</span>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-purple-600 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </button>
+              
+              <button 
+                onClick={() => router.push('/dashboard')}
+                className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all"
+              >
+                Classic Dashboard
+              </button>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 px-6 bg-gradient-to-r from-purple-900/50 to-blue-900/50">
           <div className="max-w-4xl mx-auto text-center">
@@ -242,10 +311,11 @@ const EnhancedLandingPage = () => {
               </button>
               
               <button 
-                   onClick={() => router.push('/login')}
-                   className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all"
+                   onClick={() => router.push('/super-goat-command')}
+                   className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all flex items-center space-x-2"
                  >
-                Launch Dashboard
+                <Rocket className="w-5 h-5" />
+                <span>Super GOAT Command Center</span>
               </button>
             </div>
           </div>

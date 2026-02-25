@@ -1,4 +1,4 @@
-name: Build SuperNinja AI Desktop App
+name: Build Super GOAT Royalty Desktop App
 
 on:
   push:
@@ -49,7 +49,6 @@ jobs:
         with:
           name: macos-build
           path: |
-            super-ninja-app/dist/*.dmg
             super-ninja-app/dist/*.zip
 
   build-linux:
@@ -85,27 +84,36 @@ jobs:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
       - name: List artifacts
-        run: find . -type f -name "*.exe" -o -name "*.dmg" -o -name "*.AppImage" -o -name "*.deb" | head -20
+        run: find . -type f -name "*.exe" -o -name "*.zip" -o -name "*.AppImage" -o -name "*.deb" | head -20
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          name: SuperNinja AI ${{ github.ref_name }}
+          name: Super GOAT Royalty ${{ github.ref_name }}
           body: |
-            ## ⚡ SuperNinja AI Desktop App ${{ github.ref_name }}
+            ## 🐐⚡ Super GOAT Royalty Desktop App ${{ github.ref_name }}
             
-            ### Downloads
-            - **Windows**: SuperNinja-AI-Setup.exe (Installer) or Portable.exe
-            - **macOS**: SuperNinja-AI.dmg
-            - **Linux**: SuperNinja-AI.AppImage or .deb
+            The ultimate fusion of GOAT Royalty + SuperNinja AI — one unified command center for music production, royalty management, and AI-powered tools.
             
-            ### Features
-            - Multi-LLM Support (GPT-4o, Gemini, Claude, Ollama)
-            - 10 Built-in Tools: Terminal, Code Editor, File Manager, Web Browser, Image/Audio/PDF Tools, Data Analysis, Music Production, Royalty Calculator
+            ### 📥 Downloads
+            - **Windows**: Super-GOAT-Royalty-Setup.exe (Installer) or Portable.exe
+            - **macOS**: Super-GOAT-Royalty.zip (x64 + arm64)
+            - **Linux**: Super-GOAT-Royalty.AppImage or .deb
+            
+            ### 🚀 Features
+            - **AI Command Center** — Multi-LLM Chat (GPT-4o, Gemini, Claude, Ollama)
+            - **Music Dashboard** — 346 tracks, 1.2B+ streams, $865K+ royalties
+            - **Royalty Calculator** — Real-time earnings across 6 platforms
+            - **Browser Automation** — Axiom-powered bots for data collection
+            - **Music Production** — AI-assisted beat making, mixing, mastering
+            - **Dev Tools** — Terminal, Code Editor, File Manager
+            - **Streaming Analytics** — Spotify, Apple Music, YouTube, Tidal, Amazon, Deezer
+            - **Security Vault** — IP protection & copyright management
+            - **NVIDIA DGX Cloud** — GPU-accelerated AI processing
             - Dark/Light themes with keyboard shortcuts
-            - Global hotkey (Ctrl+Shift+N)
+            - Global hotkey (Ctrl+Shift+G)
             - 100% offline mode with Ollama
             
-            Built for Harvey Miller (DJ Speedy) | GOAT Royalty Edition
+            Built by Harvey Miller (DJ Speedy) | GOAT Royalty © 2025
           files: |
             windows-build/*
             macos-build/*
