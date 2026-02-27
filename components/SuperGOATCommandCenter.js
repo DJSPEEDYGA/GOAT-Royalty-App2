@@ -24,6 +24,7 @@ import {
   Menu, ChevronLeft, Maximize2, Minimize2, RotateCcw, Sparkles,
   Headphones, Radio, Disc3, Volume2, SkipForward, SkipBack
 } from 'lucide-react';
+import SuperGOATMusicPlayer from './SuperGOATMusicPlayer';
 
 // ============================================================
 // AI PROVIDERS CONFIG
@@ -861,6 +862,14 @@ export default function Home() {
   // ============================================================
   const renderProduction = () => (
     <div className="sg-main-content">
+      {/* Music Player */}
+      <div className="sg-chart-container" style={{ marginBottom: '24px' }}>
+        <div className="sg-chart-header">
+          <div className="sg-chart-title">🎵 Now Playing</div>
+        </div>
+        <SuperGOATMusicPlayer />
+      </div>
+
       <div className="sg-stats-grid">
         <div className="sg-stat-card purple">
           <div className="sg-stat-label">Active Projects</div>
