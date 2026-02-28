@@ -388,6 +388,95 @@ function setupIPC() {
   ipcMain.handle('app:getPlatform', () => process.platform);
   ipcMain.handle('app:relaunch', () => { app.relaunch(); app.exit(); });
   ipcMain.handle('app:quit', () => app.quit());
+
+  // --- System Monitor ---
+  ipcMain.handle('system:monitor', () => {
+    const cpus = os.cpus();
+    const cpuUsage = cpus.map(c => {
+      const total = Object.values(c.times).reduce((a,b) => a+b, 0);
+      return ((total - c.times.idle) / total * 100).toFixed(1);
+    });
+    return {
+      cpuUsage: (cpuUsage.reduce((a,b) => a + parseFloat(b), 0) / cpuUsage.length).toFixed(1),
+      cpuCores: cpus.length,
+      cpuModel: cpus[0]?.model || 'Unknown',
+      totalMem: os.totalmem(),
+      freeMem: os.freemem(),
+      usedMem: os.totalmem() - os.freemem(),
+      memPercent: ((1 - os.freemem() / os.totalmem()) * 100).toFixed(1),
+      uptime: os.uptime(),
+      platform: os.platform(),
+      hostname: os.hostname(),
+      loadAvg: os.loadavg()
+    };
+  });
+
+  // --- Disk Usage ---
+  ipcMain.handle('system:disk', async () => {
+    return new Promise((resolve) => {
+      const cmd = process.platform === 'win32' ? 'wmic logicaldisk get size,freespace,caption' : 'df -h / | tail -1';
+      exec(cmd, { timeout: 5000 }, (err, stdout) => {
+        resolve(stdout?.trim() || 'Unable to get disk info');
+      });
+    });
+  });
+
+  // --- Screenshot ---
+  ipcMain.handle('screen:capture', async () => {
+    try {
+      const { desktopCapturer } = require('electron');
+      const sources = await desktopCapturer.getSources({ types: ['screen'], thumbnailSize: { width: 1920, height: 1080 } });
+      if (sources.length > 0) {
+        const screenshot = sources[0].thumbnail.toPNG();
+        const filePath = path.join(app.getPath('pictures'), `goat-screenshot-${Date.now()}.png`);
+        fs.writeFileSync(filePath, screenshot);
+        return { success: true, path: filePath };
+      }
+      return { success: false, error: 'No screen source found' };
+    } catch (e) { return { success: false, error: e.message }; }
+  });
+
+  // --- Notifications ---
+  ipcMain.handle('notify', (_, { title, body }) => {
+    const { Notification } = require('electron');
+    if (Notification.isSupported()) {
+      new Notification({ title: title || APP_NAME, body: body || '' }).show();
+    }
+    return true;
+  });
+
+  // --- Notes Storage ---
+  const notesPath = path.join(app.getPath('userData'), 'notes.json');
+  ipcMain.handle('notes:load', () => {
+    try { return JSON.parse(fs.readFileSync(notesPath, 'utf8')); }
+    catch { return []; }
+  });
+  ipcMain.handle('notes:save', (_, notes) => {
+    try { fs.writeFileSync(notesPath, JSON.stringify(notes, null, 2)); return true; }
+    catch { return false; }
+  });
+
+  // --- Tasks Storage ---
+  const tasksPath = path.join(app.getPath('userData'), 'tasks.json');
+  ipcMain.handle('tasks:load', () => {
+    try { return JSON.parse(fs.readFileSync(tasksPath, 'utf8')); }
+    catch { return []; }
+  });
+  ipcMain.handle('tasks:save', (_, tasks) => {
+    try { fs.writeFileSync(tasksPath, JSON.stringify(tasks, null, 2)); return true; }
+    catch { return false; }
+  });
+
+  // --- Snippets Storage ---
+  const snippetsPath = path.join(app.getPath('userData'), 'snippets.json');
+  ipcMain.handle('snippets:load', () => {
+    try { return JSON.parse(fs.readFileSync(snippetsPath, 'utf8')); }
+    catch { return []; }
+  });
+  ipcMain.handle('snippets:save', (_, snippets) => {
+    try { fs.writeFileSync(snippetsPath, JSON.stringify(snippets, null, 2)); return true; }
+    catch { return false; }
+  });
 }
 
 // ============================================================================
