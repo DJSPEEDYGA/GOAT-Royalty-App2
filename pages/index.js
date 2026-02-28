@@ -91,18 +91,36 @@ const EnhancedLandingPage = () => {
                 </span>
               </div>
               
-              <div className="hidden md:flex items-center space-x-8">
+              <div className="hidden md:flex items-center space-x-6">
+                <a href="/super-goat-command" className="text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
+                  ⚡ Command Center
+                </a>
                 <a href="/analytics" className="text-white/80 hover:text-white transition-colors">
                   Analytics
                 </a>
                 <a href="/publishing" className="text-white/80 hover:text-white transition-colors">
                   Publishing
                 </a>
+                <a href="/tracks" className="text-white/80 hover:text-white transition-colors">
+                  Tracks
+                </a>
                 <a href="/asap-catalog" className="text-white/80 hover:text-white transition-colors">
                   Catalog
                 </a>
+                <a href="/adobe-firefly" className="text-white/80 hover:text-white transition-colors">
+                  AI Studio
+                </a>
+                <a href="/nvidia-dgx" className="text-white/80 hover:text-white transition-colors">
+                  NVIDIA DGX
+                </a>
                 <a href="/ms-vanessa" className="text-white/80 hover:text-white transition-colors">
                   AI Assistant
+                </a>
+                <a href="/cinema-camera" className="text-white/80 hover:text-white transition-colors">
+                  Cinema
+                </a>
+                <a href="/sora-ai-studio" className="text-white/80 hover:text-white transition-colors">
+                  Sora AI
                 </a>
                 <a href="/fingerprint-auth" className="text-white/80 hover:text-white transition-colors">
                   Security
