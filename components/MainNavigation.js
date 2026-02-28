@@ -33,6 +33,7 @@ const MainNavigation = () => {
     {
       title: 'Content Creation',
       items: [
+        { name: 'Adobe Firefly AI', href: '/adobe-firefly', icon: Sparkles },
         { name: 'Cinema Camera', href: '/cinema-camera', icon: Video },
         { name: 'Sora AI Studio', href: '/sora-ai-studio', icon: Sparkles },
         { name: 'Media Gallery', href: '/media-gallery', icon: Camera },

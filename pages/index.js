@@ -317,6 +317,15 @@ const EnhancedLandingPage = () => {
                 <Rocket className="w-5 h-5" />
                 <span>Super GOAT Command Center</span>
               </button>
+
+              <button 
+                   onClick={() => router.push('/adobe-firefly')}
+                   className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-semibold rounded-full overflow-hidden transform hover:scale-105 transition-all flex items-center space-x-2"
+                 >
+                <Sparkles className="w-5 h-5" />
+                <span>Adobe Firefly AI Studio</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </button>
             </div>
           </div>
         </section>
