@@ -137,7 +137,7 @@ export default async function handler(req, res) {
         total_likes: totalLikes,
         total_comments: totalComments,
         total_estimated_royalty: totalEstimatedRoyalty.toFixed(2),
-        average_engagement_rate: averageEngagement_rate,
+        average_engagement_rate: averageEngagementRate,
         royalty_rate_per_view: ROYALTY_RATE_PER_VIEW,
         minimum_views_threshold: MIN_VIEWS_THRESHOLD,
       },

@@ -8,7 +8,7 @@ export default function LoginPage() {
   const router = useRouter()
   const { signIn, signUp } = useAuth()
 
-  const [isSignUp, setIsSignUp] = useState(false)
+  const [isSignUp, setIsSignUp] = useState(router.query?.mode === 'signup')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')

@@ -254,7 +254,7 @@ async function getTrackAudioFeatures(accessToken, trackIds) {
 export default async function handler(req, res) {
   // Rate limiting
   const clientIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-  const rateLimitResult = securityManager.rateLimit(`spotify_auth_${clientIP}`, 10, 60000); // 10 requests per minute
+  const rateLimitResult = securityManager.rateLimit(`spotify_auth_${clientIP}`, { max: 10, windowMs: 60000 }); // 10 requests per minute
   
   if (!rateLimitResult.allowed) {
     return res.status(429).json({

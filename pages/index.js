@@ -146,6 +146,21 @@ const EnhancedLandingPage = () => {
                 <a href="/fingerprint-auth" className="text-white/80 hover:text-white transition-colors">
                   Security
                 </a>
+                <a href="/concert-booking" className="text-orange-400 hover:text-orange-300 transition-colors font-semibold">
+                  🎤 Booking
+                </a>
+                <a href="/unreal-engine" className="text-blue-400 hover:text-blue-300 transition-colors font-semibold">
+                  🎮 Unreal
+                </a>
+                <a href="/ai-red-team" className="text-red-400 hover:text-red-300 transition-colors font-semibold">
+                  🛡️ Red Team
+                </a>
+                <a href="/animation-studio" className="text-pink-400 hover:text-pink-300 transition-colors font-semibold">
+                  🎬 Animation
+                </a>
+                <a href="/goat-branding-demo" className="text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
+                  👑 Branding
+                </a>
                 <div className="flex items-center space-x-2">
                   <div className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm border border-green-500/30">
                     🐐 GOAT Video Active
