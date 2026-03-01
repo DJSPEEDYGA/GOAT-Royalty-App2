@@ -151,8 +151,14 @@ const mrGreenChat = (message, income = 150000) => {
     const qp = Math.round(income * 0.182 / 4);
     return { response: `📅 Quarterly Estimates (optimized 18.2%):\n\nQ1 Apr 15: $${qp.toLocaleString()}\nQ2 Jun 16: $${qp.toLocaleString()}\nQ3 Sep 15: $${qp.toLocaleString()}\nQ4 Jan 15: $${qp.toLocaleString()}\n\nAnnual: $${(qp * 4).toLocaleString()} (vs $${Math.round(income * 0.32).toLocaleString()} without optimization)`, topic: 'quarterly' };
   }
+  if (lower.includes('infinite banking') || lower.includes('ibc') || lower.includes('own banker') || lower.includes('whole life') || lower.includes('nelson nash')) {
+    return { response: `🏦 Infinite Banking Concept (R. Nelson Nash):\n\n1. You finance everything — pay interest to others or recapture it\n2. Be Your Own Banker — use dividend-paying whole life insurance\n3. Policy Loans — money keeps compounding while you use it\n4. Pay Yourself Back with interest\n5. Tax-Free Growth — cash values grow tax-deferred\n\nMusic Applications: Equipment ($8K saved), Vehicle ($12K), Studio ($25K)\n\n"Those who have the Gold make the rules."`, topic: 'infinite_banking' };
+  }
+  if (lower.includes('swot') || lower.includes('strength') || lower.includes('weakness') || lower.includes('threat') || lower.includes('opportunit')) {
+    return { response: `📊 SWOT Analysis — FASTASSMAN Publishing:\n\nSTRENGTHS: 3,650+ tracks, S-Corp active, GA location, 6+ revenue streams\nWEAKNESSES: 7 missing docs, no retirement funded, 12 unclaimed strategies\nOPPORTUNITIES: Infinite Banking, GA Film Credit, estate planning, heavy vehicle\nTHREATS: IRS audit risk, streaming decline, TCJA expiration\n\nPriority: Fund retirement + collect docs + start IBC`, topic: 'swot_analysis' };
+  }
   if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey') || lower.includes('help')) {
-    return { response: `🤑 Hey! I'm Mr. Green — AI Tax Strategist.\n\nI scan 350+ strategies for music professionals.\n\nAsk about: royalties, deductions, S-Corp, Georgia credits, wealth projection, quarterly estimates.\n\nTry: "How much can I save?"`, topic: 'greeting' };
+    return { response: `🤑 Hey! I'm Mr. Green — AI Tax Strategist.\n\nI scan 350+ strategies for music professionals.\n\nAsk about: royalties, deductions, S-Corp, Georgia credits, wealth projection, quarterly estimates, Infinite Banking, SWOT analysis.\n\nTry: "How much can I save?" or "Tell me about Infinite Banking"`, topic: 'greeting' };
   }
   return { response: `🤑 I've scanned ${STRATEGIES.length} strategies for your profile.\n\nTop picks:\n1. S-Corp: $9,200+/yr\n2. Solo 401(k): $69K shelter\n3. Section 179: Immediate deduction\n4. GA Film Credit: 20-30%\n\nAsk me anything specific!`, topic: 'general' };
 };

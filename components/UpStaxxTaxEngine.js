@@ -1,7 +1,8 @@
 /**
- * 💰 UpStaxx Tax Engine v2.0 — GOAT Royalty MEGA Integration
+ * 💰 UpStaxx Tax Engine v3.0 — GOAT Royalty MEGA Integration
  * AI-Powered Tax Strategy Platform for Music Industry Professionals
- * 10 Tabs • 32 Strategies • 22 Credits • Wealth Projector • Mr. Green AI
+ * 12 Tabs • 32 Strategies • 22 Credits • Wealth Projector • Mr. Green AI
+ * SWOT Analysis • Infinite Banking Concept (R. Nelson Nash)
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
@@ -132,6 +133,89 @@ const EXPENSE_CATEGORIES = [
   { name:'Vehicle / Mileage', icon:'🚗', ytd:3780, budget:6000, color:'text-emerald-400', transactions:45 }
 ];
 
+// ═══════════════════════════════════════════════════════════════
+// SWOT ANALYSIS — FASTASSMAN Publishing Tax Position
+// Based on SWOT Framework: Strengths, Weaknesses, Opportunities, Threats
+// ═══════════════════════════════════════════════════════════════
+const SWOT_DATA = {
+  strengths: [
+    { title: 'Massive Catalog (3,650+ Tracks)', detail: 'Generates diversified royalty income across streaming, sync, mechanical, and performance royalties — reducing single-source risk.', impact: 'high', category: 'Asset' },
+    { title: 'S-Corp Structure Active', detail: 'FASTASSMAN Publishing Inc already elected S-Corp status, saving $9,200+/yr in self-employment tax on distributions.', impact: 'high', category: 'Structure' },
+    { title: 'Georgia-Based Operations', detail: 'Access to Georgia Film/Music Tax Credit (20-30%), one of the most generous entertainment credits in the nation.', impact: 'high', category: 'Location' },
+    { title: 'Multiple Revenue Streams', detail: 'Income from streaming, publishing, sync licensing, live performance, production services, and merchandise — 6+ streams.', impact: 'high', category: 'Revenue' },
+    { title: 'AI-Powered Tax Strategy (UpStaxx)', detail: '350+ strategies scanned automatically with Mr. Green AI advisor — finding deductions others miss.', impact: 'medium', category: 'Technology' },
+    { title: 'Home Studio Deduction Active', detail: 'Dedicated home recording studio qualifies for IRC §280A deduction — 15% of housing costs.', impact: 'medium', category: 'Deduction' },
+    { title: 'Section 179 Equipment Deductions', detail: 'Full immediate deduction on music production equipment up to $1.22M (2025).', impact: 'high', category: 'Deduction' },
+    { title: 'Intellectual Property Ownership', detail: 'Full copyright ownership of catalog creates long-term appreciating asset with estate planning value.', impact: 'high', category: 'Asset' }
+  ],
+  weaknesses: [
+    { title: 'Missing Documents (7 of 17)', detail: 'Streaming reports, software records, travel receipts, contractor records, mileage log, retirement statements, and bank statements not yet collected.', impact: 'high', category: 'Filing', action: 'Collect all 7 missing documents before April 15' },
+    { title: 'No Retirement Plan Funded', detail: 'Solo 401(k) and SEP-IRA strategies identified but not yet activated — leaving $15,600-$26,800/yr in savings unclaimed.', impact: 'high', category: 'Retirement', action: 'Open and fund Solo 401(k) before Dec 31' },
+    { title: '12 Strategies Still Unclaimed', detail: '$84,700/yr in available but not-yet-activated strategies including family hiring, HSA, studio lease, and estate planning.', impact: 'high', category: 'Strategy', action: 'Activate top 5 available strategies this quarter' },
+    { title: 'No Mileage Tracking System', detail: 'Business mileage not being systematically tracked — estimated $5,400/yr deduction at risk.', impact: 'medium', category: 'Tracking', action: 'Activate Milestack for automatic mileage tracking' },
+    { title: 'No Formal Bookkeeping System', detail: 'P&L and quarterly estimates not automated — risk of underpayment penalties and missed deductions.', impact: 'medium', category: 'Operations', action: 'Activate Bookstack for automated bookkeeping' },
+    { title: 'Single-Entity Structure', detail: 'All income flowing through one S-Corp — no asset protection separation between publishing, production, and performance income.', impact: 'medium', category: 'Structure', action: 'Consider LLC + S-Corp combo for liability separation' }
+  ],
+  opportunities: [
+    { title: 'Infinite Banking Concept', detail: 'Use dividend-paying whole life insurance as a personal banking system — recapture interest paid to others, build tax-free wealth, and create legacy asset.', impact: 'high', category: 'Wealth Building', source: 'R. Nelson Nash — Becoming Your Own Banker' },
+    { title: 'Georgia Film/Music Credit (20-30%)', detail: 'Music videos, production content, and related expenditures may qualify for Georgia\'s famous entertainment tax credit — transferable.', impact: 'high', category: 'State Credit', source: 'GA §48-7-40.26' },
+    { title: 'Catalog Valuation & Estate Planning', detail: '3,650+ track catalog is a significant appreciating asset — proper valuation and trust structure could save $15,000+/yr in estate taxes.', impact: 'high', category: 'Estate', source: 'IRC §2031, §2512' },
+    { title: 'AI Music Monetization Growth', detail: 'AI-driven music discovery and sync licensing platforms are expanding revenue opportunities for catalog owners.', impact: 'medium', category: 'Revenue', source: 'Industry Trend 2025' },
+    { title: 'International Royalty Optimization', detail: 'Foreign tax credits on international streaming royalties (Spotify, Apple Music global) — currently underutilized.', impact: 'medium', category: 'International', source: 'IRC §901' },
+    { title: 'Hire Family Members ($8,400/yr)', detail: 'Children under 18 can earn up to $14,600 tax-free (2025 standard deduction) for legitimate business tasks.', impact: 'medium', category: 'Hiring', source: 'IRC §3121(b)(3)' },
+    { title: 'Heavy Vehicle Deduction ($14,200)', detail: 'Vehicles over 6,000 lbs GVWR qualify for up to $28,900 first-year deduction — Escalade, Suburban, Yukon.', impact: 'high', category: 'Vehicle', source: 'IRC §179, §168(k)' },
+    { title: 'R&D Credit for Music Technology', detail: 'Developing new production methods, AI tools, or music technology may qualify for up to $500K in R&D credits.', impact: 'medium', category: 'Innovation', source: 'IRC §41' }
+  ],
+  threats: [
+    { title: 'IRS Audit Risk (Schedule C)', detail: 'Self-employed music professionals face higher audit rates — especially with home office and vehicle deductions.', impact: 'high', category: 'Compliance', mitigation: 'Maintain meticulous records, use UpStaxx document checklist' },
+    { title: 'Streaming Revenue Volatility', detail: 'Per-stream rates declining across platforms — Spotify paid $0.003-$0.005/stream in 2024, down from prior years.', impact: 'medium', category: 'Revenue', mitigation: 'Diversify into sync licensing, live performance, and production' },
+    { title: 'Tax Law Changes (2025-2026)', detail: 'TCJA provisions expiring — QBI deduction, bonus depreciation phase-down, potential rate increases.', impact: 'high', category: 'Legislative', mitigation: 'Maximize current deductions before expiration, monitor legislation' },
+    { title: 'AI Copyright Challenges', detail: 'AI-generated music creating legal uncertainty around copyright protection and royalty claims.', impact: 'medium', category: 'Legal', mitigation: 'Register all works with Copyright Office, document human authorship' },
+    { title: 'Underpayment Penalties', detail: 'Without proper quarterly estimated payments, IRS penalties of 8% (2025) apply on underpaid amounts.', impact: 'medium', category: 'Compliance', mitigation: 'Use quarterly estimate calculator, pay on time' },
+    { title: 'State Tax Complexity', detail: 'Multi-state royalty income may trigger filing requirements in states where music is performed or streamed.', impact: 'low', category: 'Compliance', mitigation: 'Monitor state nexus rules, file where required' }
+  ]
+};
+
+// ═══════════════════════════════════════════════════════════════
+// INFINITE BANKING CONCEPT — R. Nelson Nash Principles
+// From "Becoming Your Own Banker" — Applied to Music Industry
+// ═══════════════════════════════════════════════════════════════
+const INFINITE_BANKING = {
+  principles: [
+    { id: 1, name: 'You Finance Everything You Buy', detail: 'You either pay interest to someone else or give up interest you could have earned. The alternate use of money (opportunity cost) must always be reckoned with.', icon: '💡', source: 'Part II — Creating the Entity' },
+    { id: 2, name: 'The Golden Rule of Banking', detail: 'Those who have the Gold make the rules. Capital is a responsibility and should be treated with great respect. When you have cash on hand, good opportunities appear.', icon: '👑', source: 'Part III — The Golden Rule' },
+    { id: 3, name: 'Be Your Own Banker', detail: 'Create your own banking system through dividend-paying whole life insurance. Recapture the interest you pay to others and redirect it to an entity you own and control.', icon: '🏦', source: 'Part II — Creating Your Own Banking System' },
+    { id: 4, name: 'The Grocery Store Concept', detail: 'Like a well-stocked grocery store, your banking system must be fully capitalized to serve you. Volume of business is the key — the more you run through your system, the more efficient it becomes.', icon: '🏪', source: 'Part I — The Grocery Store' },
+    { id: 5, name: 'Capitalize for at Least 7 Years', detail: 'Build your system with patience. Pay premiums for at least 7 years before expecting to use it heavily. This creates the pool of cash values needed for policy loans.', icon: '⏳', source: 'Part V — Capitalizing Your System' },
+    { id: 6, name: 'Use Paid-Up Additions (PUA)', detail: 'Add a Paid-Up Additions Rider to minimize death benefit emphasis and maximize cash value accumulation — the banking qualities of the policy.', icon: '📈', source: 'Part II — Dividend-Paying Life Insurance' },
+    { id: 7, name: 'Policy Loans — Not Withdrawals', detail: 'Borrow against your cash value via policy loans. Your money continues to earn dividends and compound even while you use it. This is the magic of uninterrupted compounding.', icon: '🔄', source: 'Part II — Policy Loans' },
+    { id: 8, name: 'Pay Yourself Back with Interest', detail: 'When you take a policy loan, repay it with interest — to yourself. This discipline builds your banking system stronger with each cycle.', icon: '💪', source: 'Part IV — Equipment Financing' },
+    { id: 9, name: 'Tax-Free Wealth Accumulation', detail: 'Cash values grow tax-deferred. Policy loans are not taxable events. Death benefits pass income-tax-free. This triple tax advantage is unmatched.', icon: '🛡️', source: 'Part II — Tax Advantages' },
+    { id: 10, name: 'It Must Become a Way of Life', detail: 'Like EVA (Economic Value Added), the Infinite Banking Concept must become a way of life. You must use it or lose it. It is not a product — it is a process.', icon: '🌟', source: 'Part V — Use It or Lose It' }
+  ],
+  musicApplications: [
+    { scenario: 'Equipment Financing', description: 'Instead of financing studio equipment through banks, use policy loans. Buy your $50K mixing console with a policy loan, then pay yourself back with interest — recapturing $8,000+ in interest.', savings: 8000, traditional: 'Bank loan at 8-12% APR', ibc: 'Policy loan at 5-6%, interest goes back to YOU' },
+    { scenario: 'Vehicle Purchase', description: 'Finance your business vehicle through your banking system. On a $60K vehicle, recapture $12,000+ in interest over 5 years that would have gone to a bank.', savings: 12000, traditional: 'Auto loan at 6-9% APR', ibc: 'Policy loan, uninterrupted compounding continues' },
+    { scenario: 'Studio Build-Out', description: 'Fund studio construction or renovation through policy loans. $100K build-out saves $25,000+ in interest vs commercial loan.', savings: 25000, traditional: 'Commercial loan at 8-10%', ibc: 'Policy loan, cash value keeps growing' },
+    { scenario: 'Music Video Production', description: 'Finance music video production ($20K-$50K) through your system instead of credit cards or production loans.', savings: 5000, traditional: 'Credit card at 18-24% APR', ibc: 'Policy loan at 5-6%, tax-free access' },
+    { scenario: 'Catalog Acquisition', description: 'Acquire additional music catalogs using policy loans. The catalog generates royalties while your cash value continues compounding.', savings: 15000, traditional: 'Business loan at 8-12%', ibc: 'Policy loan, dual income streams' },
+    { scenario: 'Tax Payment Funding', description: 'Use policy loans to fund quarterly estimated tax payments, then repay from royalty income — smoothing cash flow.', savings: 3000, traditional: 'IRS payment plan at 8% penalty', ibc: 'Policy loan, no penalties, interest to yourself' }
+  ],
+  projections: {
+    annualPremium: 24000,
+    years: [
+      { year: 1, premium: 24000, cashValue: 18000, deathBenefit: 500000, loanAvailable: 0 },
+      { year: 3, premium: 72000, cashValue: 62000, deathBenefit: 520000, loanAvailable: 45000 },
+      { year: 5, premium: 120000, cashValue: 115000, deathBenefit: 550000, loanAvailable: 95000 },
+      { year: 7, premium: 168000, cashValue: 178000, deathBenefit: 590000, loanAvailable: 155000 },
+      { year: 10, premium: 240000, cashValue: 285000, deathBenefit: 650000, loanAvailable: 260000 },
+      { year: 15, premium: 360000, cashValue: 520000, deathBenefit: 780000, loanAvailable: 480000 },
+      { year: 20, premium: 480000, cashValue: 850000, deathBenefit: 1000000, loanAvailable: 800000 },
+      { year: 30, premium: 720000, cashValue: 1800000, deathBenefit: 1500000, loanAvailable: 1700000 }
+    ]
+  }
+};
+
 const mrGreenResponses = (input, context = {}) => {
   const lower = input.toLowerCase();
   const { income = 150000 } = context;
@@ -165,8 +249,14 @@ const mrGreenResponses = (input, context = {}) => {
   if (lower.includes('mileage') || lower.includes('vehicle') || lower.includes('car')) {
     return '🚗 **Mr. Green — Vehicle Strategy**\n\n**2025 Rate: $0.70/mile**\n\nDeductible drives: studio, venues, meetings, equipment pickups\n\n**Standard:** 7,700 miles × $0.70 = $5,390\n**Heavy Vehicle (6,000+ lbs):** Up to $28,900 year one\n\n💡 Use Milestack for automatic tracking';
   }
+  if (lower.includes('infinite banking') || lower.includes('ibc') || lower.includes('own banker') || lower.includes('whole life') || lower.includes('nelson nash')) {
+    return '🏦 **Mr. Green — Infinite Banking Concept**\n\nBased on R. Nelson Nash\'s principles:\n\n1. **You finance everything** — pay interest to others or recapture it yourself\n2. **Be Your Own Banker** — use dividend-paying whole life as your banking system\n3. **Policy Loans** — borrow against cash value, money keeps compounding\n4. **Pay Yourself Back** — interest goes to YOUR system, not a bank\n5. **Tax-Free Growth** — cash values grow tax-deferred, loans are tax-free\n\n**Music Industry Application:**\n• Finance equipment via policy loans → save $8K+\n• Vehicle purchase → recapture $12K+ in interest\n• Studio build-out → save $25K+ vs commercial loan\n\n💡 *"Those who have the Gold make the rules" — The Golden Rule of Banking*';
+  }
+  if (lower.includes('swot') || lower.includes('strength') || lower.includes('weakness') || lower.includes('threat') || lower.includes('opportunit')) {
+    return '📊 **Mr. Green — SWOT Analysis**\n\n**STRENGTHS:** 3,650+ track catalog, S-Corp active, GA location, 6+ revenue streams, UpStaxx AI\n\n**WEAKNESSES:** 7 missing documents, no retirement funded, 12 unclaimed strategies ($84,700/yr), no mileage tracking\n\n**OPPORTUNITIES:** Infinite Banking, GA Film Credit (20-30%), catalog estate planning ($15K+), heavy vehicle deduction ($14,200)\n\n**THREATS:** IRS audit risk, streaming rate decline, TCJA expiration, AI copyright challenges\n\n🎯 **Priority:** Activate retirement plan + collect missing docs + start Infinite Banking system';
+  }
   if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey') || lower.includes('help')) {
-    return '🤑 **Hey! I\'m Mr. Green — AI Tax Strategist**\n\nI scan 350+ strategies for music professionals.\n\n**Ask me about:**\n• 💰 Royalty income optimization\n• 📋 Business deductions (32 strategies)\n• 🏢 S-Corp analysis\n• 🚗 Vehicle deductions\n• 📈 Wealth projection\n• 🍑 Georgia credits\n• 📅 Quarterly estimates\n\n**Try:** "How much can I save?"';
+    return '🤑 **Hey! I\'m Mr. Green — AI Tax Strategist**\n\nI scan 350+ strategies for music professionals.\n\n**Ask me about:**\n• 💰 Royalty income optimization\n• 📋 Business deductions (32 strategies)\n• 🏢 S-Corp analysis\n• 🚗 Vehicle deductions\n• 📈 Wealth projection\n• 🍑 Georgia credits\n• 📅 Quarterly estimates\n• 🏦 Infinite Banking Concept\n• 📊 SWOT Analysis\n\n**Try:** "How much can I save?" or "Tell me about Infinite Banking"';
   }
   return '🤑 **Mr. Green here!**\n\nTop recommendations:\n1. **S-Corp Election** — Save $9,200+/yr\n2. **Solo 401(k)** — Shelter up to $69K/yr\n3. **Section 179** — Deduct equipment immediately\n4. **GA Film Credit** — 20-30% on production\n\nAsk about any strategy or say "how much can I save?" 🔗 *upstaxx.com*';
 };
@@ -259,7 +349,9 @@ const UpStaxxTaxEngine = () => {
     { id:'mileage', label:'Mileage', icon: Car },
     { id:'bookkeeping', label:'Books', icon: BookOpen },
     { id:'calendar', label:'Calendar', icon: Calendar },
-    { id:'filing', label:'Filing', icon: FileCheck }
+    { id:'filing', label:'Filing', icon: FileCheck },
+    { id:'swot', label:'SWOT', icon: Layers },
+    { id:'banking', label:'∞ Banking', icon: Landmark }
   ];
 
   const e = React.createElement;
@@ -757,6 +849,215 @@ const UpStaxxTaxEngine = () => {
     )
   );
 
+  // ═══ SWOT ANALYSIS TAB ═══
+  const renderSWOT = () => e('div', { className: 'space-y-6' },
+    e('h2', { className: 'text-xl font-bold flex items-center gap-2' }, e(Layers, { className: 'w-6 h-6 text-indigo-400' }), 'SWOT Analysis — FASTASSMAN Publishing Tax Position'),
+    e('div', { className: 'text-sm text-gray-400 mb-4' }, 'Strategic framework analyzing Strengths, Weaknesses, Opportunities, and Threats for your music business tax strategy.'),
+    // SWOT Grid
+    e('div', { className: 'grid grid-cols-1 md:grid-cols-2 gap-4' },
+      // STRENGTHS
+      e('div', { className: 'bg-green-500/10 rounded-2xl p-5 border border-green-500/20' },
+        e('h3', { className: 'font-black text-green-400 mb-4 flex items-center gap-2 text-lg' }, '💪 STRENGTHS', e('span', { className: 'text-xs font-normal bg-green-500/20 px-2 py-0.5 rounded-full' }, 'Internal')),
+        e('div', { className: 'space-y-3' },
+          ...SWOT_DATA.strengths.map((item, i) =>
+            e('div', { key: i, className: 'bg-black/20 rounded-xl p-3 border border-green-500/10' },
+              e('div', { className: 'flex items-center justify-between mb-1' },
+                e('div', { className: 'font-bold text-sm text-green-300' }, item.title),
+                e('span', { className: 'text-xs px-2 py-0.5 rounded-full ' + (item.impact === 'high' ? 'bg-green-500/30 text-green-400' : 'bg-green-500/20 text-green-300') }, item.impact)
+              ),
+              e('div', { className: 'text-xs text-gray-400' }, item.detail),
+              e('div', { className: 'text-xs text-green-600 mt-1' }, item.category)
+            )
+          )
+        )
+      ),
+      // WEAKNESSES
+      e('div', { className: 'bg-red-500/10 rounded-2xl p-5 border border-red-500/20' },
+        e('h3', { className: 'font-black text-red-400 mb-4 flex items-center gap-2 text-lg' }, '⚠️ WEAKNESSES', e('span', { className: 'text-xs font-normal bg-red-500/20 px-2 py-0.5 rounded-full' }, 'Internal')),
+        e('div', { className: 'space-y-3' },
+          ...SWOT_DATA.weaknesses.map((item, i) =>
+            e('div', { key: i, className: 'bg-black/20 rounded-xl p-3 border border-red-500/10' },
+              e('div', { className: 'flex items-center justify-between mb-1' },
+                e('div', { className: 'font-bold text-sm text-red-300' }, item.title),
+                e('span', { className: 'text-xs px-2 py-0.5 rounded-full ' + (item.impact === 'high' ? 'bg-red-500/30 text-red-400' : 'bg-red-500/20 text-red-300') }, item.impact)
+              ),
+              e('div', { className: 'text-xs text-gray-400' }, item.detail),
+              item.action && e('div', { className: 'text-xs text-yellow-400 mt-1 flex items-center gap-1' }, '🎯 ', item.action)
+            )
+          )
+        )
+      ),
+      // OPPORTUNITIES
+      e('div', { className: 'bg-blue-500/10 rounded-2xl p-5 border border-blue-500/20' },
+        e('h3', { className: 'font-black text-blue-400 mb-4 flex items-center gap-2 text-lg' }, '🚀 OPPORTUNITIES', e('span', { className: 'text-xs font-normal bg-blue-500/20 px-2 py-0.5 rounded-full' }, 'External')),
+        e('div', { className: 'space-y-3' },
+          ...SWOT_DATA.opportunities.map((item, i) =>
+            e('div', { key: i, className: 'bg-black/20 rounded-xl p-3 border border-blue-500/10' },
+              e('div', { className: 'flex items-center justify-between mb-1' },
+                e('div', { className: 'font-bold text-sm text-blue-300' }, item.title),
+                e('span', { className: 'text-xs px-2 py-0.5 rounded-full ' + (item.impact === 'high' ? 'bg-blue-500/30 text-blue-400' : 'bg-blue-500/20 text-blue-300') }, item.impact)
+              ),
+              e('div', { className: 'text-xs text-gray-400' }, item.detail),
+              e('div', { className: 'text-xs text-blue-600 mt-1' }, item.source)
+            )
+          )
+        )
+      ),
+      // THREATS
+      e('div', { className: 'bg-orange-500/10 rounded-2xl p-5 border border-orange-500/20' },
+        e('h3', { className: 'font-black text-orange-400 mb-4 flex items-center gap-2 text-lg' }, '🔥 THREATS', e('span', { className: 'text-xs font-normal bg-orange-500/20 px-2 py-0.5 rounded-full' }, 'External')),
+        e('div', { className: 'space-y-3' },
+          ...SWOT_DATA.threats.map((item, i) =>
+            e('div', { key: i, className: 'bg-black/20 rounded-xl p-3 border border-orange-500/10' },
+              e('div', { className: 'flex items-center justify-between mb-1' },
+                e('div', { className: 'font-bold text-sm text-orange-300' }, item.title),
+                e('span', { className: 'text-xs px-2 py-0.5 rounded-full ' + (item.impact === 'high' ? 'bg-orange-500/30 text-orange-400' : 'bg-orange-500/20 text-orange-300') }, item.impact)
+              ),
+              e('div', { className: 'text-xs text-gray-400' }, item.detail),
+              item.mitigation && e('div', { className: 'text-xs text-green-400 mt-1 flex items-center gap-1' }, '🛡️ ', item.mitigation)
+            )
+          )
+        )
+      )
+    ),
+    // Strategic Priorities
+    e('div', { className: 'bg-gradient-to-r from-indigo-900/20 to-purple-900/20 rounded-2xl p-6 border border-indigo-500/20' },
+      e('h3', { className: 'font-bold text-indigo-400 mb-4 flex items-center gap-2' }, e(Target, { className: 'w-5 h-5' }), 'Strategic Priorities — Derived from SWOT'),
+      e('div', { className: 'grid grid-cols-1 md:grid-cols-3 gap-4' },
+        ...[
+          { priority: '1. Activate Retirement', desc: 'Fund Solo 401(k) to capture $15,600/yr — uses STRENGTH (S-Corp) to address WEAKNESS (no retirement).', color: 'text-green-400', urgency: 'Immediate' },
+          { priority: '2. Start Infinite Banking', desc: 'Establish whole life policy to capture OPPORTUNITY — builds tax-free wealth and recaptures interest.', color: 'text-blue-400', urgency: 'Q2 2025' },
+          { priority: '3. Collect Missing Docs', desc: 'Gather 7 missing documents to address WEAKNESS — reduces THREAT of audit risk.', color: 'text-yellow-400', urgency: 'Before Apr 15' },
+          { priority: '4. GA Film Credit', desc: 'Apply for Georgia Film/Music Credit — leverages STRENGTH (GA location) for OPPORTUNITY (20-30% credit).', color: 'text-cyan-400', urgency: 'Q2 2025' },
+          { priority: '5. Estate Planning', desc: 'Value 3,650+ track catalog — uses STRENGTH (IP ownership) to capture OPPORTUNITY ($15K+ savings).', color: 'text-purple-400', urgency: 'Q3 2025' },
+          { priority: '6. Maximize Before TCJA Expires', desc: 'Accelerate deductions before THREAT (tax law changes) — use STRENGTHS to front-load savings.', color: 'text-red-400', urgency: 'Before Dec 31' }
+        ].map((p, i) =>
+          e('div', { key: i, className: 'bg-black/20 rounded-xl p-4 border border-white/5' },
+            e('div', { className: 'font-bold text-sm ' + p.color }, p.priority),
+            e('div', { className: 'text-xs text-gray-400 mt-1' }, p.desc),
+            e('div', { className: 'text-xs text-gray-500 mt-2' }, '⏰ ' + p.urgency)
+          )
+        )
+      )
+    ),
+    e('div', { className: 'text-xs text-gray-600 text-center' }, 'SWOT Framework applied to FASTASSMAN Publishing Inc tax position • Based on SWOT Analysis methodology • © 2025')
+  );
+
+  // ═══ INFINITE BANKING TAB ═══
+  const renderBanking = () => e('div', { className: 'space-y-6' },
+    e('h2', { className: 'text-xl font-bold flex items-center gap-2' }, e(Landmark, { className: 'w-6 h-6 text-amber-400' }), 'Infinite Banking Concept — Be Your Own Banker'),
+    e('div', { className: 'text-sm text-gray-400' }, 'Based on R. Nelson Nash\'s "Becoming Your Own Banker" — Applied to music industry wealth building.'),
+    // Key Quote
+    e('div', { className: 'bg-gradient-to-r from-amber-900/20 to-yellow-900/20 rounded-2xl p-5 border border-amber-500/20 text-center' },
+      e('div', { className: 'text-lg italic text-amber-300' }, '"You finance everything you buy — you either pay interest to someone else or give up interest you could have earned."'),
+      e('div', { className: 'text-xs text-gray-500 mt-2' }, '— R. Nelson Nash, Becoming Your Own Banker')
+    ),
+    // 10 Principles
+    e('div', { className: 'bg-white/5 rounded-2xl p-6 border border-white/10' },
+      e('h3', { className: 'font-bold mb-4 flex items-center gap-2' }, e(BookOpen, { className: 'w-5 h-5 text-amber-400' }), '10 Core Principles'),
+      e('div', { className: 'grid grid-cols-1 md:grid-cols-2 gap-3' },
+        ...INFINITE_BANKING.principles.map(p =>
+          e('div', { key: p.id, className: 'bg-black/20 rounded-xl p-4 border border-amber-500/10 hover:border-amber-500/30 transition-all' },
+            e('div', { className: 'flex items-center gap-2 mb-2' },
+              e('span', { className: 'text-2xl' }, p.icon),
+              e('div', null,
+                e('div', { className: 'font-bold text-sm text-amber-300' }, p.id + '. ' + p.name),
+                e('div', { className: 'text-xs text-amber-600' }, p.source)
+              )
+            ),
+            e('div', { className: 'text-xs text-gray-400' }, p.detail)
+          )
+        )
+      )
+    ),
+    // Music Industry Applications
+    e('div', { className: 'bg-white/5 rounded-2xl p-6 border border-white/10' },
+      e('h3', { className: 'font-bold mb-4 flex items-center gap-2' }, e(Music, { className: 'w-5 h-5 text-purple-400' }), 'Music Industry Applications — IBC vs Traditional Financing'),
+      e('div', { className: 'space-y-3' },
+        ...INFINITE_BANKING.musicApplications.map((app, i) =>
+          e('div', { key: i, className: 'bg-black/20 rounded-xl p-4 border border-white/5' },
+            e('div', { className: 'flex items-center justify-between mb-2' },
+              e('div', { className: 'font-bold text-amber-300' }, app.scenario),
+              e('div', { className: 'text-green-400 font-black' }, 'Save $' + app.savings.toLocaleString())
+            ),
+            e('div', { className: 'text-xs text-gray-400 mb-3' }, app.description),
+            e('div', { className: 'grid grid-cols-2 gap-2' },
+              e('div', { className: 'bg-red-500/10 rounded-lg p-2 border border-red-500/10' },
+                e('div', { className: 'text-xs text-red-400 font-bold' }, '❌ Traditional'),
+                e('div', { className: 'text-xs text-gray-400' }, app.traditional)
+              ),
+              e('div', { className: 'bg-green-500/10 rounded-lg p-2 border border-green-500/10' },
+                e('div', { className: 'text-xs text-green-400 font-bold' }, '✅ Infinite Banking'),
+                e('div', { className: 'text-xs text-gray-400' }, app.ibc)
+              )
+            )
+          )
+        )
+      ),
+      e('div', { className: 'mt-4 pt-4 border-t border-white/10 text-center' },
+        e('div', { className: 'text-lg font-black text-green-400' }, 'Total Interest Recaptured: $' + INFINITE_BANKING.musicApplications.reduce((s, a) => s + a.savings, 0).toLocaleString() + '/cycle'),
+        e('div', { className: 'text-xs text-gray-500' }, 'Money that would have gone to banks now stays in YOUR system')
+      )
+    ),
+    // Policy Growth Projection
+    e('div', { className: 'bg-white/5 rounded-2xl p-6 border border-white/10' },
+      e('h3', { className: 'font-bold mb-4 flex items-center gap-2' }, e(TrendingUp, { className: 'w-5 h-5 text-cyan-400' }), 'Policy Growth Projection — $' + INFINITE_BANKING.projections.annualPremium.toLocaleString() + '/yr Premium'),
+      e('div', { className: 'overflow-x-auto' },
+        e('table', { className: 'w-full text-sm' },
+          e('thead', null,
+            e('tr', { className: 'border-b border-white/10' },
+              ...['Year', 'Total Premiums', 'Cash Value', 'Death Benefit', 'Loan Available'].map(h =>
+                e('th', { key: h, className: 'text-left py-2 px-3 text-xs text-gray-500 font-bold' }, h)
+              )
+            )
+          ),
+          e('tbody', null,
+            ...INFINITE_BANKING.projections.years.map((yr, i) =>
+              e('tr', { key: i, className: 'border-b border-white/5 hover:bg-white/5' },
+                e('td', { className: 'py-2 px-3 font-bold text-amber-400' }, 'Year ' + yr.year),
+                e('td', { className: 'py-2 px-3 text-gray-400' }, '$' + yr.premium.toLocaleString()),
+                e('td', { className: 'py-2 px-3 text-green-400 font-bold' }, '$' + yr.cashValue.toLocaleString()),
+                e('td', { className: 'py-2 px-3 text-cyan-400' }, '$' + yr.deathBenefit.toLocaleString()),
+                e('td', { className: 'py-2 px-3 text-yellow-400' }, yr.loanAvailable > 0 ? '$' + yr.loanAvailable.toLocaleString() : '—')
+              )
+            )
+          )
+        )
+      ),
+      e('div', { className: 'mt-4 grid grid-cols-3 gap-3 text-center' },
+        e('div', { className: 'bg-green-500/10 rounded-xl p-3 border border-green-500/20' },
+          e('div', { className: 'text-xs text-green-400' }, '30-Year Cash Value'),
+          e('div', { className: 'text-xl font-black text-green-400' }, '$1.8M')
+        ),
+        e('div', { className: 'bg-cyan-500/10 rounded-xl p-3 border border-cyan-500/20' },
+          e('div', { className: 'text-xs text-cyan-400' }, 'Death Benefit'),
+          e('div', { className: 'text-xl font-black text-cyan-400' }, '$1.5M')
+        ),
+        e('div', { className: 'bg-yellow-500/10 rounded-xl p-3 border border-yellow-500/20' },
+          e('div', { className: 'text-xs text-yellow-400' }, 'Loan Available'),
+          e('div', { className: 'text-xl font-black text-yellow-400' }, '$1.7M')
+        )
+      )
+    ),
+    // How It Works Flow
+    e('div', { className: 'bg-gradient-to-r from-amber-900/20 to-orange-900/20 rounded-2xl p-6 border border-amber-500/20' },
+      e('h3', { className: 'font-bold mb-4 text-amber-400' }, '🔄 The Infinite Banking Cycle'),
+      e('div', { className: 'grid grid-cols-1 md:grid-cols-5 gap-2' },
+        ...['1. Pay Premium → Build Cash Value', '2. Cash Value Earns Dividends', '3. Take Policy Loan for Purchase', '4. Pay Yourself Back + Interest', '5. Repeat — System Grows Stronger'].map((step, i) =>
+          e('div', { key: i, className: 'bg-black/20 rounded-xl p-3 border border-amber-500/10 text-center' },
+            e('div', { className: 'text-xs text-amber-300 font-bold' }, step)
+          )
+        )
+      ),
+      e('div', { className: 'text-center mt-4' },
+        e('div', { className: 'text-sm text-amber-300 font-bold' }, '"The Grocery Store Concept" — Keep your system fully stocked and the volume of business will make it thrive.'),
+        e('div', { className: 'text-xs text-gray-500 mt-1' }, '— R. Nelson Nash, Becoming Your Own Banker')
+      )
+    ),
+    // Disclaimer
+    e('div', { className: 'text-xs text-gray-600 text-center' }, 'Based on "Becoming Your Own Banker" by R. Nelson Nash • Projections are illustrative • Consult a licensed insurance professional • Not financial advice')
+  );
+
   // ═══ MAIN RENDER ═══
   return e('div', { className: 'min-h-screen bg-gradient-to-br from-gray-950 via-green-950/20 to-black text-white' },
     // Header
@@ -773,9 +1074,9 @@ const UpStaxxTaxEngine = () => {
                 e('span', { className: 'text-green-400' }, 'Up'),
                 e('span', { className: 'text-white' }, 'Staxx'),
                 e('span', { className: 'text-yellow-400 ml-2' }, '× GOAT'),
-                e('span', { className: 'text-xs ml-2 px-2 py-0.5 bg-green-500/20 rounded-full text-green-300 font-normal' }, 'v2.0')
+                e('span', { className: 'text-xs ml-2 px-2 py-0.5 bg-green-500/20 rounded-full text-green-300 font-normal' }, 'v3.0')
               ),
-              e('p', { className: 'text-xs text-gray-400' }, 'AI Tax Engine • 350+ Strategies • 63+ Credits • Mr. Green • Georgia Optimized')
+              e('p', { className: 'text-xs text-gray-400' }, 'AI Tax Engine • 350+ Strategies • 63+ Credits • SWOT • Infinite Banking • Mr. Green')
             )
           ),
           e('div', { className: 'flex items-center gap-3 flex-wrap' },
@@ -820,13 +1121,15 @@ const UpStaxxTaxEngine = () => {
       activeTab === 'mileage' && renderMileage(),
       activeTab === 'bookkeeping' && renderBookkeeping(),
       activeTab === 'calendar' && renderCalendar(),
-      activeTab === 'filing' && renderFiling()
+      activeTab === 'filing' && renderFiling(),
+      activeTab === 'swot' && renderSWOT(),
+      activeTab === 'banking' && renderBanking()
     ),
     // Footer
     e('div', { className: 'max-w-7xl mx-auto px-4 py-6 mt-8 border-t border-white/5' },
       e('div', { className: 'flex items-center justify-between text-xs text-gray-600 flex-wrap gap-2' },
-        e('div', null, '💰 UpStaxx × GOAT Royalty • AI Tax Strategy Engine v2.0'),
-        e('div', null, 'Powered by ', e('a', { href: 'https://upstaxx.com', target: '_blank', rel: 'noopener noreferrer', className: 'text-green-400 hover:text-green-300' }, 'upstaxx.com'), ' • 350+ Strategies • Mr. Green AI'),
+        e('div', null, '💰 UpStaxx × GOAT Royalty • AI Tax Strategy Engine v3.0'),
+        e('div', null, 'Powered by ', e('a', { href: 'https://upstaxx.com', target: '_blank', rel: 'noopener noreferrer', className: 'text-green-400 hover:text-green-300' }, 'upstaxx.com'), ' • 350+ Strategies • SWOT • ∞ Banking • Mr. Green AI'),
         e('div', null, '© 2025 Harvey Miller / FASTASSMAN Publishing Inc')
       )
     )
