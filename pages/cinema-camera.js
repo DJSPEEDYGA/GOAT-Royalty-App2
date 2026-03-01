@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useRef } from 'react';
-import { Video, Camera, Play, Pause, Square, Download, Upload, Film, Zap, Settings, Eye } from 'lucide-react';
+import { Video, Camera, Play, Pause, Square, Download, Upload, Film, Zap, Settings, Eye, Clock } from 'lucide-react';
 
 export default function CinemaCamera() {
   const [recording, setRecording] = useState(false);
