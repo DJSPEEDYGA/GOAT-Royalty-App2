@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { 
   Crown, Home, BarChart3, Music, DollarSign, Globe, Shield, 
   Video, Sparkles, Cpu, Shirt, Zap, Users, FileText, Camera,
-  Headphones, TrendingUp, Package, Calendar, Monitor, Mic
+  Headphones, TrendingUp, Package, Calendar, Monitor, Mic, Target
 } from 'lucide-react';
 
 const MainNavigation = () => {
@@ -72,6 +72,13 @@ const MainNavigation = () => {
       items: [
         { name: 'Concert Booking', href: '/concert-booking', icon: Mic },
         { name: 'Investor Demo', href: '/investor-demo', icon: TrendingUp }
+      ]
+    },
+    {
+      title: 'Security',
+      items: [
+        { name: 'AI Red Team', href: '/ai-red-team', icon: Target },
+        { name: 'CyberWarrior', href: '/cyber-warrior', icon: Shield }
       ]
     }
   ];
