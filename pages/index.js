@@ -140,6 +140,9 @@ const EnhancedLandingPage = () => {
                 <a href="/upstaxx" className="text-green-400 hover:text-green-300 transition-colors font-semibold">
                   💰 UpStaxx Tax
                 </a>
+                <a href="/sono-studio" className="text-purple-400 hover:text-purple-300 transition-colors font-semibold">
+                  🎹 Sono Studio
+                </a>
                 <a href="/fingerprint-auth" className="text-white/80 hover:text-white transition-colors">
                   Security
                 </a>
