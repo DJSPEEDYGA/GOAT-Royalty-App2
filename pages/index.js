@@ -122,6 +122,9 @@ const EnhancedLandingPage = () => {
                 <a href="/sora-ai-studio" className="text-white/80 hover:text-white transition-colors">
                   Sora AI
                 </a>
+                <a href="/openclaw" className="text-red-400 hover:text-red-300 transition-colors font-semibold">
+                  🦞 OpenClaw AI
+                </a>
                 <a href="/fingerprint-auth" className="text-white/80 hover:text-white transition-colors">
                   Security
                 </a>
