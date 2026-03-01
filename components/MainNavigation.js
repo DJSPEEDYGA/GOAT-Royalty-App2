@@ -8,7 +8,8 @@ import Link from 'next/link';
 import { 
   Crown, Home, BarChart3, Music, DollarSign, Globe, Shield, 
   Video, Sparkles, Cpu, Shirt, Zap, Users, FileText, Camera,
-  Headphones, TrendingUp, Package, Calendar, Monitor, Mic, Target
+  Headphones, TrendingUp, Package, Calendar, Monitor, Mic, Target,
+  Film, Clapperboard
 } from 'lucide-react';
 
 const MainNavigation = () => {
@@ -33,6 +34,7 @@ const MainNavigation = () => {
     {
       title: 'Content Creation',
       items: [
+        { name: 'Animation Studio', href: '/animation-studio', icon: Film },
         { name: 'Adobe Firefly AI', href: '/adobe-firefly', icon: Sparkles },
         { name: 'Cinema Camera', href: '/cinema-camera', icon: Video },
         { name: 'Sora AI Studio', href: '/sora-ai-studio', icon: Sparkles },
