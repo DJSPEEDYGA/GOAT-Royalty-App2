@@ -6,6 +6,41 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Return demo data if Supabase not configured
+    const hasSupabase = process.env.NEXT_PUBLIC_SUPABASE_URL && 
+                        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY &&
+                        process.env.NEXT_PUBLIC_SUPABASE_URL !== 'your-supabase-url';
+
+    if (!hasSupabase) {
+      return res.status(200).json({
+        success: true,
+        demo_mode: true,
+        message: 'Supabase not configured — showing demo royalty data',
+        summary: {
+          total_content_videos: 347,
+          eligible_videos: 284,
+          total_views: 8036000,
+          total_likes: 517800,
+          total_comments: 23200,
+          total_estimated_royalty: '401.80',
+          average_engagement_rate: '6.44',
+          royalty_rate_per_view: 0.00005,
+          minimum_views_threshold: 1000,
+        },
+        monthly_breakdown: [
+          { month: '2025-03', total_views: 2840000, total_likes: 184200, total_royalty: '142.00', video_count: 12, avg_engagement_rate: '6.49' },
+          { month: '2025-02', total_views: 3196000, total_likes: 206800, total_royalty: '159.80', video_count: 18, avg_engagement_rate: '6.47' },
+          { month: '2025-01', total_views: 2000000, total_likes: 126800, total_royalty: '100.00', video_count: 14, avg_engagement_rate: '6.34' }
+        ],
+        top_performing_videos: [
+          { title: 'Waka Flocka - Flame On 🔥', views: 2840000, estimated_royalty: '142.00', engagement_rate: '6.49' },
+          { title: 'DJ Speedy in the studio 🎧', views: 1920000, estimated_royalty: '96.00', engagement_rate: '6.50' },
+          { title: 'GOAT Force - New Heat 🐐', views: 1540000, estimated_royalty: '77.00', engagement_rate: '6.38' }
+        ],
+        last_updated: new Date().toISOString()
+      });
+    }
+
     // Get Supabase client
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,
