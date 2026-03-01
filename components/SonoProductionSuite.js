@@ -56,16 +56,109 @@ const SONORA_INSTRUMENTS = [
 
 // ═══ DATA: PRODUCTION SOFTWARE (DAWs & Tools) ═══
 const PRODUCTION_SOFTWARE = [
-  { id: 'fl-studio', name: 'FL Studio', version: '24.2', type: 'DAW', desc: 'Industry-standard beat-making DAW — Piano Roll, Step Sequencer, Mixer, Playlist', rating: 500, downloads: 125000, platforms: ['Win', 'Mac'], free: false, icon: '🎹', color: '#f97316' },
-  { id: 'logic-pro', name: 'Logic Pro', version: '11.1', type: 'DAW', desc: 'Apple professional recording studio — Live Loops, Drummer, Alchemy Synth', rating: 490, downloads: 95000, platforms: ['Mac', 'iPad'], free: false, icon: '🎵', color: '#6366f1' },
-  { id: 'ableton-live', name: 'Ableton Live', version: '12.1', type: 'DAW', desc: 'Session & arrangement view — Wavetable, Operator, Max for Live', rating: 480, downloads: 88000, platforms: ['Win', 'Mac'], free: false, icon: '⚡', color: '#eab308' },
-  { id: 'pro-tools', name: 'Pro Tools', version: '2024.6', type: 'DAW', desc: 'Industry-standard recording & mixing — Avid Audio Engine', rating: 460, downloads: 72000, platforms: ['Win', 'Mac'], free: false, icon: '🎚️', color: '#3b82f6' },
-  { id: 'komplete', name: 'KOMPLETE 15', version: '15 CE', type: 'Suite', desc: 'Native Instruments — 165+ products, 185K+ sounds, Kontakt 8, Massive X', rating: 470, downloads: 65000, platforms: ['Win', 'Mac'], free: false, icon: '💎', color: '#8b5cf6' },
-  { id: 'sononym', name: 'Sononym', version: '1.6.4', type: 'Sample Browser', desc: 'AI-powered sample browser with similarity search', rating: 99, downloads: 8150, platforms: ['Win', 'Mac', 'Linux'], free: false, icon: '🔍', color: '#06b6d4' },
-  { id: 'paulxstretch', name: 'PaulXStretch', version: '1.6.0', type: 'Time Stretch', desc: 'Extreme time-stretch audio processor for ambient textures', rating: 12, downloads: 4171, platforms: ['Win', 'Mac'], free: true, icon: '🌊', color: '#10b981' },
-  { id: 'noirverb', name: 'Sonora NoirVerb', version: '1.0', type: 'Reverb VST', desc: 'Cinematic reverb with dark, moody character', rating: 7, downloads: 2121, platforms: ['Win'], free: true, icon: '🌑', color: '#6b7280' },
-  { id: 'suno-studio', name: 'Suno Studio', version: '1.2', type: 'AI DAW', desc: 'World\'s first generative audio workstation — multitrack AI production', rating: 250, downloads: 0, platforms: ['Web', 'Desktop'], free: false, icon: '🤖', color: '#ec4899' },
-  { id: 'serum', name: 'Serum', version: '2.0', type: 'Synth VST', desc: 'Xfer Records wavetable synthesizer — industry standard for sound design', rating: 495, downloads: 110000, platforms: ['Win', 'Mac'], free: false, icon: '🔊', color: '#a855f7' },
+  // ─── DAWs ───
+  { id: 'fl-studio', name: 'FL Studio', version: '24.2.1', type: 'DAW', desc: 'Industry-standard beat-making DAW — Piano Roll, Step Sequencer, Mixer, Playlist, Patcher, Edison, Gross Beat, Sytrus, Harmor', rating: 500, downloads: 125000, platforms: ['Win', 'Mac'], free: false, icon: '🎹', color: '#f97316', category: 'daw' },
+  { id: 'logic-pro', name: 'Logic Pro X', version: '11.1.2', type: 'DAW', desc: 'Apple professional recording studio — Live Loops, Drummer, Alchemy Synth, Step Sequencer, Spatial Audio, Dolby Atmos', rating: 495, downloads: 98000, platforms: ['Mac', 'iPad'], free: false, icon: '🎵', color: '#6366f1', category: 'daw' },
+  { id: 'ableton-live', name: 'Ableton Live Suite', version: '12.1.5', type: 'DAW', desc: 'Session & arrangement view — Wavetable, Operator, Drift, Meld, Max for Live, Granulator III, 70+ GB sounds', rating: 490, downloads: 92000, platforms: ['Win', 'Mac'], free: false, icon: '⚡', color: '#eab308', category: 'daw' },
+  { id: 'pro-tools', name: 'Avid Pro Tools Ultimate', version: '2024.12', type: 'DAW', desc: 'Industry-standard recording & mixing — HDX, Avid Audio Engine, 2048 tracks, Dolby Atmos, HEAT, Avid Complete Plugin Bundle', rating: 485, downloads: 78000, platforms: ['Win', 'Mac'], free: false, icon: '🎚️', color: '#3b82f6', category: 'daw' },
+  { id: 'suno-studio', name: 'Suno Studio', version: '1.2', type: 'AI DAW', desc: 'World\'s first generative audio workstation — multitrack AI production, stem generation, remix engine', rating: 250, downloads: 45000, platforms: ['Web', 'Desktop'], free: false, icon: '🤖', color: '#ec4899', category: 'daw' },
+  // ─── Avid Suite ───
+  { id: 'avid-sibelius', name: 'Avid Sibelius', version: '2024.12', type: 'Notation', desc: 'Professional music notation software — orchestral scoring, parts extraction, NotePerformer integration', rating: 420, downloads: 52000, platforms: ['Win', 'Mac'], free: false, icon: '📜', color: '#3b82f6', category: 'avid' },
+  { id: 'avid-venue', name: 'Avid VENUE S6L', version: '7.3', type: 'Live Sound', desc: 'Live sound mixing system — 192 inputs, EUCON, Waves integration, Dante networking', rating: 380, downloads: 18000, platforms: ['Hardware'], free: false, icon: '🏟️', color: '#3b82f6', category: 'avid' },
+  { id: 'avid-mtrx', name: 'Avid MTRX Studio', version: '2.0', type: 'Interface', desc: 'Flagship audio interface — 64 channels, Dante, MADI, pristine AD/DA conversion', rating: 400, downloads: 12000, platforms: ['Hardware'], free: false, icon: '🔌', color: '#3b82f6', category: 'avid' },
+  { id: 'avid-s1', name: 'Avid S1 Control Surface', version: '3.1', type: 'Controller', desc: 'Compact EUCON control surface — motorized fader, touchscreen, Pro Tools integration', rating: 390, downloads: 22000, platforms: ['Hardware'], free: false, icon: '🎛️', color: '#3b82f6', category: 'avid' },
+  // ─── Akai Pro ───
+  { id: 'akai-mpc', name: 'Akai MPC Software', version: '2.14', type: 'Production', desc: 'MPC workflow in software — 128 tracks, 8 pad banks, time stretch, sample chop, beat making', rating: 460, downloads: 68000, platforms: ['Win', 'Mac'], free: false, icon: '🟥', color: '#ef4444', category: 'akai' },
+  { id: 'akai-mpc-beats', name: 'Akai MPC Beats', version: '2.14', type: 'Beat Maker', desc: 'Free beat-making software — 2 plugin slots, 8 pads, 16 audio tracks, 80+ plugins', rating: 350, downloads: 120000, platforms: ['Win', 'Mac'], free: true, icon: '🥊', color: '#ef4444', category: 'akai' },
+  { id: 'akai-mpc-one', name: 'Akai MPC One+', version: '3.2', type: 'Standalone', desc: 'Standalone production center — 7" touchscreen, WiFi, Bluetooth, speaker, battery', rating: 440, downloads: 35000, platforms: ['Standalone'], free: false, icon: '📱', color: '#ef4444', category: 'akai' },
+  { id: 'akai-force', name: 'Akai Force', version: '3.2', type: 'Standalone', desc: 'Standalone production/DJ — clip launching, 7" touchscreen, Ableton Link, CV/Gate', rating: 420, downloads: 28000, platforms: ['Standalone'], free: false, icon: '🎯', color: '#ef4444', category: 'akai' },
+  // ─── Arturia ───
+  { id: 'arturia-v-collection', name: 'Arturia V Collection X', version: '10.0', type: 'Plugin Suite', desc: '39 legendary synths & keys — Mini V, Prophet V, Jupiter-8 V, CS-80 V, DX7 V, Wurli V, B-3 V, Mellotron V, Augmented series', rating: 480, downloads: 85000, platforms: ['Win', 'Mac'], free: false, icon: '🎹', color: '#00b4d8', category: 'arturia' },
+  { id: 'arturia-pigments', name: 'Arturia Pigments', version: '5.1', type: 'Synth VST', desc: 'Polychrome software synthesizer — wavetable, virtual analog, granular, harmonic, sampling, 20K+ presets', rating: 470, downloads: 72000, platforms: ['Win', 'Mac'], free: false, icon: '🌈', color: '#00b4d8', category: 'arturia' },
+  { id: 'arturia-analog-lab', name: 'Arturia Analog Lab V', version: '5.10', type: 'Preset Player', desc: '2300+ curated presets from V Collection — split/layer, macro controls, live performance mode', rating: 440, downloads: 95000, platforms: ['Win', 'Mac'], free: false, icon: '🔮', color: '#00b4d8', category: 'arturia' },
+  { id: 'arturia-fx-collection', name: 'Arturia FX Collection', version: '5.0', type: 'FX Suite', desc: '34 studio-quality effects — Rev INTENSITY, Delay TAPE-201, Comp FET-76, Pre 1973, Bus FORCE, Dist COLDFIRE', rating: 450, downloads: 58000, platforms: ['Win', 'Mac'], free: false, icon: '✨', color: '#00b4d8', category: 'arturia' },
+  { id: 'arturia-minifreak', name: 'Arturia MiniFreak V', version: '2.0', type: 'Synth VST', desc: 'Hybrid poly synth — 2 digital oscillators, analog filter, 6 voices, sequencer, FX', rating: 430, downloads: 42000, platforms: ['Win', 'Mac'], free: false, icon: '👾', color: '#00b4d8', category: 'arturia' },
+  // ─── iZotope Full Suite ───
+  { id: 'izotope-ozone', name: 'iZotope Ozone 11 Advanced', version: '11.1', type: 'Mastering', desc: 'AI-powered mastering suite — Master Assistant, Stabilizer, Impact, Clarity, Maximizer, Codec Preview, Dolby Atmos', rating: 498, downloads: 115000, platforms: ['Win', 'Mac'], free: false, icon: '👑', color: '#7c3aed', category: 'izotope' },
+  { id: 'izotope-neutron', name: 'iZotope Neutron 4', version: '4.5', type: 'Mixing', desc: 'AI mixing assistant — Mix Assistant, Unmask, Visual Mixer, EQ, Compressor, Gate, Exciter, Transient Shaper', rating: 490, downloads: 98000, platforms: ['Win', 'Mac'], free: false, icon: '⚛️', color: '#7c3aed', category: 'izotope' },
+  { id: 'izotope-rx', name: 'iZotope RX 11 Advanced', version: '11.0', type: 'Audio Repair', desc: 'Industry-standard audio repair — Spectral Recovery, De-hum, De-click, De-clip, De-reverb, Dialogue Isolate, Music Rebalance', rating: 499, downloads: 130000, platforms: ['Win', 'Mac'], free: false, icon: '🔬', color: '#7c3aed', category: 'izotope' },
+  { id: 'izotope-nectar', name: 'iZotope Nectar 4', version: '4.1', type: 'Vocal', desc: 'Vocal production suite — Vocal Assistant, Auto Level, De-ess, EQ, Compressor, Harmony, Reverb, Delay, Dimension', rating: 475, downloads: 82000, platforms: ['Win', 'Mac'], free: false, icon: '🎤', color: '#7c3aed', category: 'izotope' },
+  { id: 'izotope-vocalsynth', name: 'iZotope VocalSynth 2', version: '2.6', type: 'Vocal FX', desc: 'Vocal effects — Vocoder, Compuvox, Polyvox, Talkbox, Biovox, 5 engines, inter-modulation', rating: 420, downloads: 55000, platforms: ['Win', 'Mac'], free: false, icon: '🗣️', color: '#7c3aed', category: 'izotope' },
+  { id: 'izotope-insight', name: 'iZotope Insight 2', version: '2.5', type: 'Metering', desc: 'Intelligent metering — Spectrogram, Loudness (LUFS/True Peak), Intelligibility, Sound Field, Relay', rating: 440, downloads: 62000, platforms: ['Win', 'Mac'], free: false, icon: '📊', color: '#7c3aed', category: 'izotope' },
+  { id: 'izotope-trash', name: 'iZotope Trash', version: '1.1', type: 'Distortion', desc: 'Distortion & saturation — Trash, Convolve, Filter, Dynamics, Delay, multiband, 200+ presets', rating: 410, downloads: 48000, platforms: ['Win', 'Mac'], free: false, icon: '🔥', color: '#7c3aed', category: 'izotope' },
+  { id: 'izotope-stutter-edit', name: 'iZotope Stutter Edit 2', version: '2.1', type: 'Creative FX', desc: 'Rhythmic effects — stutter, scratch, glitch, buffer, gate, MIDI-triggered, real-time performance', rating: 400, downloads: 38000, platforms: ['Win', 'Mac'], free: false, icon: '💥', color: '#7c3aed', category: 'izotope' },
+  { id: 'izotope-tonal-balance', name: 'iZotope Tonal Balance Control', version: '2.8', type: 'Analysis', desc: 'Tonal balance metering — genre targets, inter-plugin communication, reference tracks, EQ suggestions', rating: 445, downloads: 70000, platforms: ['Win', 'Mac'], free: false, icon: '⚖️', color: '#7c3aed', category: 'izotope' },
+  // ─── Other Synths & Instruments ───
+  { id: 'serum', name: 'Serum', version: '2.0', type: 'Synth VST', desc: 'Xfer Records wavetable synthesizer — industry standard for sound design, drag-and-drop modulation', rating: 498, downloads: 140000, platforms: ['Win', 'Mac'], free: false, icon: '🔊', color: '#a855f7', category: 'synth' },
+  { id: 'komplete', name: 'KOMPLETE 15 CE', version: '15.0', type: 'Suite', desc: 'Native Instruments — 165+ products, 185K+ sounds, Kontakt 8, Massive X, Battery 5, Guitar Rig 7', rating: 480, downloads: 75000, platforms: ['Win', 'Mac'], free: false, icon: '💎', color: '#8b5cf6', category: 'synth' },
+  { id: 'omnisphere', name: 'Omnisphere 2', version: '2.9', type: 'Synth VST', desc: 'Spectrasonics flagship — 14,000+ sounds, hardware synth integration, granular, wavetable, FM', rating: 495, downloads: 95000, platforms: ['Win', 'Mac'], free: false, icon: '🌌', color: '#6366f1', category: 'synth' },
+  { id: 'vital', name: 'Vital', version: '1.5.5', type: 'Synth VST', desc: 'Spectral warping wavetable synth — 3 oscillators, advanced modulation, MPE support', rating: 460, downloads: 200000, platforms: ['Win', 'Mac', 'Linux'], free: true, icon: '💫', color: '#10b981', category: 'synth' },
+  // ─── Sample & Utility ───
+  { id: 'sononym', name: 'Sononym', version: '1.6.4', type: 'Sample Browser', desc: 'AI-powered sample browser with similarity search and neural network analysis', rating: 99, downloads: 8150, platforms: ['Win', 'Mac', 'Linux'], free: false, icon: '🔍', color: '#06b6d4', category: 'utility' },
+  { id: 'paulxstretch', name: 'PaulXStretch', version: '1.6.0', type: 'Time Stretch', desc: 'Extreme time-stretch audio processor for ambient textures', rating: 12, downloads: 4171, platforms: ['Win', 'Mac'], free: true, icon: '🌊', color: '#10b981', category: 'utility' },
+  { id: 'noirverb', name: 'Sonora NoirVerb', version: '1.0', type: 'Reverb VST', desc: 'Cinematic reverb with dark, moody character', rating: 7, downloads: 2121, platforms: ['Win'], free: true, icon: '🌑', color: '#6b7280', category: 'utility' },
+];
+
+// ═══ DATA: STEM SEPARATORS ═══
+const STEM_SEPARATORS = [
+  { id: 'demucs', name: 'Meta Demucs v4 (HTDemucs)', version: '4.1', type: 'AI Stem Separator', desc: 'Meta/Facebook\'s hybrid transformer — best overall quality, 4/6 stem separation, GPU accelerated, open source', rating: 499, quality: 'Ultra', stems: 6, speed: '~45s/song', free: true, icon: '🧠', color: '#3b82f6' },
+  { id: 'izotope-rx-music', name: 'iZotope RX Music Rebalance', version: '11.0', type: 'Stem Separator', desc: 'Professional stem separation inside RX — Voice, Bass, Percussion, Other, real-time preview', rating: 490, quality: 'Ultra', stems: 4, speed: '~30s/song', free: false, icon: '🔬', color: '#7c3aed' },
+  { id: 'spleeter', name: 'Deezer Spleeter', version: '2.4', type: 'AI Stem Separator', desc: 'Deezer\'s open-source separator — 2/4/5 stems, TensorFlow, fast processing, widely used', rating: 440, quality: 'High', stems: 5, speed: '~20s/song', free: true, icon: '🎯', color: '#10b981' },
+  { id: 'lalal-ai', name: 'LALAL.AI', version: '2024', type: 'Cloud Stem Separator', desc: 'Phoenix neural network — vocals, drums, bass, guitar, synth, strings, wind, 10 stems', rating: 480, quality: 'Ultra', stems: 10, speed: '~60s/song', free: false, icon: '🌟', color: '#f59e0b' },
+  { id: 'moises', name: 'Moises.ai', version: '2024', type: 'Cloud Stem Separator', desc: 'AI music platform — 5 stems, chord detection, BPM detection, key detection, smart metronome', rating: 465, quality: 'High', stems: 5, speed: '~40s/song', free: false, icon: '🎵', color: '#ec4899' },
+  { id: 'stemroller', name: 'StemRoller', version: '1.2', type: 'Desktop Separator', desc: 'Free desktop app using Demucs — drag & drop, batch processing, 4 stems, no cloud needed', rating: 420, quality: 'High', stems: 4, speed: '~90s/song', free: true, icon: '🎲', color: '#06b6d4' },
+  { id: 'audioshake', name: 'AudioShake', version: '2024', type: 'Enterprise Separator', desc: 'Enterprise-grade AI — dialogue isolation, music stems, lyrics transcription, used by major labels', rating: 475, quality: 'Ultra', stems: 6, speed: '~35s/song', free: false, icon: '🏢', color: '#8b5cf6' },
+  { id: 'bandlab-splitter', name: 'BandLab Splitter', version: '2024', type: 'Cloud Separator', desc: 'Free online stem splitter — vocals, drums, bass, other, powered by AI, no install needed', rating: 400, quality: 'Good', stems: 4, speed: '~50s/song', free: true, icon: '🌐', color: '#22c55e' },
+];
+
+// ═══ DATA: MASTERING SOFTWARE ═══
+const MASTERING_SOFTWARE = [
+  { id: 'ozone-master', name: 'iZotope Ozone 11 Advanced', version: '11.1', type: 'Mastering Suite', desc: 'AI Master Assistant, Stabilizer, Impact, Clarity, Maximizer, Codec Preview, Dolby Atmos mastering, stem mastering', rating: 499, icon: '👑', color: '#7c3aed', features: ['AI Master Assistant', 'Stabilizer', 'Impact Module', 'Clarity Module', 'Maximizer', 'Codec Preview', 'Dolby Atmos', 'Stem Mastering', 'Reference Track', 'Tonal Balance'] },
+  { id: 'fab-pro-l2', name: 'FabFilter Pro-L 2', version: '2.2', type: 'Limiter', desc: 'Transparent true peak limiter — 8 algorithms, loudness metering, surround support, LUFS/True Peak', rating: 498, icon: '📏', color: '#ef4444', features: ['8 Limiting Algorithms', 'True Peak Limiting', 'LUFS Metering', 'Surround Support', 'Unity Gain', 'DC Offset Filter'] },
+  { id: 'fab-pro-q3', name: 'FabFilter Pro-Q 3', version: '3.24', type: 'EQ', desc: 'Dynamic EQ with spectrum analyzer — up to 24 bands, mid/side, linear phase, spectrum grab, EQ Match', rating: 499, icon: '📈', color: '#f59e0b', features: ['24 EQ Bands', 'Dynamic EQ', 'Mid/Side', 'Linear Phase', 'Spectrum Grab', 'EQ Match', 'Piano Display'] },
+  { id: 'fab-pro-c2', name: 'FabFilter Pro-C 2', version: '2.16', type: 'Compressor', desc: 'Professional compressor — 8 styles, sidechain, mid/side, knee, hold, lookahead, program-dependent', rating: 495, icon: '🔧', color: '#06b6d4', features: ['8 Compression Styles', 'Sidechain', 'Mid/Side', 'Knee Control', 'Hold', 'Lookahead', 'Auto Gain'] },
+  { id: 'fab-pro-mb', name: 'FabFilter Pro-MB', version: '1.26', type: 'Multiband', desc: 'Multiband compressor/expander — up to 6 bands, dynamic phase, mid/side, intelligent crossovers', rating: 488, icon: '🎚️', color: '#8b5cf6', features: ['6 Bands', 'Dynamic Phase', 'Mid/Side', 'Intelligent Crossovers', 'Expert Mode'] },
+  { id: 'waves-abbey', name: 'Waves Abbey Road TG Mastering', version: '14.0', type: 'Mastering Chain', desc: 'EMI TG12410 console — EQ, compressor, limiter, filter, used on Beatles, Pink Floyd, Radiohead', rating: 470, icon: '🏛️', color: '#eab308', features: ['TG EQ', 'TG Compressor', 'TG Limiter', 'TG Filter', 'Analog Modeling'] },
+  { id: 'tc-finalizer', name: 'TC Electronic Finalizer', version: '2024', type: 'Mastering Processor', desc: 'Multiband dynamics, spectral stereo, de-essing, normalizing, dithering, fades — all-in-one mastering', rating: 440, icon: '🔊', color: '#10b981', features: ['Multiband Dynamics', 'Spectral Stereo', 'De-essing', 'Normalizing', 'Dithering', 'Fades'] },
+  { id: 'sonnox-mastering', name: 'Sonnox Mastering Bundle', version: '2024', type: 'Mastering Bundle', desc: 'Oxford EQ, Dynamics, Inflator, Limiter, SuprEsser — broadcast-quality mastering chain', rating: 460, icon: '🎖️', color: '#3b82f6', features: ['Oxford EQ', 'Oxford Dynamics', 'Oxford Inflator', 'Oxford Limiter', 'SuprEsser'] },
+  { id: 'brainworx-masterdesk', name: 'Brainworx Masterdesk', version: '1.5', type: 'Mastering', desc: 'All-in-one mastering plugin — Foundation, Tone, Compress, Stereo, Limit, THD, analog modeling', rating: 450, icon: '🧪', color: '#ec4899', features: ['Foundation', 'Tone Shaping', 'Compression', 'Stereo Width', 'Limiting', 'THD Modeling'] },
+  { id: 'landr', name: 'LANDR Mastering', version: '2024', type: 'AI Mastering', desc: 'Cloud AI mastering — instant masters, genre detection, loudness targeting, distribution-ready', rating: 420, icon: '☁️', color: '#a855f7', features: ['AI Mastering', 'Genre Detection', 'Loudness Targeting', 'Distribution Ready', 'Batch Processing'] },
+];
+
+// ═══ DATA: AUDIO FINGERPRINTING & WAV METADATA ═══
+const FINGERPRINT_TOOLS = [
+  { id: 'acoustid', name: 'AcoustID / Chromaprint', type: 'Audio Fingerprint', desc: 'Open-source audio fingerprinting — generates unique acoustic fingerprints, MusicBrainz integration, identify any track', icon: '🔑', color: '#10b981' },
+  { id: 'audd', name: 'AudD Music Recognition', type: 'Recognition API', desc: 'Music recognition API — identify songs from audio, lyrics search, Apple Music & Spotify metadata', icon: '🎯', color: '#3b82f6' },
+  { id: 'dejavu', name: 'Dejavu Audio Fingerprint', type: 'Fingerprint Engine', desc: 'Python audio fingerprinting — spectrogram peaks, constellation map, database matching, open source', icon: '🧬', color: '#8b5cf6' },
+  { id: 'bwf-metadata', name: 'BWF MetaEdit', type: 'WAV Metadata', desc: 'Broadcast Wave Format metadata editor — BEXT chunk, iXML, aXML, MD5 checksums, EBU R123 compliant', icon: '📋', color: '#f59e0b' },
+  { id: 'mediainfo', name: 'MediaInfo', type: 'File Analysis', desc: 'Complete audio file analysis — codec, bitrate, sample rate, bit depth, channels, duration, metadata tags', icon: '🔍', color: '#06b6d4' },
+  { id: 'soxi', name: 'SoX / SoXI', type: 'Audio Inspector', desc: 'Sound eXchange info — sample rate, channels, bit depth, encoding, duration, RMS level, DC offset', icon: '📊', color: '#ef4444' },
+  { id: 'kid3', name: 'Kid3 Tag Editor', type: 'Tag Editor', desc: 'Universal audio tag editor — ID3v1/v2, Vorbis, APE, MP4, WAV INFO/BEXT, batch editing, auto-tag from MusicBrainz', icon: '🏷️', color: '#ec4899' },
+  { id: 'loudness-scanner', name: 'Loudness Scanner', type: 'Loudness Analysis', desc: 'EBU R128 / ITU-R BS.1770 loudness measurement — integrated LUFS, true peak, loudness range, short-term', icon: '📏', color: '#a855f7' },
+];
+
+// ═══ DATA: MASTERING ENGINEER WAV METADATA FIELDS ═══
+const WAV_METADATA_FIELDS = [
+  { field: 'Title', tag: 'INAM', desc: 'Track title', example: 'GOAT Force Anthem v2', required: true },
+  { field: 'Artist', tag: 'IART', desc: 'Performing artist', example: 'DJ Speedy ft. Waka Flocka', required: true },
+  { field: 'Album', tag: 'IPRD', desc: 'Album/project name', example: 'GOAT Force Vol. 1', required: true },
+  { field: 'Genre', tag: 'IGNR', desc: 'Music genre', example: 'Hip-Hop/Trap', required: true },
+  { field: 'Date', tag: 'ICRD', desc: 'Creation date', example: '2025-03-01', required: true },
+  { field: 'ISRC', tag: 'ISRC', desc: 'International Standard Recording Code', example: 'US-XX1-25-00001', required: true },
+  { field: 'Publisher', tag: 'ICMS', desc: 'Publishing company', example: 'FASTASSMAN Publishing Inc (ASCAP)', required: true },
+  { field: 'Engineer', tag: 'IENG', desc: 'Mastering engineer', example: 'DJ Speedy / Harvey Miller', required: true },
+  { field: 'BPM', tag: 'IBPM', desc: 'Beats per minute', example: '140', required: false },
+  { field: 'Key', tag: 'IKEY', desc: 'Musical key', example: 'C Minor', required: false },
+  { field: 'Sample Rate', tag: 'fmt', desc: 'Audio sample rate', example: '48000 Hz', required: true },
+  { field: 'Bit Depth', tag: 'fmt', desc: 'Audio bit depth', example: '24-bit', required: true },
+  { field: 'Loudness (LUFS)', tag: 'BEXT', desc: 'Integrated loudness', example: '-14.0 LUFS', required: true },
+  { field: 'True Peak', tag: 'BEXT', desc: 'Maximum true peak level', example: '-1.0 dBTP', required: true },
+  { field: 'Loudness Range', tag: 'BEXT', desc: 'Dynamic range (LRA)', example: '8.2 LU', required: false },
+  { field: 'Copyright', tag: 'ICOP', desc: 'Copyright notice', example: '© 2025 GOAT Force Entertainment', required: true },
+  { field: 'UPC/EAN', tag: 'BEXT', desc: 'Universal Product Code', example: '0123456789012', required: false },
+  { field: 'Originator', tag: 'BEXT', desc: 'BWF originator', example: 'GOAT Royalty App / Sono Production Lab', required: false },
+  { field: 'Coding History', tag: 'BEXT', desc: 'Signal chain history', example: 'A=PCM,F=48000,W=24,M=stereo,T=Sono Lab v2.0', required: false },
+  { field: 'Fingerprint', tag: 'AcoustID', desc: 'Audio fingerprint hash', example: 'AcoustID: a3f8c2d1...', required: false },
 ];
 
 // ═══ DATA: GENERATION PRESETS ═══
@@ -262,6 +355,8 @@ export default function SonoProductionSuite() {
     { id: 'library', label: 'Sounds', icon: FolderOpen },
     { id: 'software', label: 'DAW Tools', icon: Sliders },
     { id: 'stems', label: 'Stem Lab', icon: GitBranch },
+    { id: 'mastering', label: 'Mastering', icon: Crown },
+    { id: 'fingerprint', label: 'Fingerprint', icon: Shield },
     { id: 'mixer', label: 'Mixer', icon: Activity },
     { id: 'assistant', label: 'Sono AI', icon: Brain },
   ];
@@ -378,7 +473,7 @@ export default function SonoProductionSuite() {
             <h1 style={{ fontSize: '22px', fontWeight: '900', margin: 0 }}>
               <span style={{ color: '#8b5cf6' }}>Sono</span> <span style={{ color: '#ec4899' }}>Production Lab</span>
             </h1>
-            <p style={{ fontSize: '11px', color: '#9ca3af', margin: 0 }}>All-In-One DAW • FL Studio • Logic Pro • Ableton • Suno AI • {SONORA_INSTRUMENTS.length} Instruments • {PRODUCTION_SOFTWARE.length} Tools</p>
+            <p style={{ fontSize: '11px', color: '#9ca3af', margin: 0 }}>All-In-One DAW • FL Studio • Logic Pro X • Ableton Live • Avid Pro Tools • Akai MPC • Arturia V Collection • iZotope • {PRODUCTION_SOFTWARE.length} Tools • {STEM_SEPARATORS.length} Stem Separators • {MASTERING_SOFTWARE.length} Mastering Engines</p>
           </div>
         </div>
 
@@ -432,10 +527,10 @@ export default function SonoProductionSuite() {
               {[
                 { label: 'AI Models', value: SUNO_MODELS.length, color: '#8b5cf6', icon: '🤖' },
                 { label: 'Instruments', value: SONORA_INSTRUMENTS.length, color: '#ec4899', icon: '🎻' },
-                { label: 'DAW Tools', value: PRODUCTION_SOFTWARE.length, color: '#06b6d4', icon: '🔧' },
-                { label: 'Presets', value: GENERATION_PRESETS.length, color: '#f59e0b', icon: '🎯' },
-                { label: 'Generated', value: GENERATED_TRACKS.length, color: '#10b981', icon: '🎵' },
-                { label: 'Downloads', value: '580K+', color: '#ef4444', icon: '📥' },
+                { label: 'DAW & Plugins', value: PRODUCTION_SOFTWARE.length, color: '#06b6d4', icon: '🔧' },
+                { label: 'Mastering', value: MASTERING_SOFTWARE.length, color: '#f59e0b', icon: '👑' },
+                { label: 'Stem Separators', value: STEM_SEPARATORS.length, color: '#10b981', icon: '🔀' },
+                { label: 'Fingerprint Tools', value: FINGERPRINT_TOOLS.length, color: '#ef4444', icon: '🔑' },
               ].map((stat, i) => (
                 <div key={i} style={S.panel}>
                   <div style={{ fontSize: '22px', marginBottom: '2px' }}>{stat.icon}</div>
@@ -839,35 +934,65 @@ export default function SonoProductionSuite() {
         )}
 
         {/* ═══ DAW TOOLS TAB ═══ */}
-        {activeTab === 'software' && (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '14px' }}>
-            {PRODUCTION_SOFTWARE.map(sw => (
-              <div key={sw.id} style={{ ...S.panel, position: 'relative', marginBottom: 0, borderColor: `${sw.color}33` }}>
-                {sw.free && <div style={{ position: 'absolute', top: '10px', right: '10px', background: '#10b981', color: 'white', fontSize: '10px', fontWeight: '700', padding: '2px 8px', borderRadius: '5px' }}>FREE</div>}
-                <div style={{ fontSize: '32px', marginBottom: '6px' }}>{sw.icon}</div>
-                <div style={{ fontWeight: '800', fontSize: '18px', marginBottom: '2px', color: sw.color }}>{sw.name}</div>
-                <div style={{ fontSize: '11px', color: '#a78bfa', marginBottom: '6px' }}>v{sw.version} • {sw.type}</div>
-                <p style={{ fontSize: '12px', color: '#d1d5db', marginBottom: '10px', lineHeight: '1.5' }}>{sw.desc}</p>
-                <div style={{ display: 'flex', gap: '4px', marginBottom: '10px' }}>
-                  {sw.platforms.map(p => <span key={p} style={{ background: 'rgba(6,182,212,0.15)', color: '#67e8f9', fontSize: '9px', padding: '2px 7px', borderRadius: '4px', fontWeight: '600' }}>{p}</span>)}
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '11px', marginBottom: '10px' }}>
-                  <span style={{ color: '#fbbf24' }}>⭐ +{sw.rating}</span>
-                  {sw.downloads > 0 && <span style={{ color: '#6b7280' }}>{sw.downloads.toLocaleString()} downloads</span>}
-                </div>
-                <button style={{ width: '100%', padding: '9px', borderRadius: '10px', border: 'none', background: `linear-gradient(135deg, ${sw.color}, ${sw.color}aa)`, color: 'white', cursor: 'pointer', fontWeight: '700', fontSize: '13px' }}>Launch {sw.name}</button>
+        {activeTab === 'software' && (() => {
+          const categories = [
+            { id: 'all', label: 'All Tools', icon: '🔧' },
+            { id: 'daw', label: 'DAWs', icon: '🎹' },
+            { id: 'avid', label: 'Avid', icon: '🎚️' },
+            { id: 'akai', label: 'Akai Pro', icon: '🟥' },
+            { id: 'arturia', label: 'Arturia', icon: '🌈' },
+            { id: 'izotope', label: 'iZotope', icon: '⚛️' },
+            { id: 'synth', label: 'Synths', icon: '🔊' },
+            { id: 'utility', label: 'Utility', icon: '🔍' },
+          ];
+          const [swFilter, setSwFilter] = React.useState('all');
+          const filtered = swFilter === 'all' ? PRODUCTION_SOFTWARE : PRODUCTION_SOFTWARE.filter(s => s.category === swFilter);
+          return (
+            <div>
+              <div style={{ display: 'flex', gap: '6px', marginBottom: '16px', flexWrap: 'wrap' }}>
+                {categories.map(cat => (
+                  <button key={cat.id} onClick={() => setSwFilter(cat.id)} style={{
+                    padding: '7px 14px', borderRadius: '8px', border: swFilter === cat.id ? '2px solid #8b5cf6' : '1px solid rgba(255,255,255,0.1)',
+                    background: swFilter === cat.id ? 'rgba(139,92,246,0.2)' : 'rgba(255,255,255,0.05)', color: swFilter === cat.id ? '#c4b5fd' : '#9ca3af',
+                    cursor: 'pointer', fontWeight: '600', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '4px'
+                  }}>{cat.icon} {cat.label} <span style={{ fontSize: '10px', opacity: 0.6 }}>({cat.id === 'all' ? PRODUCTION_SOFTWARE.length : PRODUCTION_SOFTWARE.filter(s => s.category === cat.id).length})</span></button>
+                ))}
               </div>
-            ))}
-          </div>
-        )}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))', gap: '12px' }}>
+                {filtered.map(sw => (
+                  <div key={sw.id} style={{ ...S.panel, position: 'relative', marginBottom: 0, borderColor: `${sw.color}33` }}>
+                    {sw.free && <div style={{ position: 'absolute', top: '10px', right: '10px', background: '#10b981', color: 'white', fontSize: '9px', fontWeight: '700', padding: '2px 7px', borderRadius: '4px' }}>FREE</div>}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+                      <div style={{ fontSize: '28px' }}>{sw.icon}</div>
+                      <div>
+                        <div style={{ fontWeight: '800', fontSize: '16px', color: sw.color }}>{sw.name}</div>
+                        <div style={{ fontSize: '10px', color: '#a78bfa' }}>v{sw.version} • {sw.type}</div>
+                      </div>
+                    </div>
+                    <p style={{ fontSize: '11px', color: '#d1d5db', marginBottom: '8px', lineHeight: '1.5' }}>{sw.desc}</p>
+                    <div style={{ display: 'flex', gap: '4px', marginBottom: '8px', flexWrap: 'wrap' }}>
+                      {sw.platforms.map(p => <span key={p} style={{ background: 'rgba(6,182,212,0.15)', color: '#67e8f9', fontSize: '8px', padding: '2px 6px', borderRadius: '3px', fontWeight: '600' }}>{p}</span>)}
+                      <span style={{ background: `${sw.color}22`, color: sw.color, fontSize: '8px', padding: '2px 6px', borderRadius: '3px', fontWeight: '600' }}>{sw.category}</span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '10px', marginBottom: '8px' }}>
+                      <span style={{ color: '#fbbf24' }}>⭐ +{sw.rating}</span>
+                      {sw.downloads > 0 && <span style={{ color: '#6b7280' }}>{sw.downloads.toLocaleString()} dl</span>}
+                    </div>
+                    <button style={{ width: '100%', padding: '8px', borderRadius: '8px', border: 'none', background: `linear-gradient(135deg, ${sw.color}, ${sw.color}aa)`, color: 'white', cursor: 'pointer', fontWeight: '700', fontSize: '12px' }}>Launch {sw.name}</button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
 
         {/* ═══ STEM LAB TAB ═══ */}
         {activeTab === 'stems' && (
           <div>
             <div style={S.panelGlow('#06b6d4')}>
-              <h2 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}><GitBranch size={22} style={{ color: '#06b6d4' }} /> AI Stem Separation & Generation</h2>
-              <p style={{ color: '#d1d5db', fontSize: '13px', marginBottom: '14px' }}>Upload any track to separate into stems, or generate new stems from scratch using Suno AI.</p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
+              <h2 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}><GitBranch size={22} style={{ color: '#06b6d4' }} /> AI Stem Separation Lab — {STEM_SEPARATORS.length} Engines</h2>
+              <p style={{ color: '#d1d5db', fontSize: '13px', marginBottom: '14px' }}>The world's best stem separators — from Meta Demucs to iZotope RX, LALAL.AI, and more. Upload any track to separate into up to 10 stems.</p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px', marginBottom: '16px' }}>
                 {['Vocals', 'Drums', 'Bass', 'Melody', 'Synth', 'FX'].map((stem, i) => {
                   const colors = ['#ec4899', '#f59e0b', '#8b5cf6', '#06b6d4', '#10b981', '#ef4444'];
                   return (
@@ -890,12 +1015,190 @@ export default function SonoProductionSuite() {
                 })}
               </div>
             </div>
+
+            {/* Stem Separator Engines */}
+            <div style={S.panel}>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}><Cpu size={16} style={{ color: '#3b82f6' }} /> Stem Separator Engines</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '10px', marginBottom: '16px' }}>
+                {STEM_SEPARATORS.map(sep => (
+                  <div key={sep.id} style={{ background: 'rgba(0,0,0,0.4)', border: `1px solid ${sep.color}33`, borderRadius: '12px', padding: '14px', position: 'relative' }}>
+                    {sep.free && <div style={{ position: 'absolute', top: '8px', right: '8px', background: '#10b981', color: 'white', fontSize: '8px', fontWeight: '700', padding: '2px 6px', borderRadius: '3px' }}>FREE</div>}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                      <span style={{ fontSize: '22px' }}>{sep.icon}</span>
+                      <div>
+                        <div style={{ fontWeight: '700', fontSize: '14px', color: sep.color }}>{sep.name}</div>
+                        <div style={{ fontSize: '9px', color: '#a78bfa' }}>{sep.type} • v{sep.version}</div>
+                      </div>
+                    </div>
+                    <p style={{ fontSize: '10px', color: '#d1d5db', marginBottom: '8px', lineHeight: '1.4' }}>{sep.desc}</p>
+                    <div style={{ display: 'flex', gap: '8px', fontSize: '10px', marginBottom: '8px' }}>
+                      <span style={{ background: `${sep.color}22`, color: sep.color, padding: '2px 6px', borderRadius: '3px' }}>🎚️ {sep.stems} stems</span>
+                      <span style={{ background: 'rgba(255,255,255,0.05)', color: '#9ca3af', padding: '2px 6px', borderRadius: '3px' }}>⚡ {sep.speed}</span>
+                      <span style={{ background: 'rgba(255,255,255,0.05)', color: '#fbbf24', padding: '2px 6px', borderRadius: '3px' }}>⭐ {sep.rating}</span>
+                    </div>
+                    <button style={{ width: '100%', padding: '7px', borderRadius: '8px', border: 'none', background: `linear-gradient(135deg, ${sep.color}, ${sep.color}aa)`, color: 'white', cursor: 'pointer', fontWeight: '700', fontSize: '11px' }}>Use {sep.name}</button>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Upload */}
             <div style={S.panel}>
               <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '14px' }}>Upload Track for Stem Separation</h3>
               <div style={{ border: '2px dashed rgba(139,92,246,0.3)', borderRadius: '12px', padding: '36px', textAlign: 'center', cursor: 'pointer' }}>
                 <Upload size={42} style={{ color: '#8b5cf6', marginBottom: '10px' }} />
                 <p style={{ color: '#d1d5db', fontSize: '14px', fontWeight: '600' }}>Drop audio file here or click to upload</p>
-                <p style={{ color: '#6b7280', fontSize: '11px' }}>Supports WAV, MP3, FLAC, AIFF • Max 50MB</p>
+                <p style={{ color: '#6b7280', fontSize: '11px' }}>Supports WAV, MP3, FLAC, AIFF, OGG • Max 100MB • Processed by Meta Demucs v4</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ═══ MASTERING TAB ═══ */}
+        {activeTab === 'mastering' && (
+          <div>
+            <div style={S.panelGlow('#7c3aed')}>
+              <h2 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}><Crown size={22} style={{ color: '#fbbf24' }} /> Mastering Suite — {MASTERING_SOFTWARE.length} Engines</h2>
+              <p style={{ color: '#d1d5db', fontSize: '13px', marginBottom: '14px' }}>Professional mastering tools from iZotope Ozone, FabFilter, Waves, Sonnox, Brainworx, and LANDR. Everything a mastering engineer needs.</p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '12px', marginBottom: '16px' }}>
+              {MASTERING_SOFTWARE.map(ms => (
+                <div key={ms.id} style={{ background: 'rgba(0,0,0,0.4)', border: `1px solid ${ms.color}33`, borderRadius: '14px', padding: '16px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+                    <span style={{ fontSize: '28px' }}>{ms.icon}</span>
+                    <div>
+                      <div style={{ fontWeight: '800', fontSize: '16px', color: ms.color }}>{ms.name}</div>
+                      <div style={{ fontSize: '10px', color: '#a78bfa' }}>v{ms.version} • {ms.type}</div>
+                    </div>
+                    <div style={{ marginLeft: 'auto', fontSize: '10px', color: '#fbbf24' }}>⭐ {ms.rating}</div>
+                  </div>
+                  <p style={{ fontSize: '11px', color: '#d1d5db', marginBottom: '10px', lineHeight: '1.4' }}>{ms.desc}</p>
+                  <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginBottom: '10px' }}>
+                    {ms.features.map(f => (
+                      <span key={f} style={{ background: `${ms.color}15`, color: ms.color, fontSize: '8px', padding: '2px 6px', borderRadius: '3px', fontWeight: '600' }}>{f}</span>
+                    ))}
+                  </div>
+                  <button style={{ width: '100%', padding: '8px', borderRadius: '8px', border: 'none', background: `linear-gradient(135deg, ${ms.color}, ${ms.color}aa)`, color: 'white', cursor: 'pointer', fontWeight: '700', fontSize: '12px' }}>Launch {ms.name}</button>
+                </div>
+              ))}
+            </div>
+
+            {/* Mastering Signal Chain */}
+            <div style={S.panel}>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}><Zap size={16} style={{ color: '#f59e0b' }} /> Recommended Mastering Chain — DJ Speedy</h3>
+              <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '8px' }}>
+                {[
+                  { step: '1', name: 'Pro-Q 3', desc: 'Surgical EQ — cut resonances, shape tone', color: '#f59e0b', icon: '📈' },
+                  { step: '2', name: 'Pro-C 2', desc: 'Glue compression — 2-4dB gain reduction', color: '#06b6d4', icon: '🔧' },
+                  { step: '3', name: 'Pro-MB', desc: 'Multiband — tame low end, control dynamics', color: '#8b5cf6', icon: '🎚️' },
+                  { step: '4', name: 'Ozone Stabilizer', desc: 'Spectral shaping — consistent tonal balance', color: '#7c3aed', icon: '⚖️' },
+                  { step: '5', name: 'Ozone Maximizer', desc: 'True peak limiting — -14 LUFS target', color: '#7c3aed', icon: '📏' },
+                  { step: '6', name: 'Tonal Balance', desc: 'Final check — genre reference comparison', color: '#7c3aed', icon: '✅' },
+                ].map(chain => (
+                  <div key={chain.step} style={{ minWidth: '150px', background: 'rgba(0,0,0,0.4)', border: `1px solid ${chain.color}33`, borderRadius: '10px', padding: '12px', textAlign: 'center', flexShrink: 0 }}>
+                    <div style={{ fontSize: '20px', marginBottom: '4px' }}>{chain.icon}</div>
+                    <div style={{ background: chain.color, color: 'white', width: '22px', height: '22px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: '900', margin: '0 auto 4px' }}>{chain.step}</div>
+                    <div style={{ fontWeight: '700', fontSize: '12px', color: chain.color }}>{chain.name}</div>
+                    <div style={{ fontSize: '9px', color: '#9ca3af', marginTop: '2px' }}>{chain.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ═══ FINGERPRINT & WAV METADATA TAB ═══ */}
+        {activeTab === 'fingerprint' && (
+          <div>
+            <div style={S.panelGlow('#10b981')}>
+              <h2 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}><Shield size={22} style={{ color: '#10b981' }} /> Audio Fingerprinting & WAV Metadata</h2>
+              <p style={{ color: '#d1d5db', fontSize: '13px', marginBottom: '14px' }}>Professional mastering engineer tools — audio fingerprinting, WAV metadata embedding, ISRC codes, loudness measurement, and broadcast-ready file preparation.</p>
+            </div>
+
+            {/* Fingerprint Tools */}
+            <div style={S.panel}>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}><Lock size={16} style={{ color: '#10b981' }} /> Fingerprint & Analysis Tools</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '10px', marginBottom: '16px' }}>
+                {FINGERPRINT_TOOLS.map(tool => (
+                  <div key={tool.id} style={{ background: 'rgba(0,0,0,0.4)', border: `1px solid ${tool.color}33`, borderRadius: '12px', padding: '14px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                      <span style={{ fontSize: '22px' }}>{tool.icon}</span>
+                      <div>
+                        <div style={{ fontWeight: '700', fontSize: '14px', color: tool.color }}>{tool.name}</div>
+                        <div style={{ fontSize: '9px', color: '#a78bfa' }}>{tool.type}</div>
+                      </div>
+                    </div>
+                    <p style={{ fontSize: '10px', color: '#d1d5db', lineHeight: '1.4', marginBottom: '8px' }}>{tool.desc}</p>
+                    <button style={{ width: '100%', padding: '7px', borderRadius: '8px', border: 'none', background: `linear-gradient(135deg, ${tool.color}, ${tool.color}aa)`, color: 'white', cursor: 'pointer', fontWeight: '700', fontSize: '11px' }}>Launch {tool.name}</button>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* WAV Metadata Editor */}
+            <div style={S.panel}>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}><FileAudio size={16} style={{ color: '#f59e0b' }} /> WAV Metadata Editor — Mastering Engineer Standard</h3>
+              <p style={{ color: '#9ca3af', fontSize: '11px', marginBottom: '14px' }}>Embed professional metadata into your WAV files — BWF/BEXT compliant, ISRC codes, loudness data, copyright, and audio fingerprints for distribution.</p>
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '11px' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
+                      <th style={{ textAlign: 'left', padding: '8px', color: '#a78bfa', fontWeight: '700' }}>Field</th>
+                      <th style={{ textAlign: 'left', padding: '8px', color: '#a78bfa', fontWeight: '700' }}>Tag</th>
+                      <th style={{ textAlign: 'left', padding: '8px', color: '#a78bfa', fontWeight: '700' }}>Description</th>
+                      <th style={{ textAlign: 'left', padding: '8px', color: '#a78bfa', fontWeight: '700' }}>Value</th>
+                      <th style={{ textAlign: 'center', padding: '8px', color: '#a78bfa', fontWeight: '700' }}>Req</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {WAV_METADATA_FIELDS.map((meta, i) => (
+                      <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', background: i % 2 === 0 ? 'rgba(0,0,0,0.2)' : 'transparent' }}>
+                        <td style={{ padding: '7px 8px', fontWeight: '600', color: '#d1d5db' }}>{meta.field}</td>
+                        <td style={{ padding: '7px 8px', color: '#06b6d4', fontFamily: 'monospace', fontSize: '10px' }}>{meta.tag}</td>
+                        <td style={{ padding: '7px 8px', color: '#9ca3af' }}>{meta.desc}</td>
+                        <td style={{ padding: '7px 8px' }}>
+                          <input defaultValue={meta.example} style={{ width: '100%', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', color: '#fbbf24', padding: '4px 6px', fontSize: '10px', outline: 'none', fontFamily: 'monospace', boxSizing: 'border-box' }} />
+                        </td>
+                        <td style={{ padding: '7px 8px', textAlign: 'center' }}>
+                          {meta.required ? <Check size={12} style={{ color: '#10b981' }} /> : <span style={{ color: '#6b7280' }}>—</span>}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div style={{ display: 'flex', gap: '10px', marginTop: '14px', justifyContent: 'flex-end' }}>
+                <button style={{ padding: '8px 16px', borderRadius: '8px', border: 'none', background: 'rgba(255,255,255,0.1)', color: '#9ca3af', cursor: 'pointer', fontWeight: '600', fontSize: '12px' }}>🔍 Scan File</button>
+                <button style={{ padding: '8px 16px', borderRadius: '8px', border: 'none', background: 'rgba(255,255,255,0.1)', color: '#9ca3af', cursor: 'pointer', fontWeight: '600', fontSize: '12px' }}>🔑 Generate Fingerprint</button>
+                <button style={{ padding: '8px 16px', borderRadius: '8px', border: 'none', background: 'rgba(255,255,255,0.1)', color: '#9ca3af', cursor: 'pointer', fontWeight: '600', fontSize: '12px' }}>📊 Measure Loudness</button>
+                <button style={{ padding: '8px 16px', borderRadius: '8px', border: 'none', background: 'linear-gradient(135deg, #10b981, #059669)', color: 'white', cursor: 'pointer', fontWeight: '700', fontSize: '12px' }}>💾 Embed Metadata & Export</button>
+              </div>
+            </div>
+
+            {/* Loudness Standards */}
+            <div style={S.panel}>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}><BarChart3 size={16} style={{ color: '#ec4899' }} /> Loudness Standards Reference</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '8px' }}>
+                {[
+                  { platform: 'Spotify', lufs: '-14.0', peak: '-1.0 dBTP', color: '#1DB954', icon: '🟢' },
+                  { platform: 'Apple Music', lufs: '-16.0', peak: '-1.0 dBTP', color: '#fc3c44', icon: '🍎' },
+                  { platform: 'YouTube', lufs: '-14.0', peak: '-1.0 dBTP', color: '#ff0000', icon: '▶️' },
+                  { platform: 'Tidal', lufs: '-14.0', peak: '-1.0 dBTP', color: '#000000', icon: '🌊' },
+                  { platform: 'Amazon Music', lufs: '-14.0', peak: '-2.0 dBTP', color: '#25d1da', icon: '📦' },
+                  { platform: 'SoundCloud', lufs: '-14.0', peak: '-1.0 dBTP', color: '#ff5500', icon: '☁️' },
+                  { platform: 'CD Master', lufs: '-9.0 to -12.0', peak: '-0.3 dBTP', color: '#c0c0c0', icon: '💿' },
+                  { platform: 'Broadcast (EBU R128)', lufs: '-23.0', peak: '-1.0 dBTP', color: '#3b82f6', icon: '📺' },
+                ].map(std => (
+                  <div key={std.platform} style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', padding: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '18px' }}>{std.icon}</span>
+                    <div>
+                      <div style={{ fontWeight: '700', fontSize: '12px', color: '#d1d5db' }}>{std.platform}</div>
+                      <div style={{ fontSize: '10px', color: '#fbbf24' }}>{std.lufs} LUFS</div>
+                      <div style={{ fontSize: '9px', color: '#6b7280' }}>Peak: {std.peak}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -992,7 +1295,7 @@ export default function SonoProductionSuite() {
 
       {/* ═══ FOOTER ═══ */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '12px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '11px', color: '#6b7280', flexWrap: 'wrap', gap: '8px' }}>
-        <span>🎹 Sono Production Lab v2.0 — All-In-One DAW • GOAT Royalty</span>
+        <span>🎹 Sono Production Lab v3.0 — All-In-One DAW • {PRODUCTION_SOFTWARE.length} Tools • {MASTERING_SOFTWARE.length} Mastering Engines • {STEM_SEPARATORS.length} Stem Separators</span>
         <span>© 2025 Harvey Miller / DJ Speedy / FASTASSMAN Publishing Inc • GOAT Force Entertainment</span>
         <span style={{ color: '#10b981' }}>● All Systems Operational</span>
       </div>
