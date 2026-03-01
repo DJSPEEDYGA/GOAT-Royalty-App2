@@ -137,6 +137,9 @@ const EnhancedLandingPage = () => {
                 <a href="/sendme-network" className="text-cyan-400 hover:text-cyan-300 transition-colors font-semibold">
                   📡 SendMe P2P
                 </a>
+                <a href="/upstaxx" className="text-green-400 hover:text-green-300 transition-colors font-semibold">
+                  💰 UpStaxx Tax
+                </a>
                 <a href="/fingerprint-auth" className="text-white/80 hover:text-white transition-colors">
                   Security
                 </a>
