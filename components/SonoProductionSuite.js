@@ -278,6 +278,167 @@ const ARRANGEMENT_MARKERS = [
 // ═══════════════════════════════════════════════════════════════
 // ═══ MAIN COMPONENT ═══
 // ═══════════════════════════════════════════════════════════════
+// ═══ WEB AUDIO ENGINE ═══
+let audioCtx = null;
+const getAudioCtx = () => {
+  if (!audioCtx || audioCtx.state === 'closed') {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+};
+
+// Note frequency lookup
+const NOTE_FREQ = {};
+(() => {
+  const noteNames = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+  for (let oct = 0; oct <= 8; oct++) {
+    noteNames.forEach((n, i) => {
+      const midi = (oct + 1) * 12 + i;
+      NOTE_FREQ[`${n}${oct}`] = 440 * Math.pow(2, (midi - 69) / 12);
+    });
+  }
+})();
+
+// Drum synthesis via Web Audio API
+function playKick(ctx, vol = 0.8) {
+  const t = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(150, t);
+  osc.frequency.exponentialRampToValueAtTime(30, t + 0.15);
+  gain.gain.setValueAtTime(vol, t);
+  gain.gain.exponentialRampToValueAtTime(0.001, t + 0.35);
+  osc.connect(gain); gain.connect(ctx.destination);
+  osc.start(t); osc.stop(t + 0.35);
+}
+
+function playSnare(ctx, vol = 0.6) {
+  const t = ctx.currentTime;
+  // Noise burst
+  const bufSize = ctx.sampleRate * 0.12;
+  const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < bufSize; i++) data[i] = (Math.random() * 2 - 1) * vol;
+  const noise = ctx.createBufferSource();
+  noise.buffer = buf;
+  const nGain = ctx.createGain();
+  nGain.gain.setValueAtTime(vol, t);
+  nGain.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
+  const filt = ctx.createBiquadFilter();
+  filt.type = 'highpass'; filt.frequency.value = 1000;
+  noise.connect(filt); filt.connect(nGain); nGain.connect(ctx.destination);
+  noise.start(t); noise.stop(t + 0.12);
+  // Body tone
+  const osc = ctx.createOscillator();
+  const oGain = ctx.createGain();
+  osc.type = 'triangle'; osc.frequency.value = 200;
+  oGain.gain.setValueAtTime(vol * 0.7, t);
+  oGain.gain.exponentialRampToValueAtTime(0.001, t + 0.08);
+  osc.connect(oGain); oGain.connect(ctx.destination);
+  osc.start(t); osc.stop(t + 0.08);
+}
+
+function playClap(ctx, vol = 0.5) {
+  const t = ctx.currentTime;
+  for (let i = 0; i < 3; i++) {
+    const offset = i * 0.01;
+    const bufSize = ctx.sampleRate * 0.04;
+    const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let j = 0; j < bufSize; j++) data[j] = (Math.random() * 2 - 1) * vol;
+    const noise = ctx.createBufferSource();
+    noise.buffer = buf;
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(vol * 0.8, t + offset);
+    gain.gain.exponentialRampToValueAtTime(0.001, t + offset + 0.08);
+    const filt = ctx.createBiquadFilter();
+    filt.type = 'bandpass'; filt.frequency.value = 2500; filt.Q.value = 3;
+    noise.connect(filt); filt.connect(gain); gain.connect(ctx.destination);
+    noise.start(t + offset); noise.stop(t + offset + 0.08);
+  }
+}
+
+function playHiHat(ctx, vol = 0.3, open = false) {
+  const t = ctx.currentTime;
+  const dur = open ? 0.2 : 0.06;
+  const bufSize = ctx.sampleRate * dur;
+  const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < bufSize; i++) data[i] = (Math.random() * 2 - 1) * vol;
+  const noise = ctx.createBufferSource();
+  noise.buffer = buf;
+  const gain = ctx.createGain();
+  gain.gain.setValueAtTime(vol, t);
+  gain.gain.exponentialRampToValueAtTime(0.001, t + dur);
+  const filt = ctx.createBiquadFilter();
+  filt.type = 'highpass'; filt.frequency.value = 7000;
+  noise.connect(filt); filt.connect(gain); gain.connect(ctx.destination);
+  noise.start(t); noise.stop(t + dur);
+}
+
+function playSynth(ctx, freq = 55, vol = 0.5, type = 'sine', dur = 0.3) {
+  const t = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, t);
+  gain.gain.setValueAtTime(vol, t);
+  gain.gain.setValueAtTime(vol, t + dur * 0.7);
+  gain.gain.exponentialRampToValueAtTime(0.001, t + dur);
+  osc.connect(gain); gain.connect(ctx.destination);
+  osc.start(t); osc.stop(t + dur);
+}
+
+function playNote(noteName, vol = 0.4, dur = 0.3) {
+  try {
+    const ctx = getAudioCtx();
+    const freq = NOTE_FREQ[noteName] || 440;
+    playSynth(ctx, freq, vol, 'triangle', dur);
+  } catch(e) { /* silent fail */ }
+}
+
+function playChannelSound(channel, bpm = 140) {
+  try {
+    const ctx = getAudioCtx();
+    const vol = (channel.volume / 100) * 0.8;
+    if (channel.muted) return;
+    const stepDur = 60 / bpm / 4;
+    const name = channel.name.toLowerCase();
+    if (name.includes('kick') || name.includes('808 sub')) {
+      playKick(ctx, vol);
+    } else if (name.includes('snare')) {
+      playSnare(ctx, vol);
+    } else if (name.includes('clap')) {
+      playClap(ctx, vol);
+    } else if (name.includes('hat open') || name.includes('open')) {
+      playHiHat(ctx, vol, true);
+    } else if (name.includes('hat') || name.includes('hi-hat')) {
+      playHiHat(ctx, vol, false);
+    } else if (name.includes('melody')) {
+      const notes = [261.6, 329.6, 392, 440, 523.3];
+      playSynth(ctx, notes[Math.floor(Math.random() * notes.length)], vol * 0.5, 'sawtooth', stepDur * 0.8);
+    } else if (name.includes('pad') || name.includes('atmosphere')) {
+      playSynth(ctx, 130.8, vol * 0.3, 'sine', stepDur * 2);
+    } else if (name.includes('vocal')) {
+      playSynth(ctx, 440 + Math.random() * 200, vol * 0.3, 'sine', 0.1);
+    } else if (name.includes('fx') || name.includes('riser')) {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(200, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(2000, ctx.currentTime + stepDur);
+      gain.gain.setValueAtTime(vol * 0.3, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + stepDur);
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + stepDur);
+    } else {
+      playSynth(ctx, 220, vol * 0.4, 'square', stepDur * 0.5);
+    }
+  } catch(e) { /* silent fail */ }
+}
+
 export default function SonoProductionSuite() {
   // ─── Global State ───
   const [activeTab, setActiveTab] = useState('studio');
@@ -361,13 +522,33 @@ export default function SonoProductionSuite() {
     { id: 'assistant', label: 'Sono AI', icon: Brain },
   ];
 
-  // ═══ GLOBAL PLAYBACK ═══
+  // ═══ GLOBAL PLAYBACK WITH AUDIO ═══
+  const channelsRef = useRef(channels);
+  useEffect(() => { channelsRef.current = channels; }, [channels]);
+
   useEffect(() => {
     if (isGlobalPlaying) {
+      // Initialize audio context on first play (requires user gesture)
+      try { getAudioCtx(); } catch(e) {}
       const stepTime = (60000 / globalBpm) / 4;
       globalPlayRef.current = setInterval(() => {
         setGlobalPlayhead(prev => (prev + 1) % 128);
-        setSeqStep(prev => (prev + 1) % 32);
+        setSeqStep(prev => {
+          const nextStep = (prev + 1) % 32;
+          // Play audio for active steps
+          try {
+            const currentChannels = channelsRef.current;
+            const hasSolo = currentChannels.some(ch => ch.solo);
+            currentChannels.forEach(ch => {
+              if (ch.muted) return;
+              if (hasSolo && !ch.solo) return;
+              if (ch.pattern && ch.pattern[nextStep]) {
+                playChannelSound(ch, globalBpm);
+              }
+            });
+          } catch(e) { /* silent fail */ }
+          return nextStep;
+        });
       }, stepTime);
     } else {
       clearInterval(globalPlayRef.current);
@@ -665,12 +846,16 @@ export default function SonoProductionSuite() {
                   const isBlack = note.includes('#');
                   const isC = note.startsWith('C') && !note.includes('#');
                   return (
-                    <div key={note} style={{
+                    <div key={note} onClick={() => playNote(note, 0.5, 0.4)} style={{
                       height: '16px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: '4px',
                       background: isBlack ? 'rgba(0,0,0,0.8)' : 'rgba(30,30,50,0.6)',
                       borderBottom: isC ? '1px solid rgba(139,92,246,0.4)' : '1px solid rgba(255,255,255,0.03)',
-                      fontSize: '8px', color: isC ? '#a78bfa' : '#4b5563', fontWeight: isC ? '700' : '400'
-                    }}>{note}</div>
+                      fontSize: '8px', color: isC ? '#a78bfa' : '#4b5563', fontWeight: isC ? '700' : '400',
+                      cursor: 'pointer', transition: 'background 0.1s'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.background = isBlack ? 'rgba(139,92,246,0.4)' : 'rgba(139,92,246,0.2)'}
+                    onMouseLeave={(e) => e.currentTarget.style.background = isBlack ? 'rgba(0,0,0,0.8)' : 'rgba(30,30,50,0.6)'}
+                    >{note}</div>
                   );
                 })}
               </div>
@@ -752,9 +937,9 @@ export default function SonoProductionSuite() {
                     <div key={ch.id} style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)', opacity: isActive ? 1 : 0.35, transition: 'opacity 0.2s' }}>
                       <div onClick={() => setSelectedChannel(ch.id === selectedChannel ? null : ch.id)} style={{ width: '180px', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '6px', padding: '5px 8px', cursor: 'pointer' }}>
                         <div style={{ width: '3px', height: '24px', borderRadius: '2px', background: ch.color, flexShrink: 0 }} />
-                        <span style={{ fontSize: '14px' }}>{ch.icon}</span>
+                        <span style={{ fontSize: '14px', cursor: 'pointer' }} onClick={(e) => { e.stopPropagation(); playChannelSound(ch, globalBpm); }} title="Click to preview sound">{ch.icon}</span>
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <div style={{ fontSize: '11px', fontWeight: '600', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{ch.name}</div>
+                          <div style={{ fontSize: '11px', fontWeight: '600', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', cursor: 'pointer' }} onClick={(e) => { e.stopPropagation(); playChannelSound(ch, globalBpm); }} title="Click to preview">{ch.name}</div>
                           <div style={{ fontSize: '8px', color: '#6b7280' }}>{ch.type} • {ch.volume}%</div>
                         </div>
                         <button onClick={e => { e.stopPropagation(); setChannels(p => p.map(c => c.id === ch.id ? { ...c, muted: !c.muted } : c)); }} style={{ width: '18px', height: '18px', borderRadius: '3px', border: 'none', fontSize: '7px', fontWeight: '700', background: ch.muted ? '#ef4444' : 'rgba(255,255,255,0.1)', color: ch.muted ? 'white' : '#6b7280', cursor: 'pointer' }}>M</button>
