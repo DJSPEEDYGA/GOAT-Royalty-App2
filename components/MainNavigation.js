@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { 
   Crown, Home, BarChart3, Music, DollarSign, Globe, Shield, 
   Video, Sparkles, Cpu, Shirt, Zap, Users, FileText, Camera,
-  Headphones, TrendingUp, Package
+  Headphones, TrendingUp, Package, Calendar, Monitor, Mic
 } from 'lucide-react';
 
 const MainNavigation = () => {
@@ -62,8 +62,16 @@ const MainNavigation = () => {
       title: 'Technology',
       items: [
         { name: 'NVIDIA DGX', href: '/nvidia-dgx', icon: Cpu },
+        { name: 'Unreal Engine', href: '/unreal-engine', icon: Monitor },
         { name: 'MS Vanessa', href: '/ms-vanessa', icon: Shield },
         { name: 'GOAT Branding', href: '/goat-branding-demo', icon: Crown }
+      ]
+    },
+    {
+      title: 'Booking',
+      items: [
+        { name: 'Concert Booking', href: '/concert-booking', icon: Mic },
+        { name: 'Investor Demo', href: '/investor-demo', icon: TrendingUp }
       ]
     }
   ];
