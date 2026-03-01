@@ -125,6 +125,9 @@ const EnhancedLandingPage = () => {
                 <a href="/openclaw" className="text-red-400 hover:text-red-300 transition-colors font-semibold">
                   🦞 OpenClaw AI
                 </a>
+                <a href="/cyber-warrior" className="text-red-500 hover:text-red-400 transition-colors font-semibold">
+                  🛡️ CyberWarrior
+                </a>
                 <a href="/fingerprint-auth" className="text-white/80 hover:text-white transition-colors">
                   Security
                 </a>
