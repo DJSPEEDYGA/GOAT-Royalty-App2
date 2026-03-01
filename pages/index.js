@@ -128,6 +128,15 @@ const EnhancedLandingPage = () => {
                 <a href="/cyber-warrior" className="text-red-500 hover:text-red-400 transition-colors font-semibold">
                   🛡️ CyberWarrior
                 </a>
+                <a href="/music-player" className="text-purple-400 hover:text-purple-300 transition-colors font-semibold">
+                  🎵 Player
+                </a>
+                <a href="/royalty-engine" className="text-emerald-400 hover:text-emerald-300 transition-colors font-semibold">
+                  💰 Royalties
+                </a>
+                <a href="/sendme-network" className="text-cyan-400 hover:text-cyan-300 transition-colors font-semibold">
+                  📡 SendMe P2P
+                </a>
                 <a href="/fingerprint-auth" className="text-white/80 hover:text-white transition-colors">
                   Security
                 </a>
