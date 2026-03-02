@@ -174,3 +174,28 @@ Download the latest desktop app from [GitHub Releases](https://github.com/DJSPEE
 ---
 
 *Built with 🐐 energy by DJ Speedy & the GOAT Royalty team*
+---
+
+## 🔧 Claude Code Installer (Multi-Platform)
+
+Included in the `claude-installer/` directory is a professional-grade, multi-platform installer for **Claude Code CLI** — Anthropic's AI coding assistant.
+
+### Features
+- **Enhanced Shell Installer** (991 lines) with 30+ improvements: retry logic, progress bars, colored output, proxy support, file logging, and 15+ CLI flags
+- **Windows**: NSIS `.exe` installer + PowerShell script
+- **macOS**: `.dmg` builder with `.app` bundle
+- **Linux**: `.deb` package builder (amd64 + arm64)
+- **Portable**: Cross-platform archive builder
+
+### Quick Install (Linux/macOS)
+```bash
+bash claude-installer/scripts/install-claude.sh
+```
+
+### Build All Packages
+```bash
+cd claude-installer && bash build.sh --all
+```
+
+See [`claude-installer/README.md`](claude-installer/README.md) for full documentation.
+
