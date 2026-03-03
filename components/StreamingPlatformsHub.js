@@ -3,7 +3,6 @@
  * Complete integration for Spotify, Apple Music, YouTube, TikTok, etc.
  */
 
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Music, Play, Youtube, TrendingUp, DollarSign, Users, Eye, Heart } from 'lucide-react';
 

@@ -7,7 +7,6 @@
  * a Grammy-winning producer's brain.
  */
 
-import '../styles/globals.css';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { 
   Send, Bot, User, Sparkles, Crown, Music, DollarSign, Shield, 

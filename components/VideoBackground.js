@@ -3,7 +3,6 @@
  * Creates stunning video backgrounds with audio visualization
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize, Minimize } from 'lucide-react';
 

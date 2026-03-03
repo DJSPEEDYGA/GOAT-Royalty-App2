@@ -4,7 +4,6 @@
  * Fallback gradient is vibrant enough to look great without video
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect, useRef } from 'react';
 
 const EnhancedVideoBackground = ({ 

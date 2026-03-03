@@ -3,7 +3,6 @@
  * E-commerce platform for GOAT Force branded merchandise
  */
 
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { ShoppingBag, Shirt, Star, TrendingUp, DollarSign, Package, Truck, CreditCard } from 'lucide-react';
 

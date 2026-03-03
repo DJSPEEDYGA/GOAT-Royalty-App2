@@ -7,7 +7,6 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
-import '../styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Brain, MessageSquare, Terminal, Settings, Download, Play, 

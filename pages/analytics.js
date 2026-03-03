@@ -3,7 +3,6 @@
  * Displays streaming analytics and performance metrics
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { 
   BarChart3, 

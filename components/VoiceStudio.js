@@ -4,7 +4,6 @@
  * Uses Web Speech API for browser-native voice capabilities
  */
 
-import '../styles/globals.css';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { 
   Play, Pause, Square, Mic, MicOff, Volume2, VolumeX, 

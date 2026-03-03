@@ -3,7 +3,6 @@
  * Real-time AI-powered royalty analysis and insights
  */
 
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Brain, Sparkles, TrendingUp, AlertCircle, CheckCircle, Zap } from 'lucide-react';
 

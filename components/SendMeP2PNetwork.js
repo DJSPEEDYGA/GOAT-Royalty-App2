@@ -12,7 +12,6 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   Radio, Wifi, WifiOff, Send, Download, Upload, FileText,

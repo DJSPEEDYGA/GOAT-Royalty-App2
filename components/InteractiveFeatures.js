@@ -3,7 +3,6 @@
  * Advanced interactive elements and gamification
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Trophy, 

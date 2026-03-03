@@ -3,7 +3,6 @@
  * Smart and loyal AI assistant powered by OpenAI GPT-4
  */
 
-import '../styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Sparkles, Crown, Music, DollarSign, Shield, TrendingUp } from 'lucide-react';
 

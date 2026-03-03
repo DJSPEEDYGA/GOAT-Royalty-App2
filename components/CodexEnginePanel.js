@@ -3,7 +3,6 @@
  * Real-time monitoring across all platforms
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Globe, Activity, DollarSign, AlertTriangle, CheckCircle, Radio } from 'lucide-react';
 

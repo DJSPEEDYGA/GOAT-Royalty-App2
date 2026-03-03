@@ -3,7 +3,6 @@
  * Real-time audio visualization with multiple effects
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, Zap, Music, Waves } from 'lucide-react';
 

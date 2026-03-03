@@ -3,7 +3,6 @@
  * Real-time video capture, editing, and production tools
  */
 
-import '../styles/globals.css';
 import React, { useState, useRef } from 'react';
 import { Video, Camera, Play, Pause, Square, Download, Upload, Film, Zap, Settings, Eye, Clock } from 'lucide-react';
 

@@ -1,4 +1,3 @@
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Search, Filter, Star, TrendingUp, Zap, Download, ExternalLink, ShoppingCart, DollarSign } from 'lucide-react';
 

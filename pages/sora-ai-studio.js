@@ -3,7 +3,6 @@
  * Text-to-video, image-to-video, and AI video creation
  */
 
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Sparkles, Video, Wand2, Image, Type, Zap, Download, Play, RefreshCw } from 'lucide-react';
 

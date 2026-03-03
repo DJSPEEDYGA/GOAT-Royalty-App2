@@ -3,7 +3,6 @@
  * Real-time monitoring and enforcement
  */
 
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Zap, Shield, Target, AlertTriangle, TrendingUp, Eye } from 'lucide-react';
 

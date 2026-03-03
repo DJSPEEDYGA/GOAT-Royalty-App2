@@ -3,7 +3,6 @@
  * GPU-accelerated AI computing and processing
  */
 
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Cpu, Zap, Activity, TrendingUp, Server, Cloud, Gauge, AlertCircle } from 'lucide-react';
 

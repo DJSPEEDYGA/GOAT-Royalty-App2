@@ -3,7 +3,6 @@
  * Stripe integration, payouts, and financial management
  */
 
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { DollarSign, CreditCard, TrendingUp, Users, Calendar, CheckCircle, Clock, AlertCircle, Download, Send } from 'lucide-react';
 

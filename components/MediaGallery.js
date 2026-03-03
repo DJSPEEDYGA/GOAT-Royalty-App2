@@ -3,7 +3,6 @@
  * Interactive gallery with custom videos and images
  */
 
-import '../styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize, Heart, Share2, Download, ChevronLeft, ChevronRight } from 'lucide-react';
 

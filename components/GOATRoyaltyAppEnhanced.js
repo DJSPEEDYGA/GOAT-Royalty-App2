@@ -1,5 +1,4 @@
 // Enhanced GOAT Royalty App with NVIDIA DGX Cloud Integration
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';

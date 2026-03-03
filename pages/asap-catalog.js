@@ -3,7 +3,6 @@
  * Displays Harvey Miller's comprehensive ASCAP publishing catalog
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { 
   Music, 

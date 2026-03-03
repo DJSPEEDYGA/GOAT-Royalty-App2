@@ -3,7 +3,6 @@
  * Red/Black branded loading animation with GOAT logo
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 
 const LoadingScreen = () => {

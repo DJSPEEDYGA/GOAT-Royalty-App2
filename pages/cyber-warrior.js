@@ -5,7 +5,6 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
-import '../styles/globals.css';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useState } from 'react';

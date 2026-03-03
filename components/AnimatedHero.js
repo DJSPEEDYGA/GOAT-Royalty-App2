@@ -3,7 +3,6 @@
  * Red/Black/Gold branded hero with GOAT logo and particle effects
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Play, Sparkles, TrendingUp, Music, DollarSign } from 'lucide-react';
 

@@ -3,7 +3,6 @@
  * Advanced biometric security using browser fingerprinting
  */
 
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Fingerprint, Shield, CheckCircle, Lock, Monitor } from 'lucide-react';
 

@@ -1,5 +1,4 @@
 // Google Gemini AI Copilot Component
-import '../styles/globals.css';
 import { useState, useRef, useEffect } from 'react'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { 

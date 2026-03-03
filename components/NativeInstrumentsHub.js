@@ -1,4 +1,3 @@
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Music, Download, ExternalLink, Star, ShoppingCart, DollarSign, Package, Zap } from 'lucide-react';
 

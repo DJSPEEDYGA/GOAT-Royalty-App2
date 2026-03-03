@@ -1,5 +1,4 @@
 // Tracks Management Page
-import '../styles/globals.css';
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useAuth } from '../components/AuthProvider'

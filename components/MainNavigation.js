@@ -3,7 +3,6 @@
  * Complete navigation for all GOAT Force pages
  */
 
-import '../styles/globals.css';
 import React from 'react';
 import Link from 'next/link';
 import { 

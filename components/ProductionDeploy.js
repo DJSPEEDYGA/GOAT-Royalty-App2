@@ -3,7 +3,6 @@
  * Production readiness and deployment configuration
  */
 
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { 
   Rocket, 

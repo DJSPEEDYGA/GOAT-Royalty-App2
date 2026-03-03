@@ -3,7 +3,6 @@
  * Integrates multiple music streaming services
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { 
   Play, 

@@ -5,7 +5,6 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import {
   DollarSign, TrendingUp, TrendingDown, BarChart3, PieChart,

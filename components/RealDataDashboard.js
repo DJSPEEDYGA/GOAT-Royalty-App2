@@ -3,7 +3,6 @@
  * Displays actual royalty data from FASTASSMAN and Harvey Miller catalogs
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { 
   Music, 

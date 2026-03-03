@@ -1,5 +1,4 @@
 // Login Page
-import '../styles/globals.css';
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useAuth } from '../components/AuthProvider'

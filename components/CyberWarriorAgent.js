@@ -11,7 +11,6 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   Shield, ShieldAlert, ShieldCheck, ShieldOff, Skull, Swords, Eye, EyeOff,

@@ -3,7 +3,6 @@
  * Copyright © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST. All rights reserved.
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Search, Music, DollarSign, TrendingUp } from 'lucide-react';
 

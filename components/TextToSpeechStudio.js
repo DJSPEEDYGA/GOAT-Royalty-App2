@@ -1,4 +1,3 @@
-import '../styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Download, Volume2, Settings, Mic, Zap, Globe, User } from 'lucide-react';
 

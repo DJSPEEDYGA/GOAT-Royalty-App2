@@ -3,7 +3,6 @@
  * Impressive metrics and visualizations for investor presentation
  */
 
-import '../styles/globals.css';
 import React from 'react';
 import { TrendingUp, DollarSign, Users, Globe, Zap, Crown, BarChart3, PieChart } from 'lucide-react';
 

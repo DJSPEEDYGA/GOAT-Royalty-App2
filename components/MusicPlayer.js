@@ -3,7 +3,6 @@
  * Professional music player with visual effects and controls
  */
 
-import '../styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Play, 

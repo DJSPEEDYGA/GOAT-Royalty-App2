@@ -1,5 +1,4 @@
 // Protected Route Component
-import '../styles/globals.css';
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useAuth } from './AuthProvider'

@@ -16,7 +16,6 @@
  * For licensing inquiries, contact: contact@goatroyaltyapp.com
  */
 
-import '../styles/globals.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

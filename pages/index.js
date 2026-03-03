@@ -3,7 +3,6 @@
  * Stunning visual effects with video backgrounds and audio
  */
 
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { 

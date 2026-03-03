@@ -3,7 +3,6 @@
  * PDF and DOCX document viewer with download options
  */
 
-import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Download, FileText, Eye, ExternalLink, Search, Filter, ChevronDown, ChevronRight, Star, Clock, TrendingUp } from 'lucide-react';
 

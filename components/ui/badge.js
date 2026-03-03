@@ -3,7 +3,6 @@
  * Copyright © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST. All rights reserved.
  */
 
-import '../styles/globals.css';
 import React from 'react';
 
 const Badge = ({ children, className = '', variant = 'default' }) => {

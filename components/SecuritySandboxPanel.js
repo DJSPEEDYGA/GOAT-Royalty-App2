@@ -6,7 +6,6 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect, useRef } from 'react';
 import {
   Shield, ShieldCheck, ShieldAlert, ShieldOff,

@@ -14,7 +14,6 @@
  * Unauthorized use, reproduction, or distribution is strictly prohibited.
  */
 
-import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
