@@ -30,7 +30,7 @@ const AnimatedHero = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a0000 0%, #0A0A0A 40%, #0A0A0A 60%, #1a0505 100%)' }}>
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(26,0,0,0.85) 0%, rgba(10,10,10,0.7) 40%, rgba(10,10,10,0.7) 60%, rgba(26,5,5,0.85) 100%)' }}>
       {/* Animated Background Grid */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{

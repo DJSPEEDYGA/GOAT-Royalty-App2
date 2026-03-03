@@ -57,10 +57,7 @@ const EnhancedLandingPage = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
-      {/* Particle Effect Background */}
-      <ParticleEffect particleCount={50} />
-      
+    <div className="relative min-h-screen overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a0000 0%, #0A0A0A 40%, #0A0A0A 60%, #1a0505 100%)' }}>
       {/* Enhanced Video Background with GOAT Branding */}
       <EnhancedVideoBackground
         showGoatLogo={true}
@@ -68,13 +65,11 @@ const EnhancedLandingPage = () => {
         autoPlay={true}
         muted={true}
         loop={true}
-        overlayOpacity={0.3}
+        overlayOpacity={0.25}
       />
 
-      {/* GOAT Header Branding */}
-      <div className="absolute top-8 left-8 z-30">
-        <GoatBranding size="medium" variant="neon" glow={true} />
-      </div>
+      {/* Particle Effect — transparent canvas on top */}
+      <ParticleEffect particleCount={40} />
 
       {/* Animated Hero Section */}
       <AnimatedHero />

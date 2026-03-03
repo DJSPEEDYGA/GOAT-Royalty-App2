@@ -1,6 +1,7 @@
 /**
  * Enhanced Video Background Component
  * GOAT Force branded video background with red/black theme
+ * Fallback gradient is vibrant enough to look great without video
  */
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -43,7 +44,20 @@ const EnhancedVideoBackground = ({
 
   return (
     <div className="fixed inset-0 z-0">
-      {/* Video Background */}
+      {/* Rich animated gradient background — always visible, looks great without video */}
+      <div className="absolute inset-0" style={{
+        background: 'linear-gradient(135deg, #1a0000 0%, #2d0a0a 20%, #0A0A0A 45%, #0A0A0A 55%, #1a0505 80%, #2d0a0a 100%)'
+      }}>
+        {/* Animated red glow orbs */}
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[150px] animate-pulse"
+          style={{ background: 'radial-gradient(circle, rgba(220, 38, 38, 0.15) 0%, transparent 70%)' }} />
+        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] rounded-full blur-[130px] animate-pulse"
+          style={{ background: 'radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%)', animationDelay: '2s' }} />
+        <div className="absolute top-2/3 left-1/2 w-[400px] h-[400px] rounded-full blur-[120px] animate-pulse"
+          style={{ background: 'radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%)', animationDelay: '4s' }} />
+      </div>
+
+      {/* Video Background — only shows when loaded */}
       <video
         ref={videoRef}
         autoPlay={autoPlay}
@@ -57,25 +71,21 @@ const EnhancedVideoBackground = ({
         <source src={videos[currentVideo]} type="video/mp4" />
       </video>
 
-      {/* Animated gradient background (fallback & overlay) */}
-      <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 via-black to-black/90">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-yellow-500/5 animate-pulse"></div>
-        </div>
-      </div>
-      
-      {/* Dark overlay with red tint */}
+      {/* Subtle overlay — NOT heavy black */}
       <div 
-        className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" 
-        style={{ opacity: overlayOpacity }}
-      ></div>
+        className="absolute inset-0" 
+        style={{ 
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.4) 100%)',
+          opacity: overlayOpacity 
+        }}
+      />
 
       {/* Scan line effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div 
           className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent"
           style={{ animation: 'goat-scan-line 4s linear infinite' }}
-        ></div>
+        />
       </div>
       
       {/* GOAT Logo Watermark */}
@@ -90,8 +100,8 @@ const EnhancedVideoBackground = ({
         </div>
       )}
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"></div>
+      {/* Bottom gradient fade — subtle */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 to-transparent"></div>
     </div>
   );
 };
