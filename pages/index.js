@@ -155,6 +155,9 @@ const EnhancedLandingPage = () => {
                 <a href="/ai-red-team" className="text-red-400 hover:text-red-300 transition-colors font-semibold">
                   🛡️ Red Team
                 </a>
+                <a href="/codex-008" className="text-cyan-400 hover:text-cyan-300 transition-colors font-semibold">
+                  🔐 Agent Codex 008
+                </a>
                 <a href="/animation-studio" className="text-pink-400 hover:text-pink-300 transition-colors font-semibold">
                   🎬 Animation
                 </a>
@@ -336,6 +339,17 @@ const EnhancedLandingPage = () => {
                 className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all"
               >
                 Classic Dashboard
+              </button>
+
+              <button 
+                onClick={() => router.push('/codex-008')}
+                className="group relative px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold rounded-full overflow-hidden transform hover:scale-105 transition-all shadow-lg shadow-cyan-500/25 border border-cyan-400/30"
+              >
+                <span className="relative z-10 flex items-center space-x-2">
+                  <Cpu className="w-5 h-5" />
+                  <span>Agent Codex 008</span>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
             </div>
           </div>

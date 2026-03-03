@@ -82,6 +82,14 @@ const MainNavigation = () => {
         { name: 'AI Red Team', href: '/ai-red-team', icon: Target },
         { name: 'CyberWarrior', href: '/cyber-warrior', icon: Shield }
       ]
+    },
+    {
+      title: 'AI Agents',
+      items: [
+        { name: '🔐 Agent Codex 008', href: '/codex-008', icon: Cpu },
+        { name: 'Super Ninja AI', href: '/super-ninja-dashboard', icon: Zap },
+        { name: 'Ms Vanessa', href: '/ms-vanessa', icon: Shield }
+      ]
     }
   ];
 
