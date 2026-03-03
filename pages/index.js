@@ -37,8 +37,9 @@ const EnhancedLandingPage = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(true);
 
-  // Real GOAT Force videos
+  // Real GOAT Force videos — including new logo animation
   const featuredVideos = [
+    '/videos/goat-logo-animation.mp4',
     '/videos/grok-video-BLUE GOAT CANT FUCK WITH ME).mp4',
     '/videos/grok-video-BLUE GOAT 23).mp4',
     '/videos/grok-video- NERD BITCH3.mp4',
@@ -81,15 +82,22 @@ const EnhancedLandingPage = () => {
       {/* Main Content Overlay */}
       <div className="relative z-20">
         {/* Navigation Bar */}
-        <nav className="fixed top-0 left-0 right-0 bg-black/50 backdrop-blur-md border-b border-white/10 z-50">
-          <div className="max-w-7xl mx-auto px-6 py-4">
+        <nav className="fixed top-0 left-0 right-0 goat-nav z-50">
+          <div className="max-w-7xl mx-auto px-6 py-3">
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <Crown className="w-8 h-8 text-purple-400" />
-                <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  GOAT Royalty
-                </span>
-              </div>
+              <a href="/" className="flex items-center space-x-3 group">
+                <img 
+                  src="/images/branding/goat-icon-64.png" 
+                  alt="GOAT Force" 
+                  className="w-10 h-10 rounded-lg goat-logo-img"
+                />
+                <div>
+                  <span className="text-2xl font-black bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 bg-clip-text text-transparent tracking-tight">
+                    GOAT FORCE
+                  </span>
+                  <div className="text-[10px] text-gray-500 font-mono tracking-widest -mt-1">ROYALTY COMMAND CENTER</div>
+                </div>
+              </a>
               
               <div className="hidden md:flex items-center space-x-6">
                 <a href="/super-goat-command" className="text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
@@ -170,7 +178,7 @@ const EnhancedLandingPage = () => {
                   </div>
                   <button 
                     onClick={() => setShowVideo(!showVideo)}
-                    className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:from-purple-700 hover:to-pink-700 transition-all"
+                    className="px-4 py-2 bg-gradient-to-r from-red-600 to-yellow-600 text-white rounded-full hover:from-red-700 hover:to-yellow-700 transition-all"
                   >
                     {showVideo ? 'Hide Video' : 'Show Video'}
                   </button>
@@ -184,9 +192,16 @@ const EnhancedLandingPage = () => {
         <section className="py-20 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="/images/branding/goat-logo.png" 
+                  alt="GOAT Force" 
+                  className="w-24 h-24 rounded-2xl goat-logo-img"
+                />
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Why GOAT Royalty Stands Above
+                <span className="bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 bg-clip-text text-transparent">
+                  Why GOAT Force Stands Above
                 </span>
               </h2>
               <p className="text-xl text-white/70 max-w-3xl mx-auto">
@@ -196,9 +211,9 @@ const EnhancedLandingPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6 mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-yellow-600 rounded-2xl blur-xl opacity-40 group-hover:opacity-65 transition-opacity"></div>
+                <div className="relative bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-red-500/20 hover:border-red-500/40 hover:bg-white/10 transition-all">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full mb-6 mx-auto">
                     <Zap className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4 text-center">AI-Powered Analytics</h3>
@@ -216,9 +231,9 @@ const EnhancedLandingPage = () => {
               </div>
 
               <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6 mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-500 rounded-2xl blur-xl opacity-40 group-hover:opacity-65 transition-opacity"></div>
+                <div className="relative bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-red-500/20 hover:border-red-500/40 hover:bg-white/10 transition-all">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-6 mx-auto">
                     <Shield className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4 text-center">Bank-Level Security</h3>
@@ -236,9 +251,9 @@ const EnhancedLandingPage = () => {
               </div>
 
               <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mb-6 mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-red-600 rounded-2xl blur-xl opacity-40 group-hover:opacity-65 transition-opacity"></div>
+                <div className="relative bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-yellow-500/20 hover:border-yellow-500/40 hover:bg-white/10 transition-all">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-500 to-red-500 rounded-full mb-6 mx-auto">
                     <BarChart3 className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4 text-center">Real-Time Insights</h3>
@@ -282,20 +297,23 @@ const EnhancedLandingPage = () => {
 
         {/* SUPER GOAT COMMAND CENTER - NEW */}
         <section className="py-20 px-6 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-black to-blue-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-black to-red-900/10" />
           <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(108, 92, 231, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%)'
+            backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.12) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(245, 158, 11, 0.08) 0%, transparent 50%)'
           }} />
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600/20 to-yellow-600/20 rounded-full border border-purple-500/30 mb-6">
+              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-red-600/20 to-yellow-600/20 rounded-full border border-red-500/30 mb-6">
                 <Sparkles className="w-4 h-4 text-yellow-400" />
-                <span className="text-sm font-semibold text-yellow-400">NEW — SUPER GOAT COMMAND CENTER</span>
+                <span className="text-sm font-semibold text-yellow-400">SUPER GOAT COMMAND CENTER</span>
                 <Sparkles className="w-4 h-4 text-yellow-400" />
               </div>
+              <div className="flex justify-center mb-4">
+                <img src="/images/branding/goat-icon-192.png" alt="GOAT Force" className="w-20 h-20 rounded-2xl goat-logo-img" />
+              </div>
               <h2 className="text-4xl md:text-6xl font-black mb-4">
-                <span className="bg-gradient-to-r from-purple-400 via-yellow-400 to-purple-400 bg-clip-text text-transparent">
-                  🐐 SUPER GOAT
+                <span className="bg-gradient-to-r from-red-500 via-yellow-400 to-red-500 bg-clip-text text-transparent">
+                  SUPER GOAT
                 </span>
               </h2>
               <p className="text-xl text-white/70 max-w-3xl mx-auto mb-2">
@@ -314,7 +332,7 @@ const EnhancedLandingPage = () => {
                 { icon: '🤖', label: 'Automation', desc: '5 Active Bots', color: 'from-green-600 to-teal-600' },
                 { icon: '💻', label: 'Dev Tools', desc: 'Terminal + Code', color: 'from-pink-600 to-red-600' },
               ].map((item, i) => (
-                <div key={i} className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all cursor-pointer">
+                <div key={i} className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-red-500/10 hover:border-red-500/40 hover:bg-red-500/5 transition-all cursor-pointer">
                   <div className="text-3xl mb-2">{item.icon}</div>
                   <div className="text-sm font-bold text-white">{item.label}</div>
                   <div className="text-xs text-white/50">{item.desc}</div>
@@ -325,13 +343,13 @@ const EnhancedLandingPage = () => {
             <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
               <button 
                 onClick={() => router.push('/super-goat-command')}
-                className="group relative px-10 py-5 bg-gradient-to-r from-purple-600 via-yellow-500 to-purple-600 text-white font-bold text-lg rounded-full overflow-hidden transform hover:scale-105 transition-all shadow-lg shadow-purple-500/25"
+                className="group relative px-10 py-5 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 text-white font-bold text-lg rounded-full overflow-hidden transform hover:scale-105 transition-all shadow-lg shadow-red-500/25"
               >
                 <span className="relative z-10 flex items-center space-x-3">
                   <Rocket className="w-6 h-6" />
                   <span>Launch Super GOAT Command Center</span>
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-purple-600 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-red-600 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               
               <button 

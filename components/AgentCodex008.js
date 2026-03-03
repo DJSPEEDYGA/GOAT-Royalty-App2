@@ -545,9 +545,9 @@ Please specify your mission parameters or select a **Mission Module** for a targ
                 <Lock className="w-4 h-4 text-yellow-400" />
                 <span className="text-xs text-gray-400 font-mono">ENCRYPTED</span>
               </div>
-              <a href="/" className="flex items-center gap-2 px-3 py-1.5 bg-yellow-500/20 border border-yellow-500/50 rounded-lg hover:bg-yellow-500/30 transition-all">
-                <Crown className="w-4 h-4 text-yellow-400" />
-                <span className="text-xs text-yellow-400 font-mono">GOAT HQ</span>
+              <a href="/" className="flex items-center gap-2 px-3 py-1.5 bg-red-500/10 border border-red-500/30 rounded-lg hover:bg-red-500/20 transition-all">
+                <img src="/images/branding/goat-icon-32.png" alt="GOAT" className="w-5 h-5 rounded" />
+                <span className="text-xs text-red-400 font-mono font-bold">GOAT HQ</span>
               </a>
             </div>
           </div>

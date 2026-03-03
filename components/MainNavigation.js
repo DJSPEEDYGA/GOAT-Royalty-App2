@@ -94,16 +94,20 @@ const MainNavigation = () => {
   ];
 
   return (
-    <nav className="bg-black/90 backdrop-blur-md border-b border-yellow-500/30 sticky top-0 z-50">
+    <nav className="goat-nav sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center gap-3 cursor-pointer">
-              <Crown className="w-10 h-10 text-yellow-500" />
+            <div className="flex items-center gap-3 cursor-pointer group">
+              <img 
+                src="/images/branding/goat-icon-64.png" 
+                alt="GOAT Force" 
+                className="w-10 h-10 rounded-lg shadow-lg shadow-red-500/20 group-hover:shadow-red-500/40 transition-all"
+              />
               <div>
-                <h1 className="text-2xl font-black text-white">GOAT FORCE</h1>
-                <p className="text-gray-400 text-xs">Complete Platform</p>
+                <h1 className="text-2xl font-black bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 bg-clip-text text-transparent">GOAT FORCE</h1>
+                <p className="text-gray-500 text-[10px] font-mono tracking-widest">ROYALTY COMMAND CENTER</p>
               </div>
             </div>
           </Link>
@@ -111,17 +115,17 @@ const MainNavigation = () => {
           {/* Quick Links */}
           <div className="hidden lg:flex items-center gap-2">
             <Link href="/complete-platform">
-              <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-lg font-bold transition-colors">
+              <button className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white px-4 py-2 rounded-lg font-bold transition-all shadow-lg shadow-red-500/20">
                 Complete Platform
               </button>
             </Link>
             <Link href="/investor-demo">
-              <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+              <button className="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black px-4 py-2 rounded-lg font-bold transition-all shadow-lg shadow-yellow-500/20">
                 Investor Demo
               </button>
             </Link>
             <Link href="/dashboard">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+              <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg font-semibold transition-all border border-white/10 hover:border-red-500/30">
                 Dashboard
               </button>
             </Link>

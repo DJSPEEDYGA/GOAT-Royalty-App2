@@ -1,27 +1,40 @@
 /**
- * GOAT Royalty App - Stunning Loading Screen
- * Professional loading animation with video effects
+ * GOAT Force — Loading Screen
+ * Red/Black branded loading animation with GOAT logo
  */
 
 import React, { useState, useEffect } from 'react';
-import { Music, Crown, Sparkles } from 'lucide-react';
 
 const LoadingScreen = () => {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [statusText, setStatusText] = useState('Initializing GOAT Systems...');
+
+  const statusMessages = [
+    'Initializing GOAT Systems...',
+    'Loading Royalty Engine...',
+    'Connecting to Streaming Platforms...',
+    'Activating Agent Codex 008...',
+    'Scanning Catalog Database...',
+    'Engaging Neural Core...',
+    'Systems Online — Welcome, Commander.'
+  ];
 
   useEffect(() => {
-    // Simulate loading progress
+    let progress = 0;
     const interval = setInterval(() => {
-      setLoadingProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => setIsLoading(false), 500);
-          return 100;
-        }
-        return prev + Math.random() * 15;
-      });
-    }, 200);
+      progress += Math.random() * 18;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(interval);
+        setTimeout(() => setIsLoading(false), 600);
+      }
+      setLoadingProgress(Math.min(progress, 100));
+      
+      // Update status text based on progress
+      const msgIndex = Math.min(Math.floor(progress / 16), statusMessages.length - 1);
+      setStatusText(statusMessages[msgIndex]);
+    }, 250);
 
     return () => clearInterval(interval);
   }, []);
@@ -29,89 +42,106 @@ const LoadingScreen = () => {
   if (!isLoading) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-purple-900 via-black to-blue-900">
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 animate-gradient" />
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-15"
+        style={{ filter: 'brightness(0.4) saturate(1.5)' }}
+      >
+        <source src="/videos/goat-logo-animation.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90" />
+
+      {/* Red ambient glow */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/10 rounded-full blur-[120px] animate-pulse" />
       </div>
 
-      {/* Floating Particles */}
+      {/* Floating particles */}
       <div className="absolute inset-0">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-float"
+            className="absolute w-1 h-1 bg-red-500/40 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${Math.random() * 3 + 2}s`
+              animation: `float-particle ${3 + Math.random() * 4}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 3}s`
             }}
           />
         ))}
       </div>
 
-      {/* Loading Content */}
-      <div className="relative z-10 text-center">
-        {/* Logo Animation */}
-        <div className="mb-8">
-          <div className="relative inline-block">
-            <div className="absolute inset-0 bg-purple-500 rounded-full blur-xl opacity-50 animate-pulse-slow"></div>
-            <div className="relative flex items-center justify-center w-32 h-32 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-glow">
-              <Crown className="w-16 h-16 text-white animate-bounce-in" />
-            </div>
-          </div>
-        </div>
-
-        {/* Loading Text */}
-        <div className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
-              GOAT Royalty
-            </span>
-          </h1>
-          <div className="flex items-center justify-center space-x-2">
-            <Sparkles className="w-5 h-5 text-yellow-400 animate-spin" />
-            <p className="text-xl text-white/80 animate-pulse">Loading your music empire...</p>
-            <Sparkles className="w-5 h-5 text-yellow-400 animate-spin" />
-          </div>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="w-80 h-4 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm border border-white/20">
-          <div 
-            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-300 animate-shimmer"
-            style={{ width: `${loadingProgress}%` }}
+      {/* Main content */}
+      <div className="relative z-10 flex flex-col items-center">
+        {/* GOAT Logo */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-red-500/20 rounded-3xl blur-xl animate-pulse" />
+          <img 
+            src="/images/branding/goat-logo.png" 
+            alt="GOAT Force" 
+            className="relative w-36 h-36 rounded-2xl shadow-2xl shadow-red-500/30"
+            style={{ 
+              animation: 'logo-breathe 2s ease-in-out infinite',
+              border: '2px solid rgba(220, 38, 38, 0.3)'
+            }}
           />
         </div>
 
-        {/* Progress Percentage */}
-        <div className="mt-4 text-2xl font-bold text-white">
-          {Math.round(loadingProgress)}%
+        {/* Title */}
+        <h1 className="mt-6 text-4xl font-black bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 bg-clip-text text-transparent tracking-tight">
+          GOAT FORCE
+        </h1>
+        <p className="text-gray-500 text-[10px] font-mono tracking-[0.4em] mt-1">
+          ROYALTY COMMAND CENTER
+        </p>
+
+        {/* Progress bar */}
+        <div className="mt-8 w-64">
+          <div className="w-full h-1.5 bg-gray-800/80 rounded-full overflow-hidden border border-gray-700/50">
+            <div 
+              className="h-full bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 rounded-full transition-all duration-300 ease-out"
+              style={{ width: `${loadingProgress}%` }}
+            />
+          </div>
+          <div className="flex justify-between mt-2">
+            <span className="text-[10px] text-gray-600 font-mono">{statusText}</span>
+            <span className="text-[10px] text-red-500 font-mono font-bold">{Math.round(loadingProgress)}%</span>
+          </div>
         </div>
 
-        {/* Loading Features */}
-        <div className="mt-12 flex flex-wrap justify-center gap-4">
-          {['Analytics', 'Catalog', 'Royalties', 'Security'].map((feature, index) => (
-            <div
-              key={feature}
-              className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 animate-slide-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="flex items-center space-x-2">
-                <Music className="w-4 h-4 text-purple-400" />
-                <span className="text-white/80 text-sm">{feature}</span>
-              </div>
+        {/* System indicators */}
+        <div className="mt-6 flex items-center gap-4">
+          {['NEURAL', 'CODEX', 'SHIELD', 'RADAR'].map((sys, i) => (
+            <div key={sys} className="flex items-center gap-1.5">
+              <div 
+                className={`w-1.5 h-1.5 rounded-full ${loadingProgress > (i + 1) * 20 ? 'bg-green-400 animate-pulse' : 'bg-gray-700'}`}
+              />
+              <span className={`text-[9px] font-mono ${loadingProgress > (i + 1) * 20 ? 'text-green-400' : 'text-gray-700'}`}>
+                {sys}
+              </span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Corner Decorations */}
-      <div className="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-purple-500/50 animate-pulse-slow" />
-      <div className="absolute top-8 right-8 w-16 h-16 border-t-2 border-r-2 border-pink-500/50 animate-pulse-slow" />
-      <div className="absolute bottom-8 left-8 w-16 h-16 border-b-2 border-l-2 border-blue-500/50 animate-pulse-slow" />
-      <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-purple-500/50 animate-pulse-slow" />
+      <style jsx>{`
+        @keyframes logo-breathe {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(220, 38, 38, 0.3); }
+          50% { transform: scale(1.03); box-shadow: 0 0 50px rgba(220, 38, 38, 0.5); }
+        }
+        @keyframes float-particle {
+          0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+          50% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+        }
+      `}</style>
     </div>
   );
 };
