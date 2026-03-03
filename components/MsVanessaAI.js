@@ -3,6 +3,7 @@
  * Smart and loyal AI assistant powered by OpenAI GPT-4
  */
 
+import '../styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Sparkles, Crown, Music, DollarSign, Shield, TrendingUp } from 'lucide-react';
 
@@ -140,7 +141,7 @@ const MsVanessaAI = () => {
                 }`}
               >
                 {message.role === 'assistant' && (
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 rounded-full flex items-center justify-center">
                     <Bot className="w-6 h-6 text-white" />
                   </div>
                 )}
@@ -148,7 +149,7 @@ const MsVanessaAI = () => {
                 <div
                   className={`max-w-lg px-4 py-3 rounded-2xl ${
                     message.role === 'user'
-                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                      ? 'bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 text-white'
                       : 'bg-white/10 text-white border border-white/20'
                   }`}
                 >
@@ -159,7 +160,7 @@ const MsVanessaAI = () => {
                 </div>
 
                 {message.role === 'user' && (
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-500 to-green-500 rounded-full flex items-center justify-center">
                     <User className="w-6 h-6 text-white" />
                   </div>
                 )}
@@ -168,10 +169,10 @@ const MsVanessaAI = () => {
             
             {isLoading && (
               <div className="flex items-start space-x-3 justify-start">
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 rounded-full flex items-center justify-center">
                   <Bot className="w-6 h-6 text-white" />
                 </div>
-                <div className="bg-white/10 text-white border border-white/20 px-4 py-3 rounded-2xl">
+                <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 text-white border border-white/20 px-4 py-3 rounded-2xl">
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
                     <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -194,7 +195,7 @@ const MsVanessaAI = () => {
                   <button
                     key={index}
                     onClick={() => handleQuickAction(action.action)}
-                    className="flex flex-col items-center p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10"
+                    className="flex flex-col items-center p-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10"
                   >
                     <Icon className="w-5 h-5 text-purple-400 mb-1" />
                     <span className="text-white/80 text-xs">{action.text}</span>
@@ -219,7 +220,7 @@ const MsVanessaAI = () => {
               <button
                 onClick={sendMessage}
                 disabled={isLoading || !inputMessage.trim()}
-                className="p-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-3 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 text-white rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send className="w-5 h-5" />
               </button>
@@ -229,19 +230,19 @@ const MsVanessaAI = () => {
 
         {/* Features Section */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
+          <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
             <Crown className="w-8 h-8 text-purple-400 mb-3" />
             <h3 className="text-xl font-bold text-white mb-2">Smart Analytics</h3>
             <p className="text-white/70">Get intelligent insights about your royalty earnings and performance metrics</p>
           </div>
           
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
+          <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
             <Shield className="w-8 h-8 text-green-400 mb-3" />
             <h3 className="text-xl font-bold text-white mb-2">IP Protection</h3>
             <p className="text-white/70">Advanced guidance on protecting your intellectual property and music rights</p>
           </div>
           
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
+          <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
             <TrendingUp className="w-8 h-8 text-blue-400 mb-3" />
             <h3 className="text-xl font-bold text-white mb-2">Revenue Optimization</h3>
             <p className="text-white/70">Strategic advice to maximize your music revenue across all platforms</p>

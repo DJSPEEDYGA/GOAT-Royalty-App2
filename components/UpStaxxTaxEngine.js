@@ -6,6 +6,7 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import {
   DollarSign, TrendingUp, TrendingDown, Calculator, PieChart,
@@ -362,7 +363,7 @@ const UpStaxxTaxEngine = () => {
       e(IconComp, { className: 'w-5 h-5 ' + color + ' mb-2' }),
       e('div', { className: 'text-xl font-black ' + color }, value),
       e('div', { className: 'text-xs text-gray-500' }, label),
-      e('div', { className: 'text-xs text-gray-600 mt-0.5' }, sub)
+      e('div', { className: 'text-xs text-gray-400 mt-0.5' }, sub)
     );
 
   // ═══ DASHBOARD TAB ═══
@@ -387,7 +388,7 @@ const UpStaxxTaxEngine = () => {
                 e('div', { className: 'w-1.5 h-1.5 rounded-full flex-shrink-0 ' + (s.status === 'active' ? 'bg-green-500' : 'bg-yellow-500') }),
                 e('div', { className: 'min-w-0' },
                   e('div', { className: 'font-bold text-xs truncate' }, s.name),
-                  e('div', { className: 'text-xs text-gray-600' }, s.category + ' • ' + s.irs_ref)
+                  e('div', { className: 'text-xs text-gray-400' }, s.category + ' • ' + s.irs_ref)
                 )
               ),
               e('div', { className: 'text-right flex-shrink-0 ml-2' },
@@ -448,7 +449,7 @@ const UpStaxxTaxEngine = () => {
       )
     ),
     // Powered by
-    e('div', { className: 'bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-2xl p-6 border border-green-500/20 flex items-center justify-between flex-wrap gap-4' },
+    e('div', { className: 'bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-900/30 to-emerald-900/30 rounded-2xl p-6 border border-green-500/20 flex items-center justify-between flex-wrap gap-4' },
       e('div', null,
         e('div', { className: 'text-lg font-bold text-green-400' }, 'Powered by UpStaxx'),
         e('div', { className: 'text-sm text-gray-400' }, '350+ strategies • 63+ credits • AI-powered • IRS-backed'),
@@ -542,7 +543,7 @@ const UpStaxxTaxEngine = () => {
             e('div', { className: 'flex-1 min-w-0' },
               e('div', { className: 'font-bold text-sm' }, cr.name),
               e('div', { className: 'text-xs text-gray-500 mt-1' }, cr.description),
-              e('div', { className: 'text-xs text-gray-600 mt-1' }, cr.irs_ref + ' • ' + cr.type)
+              e('div', { className: 'text-xs text-gray-400 mt-1' }, cr.irs_ref + ' • ' + cr.type)
             ),
             e('div', { className: 'text-right ml-3 flex-shrink-0' },
               e('div', { className: 'font-bold text-green-400' }, cr.amount),
@@ -591,7 +592,7 @@ const UpStaxxTaxEngine = () => {
         ),
         e('div', { className: 'flex gap-2' },
           e('input', { type: 'text', value: inputMessage, onChange: (ev) => setInputMessage(ev.target.value), onKeyDown: (ev) => ev.key === 'Enter' && sendMessage(), placeholder: 'Ask Mr. Green about tax strategies...', className: 'flex-1 bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50' }),
-          e('button', { onClick: sendMessage, disabled: isThinking, className: 'px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl font-bold hover:from-green-500 hover:to-emerald-500 transition-all disabled:opacity-50' },
+          e('button', { onClick: sendMessage, disabled: isThinking, className: 'px-6 py-3 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-600 to-emerald-600 rounded-xl font-bold hover:from-green-500 hover:to-emerald-500 transition-all disabled:opacity-50' },
             e(Send, { className: 'w-5 h-5' })
           )
         )
@@ -658,7 +659,7 @@ const UpStaxxTaxEngine = () => {
             e('div', { className: 'w-16 text-xs text-gray-400 text-right' }, 'Year ' + p.year),
             e('div', { className: 'flex-1 relative h-6' },
               e('div', { className: 'absolute inset-0 bg-white/5 rounded-full' }),
-              e('div', { className: 'absolute inset-y-0 left-0 bg-gradient-to-r from-green-500 to-cyan-500 rounded-full flex items-center justify-end pr-2', style: { width: Math.min((p.total / wealthProjection[wealthProjection.length - 1].total) * 100, 100) + '%' } },
+              e('div', { className: 'absolute inset-y-0 left-0 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-500 to-cyan-500 rounded-full flex items-center justify-end pr-2', style: { width: Math.min((p.total / wealthProjection[wealthProjection.length - 1].total) * 100, 100) + '%' } },
                 e('span', { className: 'text-xs font-bold text-white' }, '$' + (p.total / 1000).toFixed(0) + 'K')
               )
             )
@@ -666,7 +667,7 @@ const UpStaxxTaxEngine = () => {
         )
       )
     ),
-    e('div', { className: 'bg-gradient-to-r from-green-900/20 to-cyan-900/20 rounded-2xl p-5 border border-green-500/20 text-center' },
+    e('div', { className: 'bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-900/20 to-cyan-900/20 rounded-2xl p-5 border border-green-500/20 text-center' },
       e('div', { className: 'text-lg font-bold text-green-400' }, '💰 $' + (wealthProjection[wealthProjection.length - 1]?.total || 0).toLocaleString() + ' in ' + projYears + ' years'),
       e('div', { className: 'text-sm text-gray-400 mt-1' }, 'From investing tax savings at ' + projRate + '% annual return')
     )
@@ -839,7 +840,7 @@ const UpStaxxTaxEngine = () => {
         )
       )
     ),
-    e('div', { className: 'bg-gradient-to-r from-green-900/20 to-emerald-900/20 rounded-2xl p-5 border border-green-500/20 flex items-center justify-between flex-wrap gap-4' },
+    e('div', { className: 'bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-900/20 to-emerald-900/20 rounded-2xl p-5 border border-green-500/20 flex items-center justify-between flex-wrap gap-4' },
       e('div', null,
         e('div', { className: 'font-bold text-green-400' }, 'FREE Tax Filing with UpStaxx'),
         e('div', { className: 'text-sm text-gray-400' }, 'IRS-authorized e-file included with annual membership'),
@@ -940,7 +941,7 @@ const UpStaxxTaxEngine = () => {
         )
       )
     ),
-    e('div', { className: 'text-xs text-gray-600 text-center' }, 'SWOT Framework applied to FASTASSMAN Publishing Inc tax position • Based on SWOT Analysis methodology • © 2025')
+    e('div', { className: 'text-xs text-gray-400 text-center' }, 'SWOT Framework applied to FASTASSMAN Publishing Inc tax position • Based on SWOT Analysis methodology • © 2025')
   );
 
   // ═══ INFINITE BANKING TAB ═══
@@ -1055,13 +1056,13 @@ const UpStaxxTaxEngine = () => {
       )
     ),
     // Disclaimer
-    e('div', { className: 'text-xs text-gray-600 text-center' }, 'Based on "Becoming Your Own Banker" by R. Nelson Nash • Projections are illustrative • Consult a licensed insurance professional • Not financial advice')
+    e('div', { className: 'text-xs text-gray-400 text-center' }, 'Based on "Becoming Your Own Banker" by R. Nelson Nash • Projections are illustrative • Consult a licensed insurance professional • Not financial advice')
   );
 
   // ═══ MAIN RENDER ═══
   return e('div', { className: 'min-h-screen bg-gradient-to-br from-gray-950 via-green-950/20 to-black text-white' },
     // Header
-    e('div', { className: 'bg-gradient-to-r from-green-900/30 to-emerald-900/30 border-b border-green-500/20' },
+    e('div', { className: 'bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-900/30 to-emerald-900/30 border-b border-green-500/20' },
       e('div', { className: 'max-w-7xl mx-auto px-4 py-4' },
         e('div', { className: 'flex items-center justify-between flex-wrap gap-4' },
           e('div', { className: 'flex items-center gap-4' },
@@ -1127,7 +1128,7 @@ const UpStaxxTaxEngine = () => {
     ),
     // Footer
     e('div', { className: 'max-w-7xl mx-auto px-4 py-6 mt-8 border-t border-white/5' },
-      e('div', { className: 'flex items-center justify-between text-xs text-gray-600 flex-wrap gap-2' },
+      e('div', { className: 'flex items-center justify-between text-xs text-gray-400 flex-wrap gap-2' },
         e('div', null, '💰 UpStaxx × GOAT Royalty • AI Tax Strategy Engine v3.0'),
         e('div', null, 'Powered by ', e('a', { href: 'https://upstaxx.com', target: '_blank', rel: 'noopener noreferrer', className: 'text-green-400 hover:text-green-300' }, 'upstaxx.com'), ' • 350+ Strategies • SWOT • ∞ Banking • Mr. Green AI'),
         e('div', null, '© 2025 Harvey Miller / FASTASSMAN Publishing Inc')

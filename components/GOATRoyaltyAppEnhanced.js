@@ -1,4 +1,5 @@
 // Enhanced GOAT Royalty App with NVIDIA DGX Cloud Integration
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -205,17 +206,17 @@ const GOATRoyaltyAppEnhanced = () => {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-            <div className="p-4 bg-gray-900/50 rounded-lg">
+            <div className="p-4 bg-gray-900/50 rounded-xl">
               <div className="text-sm text-gray-400 mb-1">Active AI Workloads</div>
               <div className="text-2xl font-bold text-white">3</div>
               <div className="text-xs text-green-400 mt-1">Running on H100 GPUs</div>
             </div>
-            <div className="p-4 bg-gray-900/50 rounded-lg">
+            <div className="p-4 bg-gray-900/50 rounded-xl">
               <div className="text-sm text-gray-400 mb-1">Models Deployed</div>
               <div className="text-2xl font-bold text-white">8</div>
               <div className="text-xs text-blue-400 mt-1">Cloud Functions active</div>
             </div>
-            <div className="p-4 bg-gray-900/50 rounded-lg">
+            <div className="p-4 bg-gray-900/50 rounded-xl">
               <div className="text-sm text-gray-400 mb-1">GPU Utilization</div>
               <div className="text-2xl font-bold text-white">87%</div>
               <div className="text-xs text-purple-400 mt-1">Optimal efficiency</div>
@@ -258,7 +259,7 @@ const GOATRoyaltyAppEnhanced = () => {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center">
                 <BadgeDollarSign className="w-7 h-7" />
               </div>
               <div>
@@ -318,7 +319,7 @@ const GOATRoyaltyAppEnhanced = () => {
               <Sparkles className="w-4 h-4 mr-2" />
               SuperNinja AI
             </TabsTrigger>
-              <TabsTrigger value="gemini" className="data-[state=active]:bg-gradient-to-r from-purple-600 to-pink-600">
+              <TabsTrigger value="gemini" className="data-[state=active]:bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Gemini AI
               </TabsTrigger>

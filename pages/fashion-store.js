@@ -3,6 +3,7 @@
  * E-commerce platform for GOAT Force branded merchandise
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { ShoppingBag, Shirt, Star, TrendingUp, DollarSign, Package, Truck, CreditCard } from 'lucide-react';
 
@@ -225,7 +226,7 @@ export default function FashionStore() {
                   e.stopPropagation();
                   addToCart(product);
                 }}
-                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-semibold flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-4 py-2 rounded-xl font-semibold flex items-center justify-center gap-2"
               >
                 <ShoppingBag className="w-4 h-4" />
                 Add to Cart
@@ -294,7 +295,7 @@ export default function FashionStore() {
                     {selectedProduct.colors.map((color, index) => (
                       <button
                         key={index}
-                        className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-white text-sm font-semibold"
+                        className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-white text-sm font-semibold"
                       >
                         {color}
                       </button>
@@ -308,7 +309,7 @@ export default function FashionStore() {
                     {selectedProduct.sizes.map((size, index) => (
                       <button
                         key={index}
-                        className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-white text-sm font-semibold"
+                        className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-white text-sm font-semibold"
                       >
                         {size}
                       </button>
@@ -321,7 +322,7 @@ export default function FashionStore() {
                     addToCart(selectedProduct);
                     setSelectedProduct(null);
                   }}
-                  className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-4 rounded-lg font-bold text-lg flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2"
                 >
                   <ShoppingBag className="w-5 h-5" />
                   Add to Cart - ${selectedProduct.price}

@@ -16,6 +16,7 @@
  * For licensing inquiries, contact: contact@goatroyaltyapp.com
  */
 
+import '../styles/globals.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -87,15 +88,15 @@ const EnhancedGOATRoyaltyApp = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="goat-gradient-card goat-gradient-card goat-card-hover shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-blue-600 rounded-xl flex items-center justify-center">
                 <Music2 className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">GOAT Royalty App</h1>
+                <h1 className="text-xl font-bold text-white">GOAT Royalty App</h1>
                 <p className="text-xs text-gray-500">Music Royalty Management Platform</p>
               </div>
             </div>
@@ -122,7 +123,7 @@ const EnhancedGOATRoyaltyApp = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
         <div className="mb-8">
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-8 text-white">
+          <div className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-blue-600 rounded-xl p-8 text-white">
             <div className="max-w-3xl">
               <h2 className="text-3xl font-bold mb-4">
                 Track Your Music Royalties Across All Platforms
@@ -252,7 +253,7 @@ const EnhancedGOATRoyaltyApp = () => {
                       { track: "Night Drive", artist: "Juaquin", amount: "$1,923", date: "2024-12-17" },
                       { track: "City Lights", artist: "Kevin Hallingquest", amount: "$3,156", date: "2024-12-16" },
                     ].map((payment, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
+                      <div key={index} className="flex items-center justify-between p-3 border rounded-xl">
                         <div>
                           <p className="font-medium">{payment.track}</p>
                           <p className="text-sm text-gray-500">{payment.artist}</p>
@@ -278,7 +279,7 @@ const EnhancedGOATRoyaltyApp = () => {
                       { platform: "Apple Music", icon: Music2, streams: "847K", revenue: "$8,230", color: "text-blue-600" },
                       { platform: "YouTube", icon: Youtube, streams: "2.1M", revenue: "$15,670", color: "text-red-600" },
                     ].map((platform, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
+                      <div key={index} className="flex items-center justify-between p-3 border rounded-xl">
                         <div className="flex items-center space-x-3">
                           <platform.icon className={`h-5 w-5 ${platform.color}`} />
                           <div>
@@ -311,7 +312,7 @@ const EnhancedGOATRoyaltyApp = () => {
                   <CardTitle>Revenue Trends</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-64 flex items-center justify-center bg-gray-50 rounded-lg">
+                  <div className="h-64 flex items-center justify-center bg-gray-50 rounded-xl">
                     <div className="text-center text-gray-500">
                       <TrendingUp className="h-12 w-12 mx-auto mb-2" />
                       <p>Revenue chart visualization</p>
@@ -340,7 +341,7 @@ const EnhancedGOATRoyaltyApp = () => {
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2">
                           <div 
-                            className="bg-gradient-to-r from-purple-600 to-blue-600 h-2 rounded-full" 
+                            className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-blue-600 h-2 rounded-full" 
                             style={{ width: `${item.percentage}%` }}
                           />
                         </div>
@@ -367,7 +368,7 @@ const EnhancedGOATRoyaltyApp = () => {
                       { source: "YouTube Content ID", amount: "$28,420", percentage: 22 },
                       { source: "TikTok", amount: "$19,380", percentage: 15 },
                     ].map((item, index) => (
-                      <div key={index} className="flex items-center justify-between p-4 border rounded-lg">
+                      <div key={index} className="flex items-center justify-between p-4 border rounded-xl">
                         <div>
                           <p className="font-medium">{item.source}</p>
                           <p className="text-sm text-gray-500">{item.percentage}% of total</p>
@@ -388,7 +389,7 @@ const EnhancedGOATRoyaltyApp = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
+                    <div className="p-3 bg-green-50 border border-green-200 rounded-xl">
                       <div className="flex items-center justify-between">
                         <span className="text-sm font-medium text-green-800">Next Payment</span>
                         <Award className="h-4 w-4 text-green-600" />
@@ -398,7 +399,7 @@ const EnhancedGOATRoyaltyApp = () => {
                     </div>
                     <div className="space-y-2">
                       <p className="text-sm font-medium">Upcoming Payments:</p>
-                      <div className="text-xs text-gray-600 space-y-1">
+                      <div className="text-xs text-gray-400 space-y-1">
                         <p>• Jan 1: $8,230 (Apple Music)</p>
                         <p>• Jan 15: $15,670 (YouTube)</p>
                         <p>• Feb 1: $9,840 (TikTok)</p>
@@ -415,10 +416,10 @@ const EnhancedGOATRoyaltyApp = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { name: "Spotify", icon: Spotify, status: "connected", color: "text-green-600" },
-                { name: "Apple Music", icon: Music2, status: "available", color: "text-gray-600" },
+                { name: "Apple Music", icon: Music2, status: "available", color: "text-gray-400" },
                 { name: "YouTube", icon: Youtube, status: "connected", color: "text-green-600" },
-                { name: "TikTok", icon: PlayCircle, status: "available", color: "text-gray-600" },
-                { name: "SoundCloud", icon: Music2, status: "available", color: "text-gray-600" },
+                { name: "TikTok", icon: PlayCircle, status: "available", color: "text-gray-400" },
+                { name: "SoundCloud", icon: Music2, status: "available", color: "text-gray-400" },
                 { name: "Deezer", icon: Music2, status: "coming-soon", color: "text-orange-600" },
               ].map((platform, index) => (
                 <Card key={index}>
@@ -448,17 +449,17 @@ const EnhancedGOATRoyaltyApp = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t mt-12">
+      <footer className="goat-gradient-card goat-gradient-card goat-card-hover border-t mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="text-sm text-gray-500">
               © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm text-gray-500">
-              <a href="/terms" className="hover:text-gray-700">Terms of Service</a>
-              <a href="/privacy" className="hover:text-gray-700">Privacy Policy</a>
-              <a href="/copyright" className="hover:text-gray-700">Copyright</a>
-              <a href="/contact" className="hover:text-gray-700">Contact</a>
+              <a href="/terms" className="hover:text-gray-300">Terms of Service</a>
+              <a href="/privacy" className="hover:text-gray-300">Privacy Policy</a>
+              <a href="/copyright" className="hover:text-gray-300">Copyright</a>
+              <a href="/contact" className="hover:text-gray-300">Contact</a>
             </div>
           </div>
         </div>

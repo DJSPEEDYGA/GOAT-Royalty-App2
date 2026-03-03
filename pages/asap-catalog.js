@@ -3,6 +3,7 @@
  * Displays Harvey Miller's comprehensive ASCAP publishing catalog
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { 
   Music, 
@@ -120,7 +121,7 @@ const ASAPCatalogPage = () => {
       <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-400 to-pink-500 bg-clip-text text-transparent">
             ASCAP Publishing Catalog
           </h1>
           <p className="text-gray-400">
@@ -129,7 +130,7 @@ const ASAPCatalogPage = () => {
         </div>
 
         {error && (
-          <div className="mb-6 p-4 bg-red-900 border border-red-700 rounded-lg flex items-center space-x-3">
+          <div className="mb-6 p-4 bg-red-900 border border-red-700 rounded-xl flex items-center space-x-3">
             <AlertCircle className="w-5 h-5 text-red-400" />
             <p className="text-red-200">{error}</p>
           </div>
@@ -138,7 +139,7 @@ const ASAPCatalogPage = () => {
         {/* Summary Cards */}
         {summary && (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div className="bg-gray-800 rounded-lg border border-gray-700 p-6">
+            <div className="bg-gray-800 rounded-xl border border-gray-700 p-6">
               <div className="flex items-center justify-between mb-4">
                 <Music className="w-8 h-8 text-purple-400" />
                 <span className="text-2xl font-bold text-white">{summary.total_unique_works}</span>
@@ -146,7 +147,7 @@ const ASAPCatalogPage = () => {
               <p className="text-gray-400">Total Works</p>
             </div>
 
-            <div className="bg-gray-800 rounded-lg border border-gray-700 p-6">
+            <div className="bg-gray-800 rounded-xl border border-gray-700 p-6">
               <div className="flex items-center justify-between mb-4">
                 <Users className="w-8 h-8 text-blue-400" />
                 <span className="text-2xl font-bold text-white">{summary.total_interested_parties}</span>
@@ -154,7 +155,7 @@ const ASAPCatalogPage = () => {
               <p className="text-gray-400">Interested Parties</p>
             </div>
 
-            <div className="bg-gray-800 rounded-lg border border-gray-700 p-6">
+            <div className="bg-gray-800 rounded-xl border border-gray-700 p-6">
               <div className="flex items-center justify-between mb-4">
                 <TrendingUp className="w-8 h-8 text-green-400" />
                 <span className="text-2xl font-bold text-green-400">
@@ -164,7 +165,7 @@ const ASAPCatalogPage = () => {
               <p className="text-gray-400">Est. Royalties</p>
             </div>
 
-            <div className="bg-gray-800 rounded-lg border border-gray-700 p-6">
+            <div className="bg-gray-800 rounded-xl border border-gray-700 p-6">
               <div className="flex items-center justify-between mb-4">
                 <BarChart3 className="w-8 h-8 text-yellow-400" />
                 <span className="text-2xl font-bold text-white">
@@ -177,7 +178,7 @@ const ASAPCatalogPage = () => {
         )}
 
         {/* Search and Filters */}
-        <div className="bg-gray-800 rounded-lg border border-gray-700 p-6 mb-8">
+        <div className="bg-gray-800 rounded-xl border border-gray-700 p-6 mb-8">
           <h2 className="text-xl font-semibold mb-4 flex items-center space-x-2">
             <Search className="w-5 h-5 text-purple-400" />
             <span>Search Catalog</span>
@@ -191,14 +192,14 @@ const ASAPCatalogPage = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
             </div>
             
             <select
               value={filterBy.catalogType}
               onChange={(e) => setFilterBy({ ...filterBy, catalogType: e.target.value })}
-              className="px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="px-4 py-2 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               <option value="">All Catalogs</option>
               <option value="harvey-writers">Harvey Miller Writers</option>
@@ -208,7 +209,7 @@ const ASAPCatalogPage = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="px-4 py-2 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               <option value="title">Sort by Title</option>
               <option value="date">Sort by Date</option>
@@ -219,7 +220,7 @@ const ASAPCatalogPage = () => {
           <div className="flex space-x-3">
             <button
               onClick={handleSearch}
-              className="flex items-center space-x-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors"
+              className="flex items-center space-x-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-xl transition-colors"
             >
               <Search className="w-4 h-4" />
               <span>Search</span>
@@ -232,7 +233,7 @@ const ASAPCatalogPage = () => {
                   setSearchTerm('');
                   setFilterBy({ catalogType: '', minParties: '' });
                 }}
-                className="flex items-center space-x-2 px-4 py-2 bg-gray-600 hover:bg-gray-500 rounded-lg transition-colors"
+                className="flex items-center space-x-2 px-4 py-2 bg-gray-600 hover:bg-gray-500 rounded-xl transition-colors"
               >
                 <span>Clear</span>
               </button>
@@ -241,7 +242,7 @@ const ASAPCatalogPage = () => {
         </div>
 
         {/* Catalog Results */}
-        <div className="bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+        <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
           <div className="p-6 border-b border-gray-700">
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-semibold flex items-center space-x-2">
@@ -251,7 +252,7 @@ const ASAPCatalogPage = () => {
                 </span>
               </h2>
               <div className="flex space-x-3">
-                <button className="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors">
+                <button className="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-xl transition-colors">
                   <Download className="w-4 h-4" />
                   <span>Export CSV</span>
                 </button>
@@ -333,7 +334,7 @@ const ASAPCatalogPage = () => {
 
           {displayWorks.length === 0 && (
             <div className="text-center py-12">
-              <FileText className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+              <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-xl font-medium text-gray-300 mb-2">
                 {showSearchResults ? 'No results found' : 'No catalog data available'}
               </h3>

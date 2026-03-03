@@ -3,6 +3,7 @@
  * Displays GOAT Force branding with actual logo and various styles
  */
 
+import '../styles/globals.css';
 import React from 'react';
 
 const GoatBranding = ({ 

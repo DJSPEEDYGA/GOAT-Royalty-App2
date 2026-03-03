@@ -46,7 +46,7 @@ function GOATLoadingScreen() {
           <div className="h-full bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 rounded-full animate-loading-bar" 
                style={{ animation: 'loading-bar 1.5s ease-in-out infinite' }} />
         </div>
-        <p className="text-gray-600 text-xs font-mono mt-3">INITIALIZING SYSTEMS...</p>
+        <p className="text-gray-400 text-xs font-mono mt-3">INITIALIZING SYSTEMS...</p>
       </div>
 
       <style jsx>{`

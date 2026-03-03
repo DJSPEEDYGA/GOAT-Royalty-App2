@@ -3,6 +3,7 @@
  * Red/Black branded loading animation with GOAT logo
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 
 const LoadingScreen = () => {
@@ -112,7 +113,7 @@ const LoadingScreen = () => {
             />
           </div>
           <div className="flex justify-between mt-2">
-            <span className="text-[10px] text-gray-600 font-mono">{statusText}</span>
+            <span className="text-[10px] text-gray-400 font-mono">{statusText}</span>
             <span className="text-[10px] text-red-500 font-mono font-bold">{Math.round(loadingProgress)}%</span>
           </div>
         </div>
@@ -124,7 +125,7 @@ const LoadingScreen = () => {
               <div 
                 className={`w-1.5 h-1.5 rounded-full ${loadingProgress > (i + 1) * 20 ? 'bg-green-400 animate-pulse' : 'bg-gray-700'}`}
               />
-              <span className={`text-[9px] font-mono ${loadingProgress > (i + 1) * 20 ? 'text-green-400' : 'text-gray-700'}`}>
+              <span className={`text-[9px] font-mono ${loadingProgress > (i + 1) * 20 ? 'text-green-400' : 'text-gray-300'}`}>
                 {sys}
               </span>
             </div>

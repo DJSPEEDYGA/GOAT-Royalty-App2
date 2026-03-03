@@ -3,6 +3,7 @@
  * Real-time AI-powered royalty analysis and insights
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Brain, Sparkles, TrendingUp, AlertCircle, CheckCircle, Zap } from 'lucide-react';
 
@@ -58,7 +59,7 @@ const GeminiAIPanel = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
             <Brain className="w-6 h-6 text-white" />
           </div>
           <div>
@@ -70,7 +71,7 @@ const GeminiAIPanel = () => {
         <button
           onClick={runAIAnalysis}
           disabled={analyzing}
-          className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all disabled:opacity-50"
+          className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all disabled:opacity-50"
         >
           {analyzing ? (
             <>
@@ -104,7 +105,7 @@ const GeminiAIPanel = () => {
                 className={`bg-gradient-to-r ${colors[insight.type]} border backdrop-blur-sm rounded-lg p-4 hover:scale-[1.02] transition-transform`}
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Icon className="w-5 h-5 text-white" />
                   </div>
                   
@@ -120,11 +121,11 @@ const GeminiAIPanel = () => {
                     <div className="flex items-center justify-between">
                       <div className="flex-1 bg-white/10 rounded-full h-2 mr-4">
                         <div
-                          className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all"
+                          className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 h-2 rounded-full transition-all"
                           style={{ width: `${insight.confidence}%` }}
                         ></div>
                       </div>
-                      <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-1 rounded text-sm font-semibold transition-colors">
+                      <button className="goat-gradient-card goat-gradient-card goat-card-hover/10 hover:bg-white/20 text-white px-4 py-1 rounded text-sm font-semibold transition-colors">
                         {insight.action}
                       </button>
                     </div>

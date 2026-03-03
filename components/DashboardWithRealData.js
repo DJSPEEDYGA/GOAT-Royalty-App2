@@ -1,4 +1,5 @@
 // Dashboard Component with Real Supabase Data
+import '../styles/globals.css';
 import { useState, useEffect } from 'react'
 import { useAuth } from './AuthProvider'
 // Using local auth instead of Supabase
@@ -132,7 +133,7 @@ export default function DashboardWithRealData() {
 
   if (error) {
     return (
-      <div className="bg-red-500/10 border border-red-500 rounded-lg p-4 text-red-500">
+      <div className="bg-red-500/10 border border-red-500 rounded-xl p-4 text-red-500">
         <AlertCircle className="w-5 h-5 inline mr-2" />
         Error loading dashboard: {error}
       </div>
@@ -146,7 +147,7 @@ export default function DashboardWithRealData() {
   return (
     <div className="space-y-6">
       {/* Welcome Message */}
-      <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg p-6 text-white">
+      <div className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 rounded-xl p-6 text-white">
         <h2 className="text-2xl font-bold mb-2">
           Welcome back, {user?.user_metadata?.full_name || user?.email}!
         </h2>
@@ -158,9 +159,9 @@ export default function DashboardWithRealData() {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Total Earnings */}
-        <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-2 bg-green-500/10 rounded-lg">
+            <div className="p-2 bg-green-500/10 rounded-xl">
               <DollarSign className="w-6 h-6 text-green-500" />
             </div>
             <span className="text-xs text-gray-400">All Time</span>
@@ -172,9 +173,9 @@ export default function DashboardWithRealData() {
         </div>
 
         {/* Pending Payments */}
-        <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-2 bg-yellow-500/10 rounded-lg">
+            <div className="p-2 bg-yellow-500/10 rounded-xl">
               <Clock className="w-6 h-6 text-yellow-500" />
             </div>
             <span className="text-xs text-gray-400">Pending</span>
@@ -186,9 +187,9 @@ export default function DashboardWithRealData() {
         </div>
 
         {/* Active Contracts */}
-        <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-2 bg-blue-500/10 rounded-lg">
+            <div className="p-2 bg-blue-500/10 rounded-xl">
               <FileText className="w-6 h-6 text-blue-500" />
             </div>
             <span className="text-xs text-gray-400">Active</span>
@@ -200,9 +201,9 @@ export default function DashboardWithRealData() {
         </div>
 
         {/* Total Tracks */}
-        <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-2 bg-purple-500/10 rounded-lg">
+            <div className="p-2 bg-purple-500/10 rounded-xl">
               <Music className="w-6 h-6 text-purple-500" />
             </div>
             <span className="text-xs text-gray-400">Catalog</span>
@@ -215,7 +216,7 @@ export default function DashboardWithRealData() {
       </div>
 
       {/* Monthly Performance */}
-      <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+      <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
         <h3 className="text-lg font-semibold text-white mb-4">Monthly Performance</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -237,7 +238,7 @@ export default function DashboardWithRealData() {
       </div>
 
       {/* Recent Activity */}
-      <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+      <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
         <h3 className="text-lg font-semibold text-white mb-4">Recent Activity</h3>
         {recentActivity.length === 0 ? (
           <p className="text-gray-400 text-center py-8">
@@ -248,7 +249,7 @@ export default function DashboardWithRealData() {
             {recentActivity.map((activity) => (
               <div
                 key={activity.id}
-                className="flex items-center justify-between p-3 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors"
+                className="flex items-center justify-between p-3 bg-gray-700/50 rounded-xl hover:bg-gray-700 transition-colors"
               >
                 <div className="flex items-center space-x-3">
                   <div className={`p-2 rounded-lg ${
@@ -287,21 +288,21 @@ export default function DashboardWithRealData() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <button
           onClick={() => window.location.href = '#music-studio'}
-          className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all"
+          className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 text-white p-4 rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all"
         >
           <Music className="w-6 h-6 mb-2" />
           <p className="font-semibold">Add Track</p>
         </button>
         <button
           onClick={() => window.location.href = '#tracking'}
-          className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-4 rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all"
+          className="bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-500 to-cyan-500 text-white p-4 rounded-xl hover:from-blue-600 hover:to-cyan-600 transition-all"
         >
           <TrendingUp className="w-6 h-6 mb-2" />
           <p className="font-semibold">View Analytics</p>
         </button>
         <button
           onClick={() => window.location.href = '#contracts'}
-          className="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-4 rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all"
+          className="bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-500 to-emerald-500 text-white p-4 rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all"
         >
           <FileText className="w-6 h-6 mb-2" />
           <p className="font-semibold">Manage Contracts</p>

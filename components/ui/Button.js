@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React from 'react';
 import { Loader2 } from 'lucide-react';
 
@@ -16,7 +17,7 @@ const Button = ({
   const variantClasses = {
     default: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500',
     destructive: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
-    outline: 'border border-gray-300 bg-gray-800 text-white hover:bg-gray-700 focus:ring-green-500',
+    outline: 'border border-gray-600 bg-gray-800 text-white hover:bg-gray-700 focus:ring-green-500',
     secondary: 'bg-gray-700 text-gray-200 hover:bg-gray-600 focus:ring-gray-500',
     ghost: 'text-gray-300 hover:bg-gray-700 focus:ring-gray-500',
   };

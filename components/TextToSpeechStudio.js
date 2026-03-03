@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Download, Volume2, Settings, Mic, Zap, Globe, User } from 'lucide-react';
 
@@ -159,7 +160,7 @@ export default function TextToSpeechStudio() {
             </p>
           </div>
           <div className="flex gap-2">
-            <button className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all flex items-center gap-2">
+            <button className="px-4 py-2 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-500 to-emerald-500 text-white rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all flex items-center gap-2">
               <Download className="w-4 h-4" />
               Export
             </button>
@@ -180,7 +181,7 @@ export default function TextToSpeechStudio() {
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Type or paste your text here... (e.g., 'Welcome to your music production studio. Let's create something amazing today.')"
-              className="w-full h-64 bg-gray-900 text-white p-4 rounded-lg border border-gray-700 focus:border-blue-500 focus:outline-none resize-none"
+              className="w-full h-64 bg-gray-900 text-white p-4 rounded-xl border border-gray-700 focus:border-blue-500 focus:outline-none resize-none"
             />
             <div className="flex items-center justify-between mt-4">
               <div className="text-sm text-gray-400">
@@ -231,7 +232,7 @@ export default function TextToSpeechStudio() {
                 className={`flex-1 py-3 rounded-lg font-bold transition-all flex items-center justify-center gap-2 ${
                   !text.trim() || isPlaying
                     ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white'
+                    : 'bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white'
                 }`}
               >
                 <Play className="w-5 h-5" />
@@ -240,7 +241,7 @@ export default function TextToSpeechStudio() {
               {isPlaying && (
                 <button
                   onClick={handleStop}
-                  className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-lg font-bold transition-all flex items-center gap-2"
+                  className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl font-bold transition-all flex items-center gap-2"
                 >
                   <Pause className="w-5 h-5" />
                   Stop
@@ -252,7 +253,7 @@ export default function TextToSpeechStudio() {
                 className={`px-6 py-3 rounded-lg font-bold transition-all flex items-center gap-2 ${
                   !text.trim()
                     ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white'
+                    : 'bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white'
                 }`}
               >
                 <Download className="w-5 h-5" />
@@ -272,7 +273,7 @@ export default function TextToSpeechStudio() {
                       <button
                         key={i}
                         onClick={() => setText(presetText)}
-                        className="text-left p-3 bg-gray-700/50 hover:bg-gray-700 rounded-lg text-sm text-gray-300 transition-all"
+                        className="text-left p-3 bg-gray-700/50 hover:bg-gray-700 rounded-xl text-sm text-gray-300 transition-all"
                       >
                         {presetText}
                       </button>
@@ -317,7 +318,7 @@ export default function TextToSpeechStudio() {
           </div>
 
           {/* API Info */}
-          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-xl p-4">
+          <div className="bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-500/10 to-purple-500/10 border border-blue-500/30 rounded-xl p-4">
             <h4 className="text-white font-bold mb-2 flex items-center gap-2">
               <Zap className="w-4 h-4 text-yellow-400" />
               OpenAI TTS API
@@ -353,7 +354,7 @@ export default function TextToSpeechStudio() {
       </div>
 
       {/* Info Banner */}
-      <div className="mt-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-xl p-6">
+      <div className="mt-6 bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-500/10 to-purple-500/10 border border-blue-500/30 rounded-xl p-6">
         <div className="flex items-start gap-4">
           <div className="text-4xl">💡</div>
           <div>
@@ -365,19 +366,19 @@ export default function TextToSpeechStudio() {
               Perfect for voiceovers, notifications, audiobooks, and more.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-gray-800/50 p-3 rounded-lg">
+              <div className="bg-gray-800/50 p-3 rounded-xl">
                 <div className="text-2xl mb-1">🎤</div>
                 <div className="text-sm text-gray-300">6 Voices</div>
               </div>
-              <div className="bg-gray-800/50 p-3 rounded-lg">
+              <div className="bg-gray-800/50 p-3 rounded-xl">
                 <div className="text-2xl mb-1">🌍</div>
                 <div className="text-sm text-gray-300">Multi-Language</div>
               </div>
-              <div className="bg-gray-800/50 p-3 rounded-lg">
+              <div className="bg-gray-800/50 p-3 rounded-xl">
                 <div className="text-2xl mb-1">⚡</div>
                 <div className="text-sm text-gray-300">Real-time</div>
               </div>
-              <div className="bg-gray-800/50 p-3 rounded-lg">
+              <div className="bg-gray-800/50 p-3 rounded-xl">
                 <div className="text-2xl mb-1">💎</div>
                 <div className="text-sm text-gray-300">HD Quality</div>
               </div>

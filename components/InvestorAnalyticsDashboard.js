@@ -3,6 +3,7 @@
  * Impressive metrics and visualizations for investor presentation
  */
 
+import '../styles/globals.css';
 import React from 'react';
 import { TrendingUp, DollarSign, Users, Globe, Zap, Crown, BarChart3, PieChart } from 'lucide-react';
 
@@ -187,19 +188,19 @@ const InvestorAnalyticsDashboard = () => {
           <h2 className="text-2xl font-bold text-white mb-6">Market Opportunity</h2>
           
           <div className="space-y-6">
-            <div className="bg-gradient-to-r from-purple-900/30 to-purple-800/20 border border-purple-500/30 rounded-lg p-4">
+            <div className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-900/30 to-purple-800/20 border border-purple-500/30 rounded-xl p-4">
               <p className="text-gray-400 text-sm mb-2">Total Addressable Market</p>
               <p className="text-4xl font-black text-white mb-1">$43B</p>
               <p className="text-purple-400 text-sm">Global Music Industry</p>
             </div>
 
-            <div className="bg-gradient-to-r from-blue-900/30 to-blue-800/20 border border-blue-500/30 rounded-lg p-4">
+            <div className="bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-900/30 to-blue-800/20 border border-blue-500/30 rounded-xl p-4">
               <p className="text-gray-400 text-sm mb-2">Target Market</p>
               <p className="text-4xl font-black text-white mb-1">8M+</p>
               <p className="text-blue-400 text-sm">Independent Artists</p>
             </div>
 
-            <div className="bg-gradient-to-r from-green-900/30 to-green-800/20 border border-green-500/30 rounded-lg p-4">
+            <div className="bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-900/30 to-green-800/20 border border-green-500/30 rounded-xl p-4">
               <p className="text-gray-400 text-sm mb-2">Projected Revenue (Year 3)</p>
               <p className="text-4xl font-black text-white mb-1">$25M</p>
               <p className="text-green-400 text-sm">Conservative Estimate</p>

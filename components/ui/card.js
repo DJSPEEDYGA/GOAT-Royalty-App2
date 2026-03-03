@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React from 'react';
 
 export const Card = ({ className = '', children, ...props }) => {

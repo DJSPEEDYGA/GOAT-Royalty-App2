@@ -11,6 +11,7 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   Shield, ShieldAlert, ShieldCheck, ShieldOff, Skull, Swords, Eye, EyeOff,
@@ -414,15 +415,15 @@ const CyberWarriorAgent = () => {
 
                 {/* Quick Stats */}
                 <div className="hidden lg:flex items-center gap-3 text-xs">
-                  <div className="text-center px-3 py-1 bg-white/5 rounded-lg">
+                  <div className="text-center px-3 py-1 bg-white/5 rounded-xl">
                     <div className="text-red-400 font-bold">{stats.threatsBlocked.toLocaleString()}</div>
                     <div className="text-gray-500">Blocked</div>
                   </div>
-                  <div className="text-center px-3 py-1 bg-white/5 rounded-lg">
+                  <div className="text-center px-3 py-1 bg-white/5 rounded-xl">
                     <div className="text-green-400 font-bold">{stats.uptime}</div>
                     <div className="text-gray-500">Uptime</div>
                   </div>
-                  <div className="text-center px-3 py-1 bg-white/5 rounded-lg">
+                  <div className="text-center px-3 py-1 bg-white/5 rounded-xl">
                     <div className="text-yellow-400 font-bold">{stats.attacksToday}</div>
                     <div className="text-gray-500">Today</div>
                   </div>
@@ -489,7 +490,7 @@ const CyberWarriorAgent = () => {
                 ))}
                 {isProcessing && (
                   <div className="flex justify-start">
-                    <div className="bg-white/10 rounded-2xl px-4 py-3 border border-white/10">
+                    <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 rounded-2xl px-4 py-3 border border-white/10">
                       <div className="flex items-center gap-2 text-sm text-gray-400">
                         <RefreshCw className="w-4 h-4 animate-spin" />
                         Analyzing threat vectors...
@@ -522,7 +523,7 @@ const CyberWarriorAgent = () => {
 
             {/* Quick Stats Panel */}
             <div className="space-y-4">
-              <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10">
                 <h3 className="font-bold mb-4 flex items-center gap-2">
                   <Activity className="w-5 h-5 text-red-400" />
                   Live Metrics
@@ -550,7 +551,7 @@ const CyberWarriorAgent = () => {
               </div>
 
               {/* Quick Actions */}
-              <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10">
                 <h3 className="font-bold mb-3 flex items-center gap-2">
                   <Zap className="w-5 h-5 text-yellow-400" />
                   Quick Actions
@@ -567,7 +568,7 @@ const CyberWarriorAgent = () => {
                     <button
                       key={i}
                       onClick={() => { setInputMessage(action.cmd); }}
-                      className="px-3 py-2 bg-black/30 rounded-lg text-xs font-bold hover:bg-white/10 transition-all border border-white/5"
+                      className="px-3 py-2 bg-black/30 rounded-xl text-xs font-bold hover:bg-white/10 transition-all border border-white/5"
                     >
                       {action.label}
                     </button>
@@ -606,23 +607,23 @@ const CyberWarriorAgent = () => {
                     </div>
                     <div className="flex items-center gap-3 text-xs">
                       <span className="text-gray-500">{threat.source}</span>
-                      <span className="text-gray-600">→</span>
+                      <span className="text-gray-400">→</span>
                       <span className="text-gray-400">{threat.target}</span>
                       <span className={`font-bold ${actionColors[threat.action]}`}>{threat.action}</span>
-                      <span className="text-gray-600">{new Date(threat.timestamp).toLocaleTimeString()}</span>
+                      <span className="text-gray-400">{new Date(threat.timestamp).toLocaleTimeString()}</span>
                     </div>
                   </div>
                   {selectedThreat?.id === threat.id && (
                     <div className="mt-3 pt-3 border-t border-white/10">
                       <p className="text-sm text-gray-300">{threat.detail}</p>
                       <div className="mt-2 flex gap-2">
-                        <button className="px-3 py-1 bg-red-600/30 rounded-lg text-xs text-red-400 hover:bg-red-600/50">
+                        <button className="px-3 py-1 bg-red-600/30 rounded-xl text-xs text-red-400 hover:bg-red-600/50">
                           ⚔️ Block Source
                         </button>
-                        <button className="px-3 py-1 bg-blue-600/30 rounded-lg text-xs text-blue-400 hover:bg-blue-600/50">
+                        <button className="px-3 py-1 bg-blue-600/30 rounded-xl text-xs text-blue-400 hover:bg-blue-600/50">
                           🔍 Investigate
                         </button>
-                        <button className="px-3 py-1 bg-purple-600/30 rounded-lg text-xs text-purple-400 hover:bg-purple-600/50">
+                        <button className="px-3 py-1 bg-purple-600/30 rounded-xl text-xs text-purple-400 hover:bg-purple-600/50">
                           📋 Create Ticket
                         </button>
                       </div>
@@ -649,7 +650,7 @@ const CyberWarriorAgent = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {DEFENSE_SYSTEMS.map((system, i) => (
-                <div key={system.id} className="bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all">
+                <div key={system.id} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">{system.icon}</span>
@@ -666,7 +667,7 @@ const CyberWarriorAgent = () => {
                   <p className="text-xs text-gray-400 mb-3">{system.description}</p>
                   <div className="flex gap-2 flex-wrap">
                     {Object.entries(system).filter(([k]) => !['id','name','icon','status','type','description'].includes(k)).map(([key, val]) => (
-                      <div key={key} className="px-2 py-1 bg-black/30 rounded-lg text-xs">
+                      <div key={key} className="px-2 py-1 bg-black/30 rounded-xl text-xs">
                         <span className="text-gray-500">{key.replace(/_/g,' ')}: </span>
                         <span className="text-white font-bold">{typeof val === 'number' ? val.toLocaleString() : val}</span>
                       </div>
@@ -694,13 +695,13 @@ const CyberWarriorAgent = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {OFFENSIVE_TOOLS.map((tool, i) => (
-                <div key={i} className="bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all">
+                <div key={i} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-2xl">{tool.icon}</span>
                     <div className="font-bold">{tool.name}</div>
                   </div>
                   <p className="text-sm text-gray-400 mb-3">{tool.description}</p>
-                  <div className="flex items-center justify-between bg-black/30 rounded-lg px-3 py-2">
+                  <div className="flex items-center justify-between bg-black/30 rounded-xl px-3 py-2">
                     <code className="text-xs text-green-400 font-mono">$ {tool.command}</code>
                     <button
                       onClick={() => navigator.clipboard?.writeText(tool.command)}
@@ -725,7 +726,7 @@ const CyberWarriorAgent = () => {
             <p className="text-gray-400">Intelligence sourced from: Inside Cyber Warfare, Offensive Security Using Python, Multi-Cloud Handbook, LLM Engineer's Handbook</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {Object.entries(THREAT_CATEGORIES).map(([key, cat]) => (
-                <div key={key} className="bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all">
+                <div key={key} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
                       <span className="text-3xl">{cat.icon}</span>
@@ -779,7 +780,7 @@ const CyberWarriorAgent = () => {
             </div>
 
             {scanRunning && (
-              <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center gap-3 mb-4">
                   <RefreshCw className="w-6 h-6 text-cyan-400 animate-spin" />
                   <span className="font-bold">Security scan in progress...</span>
@@ -798,7 +799,7 @@ const CyberWarriorAgent = () => {
             {scanResults && (
               <div className="space-y-4">
                 {/* Score Card */}
-                <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+                <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <div className="text-4xl font-black text-green-400">{scanResults.score}/100</div>
@@ -824,7 +825,7 @@ const CyberWarriorAgent = () => {
                 {/* Detailed Results */}
                 <div className="space-y-2">
                   {scanResults.details.map((item, i) => (
-                    <div key={i} className="bg-white/5 rounded-xl p-3 border border-white/10 flex items-center justify-between">
+                    <div key={i} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-3 border border-white/10 flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         {item.status === 'pass' ? (
                           <Check className="w-5 h-5 text-green-400" />
@@ -847,7 +848,7 @@ const CyberWarriorAgent = () => {
 
       {/* ═══ FOOTER ═══ */}
       <div className="max-w-7xl mx-auto px-4 py-6 mt-8 border-t border-white/5">
-        <div className="flex items-center justify-between text-xs text-gray-600">
+        <div className="flex items-center justify-between text-xs text-gray-400">
           <div>🛡️ CyberWarrior Agent v3.0 • GOAT Royalty Cyber Defense Division</div>
           <div>© 2025 Harvey Miller / FASTASSMAN Publishing Inc • All Rights Reserved</div>
           <div className="flex items-center gap-2">

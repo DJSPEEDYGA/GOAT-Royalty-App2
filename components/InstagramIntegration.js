@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/Card';
 import { Button } from './ui/Button';
@@ -130,7 +131,7 @@ const InstagramIntegration = () => {
           <Camera className="w-8 h-8 mr-2 text-pink-600" />
           <h1 className="text-3xl font-bold">Instagram Integration</h1>
         </div>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-400 max-w-2xl mx-auto">
           Connect your Instagram account to track content performance, calculate royalties from branded content, and analyze engagement metrics.
         </p>
       </div>
@@ -146,7 +147,7 @@ const InstagramIntegration = () => {
         <CardContent>
           {isConnected ? (
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-pink-50 rounded-lg">
+              <div className="flex items-center justify-between p-4 bg-pink-50 rounded-xl">
                 <div className="flex items-center">
                   <img 
                     src={profileData?.profilePictureUrl} 
@@ -155,7 +156,7 @@ const InstagramIntegration = () => {
                   />
                   <div>
                     <p className="font-semibold">@{profileData?.username || 'instagram_user'}</p>
-                    <p className="text-sm text-gray-600">{profileData?.followers?.toLocaleString() || 0} followers</p>
+                    <p className="text-sm text-gray-400">{profileData?.followers?.toLocaleString() || 0} followers</p>
                   </div>
                 </div>
                 <Button 
@@ -192,36 +193,36 @@ const InstagramIntegration = () => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="p-4 bg-pink-50 rounded-lg">
+              <div className="p-4 bg-pink-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Camera className="w-8 h-8 text-pink-500" />
                   <span className="text-2xl font-bold">{posts.length}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Total Posts</p>
+                <p className="text-sm text-gray-400 mt-2">Total Posts</p>
               </div>
               
-              <div className="p-4 bg-blue-50 rounded-lg">
+              <div className="p-4 bg-blue-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Users className="w-8 h-8 text-blue-500" />
                   <span className="text-2xl font-bold">{profileData?.followers?.toLocaleString() || 0}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Followers</p>
+                <p className="text-sm text-gray-400 mt-2">Followers</p>
               </div>
               
-              <div className="p-4 bg-green-50 rounded-lg">
+              <div className="p-4 bg-green-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Heart className="w-8 h-8 text-green-500" />
                   <span className="text-2xl font-bold">{getTotalLikes().toLocaleString()}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Total Likes</p>
+                <p className="text-sm text-gray-400 mt-2">Total Likes</p>
               </div>
               
-              <div className="p-4 bg-purple-50 rounded-lg">
+              <div className="p-4 bg-purple-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <TrendingUp className="w-8 h-8 text-purple-500" />
                   <span className="text-2xl font-bold">{getAverageEngagementRate()}%</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Avg. Engagement</p>
+                <p className="text-sm text-gray-400 mt-2">Avg. Engagement</p>
               </div>
             </div>
           </CardContent>
@@ -240,22 +241,22 @@ const InstagramIntegration = () => {
           <CardContent>
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="p-4 bg-yellow-50 rounded-lg">
+                <div className="p-4 bg-yellow-50 rounded-xl">
                   <h4 className="font-semibold mb-2">Branded Posts</h4>
                   <p className="text-2xl font-bold text-yellow-600">{royaltyData.brandedPosts || 0}</p>
-                  <p className="text-sm text-gray-600">Posts with branded content</p>
+                  <p className="text-sm text-gray-400">Posts with branded content</p>
                 </div>
                 
-                <div className="p-4 bg-green-50 rounded-lg">
+                <div className="p-4 bg-green-50 rounded-xl">
                   <h4 className="font-semibold mb-2">Estimated Earnings</h4>
                   <p className="text-2xl font-bold text-green-600">${royaltyData.estimatedEarnings || '0.00'}</p>
-                  <p className="text-sm text-gray-600">Monthly branded content revenue</p>
+                  <p className="text-sm text-gray-400">Monthly branded content revenue</p>
                 </div>
                 
-                <div className="p-4 bg-indigo-50 rounded-lg">
+                <div className="p-4 bg-indigo-50 rounded-xl">
                   <h4 className="font-semibold mb-2">Avg. Post Value</h4>
                   <p className="text-2xl font-bold text-indigo-600">${royaltyData.avgPostValue || '0.00'}</p>
-                  <p className="text-sm text-gray-600">Estimated value per branded post</p>
+                  <p className="text-sm text-gray-400">Estimated value per branded post</p>
                 </div>
               </div>
               
@@ -264,12 +265,12 @@ const InstagramIntegration = () => {
                   <h4 className="font-semibold mb-2">Recent Branded Content</h4>
                   <div className="space-y-2">
                     {royaltyData.recentBrandedPosts.slice(0, 3).map((post, index) => (
-                      <div key={index} className="p-3 border rounded-lg">
+                      <div key={index} className="p-3 border rounded-xl">
                         <div className="flex items-center justify-between">
                           <p className="font-medium">{post.brand}</p>
                           <p className="text-sm font-semibold text-green-600">${post.estimatedValue || '0.00'}</p>
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-gray-400">
                           {post.likes?.toLocaleString() || 0} likes • {post.engagementRate || 0}% engagement
                         </p>
                       </div>
@@ -291,11 +292,11 @@ const InstagramIntegration = () => {
           <CardContent>
             <div className="space-y-4">
               {posts.slice(0, 5).map((post) => (
-                <div key={post.id} className="flex items-center p-4 border rounded-lg">
+                <div key={post.id} className="flex items-center p-4 border rounded-xl">
                   <img 
                     src={post.mediaUrl} 
                     alt={post.caption}
-                    className="w-16 h-16 rounded-lg object-cover mr-4"
+                    className="w-16 h-16 rounded-xl object-cover mr-4"
                   />
                   <div className="flex-1">
                     <h3 className="font-semibold truncate">{post.caption || 'Instagram Post'}</h3>

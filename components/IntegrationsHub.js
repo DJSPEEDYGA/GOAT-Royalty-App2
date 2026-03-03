@@ -1,4 +1,5 @@
 // Integrations Hub Component for GOAT Royalty App
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -167,7 +168,7 @@ const IntegrationsHub = () => {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center">
               <Zap className="w-7 h-7" />
             </div>
             <div>
@@ -322,7 +323,7 @@ const IntegrationsHub = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden">
+            <div className="aspect-video bg-gray-900 rounded-xl overflow-hidden">
               <video 
                 src="/videos/grok-video-abf0508c-a9fb-4dc5-b983-6f19a59c4a6b.mp4"
                 controls

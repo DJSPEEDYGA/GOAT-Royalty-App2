@@ -5,6 +5,7 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import {
   DollarSign, TrendingUp, TrendingDown, BarChart3, PieChart,
@@ -176,7 +177,7 @@ const SuperGOATRoyaltyEngine = () => {
             { label: 'Avg Growth', value: `${avgGrowth}%`, subtext: 'Month-over-month', icon: TrendingUp, color: parseFloat(avgGrowth) >= 0 ? 'text-green-400' : 'text-red-400', trend: avgGrowth >= 0 ? 'positive' : 'negative' },
             { label: 'Top Earner', value: topTrack?.title || '—', subtext: topTrack ? `$${(topTrack.totalRevenue * periodMultiplier).toFixed(2)}` : '', icon: Crown, color: 'text-yellow-400', trend: 'top' },
           ].map((kpi, i) => (
-            <div key={i} className="bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/8 transition-all">
+            <div key={i} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10 hover:bg-white/8 transition-all">
               <div className="flex items-center justify-between mb-2">
                 <kpi.icon className={`w-5 h-5 ${kpi.color}`} />
                 {kpi.trend === 'positive' || kpi.trend === '+8.3%' || kpi.trend === '+12.1%' ? (
@@ -187,13 +188,13 @@ const SuperGOATRoyaltyEngine = () => {
               </div>
               <div className={`text-2xl font-black ${kpi.color}`}>{kpi.value}</div>
               <div className="text-xs text-gray-500 mt-1">{kpi.label}</div>
-              <div className="text-xs text-gray-600 mt-1">{kpi.subtext}</div>
+              <div className="text-xs text-gray-400 mt-1">{kpi.subtext}</div>
             </div>
           ))}
         </div>
 
         {/* Platform Breakdown */}
-        <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+        <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
           <h3 className="font-bold mb-4 flex items-center gap-2"><Globe className="w-5 h-5 text-emerald-400" />Platform Revenue Breakdown</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             {Object.entries(PLATFORMS).map(([key, platform]) => (
@@ -212,16 +213,16 @@ const SuperGOATRoyaltyEngine = () => {
         </div>
 
         {/* Track-by-Track Revenue Table */}
-        <div className="bg-white/5 rounded-2xl border border-white/10">
+        <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl border border-white/10">
           <div className="p-4 border-b border-white/10">
             <div className="flex items-center justify-between flex-wrap gap-3">
               <h3 className="font-bold flex items-center gap-2"><Music className="w-5 h-5 text-emerald-400" />Track Revenue Details</h3>
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
-                  <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search tracks..." className="bg-black/30 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-emerald-500/50 w-48" />
+                  <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search tracks..." className="bg-black/30 border border-white/10 rounded-xl pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-emerald-500/50 w-48" />
                 </div>
-                <div className="flex gap-1 bg-black/30 rounded-lg p-1">
+                <div className="flex gap-1 bg-black/30 rounded-xl p-1">
                   {[{ key: 'revenue', label: '💰 Revenue' }, { key: 'streams', label: '📊 Streams' }, { key: 'growth', label: '📈 Growth' }].map(s => (
                     <button key={s.key} onClick={() => setSortBy(s.key)} className={`px-2 py-1 rounded text-xs transition-all ${sortBy === s.key ? 'bg-emerald-600/30 text-emerald-400' : 'text-gray-500'}`}>{s.label}</button>
                   ))}
@@ -247,7 +248,7 @@ const SuperGOATRoyaltyEngine = () => {
               <tbody>
                 {filteredTracks.map((track, i) => (
                   <tr key={track.isrc} onClick={() => setSelectedTrack(selectedTrack?.isrc === track.isrc ? null : track)} className={`border-b border-white/5 cursor-pointer transition-all hover:bg-white/5 ${selectedTrack?.isrc === track.isrc ? 'bg-emerald-500/10' : ''}`}>
-                    <td className="p-3 text-xs text-gray-600">{i + 1}</td>
+                    <td className="p-3 text-xs text-gray-400">{i + 1}</td>
                     <td className="p-3">
                       <div className="font-bold text-sm">{track.title}</div>
                       <div className="text-xs text-gray-500">{track.writer}</div>
@@ -275,7 +276,7 @@ const SuperGOATRoyaltyEngine = () => {
               <h4 className="font-bold mb-3 text-emerald-400">📊 {selectedTrack.title} — Platform Breakdown</h4>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2">
                 {Object.entries(PLATFORMS).map(([key, platform]) => (
-                  <div key={key} className="bg-black/30 rounded-lg p-3 text-center">
+                  <div key={key} className="bg-black/30 rounded-xl p-3 text-center">
                     <div className="text-lg mb-1">{platform.icon}</div>
                     <div className="text-xs text-gray-400">{platform.name}</div>
                     <div className={`font-bold text-sm ${platform.color}`}>${((selectedTrack.platformStreams[key]?.revenue || 0) * periodMultiplier).toFixed(2)}</div>
@@ -284,10 +285,10 @@ const SuperGOATRoyaltyEngine = () => {
                 ))}
               </div>
               <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-                <div className="bg-black/20 rounded-lg p-2"><span className="text-gray-500">Writer IPI:</span> <span className="text-white font-mono">{selectedTrack.ipi}</span></div>
-                <div className="bg-black/20 rounded-lg p-2"><span className="text-gray-500">Publisher IPI:</span> <span className="text-white font-mono">{selectedTrack.pubIpi}</span></div>
-                <div className="bg-black/20 rounded-lg p-2"><span className="text-gray-500">MLC #:</span> <span className="text-white font-mono">{selectedTrack.mlcNum}</span></div>
-                <div className="bg-black/20 rounded-lg p-2"><span className="text-gray-500">Publisher:</span> <span className="text-white">{selectedTrack.publisher}</span></div>
+                <div className="bg-black/20 rounded-xl p-2"><span className="text-gray-500">Writer IPI:</span> <span className="text-white font-mono">{selectedTrack.ipi}</span></div>
+                <div className="bg-black/20 rounded-xl p-2"><span className="text-gray-500">Publisher IPI:</span> <span className="text-white font-mono">{selectedTrack.pubIpi}</span></div>
+                <div className="bg-black/20 rounded-xl p-2"><span className="text-gray-500">MLC #:</span> <span className="text-white font-mono">{selectedTrack.mlcNum}</span></div>
+                <div className="bg-black/20 rounded-xl p-2"><span className="text-gray-500">Publisher:</span> <span className="text-white">{selectedTrack.publisher}</span></div>
               </div>
             </div>
           )}
@@ -299,7 +300,7 @@ const SuperGOATRoyaltyEngine = () => {
         </div>
 
         {/* Publishing Info */}
-        <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+        <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
           <h3 className="font-bold mb-4 flex items-center gap-2"><Layers className="w-5 h-5 text-yellow-400" />Publishing & Rights Information</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-black/30 rounded-xl p-4">
@@ -330,7 +331,7 @@ const SuperGOATRoyaltyEngine = () => {
 
       {/* Footer */}
       <div className="max-w-7xl mx-auto px-4 py-6 border-t border-white/5">
-        <div className="flex items-center justify-between text-xs text-gray-600">
+        <div className="flex items-center justify-between text-xs text-gray-400">
           <div>💰 SuperGOAT Royalty Engine v2.0 • FASTASSMAN Publishing Inc</div>
           <div>© 2025 Harvey Miller / DJ Speedy • All Rights Reserved</div>
         </div>

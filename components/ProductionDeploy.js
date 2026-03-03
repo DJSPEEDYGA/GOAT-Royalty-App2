@@ -3,6 +3,7 @@
  * Production readiness and deployment configuration
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { 
   Rocket, 
@@ -107,7 +108,7 @@ const ProductionDeploy = () => {
     <div className="max-w-7xl mx-auto p-6">
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold mb-4">
-          <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-400 to-pink-400 bg-clip-text text-transparent">
             Production Deployment
           </span>
         </h2>
@@ -150,7 +151,7 @@ const ProductionDeploy = () => {
       </div>
 
       {/* Deployment Configuration */}
-      <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-6 mb-8">
+      <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20 p-6 mb-8">
         <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
           <Settings className="w-5 h-5 mr-2" />
           Deployment Configuration
@@ -195,7 +196,7 @@ const ProductionDeploy = () => {
       </div>
 
       {/* Deployment Steps */}
-      <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-6 mb-8">
+      <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20 p-6 mb-8">
         <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
           <Rocket className="w-5 h-5 mr-2" />
           Deployment Pipeline
@@ -237,7 +238,7 @@ const ProductionDeploy = () => {
       </div>
 
       {/* Security Features */}
-      <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-6 mb-8">
+      <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20 p-6 mb-8">
         <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
           <Shield className="w-5 h-5 mr-2" />
           Security Features
@@ -254,7 +255,7 @@ const ProductionDeploy = () => {
 
       {/* Infrastructure Overview */}
       <div className="grid md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-6">
+        <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20 p-6">
           <div className="flex items-center justify-between mb-4">
             <Server className="w-8 h-8 text-blue-400" />
             <span className="text-xs bg-green-600/20 text-green-400 px-2 py-1 rounded-full">Active</span>
@@ -269,7 +270,7 @@ const ProductionDeploy = () => {
           </div>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-6">
+        <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20 p-6">
           <div className="flex items-center justify-between mb-4">
             <Database className="w-8 h-8 text-purple-400" />
             <span className="text-xs bg-green-600/20 text-green-400 px-2 py-1 rounded-full">Optimized</span>
@@ -284,7 +285,7 @@ const ProductionDeploy = () => {
           </div>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-6">
+        <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20 p-6">
           <div className="flex items-center justify-between mb-4">
             <Cloud className="w-8 h-8 text-cyan-400" />
             <span className="text-xs bg-green-600/20 text-green-400 px-2 py-1 rounded-full">Global</span>
@@ -302,7 +303,7 @@ const ProductionDeploy = () => {
 
       {/* Deploy Button */}
       <div className="text-center">
-        <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-8">
+        <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20 p-8">
           <div className="mb-6">
             <h3 className="text-2xl font-semibold text-white mb-2">
               Ready to Deploy to {selectedEnv.name}
@@ -338,7 +339,7 @@ const ProductionDeploy = () => {
             className={`relative group px-8 py-4 font-semibold rounded-full overflow-hidden transform hover:scale-105 transition-all ${
               deploymentStatus === 'deploying'
                 ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
-                : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700'
+                : 'bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700'
             }`}
           >
             <span className="relative z-10 flex items-center space-x-2">

@@ -3,6 +3,7 @@
  * Real-time monitoring across all platforms
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Globe, Activity, DollarSign, AlertTriangle, CheckCircle, Radio } from 'lucide-react';
 
@@ -64,7 +65,7 @@ const CodexEnginePanel = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center animate-pulse">
+          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center animate-pulse">
             <Globe className="w-6 h-6 text-white" />
           </div>
           <div>
@@ -76,7 +77,7 @@ const CodexEnginePanel = () => {
         <button
           onClick={startScan}
           disabled={scanning}
-          className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all disabled:opacity-50"
+          className="bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all disabled:opacity-50"
         >
           {scanning ? (
             <>
@@ -94,19 +95,19 @@ const CodexEnginePanel = () => {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-black/30 rounded-lg p-4 border border-white/10">
+        <div className="bg-black/30 rounded-xl p-4 border border-white/10">
           <p className="text-gray-400 text-xs mb-1">Platforms</p>
           <p className="text-2xl font-bold text-white">{stats.platformsMonitored}</p>
         </div>
-        <div className="bg-black/30 rounded-lg p-4 border border-white/10">
+        <div className="bg-black/30 rounded-xl p-4 border border-white/10">
           <p className="text-gray-400 text-xs mb-1">Active Scans</p>
           <p className="text-2xl font-bold text-white">{stats.activeScans.toLocaleString()}</p>
         </div>
-        <div className="bg-black/30 rounded-lg p-4 border border-white/10">
+        <div className="bg-black/30 rounded-xl p-4 border border-white/10">
           <p className="text-gray-400 text-xs mb-1">Recovered</p>
           <p className="text-2xl font-bold text-green-400">${(stats.revenueRecovered / 1000).toFixed(0)}K</p>
         </div>
-        <div className="bg-black/30 rounded-lg p-4 border border-white/10">
+        <div className="bg-black/30 rounded-xl p-4 border border-white/10">
           <p className="text-gray-400 text-xs mb-1">Issues</p>
           <p className="text-2xl font-bold text-yellow-400">{stats.issuesDetected}</p>
         </div>
@@ -117,7 +118,7 @@ const CodexEnginePanel = () => {
         <h4 className="text-white font-bold mb-3">Platform Status</h4>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {platforms.map((platform, index) => (
-            <div key={index} className="bg-black/30 rounded-lg p-3 border border-white/10">
+            <div key={index} className="bg-black/30 rounded-xl p-3 border border-white/10">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-white text-sm font-semibold">{platform.name}</span>
                 <div className={`w-2 h-2 rounded-full ${
@@ -138,7 +139,7 @@ const CodexEnginePanel = () => {
           <h4 className="text-white font-bold mb-3">Recent Detections</h4>
           <div className="space-y-3">
             {detections.map((detection, index) => (
-              <div key={index} className="bg-black/30 rounded-lg p-4 border border-white/10 hover:border-blue-500/50 transition-colors">
+              <div key={index} className="bg-black/30 rounded-xl p-4 border border-white/10 hover:border-blue-500/50 transition-colors">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">

@@ -3,6 +3,7 @@
  * Displays actual royalty data from FASTASSMAN and Harvey Miller catalogs
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { 
   Music, 
@@ -89,7 +90,7 @@ const RealDataDashboard = () => {
             <p className="text-gray-400 text-lg">Real-Time Royalty Intelligence</p>
           </div>
           <div className="text-right">
-            <div className="bg-gradient-to-r from-red-600 to-red-800 px-4 py-2 rounded-lg mb-2">
+            <div className="bg-gradient-to-r from-red-600 to-red-800 px-4 py-2 rounded-xl mb-2">
               <p className="text-white font-bold text-sm">PRIVATE - INTERNAL USE ONLY</p>
             </div>
             <p className="text-gray-400 text-sm">Harvey Miller & Waka Flocka Flame</p>
@@ -155,7 +156,7 @@ const RealDataDashboard = () => {
             <Music className="w-6 h-6 text-purple-400" />
             Recent Catalog Works
           </h2>
-          <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+          <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl transition-colors">
             View All {stats.totalWorks} Works
           </button>
         </div>
@@ -212,14 +213,14 @@ const RealDataDashboard = () => {
             GOAT Force Leadership
           </h3>
           <div className="space-y-3">
-            <div className="flex items-center justify-between p-3 bg-black/30 rounded-lg">
+            <div className="flex items-center justify-between p-3 bg-black/30 rounded-xl">
               <div>
                 <p className="text-white font-bold">Harvey L. Miller Jr.</p>
                 <p className="text-gray-400 text-sm">CEO - GOAT Force | President - BrickSquad</p>
               </div>
               <Shield className="w-6 h-6 text-green-400" />
             </div>
-            <div className="flex items-center justify-between p-3 bg-black/30 rounded-lg">
+            <div className="flex items-center justify-between p-3 bg-black/30 rounded-xl">
               <div>
                 <p className="text-white font-bold">Juaquin James Malphurs</p>
                 <p className="text-gray-400 text-sm">President - GOAT Force | CEO - BrickSquad</p>
@@ -235,21 +236,21 @@ const RealDataDashboard = () => {
             System Status
           </h3>
           <div className="space-y-3">
-            <div className="flex items-center justify-between p-3 bg-black/30 rounded-lg">
+            <div className="flex items-center justify-between p-3 bg-black/30 rounded-xl">
               <span className="text-gray-400">Supabase Database</span>
               <span className="text-green-400 font-bold flex items-center gap-1">
                 <CheckCircle className="w-4 h-4" />
                 Connected
               </span>
             </div>
-            <div className="flex items-center justify-between p-3 bg-black/30 rounded-lg">
+            <div className="flex items-center justify-between p-3 bg-black/30 rounded-xl">
               <span className="text-gray-400">Super Ninja API</span>
               <span className="text-green-400 font-bold flex items-center gap-1">
                 <CheckCircle className="w-4 h-4" />
                 Active
               </span>
             </div>
-            <div className="flex items-center justify-between p-3 bg-black/30 rounded-lg">
+            <div className="flex items-center justify-between p-3 bg-black/30 rounded-xl">
               <span className="text-gray-400">Codex Master API</span>
               <span className="text-green-400 font-bold flex items-center gap-1">
                 <CheckCircle className="w-4 h-4" />

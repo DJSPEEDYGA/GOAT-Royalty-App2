@@ -7,6 +7,7 @@
  * a Grammy-winning producer's brain.
  */
 
+import '../styles/globals.css';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { 
   Send, Bot, User, Sparkles, Crown, Music, DollarSign, Shield, 
@@ -532,20 +533,20 @@ Please specify your mission parameters or select a **Mission Module** for a targ
             <div className="hidden lg:flex items-center gap-4">
               <button
                 onClick={() => setShowStatus(!showStatus)}
-                className="flex items-center gap-2 px-3 py-1.5 bg-gray-800/50 border border-gray-700 rounded-lg hover:border-cyan-500/50 transition-all"
+                className="flex items-center gap-2 px-3 py-1.5 bg-gray-800/50 border border-gray-700 rounded-xl hover:border-cyan-500/50 transition-all"
               >
                 <Activity className={`w-4 h-4 ${systemPulse ? 'text-green-400' : 'text-green-600'}`} />
                 <span className="text-xs text-gray-400 font-mono">SYSTEMS</span>
               </button>
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-800/50 border border-gray-700 rounded-lg">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-800/50 border border-gray-700 rounded-xl">
                 <Wifi className="w-4 h-4 text-cyan-400" />
                 <span className="text-xs text-gray-400 font-mono">NEURAL LINK</span>
               </div>
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-800/50 border border-gray-700 rounded-lg">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-800/50 border border-gray-700 rounded-xl">
                 <Lock className="w-4 h-4 text-yellow-400" />
                 <span className="text-xs text-gray-400 font-mono">ENCRYPTED</span>
               </div>
-              <a href="/" className="flex items-center gap-2 px-3 py-1.5 bg-red-500/10 border border-red-500/30 rounded-lg hover:bg-red-500/20 transition-all">
+              <a href="/" className="flex items-center gap-2 px-3 py-1.5 bg-red-500/10 border border-red-500/30 rounded-xl hover:bg-red-500/20 transition-all">
                 <img src="/images/branding/goat-icon-32.png" alt="GOAT" className="w-5 h-5 rounded" />
                 <span className="text-xs text-red-400 font-mono font-bold">GOAT HQ</span>
               </a>
@@ -560,7 +561,7 @@ Please specify your mission parameters or select a **Mission Module** for a targ
           <div className="container mx-auto px-4 py-4">
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
               {SYSTEM_STATUS.map((sys, i) => (
-                <div key={i} className="bg-black/50 border border-gray-800 rounded-lg p-3">
+                <div key={i} className="bg-black/50 border border-gray-800 rounded-xl p-3">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs text-gray-500 font-mono">{sys.name}</span>
                     <span className={`w-2 h-2 rounded-full ${sys.status === 'online' ? 'bg-green-400 animate-pulse' : 'bg-red-400'}`} />
@@ -700,7 +701,7 @@ Please specify your mission parameters or select a **Mission Module** for a targ
                             <span className="text-xs font-bold text-yellow-400 font-mono">COMMANDER</span>
                           </>
                         )}
-                        <span className="text-xs text-gray-600 font-mono">
+                        <span className="text-xs text-gray-400 font-mono">
                           {msg.timestamp?.toLocaleTimeString()}
                         </span>
                       </div>
@@ -747,7 +748,7 @@ Please specify your mission parameters or select a **Mission Module** for a targ
                 <div className="flex items-center gap-2">
                   <button
                     onClick={clearChat}
-                    className="p-2 text-gray-600 hover:text-red-400 transition-colors rounded-lg hover:bg-red-500/10"
+                    className="p-2 text-gray-400 hover:text-red-400 transition-colors rounded-xl hover:bg-red-500/10"
                     title="Clear chat"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -757,7 +758,7 @@ Please specify your mission parameters or select a **Mission Module** for a targ
                     disabled={isProcessing || !inputMessage.trim()}
                     className={`p-3 rounded-xl font-bold transition-all duration-300 flex items-center gap-2
                       ${isProcessing || !inputMessage.trim()
-                        ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
+                        ? 'bg-gray-800 text-gray-400 cursor-not-allowed'
                         : 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-105'
                       }`}
                   >
@@ -770,10 +771,10 @@ Please specify your mission parameters or select a **Mission Module** for a targ
                 </div>
               </div>
               <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-800">
-                <span className="text-xs text-gray-600 font-mono">
+                <span className="text-xs text-gray-400 font-mono">
                   🔐 End-to-end encrypted • Powered by Anthropic Claude
                 </span>
-                <span className="text-xs text-gray-600 font-mono">
+                <span className="text-xs text-gray-400 font-mono">
                   Press Enter to send • Shift+Enter for new line
                 </span>
               </div>

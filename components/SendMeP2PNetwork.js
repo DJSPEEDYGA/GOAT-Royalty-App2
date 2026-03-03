@@ -12,6 +12,7 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   Radio, Wifi, WifiOff, Send, Download, Upload, FileText,
@@ -280,7 +281,7 @@ const SendMeP2PNetwork = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-blue-950/20 to-black text-white">
       {/* ═══ HEADER ═══ */}
-      <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 border-b border-blue-500/20">
+      <div className="bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-900/30 to-cyan-900/30 border-b border-blue-500/20">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-4">
@@ -308,22 +309,22 @@ const SendMeP2PNetwork = () => {
               </div>
 
               <div className="hidden lg:flex items-center gap-3 text-xs">
-                <div className="text-center px-3 py-1 bg-white/5 rounded-lg">
+                <div className="text-center px-3 py-1 bg-white/5 rounded-xl">
                   <div className="text-cyan-400 font-bold">{discoveredPeers.length}</div>
                   <div className="text-gray-500">Peers</div>
                 </div>
-                <div className="text-center px-3 py-1 bg-white/5 rounded-lg">
+                <div className="text-center px-3 py-1 bg-white/5 rounded-xl">
                   <div className="text-green-400 font-bold">{networkStats.totalTransferred}</div>
                   <div className="text-gray-500">Transferred</div>
                 </div>
-                <div className="text-center px-3 py-1 bg-white/5 rounded-lg">
+                <div className="text-center px-3 py-1 bg-white/5 rounded-xl">
                   <div className="text-purple-400 font-bold">{networkStats.avgLatency}</div>
                   <div className="text-gray-500">Latency</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1 px-2 py-1 bg-red-500/10 rounded-lg border border-red-500/20">
+                <div className="flex items-center gap-1 px-2 py-1 bg-red-500/10 rounded-xl border border-red-500/20">
                   <Globe className="w-3 h-3 text-red-400" />
                   <span className="text-xs text-red-400 font-bold">NO INTERNET</span>
                 </div>
@@ -360,10 +361,10 @@ const SendMeP2PNetwork = () => {
                 <span className="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-bold">● MESH ACTIVE</span>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-                <div className="bg-black/30 rounded-lg p-3"><span className="text-gray-500">Protocol:</span> <span className="text-cyan-400 font-bold">QUIC/UDP</span></div>
-                <div className="bg-black/30 rounded-lg p-3"><span className="text-gray-500">Encryption:</span> <span className="text-green-400 font-bold">TLS 1.3 E2E</span></div>
-                <div className="bg-black/30 rounded-lg p-3"><span className="text-gray-500">Discovery:</span> <span className="text-blue-400 font-bold">mDNS Zero-Config</span></div>
-                <div className="bg-black/30 rounded-lg p-3"><span className="text-gray-500">Verification:</span> <span className="text-purple-400 font-bold">BLAKE3 Hash</span></div>
+                <div className="bg-black/30 rounded-xl p-3"><span className="text-gray-500">Protocol:</span> <span className="text-cyan-400 font-bold">QUIC/UDP</span></div>
+                <div className="bg-black/30 rounded-xl p-3"><span className="text-gray-500">Encryption:</span> <span className="text-green-400 font-bold">TLS 1.3 E2E</span></div>
+                <div className="bg-black/30 rounded-xl p-3"><span className="text-gray-500">Discovery:</span> <span className="text-blue-400 font-bold">mDNS Zero-Config</span></div>
+                <div className="bg-black/30 rounded-xl p-3"><span className="text-gray-500">Verification:</span> <span className="text-purple-400 font-bold">BLAKE3 Hash</span></div>
               </div>
             </div>
 
@@ -393,16 +394,16 @@ const SendMeP2PNetwork = () => {
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-xs mb-3">
-                    <div className="bg-black/20 rounded-lg p-2">
+                    <div className="bg-black/20 rounded-xl p-2">
                       <span className="text-gray-500">OS:</span> <span className="text-white">{peer.os}</span>
                     </div>
-                    <div className="bg-black/20 rounded-lg p-2">
+                    <div className="bg-black/20 rounded-xl p-2">
                       <span className="text-gray-500">Model:</span> <span className="text-cyan-400 font-bold">{peer.model}</span>
                     </div>
-                    <div className="bg-black/20 rounded-lg p-2">
+                    <div className="bg-black/20 rounded-xl p-2">
                       <span className="text-gray-500">Speed:</span> <span className="text-green-400">{peer.transferSpeed}</span>
                     </div>
-                    <div className="bg-black/20 rounded-lg p-2">
+                    <div className="bg-black/20 rounded-xl p-2">
                       <span className="text-gray-500">Uptime:</span> <span className="text-white">{peer.uptime}</span>
                     </div>
                   </div>
@@ -411,17 +412,17 @@ const SendMeP2PNetwork = () => {
                   {selectedPeer?.id === peer.id && (
                     <div className="mt-3 pt-3 border-t border-white/10 space-y-2">
                       <div className="grid grid-cols-2 gap-2 text-xs">
-                        <div className="bg-black/30 rounded-lg p-2"><span className="text-gray-500">CPU:</span> <span className="text-white">{peer.cpu}</span></div>
-                        <div className="bg-black/30 rounded-lg p-2"><span className="text-gray-500">GPU:</span> <span className="text-white">{peer.gpu}</span></div>
-                        <div className="bg-black/30 rounded-lg p-2"><span className="text-gray-500">RAM:</span> <span className="text-white">{peer.ram}</span></div>
-                        <div className="bg-black/30 rounded-lg p-2"><span className="text-gray-500">Storage:</span> <span className="text-white">{peer.storage}</span></div>
-                        <div className="bg-black/30 rounded-lg p-2"><span className="text-gray-500">Files Shared:</span> <span className="text-cyan-400 font-bold">{peer.filesShared.toLocaleString()}</span></div>
-                        <div className="bg-black/30 rounded-lg p-2"><span className="text-gray-500">Messages:</span> <span className="text-purple-400 font-bold">{peer.messagesExchanged.toLocaleString()}</span></div>
+                        <div className="bg-black/30 rounded-xl p-2"><span className="text-gray-500">CPU:</span> <span className="text-white">{peer.cpu}</span></div>
+                        <div className="bg-black/30 rounded-xl p-2"><span className="text-gray-500">GPU:</span> <span className="text-white">{peer.gpu}</span></div>
+                        <div className="bg-black/30 rounded-xl p-2"><span className="text-gray-500">RAM:</span> <span className="text-white">{peer.ram}</span></div>
+                        <div className="bg-black/30 rounded-xl p-2"><span className="text-gray-500">Storage:</span> <span className="text-white">{peer.storage}</span></div>
+                        <div className="bg-black/30 rounded-xl p-2"><span className="text-gray-500">Files Shared:</span> <span className="text-cyan-400 font-bold">{peer.filesShared.toLocaleString()}</span></div>
+                        <div className="bg-black/30 rounded-xl p-2"><span className="text-gray-500">Messages:</span> <span className="text-purple-400 font-bold">{peer.messagesExchanged.toLocaleString()}</span></div>
                       </div>
                       <div className="flex gap-2 mt-2">
-                        {peer.ollama && <button className="px-3 py-1 bg-cyan-600/30 rounded-lg text-xs text-cyan-400 hover:bg-cyan-600/50">🤖 Chat with AI</button>}
-                        <button className="px-3 py-1 bg-blue-600/30 rounded-lg text-xs text-blue-400 hover:bg-blue-600/50">📤 Send File</button>
-                        <button className="px-3 py-1 bg-purple-600/30 rounded-lg text-xs text-purple-400 hover:bg-purple-600/50">🔍 Browse Files</button>
+                        {peer.ollama && <button className="px-3 py-1 bg-cyan-600/30 rounded-xl text-xs text-cyan-400 hover:bg-cyan-600/50">🤖 Chat with AI</button>}
+                        <button className="px-3 py-1 bg-blue-600/30 rounded-xl text-xs text-blue-400 hover:bg-blue-600/50">📤 Send File</button>
+                        <button className="px-3 py-1 bg-purple-600/30 rounded-xl text-xs text-purple-400 hover:bg-purple-600/50">🔍 Browse Files</button>
                       </div>
                     </div>
                   )}
@@ -434,7 +435,7 @@ const SendMeP2PNetwork = () => {
         {/* ═══ AI AGENTS TAB ═══ */}
         {activeTab === 'agents' && (
           <div className="space-y-6">
-            <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 rounded-2xl p-4 border border-purple-500/20">
+            <div className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-900/20 to-pink-900/20 rounded-2xl p-4 border border-purple-500/20">
               <div className="flex items-center gap-3">
                 <Bot className="w-6 h-6 text-purple-400" />
                 <div>
@@ -454,7 +455,7 @@ const SendMeP2PNetwork = () => {
             </div>
 
             {/* Agent Conversation */}
-            <div className="bg-white/5 rounded-2xl border border-white/10">
+            <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl border border-white/10">
               <div className="p-4 border-b border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-2">
@@ -483,7 +484,7 @@ const SendMeP2PNetwork = () => {
                         <div className="flex items-center gap-2 mb-2">
                           <Bot className={`w-4 h-4 ${isAlpha ? 'text-cyan-400' : 'text-purple-400'}`} />
                           <span className={`text-xs font-bold ${isAlpha ? 'text-cyan-400' : 'text-purple-400'}`}>{peer?.name}</span>
-                          <span className="text-xs text-gray-600">({isAlpha ? AI_CONVERSATIONS[activeConversation].fromModel : AI_CONVERSATIONS[activeConversation].toModel})</span>
+                          <span className="text-xs text-gray-400">({isAlpha ? AI_CONVERSATIONS[activeConversation].fromModel : AI_CONVERSATIONS[activeConversation].toModel})</span>
                         </div>
                         <div className="text-sm whitespace-pre-wrap">{msg.text}</div>
                       </div>
@@ -492,7 +493,7 @@ const SendMeP2PNetwork = () => {
                 })}
                 {visibleMessages < AI_CONVERSATIONS[activeConversation].messages.length && (
                   <div className="flex justify-center">
-                    <div className="bg-white/10 rounded-xl px-4 py-2 flex items-center gap-2 text-sm text-gray-400">
+                    <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 rounded-xl px-4 py-2 flex items-center gap-2 text-sm text-gray-400">
                       <RefreshCw className="w-4 h-4 animate-spin" />
                       Agent processing...
                     </div>
@@ -524,7 +525,7 @@ const SendMeP2PNetwork = () => {
                 const fromPeer = NETWORK_PEERS.find(p => p.id === transfer.from);
                 const toPeer = NETWORK_PEERS.find(p => p.id === transfer.to);
                 return (
-                  <div key={i} className="bg-white/5 rounded-xl p-4 border border-white/10 hover:bg-white/8 transition-all">
+                  <div key={i} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-4 border border-white/10 hover:bg-white/8 transition-all">
                     <div className="flex items-center justify-between flex-wrap gap-3">
                       <div className="flex items-center gap-3">
                         <FileIcon className={`w-8 h-8 ${transfer.type === 'audio' ? 'text-pink-400' : transfer.type === 'model' ? 'text-purple-400' : transfer.type === 'data' ? 'text-green-400' : 'text-cyan-400'}`} />
@@ -562,7 +563,7 @@ const SendMeP2PNetwork = () => {
                       </div>
                     </div>
                     {transfer.hash !== 'pending' && (
-                      <div className="mt-2 text-xs text-gray-600 font-mono">Hash: {transfer.hash}</div>
+                      <div className="mt-2 text-xs text-gray-400 font-mono">Hash: {transfer.hash}</div>
                     )}
                   </div>
                 );
@@ -598,7 +599,7 @@ const SendMeP2PNetwork = () => {
                 ))}
                 {isAgentThinking && (
                   <div className="flex justify-start">
-                    <div className="bg-white/10 rounded-2xl px-4 py-3 border border-white/10">
+                    <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 rounded-2xl px-4 py-3 border border-white/10">
                       <div className="flex items-center gap-2 text-sm text-gray-400">
                         <RefreshCw className="w-4 h-4 animate-spin" />
                         Querying network nodes...
@@ -620,7 +621,7 @@ const SendMeP2PNetwork = () => {
 
             {/* Quick Reference */}
             <div className="space-y-4">
-              <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10">
                 <h3 className="font-bold mb-3 flex items-center gap-2"><Terminal className="w-5 h-5 text-cyan-400" />CLI Commands</h3>
                 <div className="space-y-2 font-mono text-xs">
                   {[
@@ -633,7 +634,7 @@ const SendMeP2PNetwork = () => {
                     'sendme sync --catalog --to all',
                     'ollama list',
                   ].map((cmd, i) => (
-                    <div key={i} className="flex items-center justify-between bg-black/30 rounded-lg px-3 py-2">
+                    <div key={i} className="flex items-center justify-between bg-black/30 rounded-xl px-3 py-2">
                       <code className="text-green-400">$ {cmd}</code>
                       <button onClick={() => navigator.clipboard?.writeText(cmd)} className="p-1 hover:bg-white/10 rounded"><Copy className="w-3 h-3 text-gray-500" /></button>
                     </div>
@@ -641,7 +642,7 @@ const SendMeP2PNetwork = () => {
                 </div>
               </div>
 
-              <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10">
                 <h3 className="font-bold mb-3 flex items-center gap-2"><Activity className="w-5 h-5 text-green-400" />Network Stats</h3>
                 <div className="space-y-2 text-sm">
                   {Object.entries(networkStats).map(([key, val]) => (
@@ -661,7 +662,7 @@ const SendMeP2PNetwork = () => {
           <div className="space-y-6">
             <h2 className="text-xl font-bold flex items-center gap-2"><Settings className="w-6 h-6 text-gray-400" />Network Configuration</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
                 <h3 className="font-bold mb-4">P2P Settings</h3>
                 <div className="space-y-4">
                   {[
@@ -673,13 +674,13 @@ const SendMeP2PNetwork = () => {
                   ].map((setting, i) => (
                     <div key={i}>
                       <label className="text-sm text-gray-400">{setting.label}</label>
-                      <input type="text" defaultValue={setting.value} className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 mt-1 text-sm" />
-                      <p className="text-xs text-gray-600 mt-1">{setting.desc}</p>
+                      <input type="text" defaultValue={setting.value} className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-2 mt-1 text-sm" />
+                      <p className="text-xs text-gray-400 mt-1">{setting.desc}</p>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
                 <h3 className="font-bold mb-4">Security & Encryption</h3>
                 <div className="space-y-3">
                   {[
@@ -715,7 +716,7 @@ const SendMeP2PNetwork = () => {
 
       {/* ═══ FOOTER ═══ */}
       <div className="max-w-7xl mx-auto px-4 py-6 mt-8 border-t border-white/5">
-        <div className="flex items-center justify-between text-xs text-gray-600 flex-wrap gap-2">
+        <div className="flex items-center justify-between text-xs text-gray-400 flex-wrap gap-2">
           <div>📡 SendMe P2P AI Network v{P2P_CONFIG.version} • GOAT Royalty Division</div>
           <div>Powered by Iroh/QUIC • mDNS Discovery • Ollama Local LLM</div>
           <div>© 2025 Harvey Miller / FASTASSMAN Publishing Inc</div>

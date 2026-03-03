@@ -3,6 +3,7 @@
  * Advanced biometric security using browser fingerprinting
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Fingerprint, Shield, CheckCircle, Lock, Monitor } from 'lucide-react';
 
@@ -89,7 +90,7 @@ const FingerprintAuth = () => {
 
           {authStatus === 'idle' && (
             <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center animate-pulse">
+              <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-500 to-blue-500 rounded-full flex items-center justify-center animate-pulse">
                 <Fingerprint className="w-16 h-16 text-white" />
               </div>
               <p className="text-white/70 mb-6">
@@ -97,7 +98,7 @@ const FingerprintAuth = () => {
               </p>
               <button
                 onClick={startFingerprintScan}
-                className="px-8 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white font-semibold rounded-full hover:from-green-700 hover:to-blue-700 transition-all duration-200"
+                className="px-8 py-3 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-600 to-blue-600 text-white font-semibold rounded-full hover:from-green-700 hover:to-blue-700 transition-all duration-200"
               >
                 Start Fingerprint Scan
               </button>
@@ -116,11 +117,11 @@ const FingerprintAuth = () => {
 
           {authStatus === 'success' && fingerprintData && (
             <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+              <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-500 to-green-600 rounded-full flex items-center justify-center">
                 <CheckCircle className="w-16 h-16 text-white" />
               </div>
               <p className="text-green-400 font-semibold mb-4">Authentication Successful!</p>
-              <div className="bg-white/5 rounded-lg p-4 mb-6">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-4 mb-6">
                 <p className="text-white/70 text-sm mb-2">Fingerprint Hash:</p>
                 <p className="text-white font-mono text-xs break-all">{fingerprintData.hash}</p>
                 <div className="mt-4 flex items-center justify-center">
@@ -204,7 +205,7 @@ const FingerprintAuth = () => {
           </div>
 
           {/* Security Status */}
-          <div className="mt-6 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-lg p-4 border border-green-500/30">
+          <div className="mt-6 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-500/20 to-blue-500/20 rounded-xl p-4 border border-green-500/30">
             <div className="flex items-center mb-2">
               <Shield className="w-5 h-5 text-green-400 mr-2" />
               <span className="text-green-400 font-semibold">Security Status</span>

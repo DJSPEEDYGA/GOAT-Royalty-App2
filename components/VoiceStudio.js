@@ -4,6 +4,7 @@
  * Uses Web Speech API for browser-native voice capabilities
  */
 
+import '../styles/globals.css';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { 
   Play, Pause, Square, Mic, MicOff, Volume2, VolumeX, 
@@ -328,7 +329,7 @@ export default function VoiceStudio() {
             {/* Main TTS Panel */}
             <div className="lg:col-span-2 space-y-4">
               {/* Text Input */}
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
                 <div className="flex items-center justify-between mb-3">
                   <label className="text-white/70 text-sm uppercase tracking-wider"
                          style={{ fontFamily: "var(--font-tech)" }}>
@@ -350,7 +351,7 @@ export default function VoiceStudio() {
                     <button
                       onClick={speak}
                       disabled={!ttsText.trim()}
-                      className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold rounded-xl hover:from-red-700 hover:to-yellow-700 transition-all disabled:opacity-30 disabled:cursor-not-allowed shadow-lg shadow-red-500/25"
+                      className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold rounded-xl hover:from-red-700 hover:to-yellow-700 transition-all disabled:opacity-30 disabled:cursor-not-allowed goat-glow shadow-red-500/25"
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
                       <Play className="w-5 h-5" />
@@ -400,7 +401,7 @@ export default function VoiceStudio() {
               </div>
 
               {/* Speed / Pitch / Volume Controls */}
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
                 <h3 className="text-white font-bold mb-4 uppercase tracking-wider text-sm"
                     style={{ fontFamily: "var(--font-tech)" }}>
                   ⚡ Voice Controls
@@ -443,7 +444,7 @@ export default function VoiceStudio() {
               </div>
 
               {/* Quick Phrases */}
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
                 <h3 className="text-white font-bold mb-3 uppercase tracking-wider text-sm"
                     style={{ fontFamily: "var(--font-tech)" }}>
                   🎯 Quick Phrases
@@ -462,7 +463,7 @@ export default function VoiceStudio() {
                     <button
                       key={i}
                       onClick={() => setTtsText(phrase)}
-                      className="px-3 py-1.5 bg-red-500/10 border border-red-500/20 text-white/70 text-xs rounded-lg hover:bg-red-500/20 hover:text-white transition-all"
+                      className="px-3 py-1.5 bg-red-500/10 border border-red-500/20 text-white/70 text-xs rounded-xl hover:bg-red-500/20 hover:text-white transition-all"
                     >
                       {phrase.substring(0, 40)}...
                     </button>
@@ -473,7 +474,7 @@ export default function VoiceStudio() {
 
             {/* Voice Selector Sidebar */}
             <div className="space-y-4">
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
                 <h3 className="text-white font-bold mb-4 uppercase tracking-wider text-sm"
                     style={{ fontFamily: "var(--font-tech)" }}>
                   🎤 Select Voice ({voices.length})
@@ -500,7 +501,7 @@ export default function VoiceStudio() {
               </div>
 
               {/* TTS History */}
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
                 <h3 className="text-white font-bold mb-3 uppercase tracking-wider text-sm"
                     style={{ fontFamily: "var(--font-tech)" }}>
                   📜 History
@@ -509,7 +510,7 @@ export default function VoiceStudio() {
                   {ttsHistory.length === 0 ? (
                     <p className="text-white/20 text-sm text-center py-4">No history yet</p>
                   ) : ttsHistory.map((item, i) => (
-                    <div key={i} className="p-2 bg-black/20 rounded-lg">
+                    <div key={i} className="p-2 bg-black/20 rounded-xl">
                       <div className="text-white/70 text-xs truncate">{item.text}</div>
                       <div className="text-white/30 text-[10px] mt-1">{item.voice} • {item.time}</div>
                     </div>
@@ -528,7 +529,7 @@ export default function VoiceStudio() {
             {/* Main STT Panel */}
             <div className="lg:col-span-2 space-y-4">
               {/* Mic Control */}
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-8 text-center">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-8 text-center">
                 <button
                   onClick={isListening ? stopListening : startListening}
                   className={`relative w-32 h-32 rounded-full mx-auto flex items-center justify-center transition-all duration-300 ${
@@ -566,7 +567,7 @@ export default function VoiceStudio() {
               </div>
 
               {/* Transcription Output */}
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
                 <div className="flex items-center justify-between mb-3">
                   <label className="text-white/70 text-sm uppercase tracking-wider"
                          style={{ fontFamily: "var(--font-tech)" }}>
@@ -575,7 +576,7 @@ export default function VoiceStudio() {
                   <div className="flex gap-2">
                     <button
                       onClick={() => copyToClipboard(sttText)}
-                      className="p-2 text-white/40 hover:text-white hover:bg-white/10 rounded-lg transition-all"
+                      className="p-2 text-white/40 hover:text-white hover:bg-white/10 rounded-xl transition-all"
                       title="Copy"
                     >
                       <Copy className="w-4 h-4" />
@@ -583,7 +584,7 @@ export default function VoiceStudio() {
                     <button
                       onClick={sendToTTS}
                       disabled={!sttText.trim()}
-                      className="flex items-center gap-1 px-3 py-1.5 bg-red-500/20 border border-red-500/30 text-red-400 text-xs rounded-lg hover:bg-red-500/30 transition-all disabled:opacity-30"
+                      className="flex items-center gap-1 px-3 py-1.5 bg-red-500/20 border border-red-500/30 text-red-400 text-xs rounded-xl hover:bg-red-500/30 transition-all disabled:opacity-30"
                       title="Send to TTS"
                     >
                       <Volume2 className="w-3 h-3" />
@@ -591,7 +592,7 @@ export default function VoiceStudio() {
                     </button>
                     <button
                       onClick={() => { setSttText(''); setInterimText(''); }}
-                      className="p-2 text-white/40 hover:text-white hover:bg-white/10 rounded-lg transition-all"
+                      className="p-2 text-white/40 hover:text-white hover:bg-white/10 rounded-xl transition-all"
                       title="Clear"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -622,7 +623,7 @@ export default function VoiceStudio() {
             {/* STT Settings Sidebar */}
             <div className="space-y-4">
               {/* Language Selector */}
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
                 <h3 className="text-white font-bold mb-4 uppercase tracking-wider text-sm"
                     style={{ fontFamily: "var(--font-tech)" }}>
                   🌍 Language
@@ -646,7 +647,7 @@ export default function VoiceStudio() {
               </div>
 
               {/* STT Settings */}
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
                 <h3 className="text-white font-bold mb-4 uppercase tracking-wider text-sm"
                     style={{ fontFamily: "var(--font-tech)" }}>
                   ⚙️ Settings
@@ -669,7 +670,7 @@ export default function VoiceStudio() {
               </div>
 
               {/* STT History */}
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-md rounded-2xl border border-red-500/20 p-6">
                 <h3 className="text-white font-bold mb-3 uppercase tracking-wider text-sm"
                     style={{ fontFamily: "var(--font-tech)" }}>
                   📜 Recognition History
@@ -678,7 +679,7 @@ export default function VoiceStudio() {
                   {sttHistory.length === 0 ? (
                     <p className="text-white/20 text-sm text-center py-4">No history yet</p>
                   ) : sttHistory.map((item, i) => (
-                    <div key={i} className="p-2 bg-black/20 rounded-lg">
+                    <div key={i} className="p-2 bg-black/20 rounded-xl">
                       <div className="text-white/70 text-xs truncate">{item.text}</div>
                       <div className="text-white/30 text-[10px] mt-1">
                         {item.confidence}% • {item.time}

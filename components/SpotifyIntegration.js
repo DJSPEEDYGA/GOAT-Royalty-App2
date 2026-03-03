@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/Card';
 import { Button } from './ui/Button';
@@ -131,7 +132,7 @@ const SpotifyIntegration = () => {
           <Headphones className="w-8 h-8 mr-2 text-green-600" />
           <h1 className="text-3xl font-bold">Spotify Integration</h1>
         </div>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-400 max-w-2xl mx-auto">
           Connect your Spotify account to track streaming performance, calculate royalties, and analyze music distribution across playlists and radio.
         </p>
       </div>
@@ -147,7 +148,7 @@ const SpotifyIntegration = () => {
         <CardContent>
           {isConnected ? (
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
+              <div className="flex items-center justify-between p-4 bg-green-50 rounded-xl">
                 <div className="flex items-center">
                   <img 
                     src={userData?.images?.[0]?.url} 
@@ -156,7 +157,7 @@ const SpotifyIntegration = () => {
                   />
                   <div>
                     <p className="font-semibold">{userData?.display_name || 'Spotify User'}</p>
-                    <p className="text-sm text-gray-600">{userData?.followers?.total?.toLocaleString() || 0} followers</p>
+                    <p className="text-sm text-gray-400">{userData?.followers?.total?.toLocaleString() || 0} followers</p>
                   </div>
                 </div>
                 <Button 
@@ -193,36 +194,36 @@ const SpotifyIntegration = () => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="p-4 bg-green-50 rounded-lg">
+              <div className="p-4 bg-green-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Music className="w-8 h-8 text-green-500" />
                   <span className="text-2xl font-bold">{tracks.length}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Total Tracks</p>
+                <p className="text-sm text-gray-400 mt-2">Total Tracks</p>
               </div>
               
-              <div className="p-4 bg-blue-50 rounded-lg">
+              <div className="p-4 bg-blue-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Play className="w-8 h-8 text-blue-500" />
                   <span className="text-2xl font-bold">{getTotalStreams().toLocaleString()}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Total Streams</p>
+                <p className="text-sm text-gray-400 mt-2">Total Streams</p>
               </div>
               
-              <div className="p-4 bg-purple-50 rounded-lg">
+              <div className="p-4 bg-purple-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Radio className="w-8 h-8 text-purple-500" />
                   <span className="text-2xl font-bold">{playlists.length}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Playlist Placements</p>
+                <p className="text-sm text-gray-400 mt-2">Playlist Placements</p>
               </div>
               
-              <div className="p-4 bg-yellow-50 rounded-lg">
+              <div className="p-4 bg-yellow-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <DollarSign className="w-8 h-8 text-yellow-500" />
                   <span className="text-2xl font-bold">${getTotalEstimatedRoyalties()}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Est. Royalties</p>
+                <p className="text-sm text-gray-400 mt-2">Est. Royalties</p>
               </div>
             </div>
           </CardContent>
@@ -241,22 +242,22 @@ const SpotifyIntegration = () => {
           <CardContent>
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="p-4 bg-indigo-50 rounded-lg">
+                <div className="p-4 bg-indigo-50 rounded-xl">
                   <h4 className="font-semibold mb-2">Streaming Revenue</h4>
                   <p className="text-2xl font-bold text-indigo-600">${royaltyData.streamingRevenue || '0.00'}</p>
-                  <p className="text-sm text-gray-600">From all streaming platforms</p>
+                  <p className="text-sm text-gray-400">From all streaming platforms</p>
                 </div>
                 
-                <div className="p-4 bg-green-50 rounded-lg">
+                <div className="p-4 bg-green-50 rounded-xl">
                   <h4 className="font-semibold mb-2">Mechanical Royalties</h4>
                   <p className="text-2xl font-bold text-green-600">${royaltyData.mechanicalRoyalties || '0.00'}</p>
-                  <p className="text-sm text-gray-600">From sales and downloads</p>
+                  <p className="text-sm text-gray-400">From sales and downloads</p>
                 </div>
                 
-                <div className="p-4 bg-purple-50 rounded-lg">
+                <div className="p-4 bg-purple-50 rounded-xl">
                   <h4 className="font-semibold mb-2">Performance Royalties</h4>
                   <p className="text-2xl font-bold text-purple-600">${royaltyData.performanceRoyalties || '0.00'}</p>
-                  <p className="text-sm text-gray-600">From radio and public performance</p>
+                  <p className="text-sm text-gray-400">From radio and public performance</p>
                 </div>
               </div>
               
@@ -265,12 +266,12 @@ const SpotifyIntegration = () => {
                   <h4 className="font-semibold mb-2">Monthly Breakdown</h4>
                   <div className="space-y-2">
                     {royaltyData.monthlyBreakdown.slice(0, 3).map((month, index) => (
-                      <div key={index} className="p-3 border rounded-lg">
+                      <div key={index} className="p-3 border rounded-xl">
                         <div className="flex items-center justify-between">
                           <p className="font-medium">{month.month}</p>
                           <p className="text-sm font-semibold text-green-600">${month.revenue || '0.00'}</p>
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-gray-400">
                           {month.streams?.toLocaleString() || 0} streams • {month.listeners?.toLocaleString() || 0} listeners
                         </p>
                       </div>
@@ -292,15 +293,15 @@ const SpotifyIntegration = () => {
           <CardContent>
             <div className="space-y-4">
               {tracks.slice(0, 5).map((track) => (
-                <div key={track.id} className="flex items-center p-4 border rounded-lg">
+                <div key={track.id} className="flex items-center p-4 border rounded-xl">
                   <img 
                     src={track.album?.images?.[0]?.url} 
                     alt={track.name}
-                    className="w-16 h-16 rounded-lg object-cover mr-4"
+                    className="w-16 h-16 rounded-xl object-cover mr-4"
                   />
                   <div className="flex-1">
                     <h3 className="font-semibold">{track.name}</h3>
-                    <p className="text-sm text-gray-600">{track.artists?.map(a => a.name).join(', ')}</p>
+                    <p className="text-sm text-gray-400">{track.artists?.map(a => a.name).join(', ')}</p>
                     <div className="flex items-center mt-2 text-sm text-gray-500">
                       <span className="mr-4">{track.streamCount?.toLocaleString() || 0} streams</span>
                       <span className="mr-4">${calculateStreamingRoyalties(track.streamCount || 0)} est. royalties</span>
@@ -326,15 +327,15 @@ const SpotifyIntegration = () => {
           <CardContent>
             <div className="space-y-4">
               {playlists.slice(0, 5).map((playlist) => (
-                <div key={playlist.id} className="flex items-center p-4 border rounded-lg">
+                <div key={playlist.id} className="flex items-center p-4 border rounded-xl">
                   <img 
                     src={playlist.images?.[0]?.url} 
                     alt={playlist.name}
-                    className="w-16 h-16 rounded-lg object-cover mr-4"
+                    className="w-16 h-16 rounded-xl object-cover mr-4"
                   />
                   <div className="flex-1">
                     <h3 className="font-semibold">{playlist.name}</h3>
-                    <p className="text-sm text-gray-600">{playlist.tracks?.total || 0} tracks • {playlist.followers?.total?.toLocaleString() || 0} followers</p>
+                    <p className="text-sm text-gray-400">{playlist.tracks?.total || 0} tracks • {playlist.followers?.total?.toLocaleString() || 0} followers</p>
                     <div className="flex items-center mt-2 text-sm text-gray-500">
                       <span className="mr-4">{playlist.tracks?.items?.filter(item => item.added_by?.id === userData?.id).length} your tracks</span>
                       <span>{playlist.public ? 'Public' : 'Private'}</span>

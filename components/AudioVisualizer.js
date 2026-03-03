@@ -3,6 +3,7 @@
  * Real-time audio visualization with multiple effects
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, Zap, Music, Waves } from 'lucide-react';
 
@@ -131,7 +132,7 @@ const AudioVisualizer = ({ audioElement, type = 'bars', color = 'purple' }) => {
   }, [audioElement, type, color]);
 
   return (
-    <div className="relative w-full h-full bg-black/50 rounded-lg overflow-hidden">
+    <div className="relative w-full h-full bg-black/50 rounded-xl overflow-hidden">
       <canvas
         ref={canvasRef}
         width={800}

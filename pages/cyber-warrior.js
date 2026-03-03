@@ -5,6 +5,7 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
+import '../styles/globals.css';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useState } from 'react';
@@ -112,7 +113,7 @@ export default function CyberWarriorPage() {
                   desc: 'Safely isolates suspicious files and processes with detailed logging, preventing accidental execution.',
                 },
               ].map((info, i) => (
-                <div key={i} className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div key={i} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-4 border border-white/10">
                   <div className="text-2xl mb-2">{info.icon}</div>
                   <div className="font-bold text-sm mb-1">{info.title}</div>
                   <div className="text-xs text-gray-400">{info.desc}</div>

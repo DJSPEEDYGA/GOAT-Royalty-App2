@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/Card';
 import { Button } from './ui/Button';
@@ -147,7 +148,7 @@ const TikTokIntegration = () => {
           <Video className="w-8 h-8 mr-2" />
           <h1 className="text-3xl font-bold">TikTok Integration</h1>
         </div>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-400 max-w-2xl mx-auto">
           Connect your TikTok account to track royalties, manage content, and analyze performance across your music catalog.
         </p>
       </div>
@@ -163,14 +164,14 @@ const TikTokIntegration = () => {
         <CardContent>
           {isConnected ? (
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
+              <div className="flex items-center justify-between p-4 bg-green-50 rounded-xl">
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
                     {userProfile?.display_name?.[0] || 'T'}
                   </div>
                   <div className="ml-4">
                     <p className="font-semibold">{userProfile?.display_name || 'TikTok User'}</p>
-                    <p className="text-sm text-gray-600">@{userProfile?.open_id || 'connected'}</p>
+                    <p className="text-sm text-gray-400">@{userProfile?.open_id || 'connected'}</p>
                   </div>
                 </div>
                 <Button 
@@ -234,38 +235,38 @@ const TikTokIntegration = () => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="p-4 bg-blue-50 rounded-lg">
+              <div className="p-4 bg-blue-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Video className="w-8 h-8 text-blue-500" />
                   <span className="text-2xl font-bold">{userVideos.length}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Total Videos</p>
+                <p className="text-sm text-gray-400 mt-2">Total Videos</p>
               </div>
               
-              <div className="p-4 bg-green-50 rounded-lg">
+              <div className="p-4 bg-green-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Users className="w-8 h-8 text-green-500" />
                   <span className="text-2xl font-bold">{getTotalViews().toLocaleString()}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Total Views</p>
+                <p className="text-sm text-gray-400 mt-2">Total Views</p>
               </div>
               
-              <div className="p-4 bg-purple-50 rounded-lg">
+              <div className="p-4 bg-purple-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Music className="w-8 h-8 text-purple-500" />
                   <span className="text-2xl font-bold">
                     {userVideos.filter(v => v.music_used).length}
                   </span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Music Videos</p>
+                <p className="text-sm text-gray-400 mt-2">Music Videos</p>
               </div>
               
-              <div className="p-4 bg-yellow-50 rounded-lg">
+              <div className="p-4 bg-yellow-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <DollarSign className="w-8 h-8 text-yellow-500" />
                   <span className="text-2xl font-bold">${getTotalEstimatedRoyalties()}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Est. Royalties</p>
+                <p className="text-sm text-gray-400 mt-2">Est. Royalties</p>
               </div>
             </div>
           </CardContent>
@@ -281,15 +282,15 @@ const TikTokIntegration = () => {
           <CardContent>
             <div className="space-y-4">
               {userVideos.slice(0, 5).map((video) => (
-                <div key={video.id} className="flex items-center p-4 border rounded-lg">
+                <div key={video.id} className="flex items-center p-4 border rounded-xl">
                   <img 
                     src={video.cover_image_url} 
                     alt={video.title}
-                    className="w-16 h-16 rounded-lg object-cover mr-4"
+                    className="w-16 h-16 rounded-xl object-cover mr-4"
                   />
                   <div className="flex-1">
                     <h3 className="font-semibold">{video.title}</h3>
-                    <p className="text-sm text-gray-600">{video.video_description}</p>
+                    <p className="text-sm text-gray-400">{video.video_description}</p>
                     <div className="flex items-center mt-2 text-sm text-gray-500">
                       <span className="mr-4">{video.views_count?.toLocaleString() || 0} views</span>
                       <span className="mr-4">${calculateEstimatedRoyalties(video.views_count || 0)} est. royalties</span>

@@ -3,6 +3,7 @@
  * Featuring The Gangsta Nerds and Waka Flocka Flame as superheroes
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Maximize2, Heart, Share2, Star, Zap } from 'lucide-react';
 

@@ -3,6 +3,7 @@
  * All features integrated - A to Z
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Crown, Zap, Globe, Shield, DollarSign, Music, TrendingUp, Users, BarChart3, Lock, Video, Cpu, Shirt } from 'lucide-react';
 import GeminiAIPanel from '../components/GeminiAIPanel';

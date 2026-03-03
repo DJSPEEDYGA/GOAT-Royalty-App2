@@ -14,6 +14,7 @@
  * Unauthorized use, reproduction, or distribution is strictly prohibited.
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -208,7 +209,7 @@ const EnhancedSpotifyIntegration = () => {
         <CardContent>
           {!isConnected ? (
             <div className="text-center space-y-4">
-              <p className="text-gray-600">
+              <p className="text-gray-400">
                 Connect your Spotify account to track royalties and analyze your music performance
               </p>
               <Button 
@@ -242,7 +243,7 @@ const EnhancedSpotifyIntegration = () => {
                   )}
                   <div>
                     <p className="font-semibold">{userProfile?.displayName}</p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-400">
                       {userProfile?.followers?.toLocaleString()} followers
                     </p>
                   </div>
@@ -335,25 +336,25 @@ const EnhancedSpotifyIntegration = () => {
                     <div className="text-xl font-bold text-purple-600">
                       {analytics.summary.totalTracks}
                     </div>
-                    <p className="text-sm text-gray-600">Total Tracks</p>
+                    <p className="text-sm text-gray-400">Total Tracks</p>
                   </div>
                   <div className="text-center">
                     <div className="text-xl font-bold text-orange-600">
                       {Math.round(analytics.summary.averagePopularity)}
                     </div>
-                    <p className="text-sm text-gray-600">Avg Popularity</p>
+                    <p className="text-sm text-gray-400">Avg Popularity</p>
                   </div>
                   <div className="text-center">
                     <div className="text-xl font-bold text-blue-600">
                       {analytics.summary.audioAnalysis?.moodClassification || 'N/A'}
                     </div>
-                    <p className="text-sm text-gray-600">Music Mood</p>
+                    <p className="text-sm text-gray-400">Music Mood</p>
                   </div>
                   <div className="text-center">
                     <div className="text-xl font-bold text-green-600">
                       {Math.round(analytics.summary.audioAnalysis?.tempo?.average || 0)} BPM
                     </div>
-                    <p className="text-sm text-gray-600">Avg Tempo</p>
+                    <p className="text-sm text-gray-400">Avg Tempo</p>
                   </div>
                 </div>
               </CardContent>
@@ -369,7 +370,7 @@ const EnhancedSpotifyIntegration = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Free Tier Streams</span>
+                    <span className="text-sm text-gray-400">Free Tier Streams</span>
                     <div className="text-right">
                       <div className="font-semibold">
                         {formatNumber(royalties?.streamingBreakdown?.freeStreams || 0)}
@@ -380,7 +381,7 @@ const EnhancedSpotifyIntegration = () => {
                     </div>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Premium Streams</span>
+                    <span className="text-sm text-gray-400">Premium Streams</span>
                     <div className="text-right">
                       <div className="font-semibold">
                         {formatNumber(royalties?.streamingBreakdown?.premiumStreams || 0)}
@@ -399,13 +400,13 @@ const EnhancedSpotifyIntegration = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Average per Stream</span>
+                    <span className="text-sm text-gray-400">Average per Stream</span>
                     <span className="font-semibold">
                       {formatCurrency(royalties?.performanceMetrics?.royaltyPerStream || 0)}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Average Stream Value</span>
+                    <span className="text-sm text-gray-400">Average Stream Value</span>
                     <span className="font-semibold">
                       {formatCurrency(royalties?.performanceMetrics?.averageStreamValue || 0)}
                     </span>
@@ -421,23 +422,23 @@ const EnhancedSpotifyIntegration = () => {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="text-center p-4 border rounded-lg">
+                  <div className="text-center p-4 border rounded-xl">
                     <div className="text-2xl font-bold text-blue-600">
                       {formatCurrency(royalties?.projections?.monthly || 0)}
                     </div>
-                    <p className="text-sm text-gray-600">Monthly Projection</p>
+                    <p className="text-sm text-gray-400">Monthly Projection</p>
                   </div>
-                  <div className="text-center p-4 border rounded-lg">
+                  <div className="text-center p-4 border rounded-xl">
                     <div className="text-2xl font-bold text-green-600">
                       {formatCurrency(royalties?.projections?.yearly || 0)}
                     </div>
-                    <p className="text-sm text-gray-600">Yearly Projection</p>
+                    <p className="text-sm text-gray-400">Yearly Projection</p>
                   </div>
-                  <div className="text-center p-4 border rounded-lg">
+                  <div className="text-center p-4 border rounded-xl">
                     <div className="text-2xl font-bold text-purple-600">
                       {Math.round(((royalties?.projections?.yearly || 0) * 12) / 1000)}K
                     </div>
-                    <p className="text-sm text-gray-600">5-Year Estimate</p>
+                    <p className="text-sm text-gray-400">5-Year Estimate</p>
                   </div>
                 </div>
               </CardContent>
@@ -459,7 +460,7 @@ const EnhancedSpotifyIntegration = () => {
                   <div className="space-y-2">
                     {Object.entries(analytics.summary.genres || {}).map(([genre, percentage]) => (
                       <div key={genre} className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">{genre}</span>
+                        <span className="text-sm text-gray-400">{genre}</span>
                         <div className="flex items-center space-x-2">
                           <div className="w-20 bg-gray-200 rounded-full h-2">
                             <div 
@@ -490,7 +491,7 @@ const EnhancedSpotifyIntegration = () => {
                     <div className="space-y-4">
                       <div>
                         <div className="flex justify-between items-center mb-1">
-                          <span className="text-sm text-gray-600">Danceability</span>
+                          <span className="text-sm text-gray-400">Danceability</span>
                           <span className="text-sm font-medium">
                             {Math.round(analytics.summary.audioAnalysis.danceability.average * 100)}%
                           </span>
@@ -505,7 +506,7 @@ const EnhancedSpotifyIntegration = () => {
                       
                       <div>
                         <div className="flex justify-between items-center mb-1">
-                          <span className="text-sm text-gray-600">Energy</span>
+                          <span className="text-sm text-gray-400">Energy</span>
                           <span className="text-sm font-medium">
                             {Math.round(analytics.summary.audioAnalysis.energy.average * 100)}%
                           </span>
@@ -520,7 +521,7 @@ const EnhancedSpotifyIntegration = () => {
 
                       <div>
                         <div className="flex justify-between items-center mb-1">
-                          <span className="text-sm text-gray-600">Valence (Positivity)</span>
+                          <span className="text-sm text-gray-400">Valence (Positivity)</span>
                           <span className="text-sm font-medium">
                             {Math.round(analytics.summary.audioAnalysis.valence.average * 100)}%
                           </span>
@@ -565,7 +566,7 @@ const EnhancedSpotifyIntegration = () => {
               <CardContent>
                 <div className="space-y-4">
                   {analytics.tracks?.slice(0, 10).map((track, index) => (
-                    <div key={track.id} className="flex items-center space-x-4 p-3 border rounded-lg hover:bg-gray-50">
+                    <div key={track.id} className="flex items-center space-x-4 p-3 border rounded-xl hover:bg-gray-50">
                       <div className="flex-shrink-0 w-8 text-center font-bold text-lg text-gray-500">
                         {index + 1}
                       </div>
@@ -577,7 +578,7 @@ const EnhancedSpotifyIntegration = () => {
                         />
                       )}
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-medium text-gray-900 truncate">{track.name}</h4>
+                        <h4 className="font-medium text-white truncate">{track.name}</h4>
                         <p className="text-sm text-gray-500 truncate">
                           {track.artists.join(', ')}
                         </p>

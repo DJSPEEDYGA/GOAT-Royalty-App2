@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Search, Filter, Star, TrendingUp, Zap, Download, ExternalLink, ShoppingCart, DollarSign } from 'lucide-react';
 
@@ -340,11 +341,11 @@ export default function MusicProductionMarketplace() {
             </p>
           </div>
           <div className="flex gap-2">
-            <button className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all flex items-center gap-2">
+            <button className="px-4 py-2 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-500 to-emerald-500 text-white rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all flex items-center gap-2">
               <ShoppingCart className="w-4 h-4" />
               Cart ({cart.length})
             </button>
-            <button className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all flex items-center gap-2">
+            <button className="px-4 py-2 bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-500 to-purple-500 text-white rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all flex items-center gap-2">
               <DollarSign className="w-4 h-4" />
               ${getTotalPrice()}
             </button>
@@ -371,7 +372,7 @@ export default function MusicProductionMarketplace() {
               onClick={() => setSelectedFilter(category.id)}
               className={`px-4 py-2 rounded-lg whitespace-nowrap transition-all flex items-center gap-2 ${
                 selectedFilter === category.id
-                  ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
+                  ? 'bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 text-white'
                   : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
               }`}
             >
@@ -403,7 +404,7 @@ export default function MusicProductionMarketplace() {
             <span className="text-xs bg-white/20 px-2 py-1 rounded">-50%</span>
           </div>
         </div>
-        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl p-4 text-white">
+        <div className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-indigo-600 rounded-xl p-4 text-white">
           <div className="text-sm font-bold mb-1">⭐ MOST POPULAR</div>
           <div className="text-xl font-bold mb-1">Logic Pro for Mac</div>
           <div className="flex items-center gap-2">
@@ -457,7 +458,7 @@ export default function MusicProductionMarketplace() {
                       className={`w-3 h-3 ${
                         i < Math.floor(product.rating)
                           ? 'text-yellow-400 fill-yellow-400'
-                          : 'text-gray-600'
+                          : 'text-gray-400'
                       }`}
                     />
                   ))}
@@ -500,7 +501,7 @@ export default function MusicProductionMarketplace() {
                 </button>
                 <button
                   onClick={() => window.open(product.url, '_blank')}
-                  className="px-3 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all"
+                  className="px-3 py-2 bg-gray-700 text-white rounded-xl hover:bg-gray-600 transition-all"
                 >
                   <ExternalLink className="w-4 h-4" />
                 </button>
@@ -530,7 +531,7 @@ export default function MusicProductionMarketplace() {
               </div>
             )}
           </div>
-          <button className="w-full py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all font-bold">
+          <button className="w-full py-3 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-500 to-emerald-500 text-white rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all font-bold">
             Proceed to Checkout
           </button>
         </div>

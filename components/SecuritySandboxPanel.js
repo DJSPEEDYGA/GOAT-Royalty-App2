@@ -6,6 +6,7 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect, useRef } from 'react';
 import {
   Shield, ShieldCheck, ShieldAlert, ShieldOff,
@@ -335,7 +336,7 @@ const SecuritySandboxPanel = () => {
               { label: 'Quarantined', value: stats.filesQuarantined, color: 'text-orange-400' },
               { label: 'Sandboxes', value: stats.sandboxesActive, color: 'text-cyan-400' },
             ].map((s, i) => (
-              <div key={i} className="text-center px-3 py-1 bg-black/30 rounded-lg border border-white/10">
+              <div key={i} className="text-center px-3 py-1 bg-black/30 rounded-xl border border-white/10">
                 <div className={`font-bold text-sm ${s.color}`}>{s.value}</div>
                 <div className="text-xs text-gray-500">{s.label}</div>
               </div>
@@ -419,7 +420,7 @@ const SecuritySandboxPanel = () => {
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+            <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-4 border border-white/10">
               <h3 className="font-bold mb-3 flex items-center gap-2 text-sm">
                 <Zap className="w-4 h-4 text-yellow-400" />
                 Quick Actions
@@ -438,7 +439,7 @@ const SecuritySandboxPanel = () => {
                   <button
                     key={i}
                     onClick={a.action}
-                    className="px-3 py-2 bg-black/30 rounded-lg text-xs font-bold hover:bg-white/10 transition-all border border-white/5 text-left"
+                    className="px-3 py-2 bg-black/30 rounded-xl text-xs font-bold hover:bg-white/10 transition-all border border-white/5 text-left"
                   >
                     {a.label}
                   </button>
@@ -448,7 +449,7 @@ const SecuritySandboxPanel = () => {
 
             {/* Threat Summary */}
             {scanComplete && (
-              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-4 border border-white/10">
                 <h3 className="font-bold mb-3 flex items-center gap-2 text-sm">
                   <ShieldAlert className="w-4 h-4 text-red-400" />
                   Threat Summary
@@ -485,7 +486,7 @@ const SecuritySandboxPanel = () => {
             )}
 
             {/* Recommendations */}
-            <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+            <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-4 border border-white/10">
               <h3 className="font-bold mb-3 flex items-center gap-2 text-sm">
                 <Bell className="w-4 h-4 text-blue-400" />
                 Security Recommendations
@@ -499,7 +500,7 @@ const SecuritySandboxPanel = () => {
                   { icon: '🏗️', text: 'Use sandbox environments for testing unknown software', priority: 'medium' },
                   { icon: '💾', text: 'Keep operating system and security tools updated', priority: 'low' },
                 ].map((rec, i) => (
-                  <div key={i} className="flex items-center gap-3 p-2 rounded-lg bg-black/20">
+                  <div key={i} className="flex items-center gap-3 p-2 rounded-xl bg-black/20">
                     <span className="text-lg">{rec.icon}</span>
                     <span className="text-sm text-gray-300 flex-1">{rec.text}</span>
                     <span className={`text-xs font-bold px-2 py-0.5 rounded ${
@@ -525,7 +526,7 @@ const SecuritySandboxPanel = () => {
               <button
                 onClick={runFullScan}
                 disabled={scanRunning}
-                className="flex items-center gap-2 px-3 py-2 bg-cyan-600/30 rounded-lg text-xs font-bold text-cyan-400 hover:bg-cyan-600/50 transition-all disabled:opacity-50"
+                className="flex items-center gap-2 px-3 py-2 bg-cyan-600/30 rounded-xl text-xs font-bold text-cyan-400 hover:bg-cyan-600/50 transition-all disabled:opacity-50"
               >
                 {scanRunning ? <RefreshCw className="w-3 h-3 animate-spin" /> : <Scan className="w-3 h-3" />}
                 {scanRunning ? 'Scanning...' : 'Scan Processes'}
@@ -536,7 +537,7 @@ const SecuritySandboxPanel = () => {
               <div className="text-center py-12 text-gray-500">
                 <Cpu className="w-16 h-16 mx-auto mb-4 opacity-20" />
                 <p className="text-sm">No scan data yet. Run a scan to detect processes.</p>
-                <button onClick={runFullScan} className="mt-3 px-4 py-2 bg-cyan-600/30 rounded-lg text-xs text-cyan-400 hover:bg-cyan-600/50">
+                <button onClick={runFullScan} className="mt-3 px-4 py-2 bg-cyan-600/30 rounded-xl text-xs text-cyan-400 hover:bg-cyan-600/50">
                   Run Full Scan
                 </button>
               </div>
@@ -622,7 +623,7 @@ const SecuritySandboxPanel = () => {
               <button
                 onClick={runFullScan}
                 disabled={scanRunning}
-                className="flex items-center gap-2 px-3 py-2 bg-purple-600/30 rounded-lg text-xs font-bold text-purple-400 hover:bg-purple-600/50 transition-all disabled:opacity-50"
+                className="flex items-center gap-2 px-3 py-2 bg-purple-600/30 rounded-xl text-xs font-bold text-purple-400 hover:bg-purple-600/50 transition-all disabled:opacity-50"
               >
                 {scanRunning ? <RefreshCw className="w-3 h-3 animate-spin" /> : <Radar className="w-3 h-3" />}
                 Scan Network
@@ -665,7 +666,7 @@ const SecuritySandboxPanel = () => {
             )}
 
             {/* Suspicious Ports Reference */}
-            <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+            <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-4 border border-white/10">
               <h4 className="text-xs font-bold text-gray-400 mb-2">⚠️ Known Suspicious Ports</h4>
               <div className="flex flex-wrap gap-2">
                 {SUSPICIOUS_PORTS.map(port => (
@@ -687,7 +688,7 @@ const SecuritySandboxPanel = () => {
             </h3>
 
             {/* Input */}
-            <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+            <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-4 border border-white/10">
               <label className="text-xs text-gray-400 font-bold mb-2 block">Enter file path to analyze:</label>
               <div className="flex gap-2">
                 <input
@@ -696,12 +697,12 @@ const SecuritySandboxPanel = () => {
                   onChange={e => setFileInput(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && analyzeFile()}
                   placeholder="/path/to/suspicious/file.exe"
-                  className="flex-1 bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:border-cyan-500/50"
+                  className="flex-1 bg-black/30 border border-white/10 rounded-xl px-3 py-2 text-sm font-mono focus:outline-none focus:border-cyan-500/50"
                 />
                 <button
                   onClick={analyzeFile}
                   disabled={analyzingFile || !fileInput.trim()}
-                  className="px-4 py-2 bg-gradient-to-r from-green-600 to-cyan-600 rounded-lg font-bold text-sm hover:from-green-500 hover:to-cyan-500 transition-all disabled:opacity-50 flex items-center gap-2"
+                  className="px-4 py-2 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-600 to-cyan-600 rounded-xl font-bold text-sm hover:from-green-500 hover:to-cyan-500 transition-all disabled:opacity-50 flex items-center gap-2"
                 >
                   {analyzingFile ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
                   Analyze
@@ -722,7 +723,7 @@ const SecuritySandboxPanel = () => {
 
             {/* Analysis Result */}
             {analyzingFile && (
-              <div className="bg-white/5 rounded-xl p-4 border border-white/10 flex items-center gap-3">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-4 border border-white/10 flex items-center gap-3">
                 <RefreshCw className="w-5 h-5 text-cyan-400 animate-spin" />
                 <span className="text-sm text-gray-400">Analyzing file... calculating hashes, checking patterns...</span>
               </div>
@@ -744,19 +745,19 @@ const SecuritySandboxPanel = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className="bg-black/20 rounded-lg p-3">
+                  <div className="bg-black/20 rounded-xl p-3">
                     <div className="text-xs text-gray-500 mb-1">File Size</div>
                     <div className="font-bold text-sm">{fileAnalysis.size}</div>
                   </div>
-                  <div className="bg-black/20 rounded-lg p-3">
+                  <div className="bg-black/20 rounded-xl p-3">
                     <div className="text-xs text-gray-500 mb-1">Extension</div>
                     <div className="font-bold text-sm font-mono">.{fileAnalysis.ext}</div>
                   </div>
-                  <div className="bg-black/20 rounded-lg p-3 col-span-2">
+                  <div className="bg-black/20 rounded-xl p-3 col-span-2">
                     <div className="text-xs text-gray-500 mb-1">MD5 Hash</div>
                     <div className="font-mono text-xs text-green-400 break-all">{fileAnalysis.hashes.md5}</div>
                   </div>
-                  <div className="bg-black/20 rounded-lg p-3 col-span-2">
+                  <div className="bg-black/20 rounded-xl p-3 col-span-2">
                     <div className="text-xs text-gray-500 mb-1">SHA256 Hash</div>
                     <div className="font-mono text-xs text-green-400 break-all">{fileAnalysis.hashes.sha256}</div>
                   </div>
@@ -775,13 +776,13 @@ const SecuritySandboxPanel = () => {
                   <div className="flex gap-2">
                     <button
                       onClick={() => quarantineFile(fileAnalysis.path)}
-                      className="px-4 py-2 bg-red-600/30 rounded-lg text-sm text-red-400 hover:bg-red-600/50 font-bold flex items-center gap-2"
+                      className="px-4 py-2 bg-red-600/30 rounded-xl text-sm text-red-400 hover:bg-red-600/50 font-bold flex items-center gap-2"
                     >
                       <FolderLock className="w-4 h-4" /> Quarantine File
                     </button>
                     <button
                       onClick={() => { setNewSandboxName('file_analysis'); setActiveTab('sandbox'); }}
-                      className="px-4 py-2 bg-cyan-600/30 rounded-lg text-sm text-cyan-400 hover:bg-cyan-600/50 font-bold flex items-center gap-2"
+                      className="px-4 py-2 bg-cyan-600/30 rounded-xl text-sm text-cyan-400 hover:bg-cyan-600/50 font-bold flex items-center gap-2"
                     >
                       <Box className="w-4 h-4" /> Analyze in Sandbox
                     </button>
@@ -823,11 +824,11 @@ const SecuritySandboxPanel = () => {
                       <div className="flex items-center gap-3 text-xs">
                         <span className="px-2 py-1 bg-red-500/20 rounded text-red-400 font-bold">{item.threat}</span>
                         <span className="text-gray-500">{item.size}</span>
-                        <span className="text-gray-600">{item.date}</span>
+                        <span className="text-gray-400">{item.date}</span>
                       </div>
                     </div>
                     <div className="mt-2 flex items-center gap-2">
-                      <span className="text-xs text-gray-600 font-mono">Hash: {item.hash}</span>
+                      <span className="text-xs text-gray-400 font-mono">Hash: {item.hash}</span>
                       <button
                         onClick={() => setQuarantine(prev => prev.filter((_, idx) => idx !== i))}
                         className="ml-auto px-2 py-1 bg-red-600/20 rounded text-xs text-red-400 hover:bg-red-600/40 flex items-center gap-1"
@@ -851,7 +852,7 @@ const SecuritySandboxPanel = () => {
             </h3>
 
             {/* Create New Sandbox */}
-            <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+            <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-4 border border-white/10">
               <label className="text-xs text-gray-400 font-bold mb-2 block">Create New Sandbox Environment:</label>
               <div className="flex gap-2">
                 <input
@@ -860,12 +861,12 @@ const SecuritySandboxPanel = () => {
                   onChange={e => setNewSandboxName(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && createSandbox()}
                   placeholder="sandbox_name"
-                  className="flex-1 bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:border-cyan-500/50"
+                  className="flex-1 bg-black/30 border border-white/10 rounded-xl px-3 py-2 text-sm font-mono focus:outline-none focus:border-cyan-500/50"
                 />
                 <button
                   onClick={createSandbox}
                   disabled={!newSandboxName.trim()}
-                  className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg font-bold text-sm hover:from-cyan-500 hover:to-blue-500 transition-all disabled:opacity-50 flex items-center gap-2"
+                  className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-xl font-bold text-sm hover:from-cyan-500 hover:to-blue-500 transition-all disabled:opacity-50 flex items-center gap-2"
                 >
                   <Package className="w-4 h-4" /> Create
                 </button>
@@ -899,7 +900,7 @@ const SecuritySandboxPanel = () => {
                     </div>
                   </div>
                   <div className="mt-3 flex gap-2">
-                    <div className="flex-1 bg-black/20 rounded-lg p-2 text-xs font-mono text-gray-500">
+                    <div className="flex-1 bg-black/20 rounded-xl p-2 text-xs font-mono text-gray-500">
                       📁 sandboxes/{sb.name}/isolated/ &nbsp;&nbsp; 📁 sandboxes/{sb.name}/temp/
                     </div>
                     {sb.status === 'active' && (
@@ -961,7 +962,7 @@ const SecuritySandboxPanel = () => {
                   key={i}
                   onClick={btn.action}
                   disabled={scanRunning}
-                  className="px-3 py-2 bg-green-600/20 rounded-lg text-xs font-bold text-green-400 hover:bg-green-600/40 transition-all border border-green-500/20 disabled:opacity-50"
+                  className="px-3 py-2 bg-green-600/20 rounded-xl text-xs font-bold text-green-400 hover:bg-green-600/40 transition-all border border-green-500/20 disabled:opacity-50"
                 >
                   {btn.label}
                 </button>
@@ -973,7 +974,7 @@ const SecuritySandboxPanel = () => {
       </div>
 
       {/* ══ FOOTER ══ */}
-      <div className="px-5 py-3 border-t border-white/5 bg-black/20 flex items-center justify-between text-xs text-gray-600">
+      <div className="px-5 py-3 border-t border-white/5 bg-black/20 flex items-center justify-between text-xs text-gray-400">
         <div>🛡️ Security Sandbox Engine v1.0 • GOAT Royalty Cyber Defense</div>
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />

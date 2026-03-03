@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -153,7 +154,7 @@ const MusicStudio = () => {
         <CardContent>
           <div className="space-y-2">
             {tracks.map((track) => (
-              <div key={track.id} className="flex items-center justify-between p-4 bg-gray-900/50 rounded-lg hover:bg-gray-900/70 transition-colors">
+              <div key={track.id} className="flex items-center justify-between p-4 bg-gray-900/50 rounded-xl hover:bg-gray-900/70 transition-colors">
                 <div className="flex items-center gap-4 flex-1">
                   <Button
                     size="sm"
@@ -200,7 +201,7 @@ const MusicStudio = () => {
           <CardContent>
             <div className="space-y-3">
               {albums.map((album, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-gray-900/50 rounded-lg">
+                <div key={index} className="flex items-center justify-between p-3 bg-gray-900/50 rounded-xl">
                   <div>
                     <div className="text-white font-medium">{album.name}</div>
                     <div className="text-sm text-gray-400">

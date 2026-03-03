@@ -3,6 +3,7 @@
  * Stunning visual effects with video backgrounds and audio
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { 
@@ -84,7 +85,7 @@ const EnhancedLandingPage = () => {
                 <img 
                   src="/images/branding/goat-icon-64.png" 
                   alt="GOAT Force" 
-                  className="w-10 h-10 rounded-lg goat-logo-img"
+                  className="w-10 h-10 rounded-xl goat-logo-img"
                 />
                 <div>
                   <span className="text-2xl font-black bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 bg-clip-text text-transparent tracking-tight">
@@ -276,7 +277,7 @@ const EnhancedLandingPage = () => {
                 <p className="text-white/70">Integrated music player with stunning visual effects</p>
               </div>
               <div className="max-w-2xl mx-auto">
-                <div className="text-white text-center p-8 bg-white/10 rounded-lg">Music Player Coming Soon</div>
+                <div className="text-white text-center p-8 bg-white/10 rounded-xl">Music Player Coming Soon</div>
               </div>
             </div>
 
@@ -341,7 +342,7 @@ const EnhancedLandingPage = () => {
             <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
               <button 
                 onClick={() => router.push('/super-goat-command')}
-                className="group relative px-10 py-5 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 text-white font-bold text-lg rounded-full overflow-hidden transform hover:scale-105 transition-all shadow-lg shadow-red-500/25"
+                className="group relative px-10 py-5 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 text-white font-bold text-lg rounded-full overflow-hidden transform hover:scale-105 transition-all goat-glow shadow-red-500/25"
               >
                 <span className="relative z-10 flex items-center space-x-3">
                   <Rocket className="w-6 h-6" />
@@ -359,20 +360,20 @@ const EnhancedLandingPage = () => {
 
               <button 
                 onClick={() => router.push('/codex-008')}
-                className="group relative px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold rounded-full overflow-hidden transform hover:scale-105 transition-all shadow-lg shadow-cyan-500/25 border border-cyan-400/30"
+                className="group relative px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold rounded-full overflow-hidden transform hover:scale-105 transition-all goat-glow shadow-cyan-500/25 border border-cyan-400/30"
               >
                 <span className="relative z-10 flex items-center space-x-2">
                   <Cpu className="w-5 h-5" />
                   <span>Agent Codex 008</span>
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-600 via-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-6 bg-gradient-to-r from-purple-900/50 to-blue-900/50">
+        <section className="py-20 px-6 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-900/50 to-blue-900/50">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
@@ -385,7 +386,7 @@ const EnhancedLandingPage = () => {
             <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
               <button 
                    onClick={() => router.push('/login')}
-                   className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full overflow-hidden transform hover:scale-105 transition-all"
+                   className="group relative px-8 py-4 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 text-white font-semibold rounded-full overflow-hidden transform hover:scale-105 transition-all"
                  >
                 <span className="relative z-10 flex items-center space-x-2">
                   <Crown className="w-5 h-5" />

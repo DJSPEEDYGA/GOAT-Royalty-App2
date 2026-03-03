@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -42,7 +43,7 @@ const Sora2AIStudio = () => {
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Describe the video you want to create... (e.g., 'A music video with neon lights and urban cityscape at night')"
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500 min-h-[100px]"
+                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500 min-h-[100px]"
               />
             </div>
             <Button 
@@ -135,8 +136,8 @@ const Sora2AIStudio = () => {
           <div className="grid grid-cols-3 gap-4">
             {[1, 2, 3].map((i) => (
               <div key={i} className="space-y-2">
-                <div className="aspect-video bg-gray-900 rounded-lg flex items-center justify-center border-2 border-gray-700">
-                  <Film className="w-12 h-12 text-gray-600" />
+                <div className="aspect-video bg-gray-900 rounded-xl flex items-center justify-center border-2 border-gray-700">
+                  <Film className="w-12 h-12 text-gray-400" />
                 </div>
                 <div className="text-sm text-gray-400">Video {i}</div>
                 <Button size="sm" variant="outline" className="w-full">

@@ -3,6 +3,7 @@
  * Advanced interactive elements and gamification
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Trophy, 
@@ -73,7 +74,7 @@ const InteractiveFeatures = () => {
     <div className="max-w-7xl mx-auto p-6">
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold mb-4">
-          <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-400 to-pink-400 bg-clip-text text-transparent">
             GOAT Universe
           </span>
         </h2>
@@ -84,7 +85,7 @@ const InteractiveFeatures = () => {
       <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 rounded-2xl p-6 backdrop-blur-md border border-white/20 mb-8">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-4">
-            <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
+            <div className="w-20 h-20 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 rounded-full flex items-center justify-center">
               <Crown className="w-10 h-10 text-white" />
             </div>
             <div>
@@ -106,7 +107,7 @@ const InteractiveFeatures = () => {
           </div>
           <div className="w-full bg-black/30 rounded-full h-3 overflow-hidden">
             <div 
-              className="bg-gradient-to-r from-purple-500 to-pink-500 h-full rounded-full transition-all duration-500 flex items-center justify-end pr-2"
+              className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 h-full rounded-full transition-all duration-500 flex items-center justify-end pr-2"
               style={{ width: `${progressPercentage}%` }}
             >
               {progressPercentage > 10 && (
@@ -144,7 +145,7 @@ const InteractiveFeatures = () => {
 
       <div className="grid md:grid-cols-2 gap-8 mb-8">
         {/* Daily Challenges */}
-        <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+        <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20">
           <div className="p-4 border-b border-white/10 flex items-center justify-between">
             <h3 className="text-lg font-semibold text-white">Daily Challenges</h3>
             <div className="text-sm text-purple-400">
@@ -171,7 +172,7 @@ const InteractiveFeatures = () => {
                   <div className="flex items-center space-x-3">
                     <div className="flex-1 bg-black/30 rounded-full h-2 overflow-hidden">
                       <div 
-                        className="bg-gradient-to-r from-purple-500 to-pink-500 h-full rounded-full transition-all duration-300"
+                        className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 h-full rounded-full transition-all duration-300"
                         style={{ width: `${(challenge.progress / challenge.total) * 100}%` }}
                       />
                     </div>
@@ -194,7 +195,7 @@ const InteractiveFeatures = () => {
         </div>
 
         {/* Recent Achievements */}
-        <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+        <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20">
           <div className="p-4 border-b border-white/10">
             <h3 className="text-lg font-semibold text-white">Achievements</h3>
           </div>
@@ -210,7 +211,7 @@ const InteractiveFeatures = () => {
                   }`}
                 >
                   <div className={`p-2 rounded-full ${
-                    achievement.unlocked ? 'bg-gradient-to-r from-purple-600 to-pink-600' : 'bg-gray-600'
+                    achievement.unlocked ? 'bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600' : 'bg-gray-600'
                   }`}>
                     <IconComponent className={`w-5 h-5 ${
                       achievement.unlocked ? 'text-white' : 'text-gray-400'
@@ -233,7 +234,7 @@ const InteractiveFeatures = () => {
       </div>
 
       {/* Leaderboard */}
-      <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 mb-8">
+      <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20 mb-8">
         <div className="p-4 border-b border-white/10 flex items-center justify-between">
           <h3 className="text-lg font-semibold text-white">Global Leaderboard</h3>
           <div className="flex items-center space-x-2">
@@ -273,7 +274,7 @@ const InteractiveFeatures = () => {
       </div>
 
       {/* Collectibles Gallery */}
-      <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+      <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20">
         <div className="p-4 border-b border-white/10 flex items-center justify-between">
           <h3 className="text-lg font-semibold text-white">Collectibles</h3>
           <span className="text-purple-400 text-sm">

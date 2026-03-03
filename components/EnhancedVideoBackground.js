@@ -4,6 +4,7 @@
  * Fallback gradient is vibrant enough to look great without video
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect, useRef } from 'react';
 
 const EnhancedVideoBackground = ({ 
@@ -94,7 +95,7 @@ const EnhancedVideoBackground = ({
           <img 
             src="/images/branding/goat-icon-64.png" 
             alt="GOAT Force" 
-            className="w-12 h-12 rounded-lg opacity-40 hover:opacity-80 transition-opacity duration-300"
+            className="w-12 h-12 rounded-xl opacity-40 hover:opacity-80 transition-opacity duration-300"
             style={{ filter: 'drop-shadow(0 0 10px rgba(220, 38, 38, 0.5))' }}
           />
         </div>

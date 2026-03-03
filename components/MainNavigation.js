@@ -3,6 +3,7 @@
  * Complete navigation for all GOAT Force pages
  */
 
+import '../styles/globals.css';
 import React from 'react';
 import Link from 'next/link';
 import { 
@@ -103,7 +104,7 @@ const MainNavigation = () => {
               <img 
                 src="/images/branding/goat-icon-64.png" 
                 alt="GOAT Force" 
-                className="w-10 h-10 rounded-lg shadow-lg shadow-red-500/20 group-hover:shadow-red-500/40 transition-all"
+                className="w-10 h-10 rounded-xl goat-glow shadow-red-500/20 group-hover:shadow-red-500/40 transition-all"
               />
               <div>
                 <h1 className="text-2xl font-black bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 bg-clip-text text-transparent">GOAT FORCE</h1>
@@ -115,17 +116,17 @@ const MainNavigation = () => {
           {/* Quick Links */}
           <div className="hidden lg:flex items-center gap-2">
             <Link href="/complete-platform">
-              <button className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white px-4 py-2 rounded-lg font-bold transition-all shadow-lg shadow-red-500/20">
+              <button className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white px-4 py-2 rounded-xl font-bold transition-all goat-glow shadow-red-500/20">
                 Complete Platform
               </button>
             </Link>
             <Link href="/investor-demo">
-              <button className="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black px-4 py-2 rounded-lg font-bold transition-all shadow-lg shadow-yellow-500/20">
+              <button className="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black px-4 py-2 rounded-xl font-bold transition-all goat-glow shadow-yellow-500/20">
                 Investor Demo
               </button>
             </Link>
             <Link href="/dashboard">
-              <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg font-semibold transition-all border border-white/10 hover:border-red-500/30">
+              <button className="goat-gradient-card goat-gradient-card goat-card-hover/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl font-semibold transition-all border border-white/10 hover:border-red-500/30">
                 Dashboard
               </button>
             </Link>
@@ -135,7 +136,7 @@ const MainNavigation = () => {
         {/* Full Navigation Menu */}
         <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {navSections.map((section, sectionIndex) => (
-            <div key={sectionIndex} className="bg-white/5 rounded-lg p-3">
+            <div key={sectionIndex} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-xl p-3">
               <h3 className="text-yellow-500 font-bold text-xs mb-2 uppercase">{section.title}</h3>
               <div className="space-y-1">
                 {section.items.map((item, itemIndex) => {

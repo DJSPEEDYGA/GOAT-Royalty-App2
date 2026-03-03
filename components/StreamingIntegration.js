@@ -3,6 +3,7 @@
  * Integrates multiple music streaming services
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { 
   Play, 
@@ -184,7 +185,7 @@ const StreamingIntegration = () => {
     <div className="max-w-6xl mx-auto p-6">
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold mb-4">
-          <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-400 to-pink-400 bg-clip-text text-transparent">
             Streaming Integration
           </span>
         </h2>
@@ -201,7 +202,7 @@ const StreamingIntegration = () => {
               onClick={() => setActiveService(service.id)}
               className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all ${
                 activeService === service.id
-                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg scale-105'
+                  ? 'bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 text-white shadow-lg scale-105'
                   : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white'
               }`}
             >
@@ -280,7 +281,7 @@ const StreamingIntegration = () => {
           
           <button
             onClick={togglePlayPause}
-            className="p-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg"
+            className="p-4 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 goat-glow"
           >
             {isPlaying ? (
               <Pause className="w-6 h-6 text-white" />
@@ -322,7 +323,7 @@ const StreamingIntegration = () => {
       </div>
 
       {/* Track List */}
-      <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+      <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl border border-white/20">
         <div className="p-4 border-b border-white/10">
           <h3 className="text-lg font-semibold text-white">
             {activeServiceData.name} Library
@@ -340,7 +341,7 @@ const StreamingIntegration = () => {
               <img
                 src={track.image}
                 alt={track.title}
-                className="w-12 h-12 rounded-lg mr-4"
+                className="w-12 h-12 rounded-xl mr-4"
               />
               <div className="flex-1">
                 <h4 className="text-white font-medium">{track.title}</h4>
@@ -366,7 +367,7 @@ const StreamingIntegration = () => {
           return (
             <div
               key={service.id}
-              className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 text-center"
+              className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl p-4 border border-white/20 text-center"
             >
               <IconComponent className="w-8 h-8 mx-auto mb-2" style={{ color: service.color }} />
               <h4 className="text-white font-medium">{service.name}</h4>

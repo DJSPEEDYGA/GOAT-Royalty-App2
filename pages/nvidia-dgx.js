@@ -3,6 +3,7 @@
  * GPU-accelerated AI computing and processing
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Cpu, Zap, Activity, TrendingUp, Server, Cloud, Gauge, AlertCircle } from 'lucide-react';
 
@@ -131,7 +132,7 @@ export default function NvidiaDGX() {
               {gpuMetrics.map((gpu) => (
                 <div
                   key={gpu.id}
-                  className="bg-black/30 rounded-lg p-4 border border-white/10"
+                  className="bg-black/30 rounded-xl p-4 border border-white/10"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-white font-bold">{gpu.name}</span>
@@ -196,7 +197,7 @@ export default function NvidiaDGX() {
               {activeJobs.map((job) => (
                 <div
                   key={job.id}
-                  className="bg-black/30 rounded-lg p-4 border border-white/10"
+                  className="bg-black/30 rounded-xl p-4 border border-white/10"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div>
@@ -230,7 +231,7 @@ export default function NvidiaDGX() {
                     </div>
                     <div className="w-full bg-white/10 rounded-full h-2">
                       <div
-                        className="bg-gradient-to-r from-green-600 to-emerald-600 h-2 rounded-full transition-all"
+                        className="bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-600 to-emerald-600 h-2 rounded-full transition-all"
                         style={{ width: `${job.progress}%` }}
                       ></div>
                     </div>
@@ -247,15 +248,15 @@ export default function NvidiaDGX() {
           <div className="bg-black/50 backdrop-blur-md border border-white/10 rounded-xl p-6">
             <h2 className="text-xl font-bold text-white mb-4">Quick Actions</h2>
             <div className="space-y-3">
-              <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-4 py-3 rounded-lg font-semibold flex items-center justify-center gap-2">
+              <button className="w-full bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-4 py-3 rounded-xl font-semibold flex items-center justify-center gap-2">
                 <Zap className="w-5 h-5" />
                 Submit New Job
               </button>
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold flex items-center justify-center gap-2">
+              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-xl font-semibold flex items-center justify-center gap-2">
                 <Activity className="w-5 h-5" />
                 View Queue
               </button>
-              <button className="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-lg font-semibold flex items-center justify-center gap-2">
+              <button className="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-xl font-semibold flex items-center justify-center gap-2">
                 <Server className="w-5 h-5" />
                 Cluster Settings
               </button>
@@ -273,7 +274,7 @@ export default function NvidiaDGX() {
                 </div>
                 <div className="w-full bg-white/10 rounded-full h-3">
                   <div
-                    className="bg-gradient-to-r from-green-500 to-emerald-500 h-3 rounded-full"
+                    className="bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-500 to-emerald-500 h-3 rounded-full"
                     style={{ width: `${gpuLoad}%` }}
                   ></div>
                 </div>

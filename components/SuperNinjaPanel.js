@@ -3,6 +3,7 @@
  * Real-time monitoring and enforcement
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Zap, Shield, Target, AlertTriangle, TrendingUp, Eye } from 'lucide-react';
 
@@ -53,7 +54,7 @@ const SuperNinjaPanel = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center">
+          <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center">
             <Zap className="w-6 h-6 text-black" />
           </div>
           <div>
@@ -76,28 +77,28 @@ const SuperNinjaPanel = () => {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-black/30 rounded-lg p-4 border border-red-500/30">
+        <div className="bg-black/30 rounded-xl p-4 border border-red-500/30">
           <div className="flex items-center gap-2 mb-2">
             <AlertTriangle className="w-4 h-4 text-red-400" />
             <p className="text-gray-400 text-xs">Threats</p>
           </div>
           <p className="text-2xl font-bold text-white">{stats.threatsDetected}</p>
         </div>
-        <div className="bg-black/30 rounded-lg p-4 border border-green-500/30">
+        <div className="bg-black/30 rounded-xl p-4 border border-green-500/30">
           <div className="flex items-center gap-2 mb-2">
             <Shield className="w-4 h-4 text-green-400" />
             <p className="text-gray-400 text-xs">Protected</p>
           </div>
           <p className="text-2xl font-bold text-green-400">${(stats.revenueProtected / 1000).toFixed(0)}K</p>
         </div>
-        <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/30">
+        <div className="bg-black/30 rounded-xl p-4 border border-yellow-500/30">
           <div className="flex items-center gap-2 mb-2">
             <Target className="w-4 h-4 text-yellow-400" />
             <p className="text-gray-400 text-xs">Takedowns</p>
           </div>
           <p className="text-2xl font-bold text-white">{stats.takedownsIssued}</p>
         </div>
-        <div className="bg-black/30 rounded-lg p-4 border border-blue-500/30">
+        <div className="bg-black/30 rounded-xl p-4 border border-blue-500/30">
           <div className="flex items-center gap-2 mb-2">
             <TrendingUp className="w-4 h-4 text-blue-400" />
             <p className="text-gray-400 text-xs">Success Rate</p>
@@ -180,7 +181,7 @@ const SuperNinjaPanel = () => {
           <div className="text-sm text-gray-400">
             Last scan: <span className="text-white">2 minutes ago</span>
           </div>
-          <button className="bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 text-white px-6 py-2 rounded-lg font-semibold flex items-center gap-2 transition-all">
+          <button className="bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 text-white px-6 py-2 rounded-xl font-semibold flex items-center gap-2 transition-all">
             <Zap className="w-4 h-4" />
             Force Scan Now
           </button>

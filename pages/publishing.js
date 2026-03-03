@@ -3,6 +3,7 @@
  * Copyright © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST. All rights reserved.
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { 
   Music, 
@@ -70,7 +71,7 @@ const PublishingPage = () => {
       <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-400 to-blue-500 bg-clip-text text-transparent">
             Publishing Management
           </h1>
           <p className="text-gray-400">
@@ -79,7 +80,7 @@ const PublishingPage = () => {
         </div>
 
         {error && (
-          <div className="mb-6 p-4 bg-red-900 border border-red-700 rounded-lg flex items-center space-x-3">
+          <div className="mb-6 p-4 bg-red-900 border border-red-700 rounded-xl flex items-center space-x-3">
             <AlertCircle className="w-5 h-5 text-red-400" />
             <p className="text-red-200">{error}</p>
           </div>
@@ -87,7 +88,7 @@ const PublishingPage = () => {
 
         {/* Publisher Information Card */}
         {summary && (
-          <div className="bg-gray-800 rounded-lg border border-gray-700 p-6 mb-8">
+          <div className="bg-gray-800 rounded-xl border border-gray-700 p-6 mb-8">
             <h2 className="text-xl font-semibold mb-4 flex items-center space-x-2">
               <Building className="w-5 h-5 text-green-400" />
               <span>Publisher Information</span>
@@ -116,7 +117,7 @@ const PublishingPage = () => {
         {/* Summary Cards */}
         {summary && (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div className="bg-gray-800 rounded-lg border border-gray-700 p-6">
+            <div className="bg-gray-800 rounded-xl border border-gray-700 p-6">
               <div className="flex items-center justify-between mb-4">
                 <Music className="w-8 h-8 text-green-400" />
                 <span className="text-2xl font-bold text-white">{summary.total_songs}</span>
@@ -124,7 +125,7 @@ const PublishingPage = () => {
               <p className="text-gray-400">Total Songs</p>
             </div>
 
-            <div className="bg-gray-800 rounded-lg border border-gray-700 p-6">
+            <div className="bg-gray-800 rounded-xl border border-gray-700 p-6">
               <div className="flex items-center justify-between mb-4">
                 <DollarSign className="w-8 h-8 text-blue-400" />
                 <span className="text-2xl font-bold text-green-400">
@@ -134,7 +135,7 @@ const PublishingPage = () => {
               <p className="text-gray-400">Performance Royalties</p>
             </div>
 
-            <div className="bg-gray-800 rounded-lg border border-gray-700 p-6">
+            <div className="bg-gray-800 rounded-xl border border-gray-700 p-6">
               <div className="flex items-center justify-between mb-4">
                 <TrendingUp className="w-8 h-8 text-purple-400" />
                 <span className="text-2xl font-bold text-green-400">
@@ -144,7 +145,7 @@ const PublishingPage = () => {
               <p className="text-gray-400">Mechanical Royalties</p>
             </div>
 
-            <div className="bg-gray-800 rounded-lg border border-gray-700 p-6">
+            <div className="bg-gray-800 rounded-xl border border-gray-700 p-6">
               <div className="flex items-center justify-between mb-4">
                 <FileText className="w-8 h-8 text-yellow-400" />
                 <span className="text-2xl font-bold text-green-400">
@@ -157,7 +158,7 @@ const PublishingPage = () => {
         )}
 
         {/* Publishing Data Table */}
-        <div className="bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+        <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
           <div className="p-6 border-b border-gray-700">
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-semibold flex items-center space-x-2">
@@ -248,7 +249,7 @@ const PublishingPage = () => {
 
           {publishingData.length === 0 && (
             <div className="text-center py-12">
-              <FileText className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+              <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-xl font-medium text-gray-300 mb-2">
                 No publishing data found
               </h3>
@@ -260,7 +261,7 @@ const PublishingPage = () => {
         </div>
 
         {/* Template Instructions */}
-        <div className="mt-8 bg-gray-800 rounded-lg border border-gray-700 p-6">
+        <div className="mt-8 bg-gray-800 rounded-xl border border-gray-700 p-6">
           <h3 className="text-lg font-semibold mb-4 text-white">
             📋 FASTASSMAN Music Catalog Integration
           </h3>
@@ -270,7 +271,7 @@ const PublishingPage = () => {
             <p>✅ Publisher information (FASTASSMAN PUB INC.) is properly registered</p>
             <p>✅ IPI numbers and MLC registration are verified</p>
           </div>
-          <div className="mt-4 p-4 bg-gray-700 rounded-lg">
+          <div className="mt-4 p-4 bg-gray-700 rounded-xl">
             <p className="text-sm text-gray-400">
               <strong>Template Fields:</strong> Song Title, Writer Name, Writer IPI, Publisher Name, Publisher IPI, MLC Publisher Number, Notes
             </p>

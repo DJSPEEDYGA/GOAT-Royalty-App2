@@ -3,6 +3,7 @@
  * Text-to-video, image-to-video, and AI video creation
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Sparkles, Video, Wand2, Image, Type, Zap, Download, Play, RefreshCw } from 'lucide-react';
 
@@ -159,7 +160,7 @@ export default function SoraAIStudio() {
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
                   placeholder="Describe the video you want to create... (e.g., 'A GOAT wearing a crown, cinematic lighting, 4K')"
-                  className="w-full bg-black/50 border border-white/20 rounded-lg p-4 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none min-h-[120px]"
+                  className="w-full bg-black/50 border border-white/20 rounded-xl p-4 text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none min-h-[120px]"
                 />
               </div>
 
@@ -167,7 +168,7 @@ export default function SoraAIStudio() {
                 <button
                   onClick={handleGenerate}
                   disabled={!prompt || generating}
-                  className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+                  className="flex-1 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-50"
                 >
                   {generating ? (
                     <>
@@ -192,7 +193,7 @@ export default function SoraAIStudio() {
                   <button
                     key={index}
                     onClick={() => setPrompt(preset)}
-                    className="bg-white/10 hover:bg-white/20 text-white px-3 py-1 rounded-lg text-sm transition-colors"
+                    className="goat-gradient-card goat-gradient-card goat-card-hover/10 hover:bg-white/20 text-white px-3 py-1 rounded-xl text-sm transition-colors"
                   >
                     {preset.substring(0, 40)}...
                   </button>
@@ -233,7 +234,7 @@ export default function SoraAIStudio() {
               {generationHistory.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-black/30 rounded-lg p-4 border border-white/10 hover:border-purple-500/50 transition-colors"
+                  className="bg-black/30 rounded-xl p-4 border border-white/10 hover:border-purple-500/50 transition-colors"
                 >
                   <div className="flex items-start gap-3 mb-3">
                     <div className="text-3xl">{item.thumbnail}</div>
@@ -261,7 +262,7 @@ export default function SoraAIStudio() {
                       </div>
                       <div className="w-full bg-white/10 rounded-full h-2">
                         <div
-                          className="bg-gradient-to-r from-purple-600 to-pink-600 h-2 rounded-full transition-all"
+                          className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 h-2 rounded-full transition-all"
                           style={{ width: `${item.progress}%` }}
                         ></div>
                       </div>
@@ -280,7 +281,7 @@ export default function SoraAIStudio() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
             <label className="text-gray-400 text-sm mb-2 block">Resolution</label>
-            <select className="w-full bg-black/50 border border-white/20 rounded-lg p-2 text-white">
+            <select className="w-full bg-black/50 border border-white/20 rounded-xl p-2 text-white">
               <option>1080p HD</option>
               <option>4K UHD</option>
               <option>8K</option>
@@ -288,7 +289,7 @@ export default function SoraAIStudio() {
           </div>
           <div>
             <label className="text-gray-400 text-sm mb-2 block">Duration</label>
-            <select className="w-full bg-black/50 border border-white/20 rounded-lg p-2 text-white">
+            <select className="w-full bg-black/50 border border-white/20 rounded-xl p-2 text-white">
               <option>5 seconds</option>
               <option>10 seconds</option>
               <option>15 seconds</option>
@@ -297,7 +298,7 @@ export default function SoraAIStudio() {
           </div>
           <div>
             <label className="text-gray-400 text-sm mb-2 block">Style</label>
-            <select className="w-full bg-black/50 border border-white/20 rounded-lg p-2 text-white">
+            <select className="w-full bg-black/50 border border-white/20 rounded-xl p-2 text-white">
               <option>Cinematic</option>
               <option>Anime</option>
               <option>Realistic</option>
@@ -306,7 +307,7 @@ export default function SoraAIStudio() {
           </div>
           <div>
             <label className="text-gray-400 text-sm mb-2 block">FPS</label>
-            <select className="w-full bg-black/50 border border-white/20 rounded-lg p-2 text-white">
+            <select className="w-full bg-black/50 border border-white/20 rounded-xl p-2 text-white">
               <option>24 fps</option>
               <option>30 fps</option>
               <option>60 fps</option>

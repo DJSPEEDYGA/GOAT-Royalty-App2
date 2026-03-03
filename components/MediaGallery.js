@@ -3,6 +3,7 @@
  * Interactive gallery with custom videos and images
  */
 
+import '../styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize, Heart, Share2, Download, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -249,7 +250,7 @@ const MediaGallery = () => {
     <div className="max-w-6xl mx-auto p-6">
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold mb-4">
-          <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-400 to-pink-400 bg-clip-text text-transparent">
             GOAT Media Gallery
           </span>
         </h2>
@@ -363,7 +364,7 @@ const MediaGallery = () => {
       </div>
 
       {/* Media Information */}
-      <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 mb-6 border border-white/20">
+      <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 backdrop-blur-md rounded-xl p-6 mb-6 border border-white/20">
         <div className="flex items-start justify-between">
           <div>
             <h3 className="text-2xl font-bold text-white mb-2">{currentMedia.title}</h3>
@@ -374,7 +375,7 @@ const MediaGallery = () => {
               {currentMedia.duration && <span>{currentMedia.duration}</span>}
             </div>
           </div>
-          <button className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-all">
+          <button className="p-2 bg-white/10 rounded-xl hover:bg-white/20 transition-all">
             <Download className="w-5 h-5 text-white" />
           </button>
         </div>

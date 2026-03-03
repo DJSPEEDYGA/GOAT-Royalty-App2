@@ -1,4 +1,5 @@
 // Tracks Management Page
+import '../styles/globals.css';
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useAuth } from '../components/AuthProvider'
@@ -162,7 +163,7 @@ export default function TracksPage() {
               </button>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="flex items-center px-4 py-2 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-colors"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Add Track
@@ -183,16 +184,16 @@ export default function TracksPage() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search tracks, artists, albums..."
-              className="w-full pl-10 pr-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
+              className="w-full pl-10 pr-4 py-3 bg-black/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
             />
           </div>
           
           <div className="flex items-center space-x-4">
-            <button className="flex items-center px-4 py-2 bg-black/50 border border-gray-600 rounded-lg text-gray-300 hover:bg-black/70 transition-colors">
+            <button className="flex items-center px-4 py-2 bg-black/50 border border-gray-600 rounded-xl text-gray-300 hover:bg-black/70 transition-colors">
               <Filter className="w-4 h-4 mr-2" />
               Filter
             </button>
-            <button className="flex items-center px-4 py-2 bg-black/50 border border-gray-600 rounded-lg text-gray-300 hover:bg-black/70 transition-colors">
+            <button className="flex items-center px-4 py-2 bg-black/50 border border-gray-600 rounded-xl text-gray-300 hover:bg-black/70 transition-colors">
               <Download className="w-4 h-4 mr-2" />
               Export
             </button>
@@ -201,7 +202,7 @@ export default function TracksPage() {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-black/50 backdrop-blur-lg rounded-lg border border-purple-500/20 p-6">
+          <div className="bg-black/50 backdrop-blur-lg rounded-xl border border-purple-500/20 p-6">
             <div className="flex items-center justify-between mb-2">
               <Music className="w-8 h-8 text-purple-400" />
               <span className="text-2xl font-bold text-white">
@@ -211,7 +212,7 @@ export default function TracksPage() {
             <p className="text-gray-300">Total Tracks</p>
           </div>
 
-          <div className="bg-black/50 backdrop-blur-lg rounded-lg border border-green-500/20 p-6">
+          <div className="bg-black/50 backdrop-blur-lg rounded-xl border border-green-500/20 p-6">
             <div className="flex items-center justify-between mb-2">
               <TrendingUp className="w-8 h-8 text-green-400" />
               <span className="text-2xl font-bold text-white">
@@ -221,7 +222,7 @@ export default function TracksPage() {
             <p className="text-gray-300">Total Streams</p>
           </div>
 
-          <div className="bg-black/50 backdrop-blur-lg rounded-lg border border-blue-500/20 p-6">
+          <div className="bg-black/50 backdrop-blur-lg rounded-xl border border-blue-500/20 p-6">
             <div className="flex items-center justify-between mb-2">
               <DollarSign className="w-8 h-8 text-blue-400" />
               <span className="text-2xl font-bold text-white">
@@ -231,7 +232,7 @@ export default function TracksPage() {
             <p className="text-gray-300">Total Revenue</p>
           </div>
 
-          <div className="bg-black/50 backdrop-blur-lg rounded-lg border border-orange-500/20 p-6">
+          <div className="bg-black/50 backdrop-blur-lg rounded-xl border border-orange-500/20 p-6">
             <div className="flex items-center justify-between mb-2">
               <Users className="w-8 h-8 text-orange-400" />
               <span className="text-2xl font-bold text-white">
@@ -243,7 +244,7 @@ export default function TracksPage() {
         </div>
 
         {/* Tracks List */}
-        <div className="bg-black/50 backdrop-blur-lg rounded-lg border border-purple-500/20 overflow-hidden">
+        <div className="bg-black/50 backdrop-blur-lg rounded-xl border border-purple-500/20 overflow-hidden">
           {loading ? (
             <div className="flex items-center justify-center h-64">
               <div className="text-white">Loading tracks...</div>
@@ -254,7 +255,7 @@ export default function TracksPage() {
               <p className="text-gray-300 mb-4">No tracks found</p>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="px-6 py-2 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-colors"
               >
                 Add Your First Track
               </button>
@@ -286,7 +287,7 @@ export default function TracksPage() {
                     <tr key={track.id} className="hover:bg-black/30 transition-colors">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
-                          <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+                          <div className="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center mr-4">
                             <Music className="w-5 h-5 text-white" />
                           </div>
                           <div>
@@ -365,7 +366,7 @@ export default function TracksPage() {
                   type="text"
                   value={formData.title}
                   onChange={(e) => setFormData({...formData, title: e.target.value})}
-                  className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
                   placeholder="Enter track title"
                   required
                 />
@@ -379,7 +380,7 @@ export default function TracksPage() {
                   type="text"
                   value={formData.artist}
                   onChange={(e) => setFormData({...formData, artist: e.target.value})}
-                  className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
                   placeholder="Enter artist name"
                   required
                 />
@@ -393,7 +394,7 @@ export default function TracksPage() {
                   type="text"
                   value={formData.album}
                   onChange={(e) => setFormData({...formData, album: e.target.value})}
-                  className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
                   placeholder="Enter album name"
                 />
               </div>
@@ -407,7 +408,7 @@ export default function TracksPage() {
                     type="text"
                     value={formData.duration}
                     onChange={(e) => setFormData({...formData, duration: e.target.value})}
-                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
+                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
                     placeholder="3:45"
                   />
                 </div>
@@ -420,7 +421,7 @@ export default function TracksPage() {
                     type="text"
                     value={formData.genre}
                     onChange={(e) => setFormData({...formData, genre: e.target.value})}
-                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
+                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors"
                     placeholder="Hip Hop"
                   />
                 </div>
@@ -449,7 +450,7 @@ export default function TracksPage() {
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  className="px-6 py-2 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-colors"
                 >
                   {editingTrack ? 'Update' : 'Add'} Track
                 </button>

@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React, { useState } from 'react';
 
 const Tabs = ({ children, defaultValue, onValueChange }) => {

@@ -3,6 +3,7 @@
  * Copyright © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST. All rights reserved.
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import Input from './ui/Input';
@@ -103,14 +104,14 @@ const SearchInput = ({ onResultsFound, placeholder = "Search your music catalog.
 
       {/* Search Results */}
       {results.length > 0 && (
-        <div className="mt-4 bg-gray-800 rounded-lg border border-gray-700">
+        <div className="mt-4 bg-gray-800 rounded-xl border border-gray-700">
           <div className="p-4">
             <h3 className="text-white font-semibold mb-3">
               Found {results.length} result{results.length !== 1 ? 's' : ''}
             </h3>
             <div className="space-y-3">
               {results.map((track) => (
-                <div key={track.id} className="bg-gray-700 rounded-lg p-3 border border-gray-600">
+                <div key={track.id} className="bg-gray-700 rounded-xl p-3 border border-gray-600">
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
                       <h4 className="text-white font-medium">{track.title}</h4>

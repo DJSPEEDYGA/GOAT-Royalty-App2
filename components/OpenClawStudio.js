@@ -7,6 +7,7 @@
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
 
+import '../styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Brain, MessageSquare, Terminal, Settings, Download, Play, 
@@ -192,33 +193,33 @@ const OpenClawStudio = () => {
           <div className="space-y-6">
             {/* Status Cards */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-red-500/20 rounded-lg"><Brain className="w-6 h-6 text-red-400" /></div>
+                  <div className="p-2 bg-red-500/20 rounded-xl"><Brain className="w-6 h-6 text-red-400" /></div>
                   <div className="text-sm text-gray-400">Local Models</div>
                 </div>
                 <div className="text-3xl font-bold text-white">{LOCAL_MODELS.length}</div>
                 <div className="text-sm text-green-400 mt-1">Available via Ollama</div>
               </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-blue-500/20 rounded-lg"><Globe className="w-6 h-6 text-blue-400" /></div>
+                  <div className="p-2 bg-blue-500/20 rounded-xl"><Globe className="w-6 h-6 text-blue-400" /></div>
                   <div className="text-sm text-gray-400">Channels</div>
                 </div>
                 <div className="text-3xl font-bold text-white">{CHANNELS.length}</div>
                 <div className="text-sm text-blue-400 mt-1">WhatsApp, Telegram, Discord...</div>
               </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-purple-500/20 rounded-lg"><Zap className="w-6 h-6 text-purple-400" /></div>
+                  <div className="p-2 bg-purple-500/20 rounded-xl"><Zap className="w-6 h-6 text-purple-400" /></div>
                   <div className="text-sm text-gray-400">Skills & Tools</div>
                 </div>
                 <div className="text-3xl font-bold text-white">{SKILLS.length}</div>
                 <div className="text-sm text-purple-400 mt-1">Browser, Voice, Automation...</div>
               </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-green-500/20 rounded-lg"><Shield className="w-6 h-6 text-green-400" /></div>
+                  <div className="p-2 bg-green-500/20 rounded-xl"><Shield className="w-6 h-6 text-green-400" /></div>
                   <div className="text-sm text-gray-400">Privacy</div>
                 </div>
                 <div className="text-3xl font-bold text-white">100%</div>
@@ -234,21 +235,21 @@ const OpenClawStudio = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-black/30 rounded-xl p-5">
                   <div className="text-lg font-bold text-red-400 mb-2">1. Install OpenClaw</div>
-                  <code className="block bg-black/50 rounded-lg p-3 text-sm text-green-400 font-mono mb-3">
+                  <code className="block bg-black/50 rounded-xl p-3 text-sm text-green-400 font-mono mb-3">
                     npm install -g openclaw@latest
                   </code>
                   <p className="text-sm text-gray-400">Requires Node.js ≥22. Works on macOS, Linux, Windows (WSL2).</p>
                 </div>
                 <div className="bg-black/30 rounded-xl p-5">
                   <div className="text-lg font-bold text-orange-400 mb-2">2. Install Ollama</div>
-                  <code className="block bg-black/50 rounded-lg p-3 text-sm text-green-400 font-mono mb-3">
+                  <code className="block bg-black/50 rounded-xl p-3 text-sm text-green-400 font-mono mb-3">
                     curl -fsSL https://ollama.com/install.sh | sh
                   </code>
                   <p className="text-sm text-gray-400">Then pull a model: <code className="text-yellow-400">ollama pull llama3.3</code></p>
                 </div>
                 <div className="bg-black/30 rounded-xl p-5">
                   <div className="text-lg font-bold text-yellow-400 mb-2">3. Start Gateway</div>
-                  <code className="block bg-black/50 rounded-lg p-3 text-sm text-green-400 font-mono mb-3">
+                  <code className="block bg-black/50 rounded-xl p-3 text-sm text-green-400 font-mono mb-3">
                     openclaw onboard --install-daemon
                   </code>
                   <p className="text-sm text-gray-400">The wizard guides you through setup. Gateway runs on port 18789.</p>
@@ -271,7 +272,7 @@ const OpenClawStudio = () => {
             </div>
 
             {/* Architecture Diagram */}
-            <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+            <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
               <h3 className="text-xl font-bold mb-4">🏗️ OpenClaw Architecture</h3>
               <div className="bg-black/40 rounded-xl p-6 font-mono text-sm text-gray-300">
                 <pre>{`
@@ -316,12 +317,12 @@ const OpenClawStudio = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <select value={selectedModel.id} onChange={(e) => setSelectedModel(LOCAL_MODELS.find(m => m.id === e.target.value))}
-                    className="bg-white/10 border border-white/20 rounded-lg px-3 py-1.5 text-sm">
+                    className="goat-gradient-card goat-gradient-card goat-card-hover/10 border border-white/20 rounded-xl px-3 py-1.5 text-sm">
                     {LOCAL_MODELS.map(m => (
                       <option key={m.id} value={m.id} className="bg-gray-900">{m.name} ({m.params})</option>
                     ))}
                   </select>
-                  <button onClick={() => setMessages([messages[0]])} className="p-2 hover:bg-white/10 rounded-lg" title="Clear chat">
+                  <button onClick={() => setMessages([messages[0]])} className="p-2 hover:bg-white/10 rounded-xl" title="Clear chat">
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
@@ -332,7 +333,7 @@ const OpenClawStudio = () => {
                 {messages.map((msg, i) => (
                   <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                     <div className={`max-w-[80%] rounded-2xl px-5 py-3 ${
-                      msg.role === 'user' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white' :
+                      msg.role === 'user' ? 'bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 text-white' :
                       msg.role === 'system' ? 'bg-red-500/20 text-red-200 border border-red-500/30' :
                       'bg-white/10 text-gray-200'
                     }`}>
@@ -347,7 +348,7 @@ const OpenClawStudio = () => {
                 ))}
                 {isGenerating && (
                   <div className="flex justify-start">
-                    <div className="bg-white/10 rounded-2xl px-5 py-3">
+                    <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 rounded-2xl px-5 py-3">
                       <div className="flex items-center gap-2 text-sm text-gray-400">
                         <RefreshCw className="w-4 h-4 animate-spin" />
                         {selectedModel.name} is thinking locally...
@@ -375,7 +376,7 @@ const OpenClawStudio = () => {
 
             {/* Sidebar */}
             <div className="space-y-4">
-              <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10">
                 <h3 className="font-bold mb-3 flex items-center gap-2"><Settings className="w-4 h-4" /> Model Settings</h3>
                 <div className="space-y-3">
                   <div>
@@ -392,17 +393,17 @@ const OpenClawStudio = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10">
                 <h3 className="font-bold mb-3 flex items-center gap-2"><FileText className="w-4 h-4" /> System Prompt</h3>
                 <textarea value={systemPrompt} onChange={(e) => setSystemPrompt(e.target.value)}
-                  className="w-full bg-black/30 border border-white/10 rounded-lg p-3 text-xs h-32 resize-none focus:outline-none focus:border-red-500/50" />
+                  className="w-full bg-black/30 border border-white/10 rounded-xl p-3 text-xs h-32 resize-none focus:outline-none focus:border-red-500/50" />
               </div>
-              <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10">
                 <h3 className="font-bold mb-3">🎵 GOAT Quick Actions</h3>
                 <div className="space-y-2">
                   {['Analyze my top tracks', 'Calculate royalties', 'Find underperforming songs', 'Generate release strategy', 'Check ASCAP discrepancies'].map((action, i) => (
                     <button key={i} onClick={() => { setInputMessage(action); }}
-                      className="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm transition-all flex items-center gap-2">
+                      className="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-xl text-sm transition-all flex items-center gap-2">
                       <ChevronRight className="w-3 h-3 text-red-400" /> {action}
                     </button>
                   ))}
@@ -442,15 +443,15 @@ const OpenClawStudio = () => {
                   </div>
                   <p className="text-sm text-gray-400 mb-3">{model.description}</p>
                   <div className="grid grid-cols-3 gap-2 text-xs">
-                    <div className="bg-black/30 rounded-lg p-2 text-center">
+                    <div className="bg-black/30 rounded-xl p-2 text-center">
                       <div className="text-gray-500">Size</div>
                       <div className="font-bold text-white">{model.size}</div>
                     </div>
-                    <div className="bg-black/30 rounded-lg p-2 text-center">
+                    <div className="bg-black/30 rounded-xl p-2 text-center">
                       <div className="text-gray-500">Params</div>
                       <div className="font-bold text-white">{model.params}</div>
                     </div>
-                    <div className="bg-black/30 rounded-lg p-2 text-center">
+                    <div className="bg-black/30 rounded-xl p-2 text-center">
                       <div className="text-gray-500">Speed</div>
                       <div className="font-bold text-white">{model.speed}</div>
                     </div>
@@ -459,7 +460,7 @@ const OpenClawStudio = () => {
                     <span className="text-yellow-400 text-sm">{model.quality}</span>
                     <span className="text-xs text-gray-500">{model.provider}</span>
                   </div>
-                  <button className="mt-3 w-full py-2 bg-gradient-to-r from-red-600/50 to-orange-600/50 hover:from-red-600 hover:to-orange-600 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-2">
+                  <button className="mt-3 w-full py-2 bg-gradient-to-r from-red-600/50 to-orange-600/50 hover:from-red-600 hover:to-orange-600 rounded-xl text-sm font-medium transition-all flex items-center justify-center gap-2">
                     <Download className="w-4 h-4" /> Pull Model
                   </button>
                 </div>
@@ -475,7 +476,7 @@ const OpenClawStudio = () => {
             <p className="text-gray-400">OpenClaw connects your AI assistant to all your messaging platforms. One assistant, every channel.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {CHANNELS.map((ch, i) => (
-                <div key={i} className="bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all text-center">
+                <div key={i} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all text-center">
                   <div className="text-4xl mb-3">{ch.icon}</div>
                   <div className="font-bold mb-1">{ch.name}</div>
                   <div className="text-xs text-gray-400 mb-3">{ch.description}</div>
@@ -497,7 +498,7 @@ const OpenClawStudio = () => {
             <h2 className="text-2xl font-bold">⚡ Skills & Tools</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {SKILLS.map((skill, i) => (
-                <div key={i} className="bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all">
+                <div key={i} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="text-2xl">{skill.icon}</div>
                     <div>
@@ -517,18 +518,18 @@ const OpenClawStudio = () => {
           <div className="space-y-6">
             <h2 className="text-2xl font-bold">🖥️ Gateway Configuration</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
                 <h3 className="font-bold mb-4">Connection Settings</h3>
                 <div className="space-y-4">
                   <div>
                     <label className="text-sm text-gray-400">Gateway Port</label>
                     <input type="text" value={gatewayPort} onChange={(e) => setGatewayPort(e.target.value)}
-                      className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 mt-1" />
+                      className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-2 mt-1" />
                   </div>
                   <div>
                     <label className="text-sm text-gray-400">Ollama URL</label>
                     <input type="text" value={ollamaUrl} onChange={(e) => setOllamaUrl(e.target.value)}
-                      className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 mt-1" />
+                      className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-2 mt-1" />
                   </div>
                   <button onClick={connectGateway}
                     className="w-full py-3 bg-gradient-to-r from-red-600 to-orange-600 rounded-xl font-bold hover:from-red-500 hover:to-orange-500 transition-all">
@@ -536,7 +537,7 @@ const OpenClawStudio = () => {
                   </button>
                 </div>
               </div>
-              <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
                 <h3 className="font-bold mb-4">Server Commands</h3>
                 <div className="space-y-2 font-mono text-sm">
                   {[
@@ -548,7 +549,7 @@ const OpenClawStudio = () => {
                     'ollama list',
                     'ollama pull llama3.3:70b',
                   ].map((cmd, i) => (
-                    <div key={i} className="flex items-center justify-between bg-black/30 rounded-lg px-4 py-2">
+                    <div key={i} className="flex items-center justify-between bg-black/30 rounded-xl px-4 py-2">
                       <code className="text-green-400">$ {cmd}</code>
                       <button onClick={() => navigator.clipboard?.writeText(cmd)} className="p-1 hover:bg-white/10 rounded">
                         <Copy className="w-3 h-3 text-gray-500" />

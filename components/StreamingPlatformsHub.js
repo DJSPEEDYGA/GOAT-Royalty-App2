@@ -3,6 +3,7 @@
  * Complete integration for Spotify, Apple Music, YouTube, TikTok, etc.
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Music, Play, Youtube, TrendingUp, DollarSign, Users, Eye, Heart } from 'lucide-react';
 
@@ -124,7 +125,7 @@ const StreamingPlatformsHub = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-900/50 to-blue-900/50 backdrop-blur-md border border-purple-500/30 rounded-xl p-6">
+      <div className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-900/50 to-blue-900/50 backdrop-blur-md border border-purple-500/30 rounded-xl p-6">
         <h2 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
           <Music className="w-8 h-8 text-purple-400" />
           Streaming Platforms Hub
@@ -210,7 +211,7 @@ const StreamingPlatformsHub = () => {
                 <>
                   <div className="grid grid-cols-2 gap-3 mb-4">
                     {Object.entries(platform.stats).map(([key, value]) => (
-                      <div key={key} className="bg-black/30 rounded-lg p-3">
+                      <div key={key} className="bg-black/30 rounded-xl p-3">
                         <p className="text-gray-400 text-xs capitalize mb-1">{key}</p>
                         <p className="text-white font-bold text-lg">{value}</p>
                       </div>
@@ -224,7 +225,7 @@ const StreamingPlatformsHub = () => {
                       {platform.topTracks.map((track, index) => (
                         <div
                           key={index}
-                          className="bg-black/30 rounded-lg p-3 flex items-center justify-between"
+                          className="bg-black/30 rounded-xl p-3 flex items-center justify-between"
                         >
                           <div className="flex items-center gap-3">
                             <div className="w-6 h-6 bg-white/10 rounded flex items-center justify-center text-white text-xs font-bold">

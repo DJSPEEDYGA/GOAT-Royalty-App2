@@ -3,6 +3,7 @@
  * Stripe integration, payouts, and financial management
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { DollarSign, CreditCard, TrendingUp, Users, Calendar, CheckCircle, Clock, AlertCircle, Download, Send } from 'lucide-react';
 
@@ -71,7 +72,7 @@ const PaymentProcessingHub = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-green-900/50 to-emerald-900/50 backdrop-blur-md border border-green-500/30 rounded-xl p-6">
+      <div className="bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-900/50 to-emerald-900/50 backdrop-blur-md border border-green-500/30 rounded-xl p-6">
         <h2 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
           <DollarSign className="w-8 h-8 text-green-400" />
           Payment Processing & Revenue Distribution
@@ -147,7 +148,7 @@ const PaymentProcessingHub = () => {
             <p className="text-gray-400 text-sm">Total Revenue Pool</p>
             <p className="text-2xl font-bold text-white">${paymentStats.totalProcessed.toLocaleString()}</p>
           </div>
-          <button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all">
+          <button className="bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all">
             <Send className="w-5 h-5" />
             Process Payouts
           </button>
@@ -167,7 +168,7 @@ const PaymentProcessingHub = () => {
             {recentPayouts.map((payout) => (
               <div
                 key={payout.id}
-                className="bg-black/30 rounded-lg p-4 hover:bg-black/50 transition-colors cursor-pointer"
+                className="bg-black/30 rounded-xl p-4 hover:bg-black/50 transition-colors cursor-pointer"
                 onClick={() => setSelectedPayout(payout)}
               >
                 <div className="flex items-start justify-between mb-2">
@@ -206,7 +207,7 @@ const PaymentProcessingHub = () => {
             {upcomingPayouts.map((payout, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-r from-purple-900/30 to-purple-800/20 border border-purple-500/30 rounded-lg p-4"
+                className="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-900/30 to-purple-800/20 border border-purple-500/30 rounded-xl p-4"
               >
                 <div className="flex items-center justify-between mb-2">
                   <div>
@@ -223,7 +224,7 @@ const PaymentProcessingHub = () => {
             ))}
           </div>
 
-          <button className="w-full mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors">
+          <button className="w-full mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors">
             <Download className="w-5 h-5" />
             Download Payout Schedule
           </button>
@@ -235,7 +236,7 @@ const PaymentProcessingHub = () => {
         <h3 className="text-xl font-bold text-white mb-4">Payment Methods</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-gradient-to-br from-blue-900/30 to-blue-800/20 border border-blue-500/30 rounded-lg p-4 text-center">
+          <div className="bg-gradient-to-br from-blue-900/30 to-blue-800/20 border border-blue-500/30 rounded-xl p-4 text-center">
             <CreditCard className="w-12 h-12 text-blue-400 mx-auto mb-3" />
             <h4 className="text-white font-bold mb-1">Stripe</h4>
             <p className="text-gray-400 text-sm mb-3">Instant transfers</p>
@@ -245,7 +246,7 @@ const PaymentProcessingHub = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/20 border border-purple-500/30 rounded-lg p-4 text-center">
+          <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/20 border border-purple-500/30 rounded-xl p-4 text-center">
             <DollarSign className="w-12 h-12 text-purple-400 mx-auto mb-3" />
             <h4 className="text-white font-bold mb-1">Bank Transfer</h4>
             <p className="text-gray-400 text-sm mb-3">Direct deposit</p>
@@ -255,7 +256,7 @@ const PaymentProcessingHub = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-yellow-900/30 to-yellow-800/20 border border-yellow-500/30 rounded-lg p-4 text-center">
+          <div className="bg-gradient-to-br from-yellow-900/30 to-yellow-800/20 border border-yellow-500/30 rounded-xl p-4 text-center">
             <Send className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
             <h4 className="text-white font-bold mb-1">PayPal</h4>
             <p className="text-gray-400 text-sm mb-3">Fast payments</p>

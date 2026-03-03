@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/Card';
 import { Button } from './ui/Button';
@@ -154,7 +155,7 @@ const AdobeIntegration = () => {
           <Film className="w-8 h-8 mr-2 text-red-600" />
           <h1 className="text-3xl font-bold">Adobe Creative Cloud Integration</h1>
         </div>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-400 max-w-2xl mx-auto">
           Connect your Adobe Creative Cloud account to track project usage, calculate royalties from creative work, and analyze production workflows.
         </p>
       </div>
@@ -170,14 +171,14 @@ const AdobeIntegration = () => {
         <CardContent>
           {isConnected ? (
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-red-50 rounded-lg">
+              <div className="flex items-center justify-between p-4 bg-red-50 rounded-xl">
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
                     {userData?.email?.[0]?.toUpperCase() || 'A'}
                   </div>
                   <div>
                     <p className="font-semibold">{userData?.email || 'Adobe User'}</p>
-                    <p className="text-sm text-gray-600">{userData?.organizations?.length || 0} organizations</p>
+                    <p className="text-sm text-gray-400">{userData?.organizations?.length || 0} organizations</p>
                   </div>
                 </div>
                 <Button 
@@ -214,36 +215,36 @@ const AdobeIntegration = () => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="p-4 bg-red-50 rounded-lg">
+              <div className="p-4 bg-red-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Film className="w-8 h-8 text-red-500" />
                   <span className="text-2xl font-bold">{getTotalProjects()}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Total Projects</p>
+                <p className="text-sm text-gray-400 mt-2">Total Projects</p>
               </div>
               
-              <div className="p-4 bg-blue-50 rounded-lg">
+              <div className="p-4 bg-blue-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Clock className="w-8 h-8 text-blue-500" />
                   <span className="text-2xl font-bold">{activeProjects.length}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Active Projects</p>
+                <p className="text-sm text-gray-400 mt-2">Active Projects</p>
               </div>
               
-              <div className="p-4 bg-green-50 rounded-lg">
+              <div className="p-4 bg-green-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <Users className="w-8 h-8 text-green-500" />
                   <span className="text-2xl font-bold">{userData?.organizations?.length || 0}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Teams</p>
+                <p className="text-sm text-gray-400 mt-2">Teams</p>
               </div>
               
-              <div className="p-4 bg-purple-50 rounded-lg">
+              <div className="p-4 bg-purple-50 rounded-xl">
                 <div className="flex items-center justify-between">
                   <DollarSign className="w-8 h-8 text-purple-500" />
                   <span className="text-2xl font-bold">${getTotalEstimatedRoyalties()}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Est. Royalties</p>
+                <p className="text-sm text-gray-400 mt-2">Est. Royalties</p>
               </div>
             </div>
           </CardContent>
@@ -262,13 +263,13 @@ const AdobeIntegration = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {analytics.toolUsage?.map((tool, index) => (
-                <div key={index} className="p-4 border rounded-lg">
+                <div key={index} className="p-4 border rounded-xl">
                   <div className="flex items-center justify-between mb-2">
                     {getProjectIcon(tool.tool)}
                     <span className="text-lg font-bold">{tool.projectCount}</span>
                   </div>
                   <h4 className="font-semibold">{getProjectTypeName(tool.tool)}</h4>
-                  <p className="text-sm text-gray-600">{tool.totalHours || 0} hours used</p>
+                  <p className="text-sm text-gray-400">{tool.totalHours || 0} hours used</p>
                   <p className="text-sm font-medium text-green-600">${tool.estimatedRoyalties || '0.00'}</p>
                 </div>
               ))}
@@ -286,13 +287,13 @@ const AdobeIntegration = () => {
           <CardContent>
             <div className="space-y-4">
               {projects.slice(0, 5).map((project) => (
-                <div key={project.id} className="flex items-center p-4 border rounded-lg">
-                  <div className="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center mr-4">
+                <div key={project.id} className="flex items-center p-4 border rounded-xl">
+                  <div className="w-16 h-16 bg-gray-200 rounded-xl flex items-center justify-center mr-4">
                     {getProjectIcon(project.type)}
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold">{project.name}</h3>
-                    <p className="text-sm text-gray-600">{getProjectTypeName(project.type)}</p>
+                    <p className="text-sm text-gray-400">{getProjectTypeName(project.type)}</p>
                     <div className="flex items-center mt-2 text-sm text-gray-500">
                       <span className="mr-4">{project.duration || 0} minutes</span>
                       <span className="mr-4">{project.assetCount || 0} assets</span>
@@ -324,7 +325,7 @@ const AdobeIntegration = () => {
           <CardContent>
             <div className="space-y-4">
               {royaltyData.byTool?.map((tool, index) => (
-                <div key={index} className="p-4 border rounded-lg">
+                <div key={index} className="p-4 border rounded-xl">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center">
                       {getProjectIcon(tool.tool)}
@@ -334,15 +335,15 @@ const AdobeIntegration = () => {
                   </div>
                   <div className="grid grid-cols-3 gap-4 text-sm">
                     <div>
-                      <p className="text-gray-600">Projects</p>
+                      <p className="text-gray-400">Projects</p>
                       <p className="font-medium">{tool.projectCount || 0}</p>
                     </div>
                     <div>
-                      <p className="text-gray-600">Total Hours</p>
+                      <p className="text-gray-400">Total Hours</p>
                       <p className="font-medium">{tool.totalHours || 0}</p>
                     </div>
                     <div>
-                      <p className="text-gray-600">Avg. per Project</p>
+                      <p className="text-gray-400">Avg. per Project</p>
                       <p className="font-medium">${tool.avgPerProject || '0.00'}</p>
                     </div>
                   </div>

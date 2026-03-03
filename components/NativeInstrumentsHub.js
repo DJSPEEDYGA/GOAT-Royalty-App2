@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import { Music, Download, ExternalLink, Star, ShoppingCart, DollarSign, Package, Zap } from 'lucide-react';
 
@@ -275,11 +276,11 @@ export default function NativeInstrumentsHub() {
             </p>
           </div>
           <div className="flex gap-2">
-            <button className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all flex items-center gap-2">
+            <button className="px-4 py-2 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-500 to-emerald-500 text-white rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all flex items-center gap-2">
               <ShoppingCart className="w-4 h-4" />
               Cart ({cart.length})
             </button>
-            <button className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all flex items-center gap-2">
+            <button className="px-4 py-2 bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-500 to-purple-500 text-white rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all flex items-center gap-2">
               <DollarSign className="w-4 h-4" />
               ${getTotalPrice()}
             </button>
@@ -364,7 +365,7 @@ export default function NativeInstrumentsHub() {
                       className={`w-3 h-3 ${
                         i < Math.floor(product.rating)
                           ? 'text-yellow-400 fill-yellow-400'
-                          : 'text-gray-600'
+                          : 'text-gray-400'
                       }`}
                     />
                   ))}
@@ -392,7 +393,7 @@ export default function NativeInstrumentsHub() {
                 </button>
                 <button
                   onClick={() => window.open(product.url, '_blank')}
-                  className="px-3 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all"
+                  className="px-3 py-2 bg-gray-700 text-white rounded-xl hover:bg-gray-600 transition-all"
                 >
                   <ExternalLink className="w-4 h-4" />
                 </button>
@@ -415,23 +416,23 @@ export default function NativeInstrumentsHub() {
               Trusted by professionals worldwide for over 25 years.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-              <div className="bg-gray-800/50 p-3 rounded-lg text-center">
+              <div className="bg-gray-800/50 p-3 rounded-xl text-center">
                 <div className="text-2xl mb-1">📦</div>
                 <div className="text-sm text-gray-300">Komplete Bundles</div>
               </div>
-              <div className="bg-gray-800/50 p-3 rounded-lg text-center">
+              <div className="bg-gray-800/50 p-3 rounded-xl text-center">
                 <div className="text-2xl mb-1">🎛️</div>
                 <div className="text-sm text-gray-300">Hardware Controllers</div>
               </div>
-              <div className="bg-gray-800/50 p-3 rounded-lg text-center">
+              <div className="bg-gray-800/50 p-3 rounded-xl text-center">
                 <div className="text-2xl mb-1">🎹</div>
                 <div className="text-sm text-gray-300">Software Instruments</div>
               </div>
-              <div className="bg-gray-800/50 p-3 rounded-lg text-center">
+              <div className="bg-gray-800/50 p-3 rounded-xl text-center">
                 <div className="text-2xl mb-1">🎧</div>
                 <div className="text-sm text-gray-300">DJ Equipment</div>
               </div>
-              <div className="bg-gray-800/50 p-3 rounded-lg text-center">
+              <div className="bg-gray-800/50 p-3 rounded-xl text-center">
                 <div className="text-2xl mb-1">💎</div>
                 <div className="text-sm text-gray-300">Premium Quality</div>
               </div>

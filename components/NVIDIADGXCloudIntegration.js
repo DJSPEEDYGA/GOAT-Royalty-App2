@@ -1,4 +1,5 @@
 // NVIDIA DGX Cloud Integration Component for GOAT Royalty App
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -133,7 +134,7 @@ const NVIDIADGXCloudIntegration = () => {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {cloudProviders.map((provider, idx) => (
-              <div key={idx} className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+              <div key={idx} className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
                 <div className="flex items-center justify-between mb-3">
                   <span className="font-semibold">{provider.name}</span>
                   <span className={`px-2 py-1 rounded text-xs ${
@@ -178,10 +179,10 @@ const NVIDIADGXCloudIntegration = () => {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
@@ -214,10 +215,10 @@ const NVIDIADGXCloudIntegration = () => {
               </div>
             </div>
 
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center">
                     <Video className="w-5 h-5" />
                   </div>
                   <div>
@@ -250,10 +251,10 @@ const NVIDIADGXCloudIntegration = () => {
               </div>
             </div>
 
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-green-600 rounded-xl flex items-center justify-center">
                     <Database className="w-5 h-5" />
                   </div>
                   <div>
@@ -314,7 +315,7 @@ const NVIDIADGXCloudIntegration = () => {
         <CardContent>
           <div className="space-y-4">
             {benchmarkResults.map((result, idx) => (
-              <div key={idx} className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+              <div key={idx} className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
                 <div className="flex items-center justify-between mb-3">
                   <div>
                     <div className="font-semibold">{result.model}</div>
@@ -336,7 +337,7 @@ const NVIDIADGXCloudIntegration = () => {
             ))}
           </div>
 
-          <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+          <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
             <div className="flex items-start gap-3">
               <CheckCircle className="w-5 h-5 text-blue-400 mt-1" />
               <div>
@@ -366,12 +367,12 @@ const NVIDIADGXCloudIntegration = () => {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <div className="p-4 bg-gradient-to-br from-cyan-500/10 to-cyan-600/10 border border-cyan-500/20 rounded-lg">
+            <div className="p-4 bg-gradient-to-br from-cyan-500/10 to-cyan-600/10 border border-cyan-500/20 rounded-xl">
               <div className="text-sm text-gray-400 mb-1">Videos Curated</div>
               <div className="text-3xl font-bold text-white">12,450</div>
               <div className="text-sm text-cyan-400 mt-2">+2,340 this week</div>
             </div>
-            <div className="p-4 bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-500/20 rounded-lg">
+            <div className="p-4 bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-500/20 rounded-xl">
               <div className="text-sm text-gray-400 mb-1">Foundation Models</div>
               <div className="text-3xl font-bold text-white">8</div>
               <div className="text-sm text-purple-400 mt-2">3 in training</div>
@@ -379,7 +380,7 @@ const NVIDIADGXCloudIntegration = () => {
           </div>
 
           <div className="space-y-3">
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-semibold">Music Video World Model</div>
@@ -394,7 +395,7 @@ const NVIDIADGXCloudIntegration = () => {
               </div>
             </div>
 
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-semibold">Concert Environment Simulator</div>
@@ -426,22 +427,22 @@ const NVIDIADGXCloudIntegration = () => {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div className="p-4 bg-gradient-to-br from-green-500/10 to-green-600/10 border border-green-500/20 rounded-lg">
+            <div className="p-4 bg-gradient-to-br from-green-500/10 to-green-600/10 border border-green-500/20 rounded-xl">
               <div className="text-sm text-gray-400 mb-1">Active Simulations</div>
               <div className="text-3xl font-bold text-white">5</div>
             </div>
-            <div className="p-4 bg-gradient-to-br from-blue-500/10 to-blue-600/10 border border-blue-500/20 rounded-lg">
+            <div className="p-4 bg-gradient-to-br from-blue-500/10 to-blue-600/10 border border-blue-500/20 rounded-xl">
               <div className="text-sm text-gray-400 mb-1">Digital Twins</div>
               <div className="text-3xl font-bold text-white">12</div>
             </div>
-            <div className="p-4 bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-500/20 rounded-lg">
+            <div className="p-4 bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-500/20 rounded-xl">
               <div className="text-sm text-gray-400 mb-1">Collaborators</div>
               <div className="text-3xl font-bold text-white">28</div>
             </div>
           </div>
 
           <div className="space-y-3">
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
               <div className="flex items-center justify-between mb-2">
                 <div className="font-semibold">Virtual Concert Venue</div>
                 <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded text-sm">Live</span>
@@ -449,7 +450,7 @@ const NVIDIADGXCloudIntegration = () => {
               <div className="text-sm text-gray-400">Real-time physics simulation for 10,000 attendees</div>
             </div>
 
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
               <div className="flex items-center justify-between mb-2">
                 <div className="font-semibold">Recording Studio Digital Twin</div>
                 <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Testing</span>
@@ -457,7 +458,7 @@ const NVIDIADGXCloudIntegration = () => {
               <div className="text-sm text-gray-400">Acoustic simulation and optimization</div>
             </div>
 
-            <div className="p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+            <div className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
               <div className="flex items-center justify-between mb-2">
                 <div className="font-semibold">Music Video Production Pipeline</div>
                 <span className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded text-sm">Development</span>
@@ -481,7 +482,7 @@ const NVIDIADGXCloudIntegration = () => {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center">
               <Cpu className="w-7 h-7" />
             </div>
             <div>

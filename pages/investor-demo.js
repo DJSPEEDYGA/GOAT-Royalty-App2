@@ -3,6 +3,7 @@
  * Complete showcase of all GOAT Force capabilities
  */
 
+import '../styles/globals.css';
 import React, { useState } from 'react';
 import GeminiAIPanel from '../components/GeminiAIPanel';
 import CodexEnginePanel from '../components/CodexEnginePanel';

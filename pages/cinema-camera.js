@@ -3,6 +3,7 @@
  * Real-time video capture, editing, and production tools
  */
 
+import '../styles/globals.css';
 import React, { useState, useRef } from 'react';
 import { Video, Camera, Play, Pause, Square, Download, Upload, Film, Zap, Settings, Eye, Clock } from 'lucide-react';
 
@@ -113,7 +114,7 @@ export default function CinemaCamera() {
 
             {selectedVideo ? (
               <div className="space-y-4">
-                <div className="relative aspect-video bg-black rounded-lg overflow-hidden">
+                <div className="relative aspect-video bg-black rounded-xl overflow-hidden">
                   <video
                     ref={videoRef}
                     src={selectedVideo.file}
@@ -129,11 +130,11 @@ export default function CinemaCamera() {
                     <p className="text-gray-400 text-sm">Duration: {selectedVideo.duration}</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
+                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl font-semibold flex items-center gap-2">
                       <Settings className="w-4 h-4" />
                       Edit
                     </button>
-                    <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2">
+                    <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-xl font-semibold flex items-center gap-2">
                       <Download className="w-4 h-4" />
                       Export
                     </button>
@@ -141,9 +142,9 @@ export default function CinemaCamera() {
                 </div>
               </div>
             ) : (
-              <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
+              <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <Video className="w-24 h-24 text-gray-600 mx-auto mb-4" />
+                  <Video className="w-24 h-24 text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-400 text-lg">Select a video from the library</p>
                 </div>
               </div>
@@ -210,7 +211,7 @@ export default function CinemaCamera() {
           <Settings className="w-12 h-12 text-blue-400 mb-4" />
           <h3 className="text-white font-bold text-lg mb-2">Video Editing</h3>
           <p className="text-gray-400 text-sm mb-4">Professional editing tools with AI assistance</p>
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold">
+          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl font-semibold">
             Open Editor
           </button>
         </div>
@@ -219,7 +220,7 @@ export default function CinemaCamera() {
           <Zap className="w-12 h-12 text-purple-400 mb-4" />
           <h3 className="text-white font-bold text-lg mb-2">AI Enhancement</h3>
           <p className="text-gray-400 text-sm mb-4">Auto-enhance, color grading, and effects</p>
-          <button className="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-semibold">
+          <button className="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl font-semibold">
             Enhance Video
           </button>
         </div>
@@ -228,7 +229,7 @@ export default function CinemaCamera() {
           <Download className="w-12 h-12 text-green-400 mb-4" />
           <h3 className="text-white font-bold text-lg mb-2">Export & Share</h3>
           <p className="text-gray-400 text-sm mb-4">Multiple formats, social media ready</p>
-          <button className="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold">
+          <button className="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-xl font-semibold">
             Export Options
           </button>
         </div>

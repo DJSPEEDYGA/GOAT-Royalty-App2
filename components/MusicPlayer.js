@@ -3,6 +3,7 @@
  * Professional music player with visual effects and controls
  */
 
+import '../styles/globals.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Play, 
@@ -130,9 +131,9 @@ const MusicPlayer = ({ tracks = [] }) => {
           <img
             src={track.artwork}
             alt={track.title}
-            className="w-20 h-20 rounded-lg shadow-lg"
+            className="w-20 h-20 rounded-xl goat-glow"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl" />
           {isPlaying && (
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex space-x-1">
@@ -200,7 +201,7 @@ const MusicPlayer = ({ tracks = [] }) => {
 
         <button
           onClick={togglePlay}
-          className="p-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg"
+          className="p-4 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105 goat-glow"
         >
           {isPlaying ? (
             <Pause className="w-6 h-6 text-white" />

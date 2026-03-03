@@ -3,6 +3,7 @@
  * Copyright © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST. All rights reserved.
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Search, Music, DollarSign, TrendingUp } from 'lucide-react';
 
@@ -56,7 +57,7 @@ const SearchPage = () => {
       <div className="max-w-4xl mx-auto p-6">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-500 via-yellow-400 to-red-500-400 to-blue-500 bg-clip-text text-transparent">
             Search Your Music Catalog
           </h1>
           <p className="text-gray-400">
@@ -73,7 +74,7 @@ const SearchPage = () => {
               placeholder="Search by song title, artist name, or ISRC..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 text-lg"
+              className="w-full pl-12 pr-4 py-4 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-green-500 text-lg"
             />
             <button
               type="submit"
@@ -87,7 +88,7 @@ const SearchPage = () => {
 
         {/* Error Message */}
         {error && (
-          <div className="mb-6 p-4 bg-red-900 border border-red-700 rounded-lg">
+          <div className="mb-6 p-4 bg-red-900 border border-red-700 rounded-xl">
             <p className="text-red-200">{error}</p>
           </div>
         )}
@@ -106,7 +107,7 @@ const SearchPage = () => {
             </div>
 
             {results.map((track) => (
-              <div key={track.id} className="bg-gray-800 rounded-lg border border-gray-700 p-6 hover:border-green-600 transition-colors">
+              <div key={track.id} className="bg-gray-800 rounded-xl border border-gray-700 p-6 hover:border-green-600 transition-colors">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-2">
@@ -173,7 +174,7 @@ const SearchPage = () => {
         {/* No Results */}
         {searchQuery && !isLoading && results.length === 0 && !error && (
           <div className="text-center py-12">
-            <Search className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+            <Search className="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <h3 className="text-xl font-medium text-gray-300 mb-2">
               No results found for "{searchQuery}"
             </h3>

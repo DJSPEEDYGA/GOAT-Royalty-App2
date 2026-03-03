@@ -3,6 +3,7 @@
  * Red/Black/Gold branded hero with GOAT logo and particle effects
  */
 
+import '../styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import { Play, Sparkles, TrendingUp, Music, DollarSign } from 'lucide-react';
 
@@ -136,7 +137,7 @@ const AnimatedHero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-          <button className="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold rounded-full overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-lg shadow-red-500/25">
+          <button className="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold rounded-full overflow-hidden transform hover:scale-105 transition-all duration-300 goat-glow shadow-red-500/25">
             <span className="relative z-10 flex items-center space-x-2">
               <Play className="w-5 h-5" />
               <span style={{ fontFamily: "var(--font-heading)", letterSpacing: '0.08em' }}>Launch Dashboard</span>
