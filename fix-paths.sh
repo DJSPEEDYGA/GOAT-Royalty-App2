@@ -30,4 +30,11 @@ for f in */index.html; do
   fi
 done
 
+# Fix font paths in CSS files (CSS is in _next/static/css/, fonts are in /fonts/)
+for f in _next/static/css/*.css; do
+  if [ -f "$f" ]; then
+    sed -i 's|url(/fonts/|url(../../../fonts/|g' "$f"
+  fi
+done
+
 echo "All paths fixed!"

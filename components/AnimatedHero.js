@@ -82,14 +82,14 @@ const AnimatedHero = () => {
 
         {/* Glowing Title */}
         <div className="mb-8">
-          <h1 className="text-6xl md:text-8xl font-black mb-4">
+          <h1 className="text-6xl md:text-8xl font-black mb-4" style={{ fontFamily: "var(--font-display)" }}>
             <span className="bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 bg-clip-text text-transparent animate-gradient">
               GOAT FORCE
             </span>
           </h1>
           <div className="flex items-center justify-center space-x-2 mb-6">
             <Sparkles className="w-6 h-6 text-yellow-400 animate-spin" />
-            <p className="text-2xl md:text-3xl text-white/90 font-light">
+            <p className="text-2xl md:text-3xl text-white/90 font-light" style={{ fontFamily: "var(--font-heading)", letterSpacing: '0.05em' }}>
               The Future of Music Publishing
             </p>
             <Sparkles className="w-6 h-6 text-yellow-400 animate-spin" />
@@ -97,7 +97,7 @@ const AnimatedHero = () => {
         </div>
 
         {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: "var(--font-body)" }}>
           Track royalties, manage catalogs, and maximize your music publishing revenue with AI-powered analytics and real-time insights.
         </p>
 
@@ -109,8 +109,8 @@ const AnimatedHero = () => {
                 <Music className="w-8 h-8 text-red-400" />
               </div>
             </div>
-            <div className="text-4xl font-bold text-white mb-2">346</div>
-            <div className="text-white/70">Works Cataloged</div>
+            <div className="text-4xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>346</div>
+            <div className="text-white/70" style={{ fontFamily: "var(--font-heading)", letterSpacing: '0.05em' }}>Works Cataloged</div>
           </div>
 
           <div className="bg-yellow-500/5 backdrop-blur-md rounded-xl p-6 border border-yellow-500/20 transform hover:scale-105 transition-all duration-300 hover:border-yellow-500/40">
@@ -119,8 +119,8 @@ const AnimatedHero = () => {
                 <DollarSign className="w-8 h-8 text-yellow-400" />
               </div>
             </div>
-            <div className="text-4xl font-bold text-white mb-2">$865K+</div>
-            <div className="text-white/70">Est. Royalties</div>
+            <div className="text-4xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>$865K+</div>
+            <div className="text-white/70" style={{ fontFamily: "var(--font-heading)", letterSpacing: '0.05em' }}>Est. Royalties</div>
           </div>
 
           <div className="bg-red-500/5 backdrop-blur-md rounded-xl p-6 border border-red-500/20 transform hover:scale-105 transition-all duration-300 hover:border-red-500/40">
@@ -129,8 +129,8 @@ const AnimatedHero = () => {
                 <TrendingUp className="w-8 h-8 text-red-400" />
               </div>
             </div>
-            <div className="text-4xl font-bold text-white mb-2">1.2B+</div>
-            <div className="text-white/70">Total Streams</div>
+            <div className="text-4xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>1.2B+</div>
+            <div className="text-white/70" style={{ fontFamily: "var(--font-heading)", letterSpacing: '0.05em' }}>Total Streams</div>
           </div>
         </div>
 
@@ -139,7 +139,7 @@ const AnimatedHero = () => {
           <button className="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold rounded-full overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-lg shadow-red-500/25">
             <span className="relative z-10 flex items-center space-x-2">
               <Play className="w-5 h-5" />
-              <span>Launch Dashboard</span>
+              <span style={{ fontFamily: "var(--font-heading)", letterSpacing: '0.08em' }}>Launch Dashboard</span>
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>

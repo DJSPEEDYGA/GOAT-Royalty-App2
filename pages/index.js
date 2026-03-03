@@ -161,6 +161,9 @@ const EnhancedLandingPage = () => {
                 <a href="/codex-008" className="text-cyan-400 hover:text-cyan-300 transition-colors font-semibold">
                   🔐 Agent Codex 008
                 </a>
+                <a href="/voice-studio" className="text-red-400 hover:text-red-300 transition-colors font-semibold">
+                  🎙️ Voice Studio
+                </a>
                 <a href="/animation-studio" className="text-pink-400 hover:text-pink-300 transition-colors font-semibold">
                   🎬 Animation
                 </a>

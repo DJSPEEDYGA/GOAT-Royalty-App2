@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 
 // Pages that don't require authentication
-const publicPages = ['/', '/login', '/signup', '/forgot-password', '/reset-password', '/dashboard', '/media-gallery', '/streaming', '/interactive', '/deploy', '/artwork', '/documents', '/ms-vanessa', '/fingerprint-auth', '/tracks', '/super-ninja-dashboard', '/super-ninja/ai-agent', '/goat-branding-demo', '/super-goat-command', '/adobe-firefly', '/openclaw', '/cyber-warrior', '/music-player', '/royalty-engine', '/sendme-network', '/upstaxx', '/asap-catalog', '/cinema-camera', '/sora-ai-studio', '/nvidia-dgx', '/investor-demo', '/complete-platform', '/fashion-store', '/contact', '/privacy', '/terms', '/copyright', '/publishing', '/search', '/sono-studio', '/concert-booking', '/unreal-engine', '/ai-red-team', '/animation-studio', '/codex-008']
+const publicPages = ['/', '/login', '/signup', '/forgot-password', '/reset-password', '/dashboard', '/media-gallery', '/streaming', '/interactive', '/deploy', '/artwork', '/documents', '/ms-vanessa', '/fingerprint-auth', '/tracks', '/super-ninja-dashboard', '/super-ninja/ai-agent', '/goat-branding-demo', '/super-goat-command', '/adobe-firefly', '/openclaw', '/cyber-warrior', '/music-player', '/royalty-engine', '/sendme-network', '/upstaxx', '/asap-catalog', '/cinema-camera', '/sora-ai-studio', '/nvidia-dgx', '/investor-demo', '/complete-platform', '/fashion-store', '/contact', '/privacy', '/terms', '/copyright', '/publishing', '/search', '/sono-studio', '/concert-booking', '/unreal-engine', '/ai-red-team', '/animation-studio', '/codex-008', '/voice-studio']
 
 // GOAT Force Loading Screen Component
 function GOATLoadingScreen() {
@@ -34,10 +34,12 @@ function GOATLoadingScreen() {
           alt="GOAT Force" 
           className="w-32 h-32 rounded-2xl goat-logo-img animate-pulse"
         />
-        <h1 className="mt-6 text-3xl font-black bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 bg-clip-text text-transparent tracking-tight">
+        <h1 className="mt-6 text-3xl font-black bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 bg-clip-text text-transparent"
+            style={{ fontFamily: "'Avengeance', 'Orbitron', Impact, sans-serif", letterSpacing: '0.08em' }}>
           GOAT FORCE
         </h1>
-        <p className="text-gray-500 text-xs font-mono tracking-[0.3em] mt-1">ROYALTY COMMAND CENTER</p>
+        <p className="text-gray-500 text-xs tracking-[0.4em] mt-1"
+           style={{ fontFamily: "'Orbitron', 'Rajdhani', monospace" }}>ROYALTY COMMAND CENTER</p>
         
         {/* Loading bar */}
         <div className="mt-8 w-48 h-1 bg-gray-800 rounded-full overflow-hidden">

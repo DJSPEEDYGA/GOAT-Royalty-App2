@@ -2,6 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══ GOOGLE FONTS ═══ */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Teko:wght@300;400;500;600;700&display=swap');
+
+/* ═══ CUSTOM FONT FACES — GOAT FORCE ORIGINALS ═══ */
+@font-face {
+  font-family: 'Avengeance';
+  src: url('/fonts/Avengeance.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AvengeanceHeroic';
+  src: url('/fonts/AvengeanceHeroic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AvengeanceHeroic';
+  src: url('/fonts/AvengeanceHeroicBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmericanCaptain';
+  src: url('/fonts/AmericanCaptain.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MarvelFont';
+  src: url('/fonts/Marvel.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* ═══ GOAT FORCE BRAND COLORS ═══ */
   --goat-red: #DC2626;
@@ -15,6 +59,15 @@
   --goat-dark: #111111;
   --goat-gray: #1A1A1A;
   --goat-silver: #9CA3AF;
+
+  /* ═══ GOAT FORCE FONT SYSTEM ═══ */
+  --font-display: 'Avengeance', 'Orbitron', Impact, sans-serif;
+  --font-heading: 'AmericanCaptain', 'Teko', 'Rajdhani', sans-serif;
+  --font-heroic: 'AvengeanceHeroic', 'Orbitron', Impact, sans-serif;
+  --font-accent: 'MarvelFont', 'Orbitron', Impact, sans-serif;
+  --font-body: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
+  --font-tech: 'Orbitron', 'Rajdhani', monospace;
+  --font-mono: 'Teko', 'Rajdhani', monospace;
 
   /* ═══ SHADCN THEME VARS ═══ */
   --background: 0 0% 4%;
@@ -46,12 +99,75 @@
 body {
   background-color: var(--goat-black);
   color: hsl(var(--foreground));
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* ═══ GOAT FORCE TYPOGRAPHY SYSTEM ═══ */
+h1, .goat-title {
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+h2, h3, .goat-heading {
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+h4, h5, h6, .goat-subheading {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.goat-heroic {
+  font-family: var(--font-heroic);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.goat-accent-text {
+  font-family: var(--font-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.goat-tech-text {
+  font-family: var(--font-tech);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.goat-stat-number {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.goat-nav-text {
+  font-family: var(--font-heading);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.goat-button-text {
+  font-family: var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.goat-label {
+  font-family: var(--font-tech);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 @layer base {
