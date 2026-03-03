@@ -1,6 +1,6 @@
 /**
- * GOAT Royalty App - Animated Hero Section
- * Stunning hero with particle effects and animations
+ * GOAT Force — Animated Hero Section
+ * Red/Black/Gold branded hero with GOAT logo and particle effects
  */
 
 import React, { useState, useEffect } from 'react';
@@ -11,18 +11,16 @@ const AnimatedHero = () => {
   const [particles, setParticles] = useState([]);
 
   useEffect(() => {
-    // Generate random particles
-    const newParticles = [...Array(50)].map((_, i) => ({
+    const newParticles = [...Array(40)].map((_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: Math.random() * 4 + 1,
+      size: Math.random() * 3 + 1,
       speed: Math.random() * 2 + 0.5,
-      opacity: Math.random() * 0.5 + 0.3
+      opacity: Math.random() * 0.4 + 0.1
     }));
     setParticles(newParticles);
 
-    // Mouse tracking
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -32,30 +30,37 @@ const AnimatedHero = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-900 via-black to-blue-900">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a0000 0%, #0A0A0A 40%, #0A0A0A 60%, #1a0505 100%)' }}>
       {/* Animated Background Grid */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(220,38,38,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(220,38,38,0.08) 1px, transparent 1px)`,
           backgroundSize: '50px 50px',
           transform: `perspective(1000px) rotateX(${mousePosition.y * 0.01}deg) rotateY(${mousePosition.x * 0.01}deg)`
         }} />
       </div>
 
-      {/* Floating Particles */}
+      {/* Red ambient glow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-red-600/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-yellow-600/3 rounded-full blur-[100px]" />
+      </div>
+
+      {/* Floating Particles — Red/Gold */}
       <div className="absolute inset-0">
         {particles.map((particle) => (
           <div
             key={particle.id}
-            className="absolute rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-pulse"
+            className="absolute rounded-full animate-pulse"
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,
               width: `${particle.size}px`,
               height: `${particle.size}px`,
               opacity: particle.opacity,
+              background: particle.id % 3 === 0 ? '#DC2626' : particle.id % 3 === 1 ? '#F59E0B' : '#EF4444',
               animation: `float ${particle.speed * 3}s ease-in-out infinite`,
-              boxShadow: '0 0 10px rgba(168, 85, 247, 0.5)'
+              boxShadow: particle.id % 2 === 0 ? '0 0 8px rgba(220, 38, 38, 0.4)' : '0 0 8px rgba(245, 158, 11, 0.3)'
             }}
           />
         ))}
@@ -63,11 +68,23 @@ const AnimatedHero = () => {
 
       {/* Main Content */}
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
+        {/* GOAT Logo */}
+        <div className="flex justify-center mb-6">
+          <div className="relative">
+            <div className="absolute inset-0 bg-red-500/20 rounded-3xl blur-2xl animate-pulse" />
+            <img 
+              src="/images/branding/goat-logo.png" 
+              alt="GOAT Force" 
+              className="relative w-28 h-28 rounded-2xl goat-logo-img"
+            />
+          </div>
+        </div>
+
         {/* Glowing Title */}
         <div className="mb-8">
-          <h1 className="text-6xl md:text-8xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-blue-400 bg-clip-text text-transparent animate-gradient">
-              GOAT Royalty
+          <h1 className="text-6xl md:text-8xl font-black mb-4">
+            <span className="bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 bg-clip-text text-transparent animate-gradient">
+              GOAT FORCE
             </span>
           </h1>
           <div className="flex items-center justify-center space-x-2 mb-6">
@@ -84,32 +101,32 @@ const AnimatedHero = () => {
           Track royalties, manage catalogs, and maximize your music publishing revenue with AI-powered analytics and real-time insights.
         </p>
 
-        {/* Stats Cards */}
+        {/* Stats Cards — Red/Gold themed */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-300">
+          <div className="bg-red-500/5 backdrop-blur-md rounded-xl p-6 border border-red-500/20 transform hover:scale-105 transition-all duration-300 hover:border-red-500/40">
             <div className="flex items-center justify-center mb-4">
-              <div className="p-3 bg-purple-500/20 rounded-full">
-                <Music className="w-8 h-8 text-purple-400" />
+              <div className="p-3 bg-red-500/20 rounded-full">
+                <Music className="w-8 h-8 text-red-400" />
               </div>
             </div>
             <div className="text-4xl font-bold text-white mb-2">346</div>
             <div className="text-white/70">Works Cataloged</div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-300">
+          <div className="bg-yellow-500/5 backdrop-blur-md rounded-xl p-6 border border-yellow-500/20 transform hover:scale-105 transition-all duration-300 hover:border-yellow-500/40">
             <div className="flex items-center justify-center mb-4">
-              <div className="p-3 bg-green-500/20 rounded-full">
-                <DollarSign className="w-8 h-8 text-green-400" />
+              <div className="p-3 bg-yellow-500/20 rounded-full">
+                <DollarSign className="w-8 h-8 text-yellow-400" />
               </div>
             </div>
             <div className="text-4xl font-bold text-white mb-2">$865K+</div>
             <div className="text-white/70">Est. Royalties</div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-300">
+          <div className="bg-red-500/5 backdrop-blur-md rounded-xl p-6 border border-red-500/20 transform hover:scale-105 transition-all duration-300 hover:border-red-500/40">
             <div className="flex items-center justify-center mb-4">
-              <div className="p-3 bg-blue-500/20 rounded-full">
-                <TrendingUp className="w-8 h-8 text-blue-400" />
+              <div className="p-3 bg-red-500/20 rounded-full">
+                <TrendingUp className="w-8 h-8 text-red-400" />
               </div>
             </div>
             <div className="text-4xl font-bold text-white mb-2">1.2B+</div>
@@ -119,28 +136,27 @@ const AnimatedHero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-          <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full overflow-hidden transform hover:scale-105 transition-all duration-300">
+          <button className="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold rounded-full overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-lg shadow-red-500/25">
             <span className="relative z-10 flex items-center space-x-2">
               <Play className="w-5 h-5" />
               <span>Launch Dashboard</span>
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
 
-          <button className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+          <button className="px-8 py-4 bg-white/5 backdrop-blur-md text-white font-semibold rounded-full border border-red-500/20 hover:bg-red-500/10 hover:border-red-500/40 transition-all duration-300 transform hover:scale-105">
             View Demo
           </button>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse" />
+          <div className="w-6 h-10 border-2 border-red-500/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-red-500/50 rounded-full mt-2 animate-pulse" />
           </div>
         </div>
       </div>
 
-      {/* Custom Styles */}
       <style jsx>{`
         @keyframes gradient {
           0%, 100% { background-position: 0% 50%; }

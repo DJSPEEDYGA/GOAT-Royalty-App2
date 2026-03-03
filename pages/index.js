@@ -57,7 +57,7 @@ const EnhancedLandingPage = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
+    <div className="relative min-h-screen bg-black overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
       {/* Particle Effect Background */}
       <ParticleEffect particleCount={50} />
       
