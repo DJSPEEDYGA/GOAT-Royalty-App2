@@ -1,0 +1,38 @@
+
+> goat-royalty-app@1.0.0 build
+> next build
+
+  ▲ Next.js 14.2.33
+
+   Linting and checking validity of types ...
+   Creating an optimized production build ...
+(node:2561) [DEP_WEBPACK_MODULE_ISSUER] DeprecationWarning: Module.issuer: Use new ModuleGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Failed to compile.
+
+./styles/globals.css
+Global CSS cannot be imported from files other than your Custom <App>. Due to the Global nature of stylesheets, and to avoid conflicts, Please move all first-party global CSS imports to pages/_app.js. Or convert the import to Component-Level CSS (CSS Modules).
+Read more: https://nextjs.org/docs/messages/css-global
+Location: pages/complete-platform.js
+
+Import trace for requested module:
+./styles/globals.css
+
+./styles/globals.css
+Module build failed: Error: Final loader (./node_modules/next/dist/build/webpack/loaders/error-loader.js) didn't return a Buffer or String
+    at processResult (/workspace/goat-repo/node_modules/next/dist/compiled/webpack/bundle5.js:28:400836)
+    at /workspace/goat-repo/node_modules/next/dist/compiled/webpack/bundle5.js:28:402302
+    at /workspace/goat-repo/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8727
+    at iterateNormalLoaders (/workspace/goat-repo/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5565)
+    at iterateNormalLoaders (/workspace/goat-repo/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5650)
+    at /workspace/goat-repo/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5879
+    at runSyncOrAsync (/workspace/goat-repo/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4185)
+    at iterateNormalLoaders (/workspace/goat-repo/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5782)
+    at /workspace/goat-repo/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5426
+    at /workspace/goat-repo/node_modules/next/dist/compiled/webpack/bundle5.js:28:401777
+
+Import trace for requested module:
+./styles/globals.css
+
+
+> Build failed because of webpack errors
