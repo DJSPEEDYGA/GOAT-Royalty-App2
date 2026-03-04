@@ -98,6 +98,9 @@ const EnhancedLandingPage = () => {
                 <a href="/super-goat-command" className="text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
                   ⚡ Command Center
                 </a>
+                <a href="/conchord" className="text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
+                  📄 conChord
+                </a>
                 <a href="/analytics" className="text-white/80 hover:text-white transition-colors">
                   Analytics
                 </a>
