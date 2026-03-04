@@ -9,7 +9,7 @@ import {
   Crown, Home, BarChart3, Music, DollarSign, Globe, Shield, 
   Video, Sparkles, Cpu, Shirt, Zap, Users, FileText, Camera,
   Headphones, TrendingUp, Package, Calendar, Monitor, Mic, Target,
-  Film, Clapperboard
+  Film, Clapperboard, Wrench, Volume2
 } from 'lucide-react';
 
 const MainNavigation = () => {
@@ -48,15 +48,20 @@ const MainNavigation = () => {
         { name: 'Tracks', href: '/tracks', icon: Music },
         { name: 'Streaming', href: '/streaming', icon: Headphones },
         { name: 'Publishing', href: '/publishing', icon: FileText },
-        { name: 'ASAP Catalog', href: '/asap-catalog', icon: Music }
+        { name: 'ASAP Catalog', href: '/asap-catalog', icon: Music },
+        { name: 'Royalty Engine', href: '/royalty-engine', icon: DollarSign },
+        { name: 'Sono Studio', href: '/sono-studio', icon: Wrench },
+        { name: 'Voice Studio', href: '/voice-studio', icon: Volume2 }
       ]
     },
     {
       title: 'Business',
       items: [
+        { name: 'Moneypenny AI', href: '/moneypenny', icon: Sparkles },
         { name: 'Fashion Store', href: '/fashion-store', icon: Shirt },
         { name: 'Copyright', href: '/copyright', icon: Shield },
         { name: 'Documents', href: '/documents', icon: FileText },
+        { name: 'UpStaxx Tax', href: '/upstaxx', icon: TrendingUp },
         { name: 'Contact', href: '/contact', icon: Users }
       ]
     },
