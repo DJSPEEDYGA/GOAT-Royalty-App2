@@ -8,7 +8,7 @@ import {
   FileText, Shield, DollarSign, Users, Calendar,
   TrendingUp, CheckCircle, AlertTriangle, Settings,
   Download, Upload, Search, Filter, Eye, Edit,
-  BookOpen, Crown, Zap, Lock, Unlock, Globe
+  BookOpen, Crown, Zap, Lock, Unlock, Globe, Building2
 } from 'lucide-react';
 
 const ConChordIntegration = () => {
