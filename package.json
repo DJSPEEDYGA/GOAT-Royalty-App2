@@ -2,6 +2,7 @@
   "name": "goat-royalty-app",
   "version": "1.0.0",
   "description": "Music royalty management platform for artists and rights holders",
+  "author": "GOAT Royalty Team <info@goatroyaltyapp.com>",
   "authors": [
     "HARVEY L MILLER JR <harvey@goatroyaltyapp.com>",
     "JUAQUIN J MALPHURS <juaquin@goatroyaltyapp.com>",
@@ -16,10 +17,10 @@
     "build": "next build",
     "start": "next start",
     "electron": "electron .",
-    "start-electron": "npm run build &amp;&amp; electron .",
-    "build:win": "electron-builder --win",
-    "build:portable": "electron-builder --win portable",
-    "electron:build:win": "electron-builder --win",
+    "start-electron": "npm run build && electron .",
+    "build:win": "electron-builder --win --x64",
+    "build:portable": "electron-builder --win portable --x64",
+    "electron:build:win": "electron-builder --win --x64",
     "electron:build:mac": "electron-builder --mac",
     "electron:build:linux": "electron-builder --linux",
     "electron-builder": "electron-builder",
@@ -40,26 +41,36 @@
       "pages/**/*",
       "components/**/*",
       "styles/**/*",
+      "lib/**/*",
       "node_modules/**/*",
       "package.json",
       "next.config.js"
     ],
     "win": {
-      "target": [
+      "target": ["nsis", "portable"],
+      "icon": "public/icon.ico",
+      "sign": null
+    },
+    "mac": {
+      "target": ["dmg", "zip"],
+      "category": "public.app-category.music",
+      "icon": "public/icon.icns",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "contents": [
         {
-          "target": "nsis",
-          "arch": [
-            "x64"
-          ]
+          "x": 130,
+          "y": 220
         },
         {
-          "target": "portable",
-          "arch": [
-            "x64"
-          ]
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
         }
-      ],
-      "icon": "public/icon.ico"
+      ]
     },
     "nsis": {
       "oneClick": false,
@@ -81,6 +92,7 @@
     "axios": "^1.6.0",
     "compression": "^1.8.1",
     "dotenv": "^17.2.3",
+    "express": "^4.18.2",
     "libreoffice-convert": "^1.7.0",
     "lucide-react": "^0.309.0",
     "marked": "^16.4.1",
@@ -88,6 +100,7 @@
     "next-auth": "^4.24.13",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.6.0",
+    "node-cron": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

@@ -1,13 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
   trailingSlash: true,
   images: {
     unoptimized: true
   },
 
-  // ═══ SECURITY HEADERS ═══
+  // ═════════ SECURITY HEADERS ═════════
   async headers() {
     return [
       {
@@ -59,7 +58,7 @@ const nextConfig = {
     ];
   },
 
-  // ═══ SECURITY REDIRECTS ═══
+  // ═════════ SECURITY REDIRECTS ═════════
   async redirects() {
     return [
       {
