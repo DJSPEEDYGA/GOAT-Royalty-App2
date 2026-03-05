@@ -96,6 +96,7 @@ const MainNavigation = () => {
       items: [
         { name: '🔐 Moneypenny Vault', href: '/vault', icon: Shield },
         { name: '🎵 ASCAP Catalog', href: '/catalog', icon: Music },
+        { name: '🦞 OpenClaw AI', href: '/openclaw', icon: Zap },
         { name: 'Royalty Engine', href: '/royalty-engine', icon: DollarSign },
         { name: 'Publishing', href: '/publishing', icon: FileText }
       ]
