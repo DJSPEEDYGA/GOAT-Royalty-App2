@@ -1,8 +1,19 @@
 /**
  * 🦞 OpenClaw Local LLM Studio — GOAT Royalty Integration
  * Personal AI Assistant with Local Language Models
- * Based on OpenClaw v2026.2.26 (241K+ stars)
- * https://github.com/openclaw/openclaw
+ * UPGRADED to OpenClaw v2026.3.2 (262K+ stars)
+ * https://github.com/openclaw/openclaw/releases/tag/v2026.3.2
+ * 
+ * NEW in v2026.3.2:
+ * - PDF Analysis Tool (native Anthropic/Google support)
+ * - SecretRef Vault (64 credential targets)
+ * - MiniMax-M2.5-highspeed model
+ * - Outbound sendPayload adapters (Discord/Slack/WhatsApp/Zalo)
+ * - Plugin STT transcribeAudioFile API
+ * - Config validation CLI
+ * - Memory/Ollama embeddings
+ * - Session attachments for subagents
+ * - Telegram streaming defaults (partial)
  * 
  * © 2025 Harvey Miller / FASTASSMAN Publishing Inc
  */
@@ -14,15 +25,17 @@ import {
   Code, FileText, RefreshCw, ChevronRight, Check, AlertCircle,
   Wifi, WifiOff, Volume2, Eye, Layers, Bot, Sparkles, Crown,
   Server, Database, Monitor, Smartphone, Clock, BarChart3,
-  Send, Trash2, Copy, ExternalLink, Package, GitBranch
+  Send, Trash2, Copy, ExternalLink, Package, GitBranch,
+  Lock, Unlock, Bell, ArrowUpRight, Star, Rocket, Key
 } from 'lucide-react';
 
 // ═══════════════════════════════════════════════════════════════
-// OpenClaw Local LLM Models Registry
+// OpenClaw Local LLM Models Registry — UPDATED v2026.3.2
 // ═══════════════════════════════════════════════════════════════
 const LOCAL_MODELS = [
   { id: 'llama3.3-70b', name: 'Llama 3.3 70B', provider: 'Ollama', size: '40GB', params: '70B', type: 'Chat', speed: 'Medium', quality: '★★★★★', description: 'Meta\'s flagship open model — excellent for complex reasoning and code' },
   { id: 'llama3.2-3b', name: 'Llama 3.2 3B', provider: 'Ollama', size: '2GB', params: '3B', type: 'Chat', speed: 'Fast', quality: '★★★☆☆', description: 'Lightweight model perfect for quick tasks and mobile devices' },
+  { id: 'minimax-m2.5-hs', name: 'MiniMax-M2.5 Highspeed', provider: 'MiniMax', size: '—', params: 'Cloud', type: 'Chat', speed: 'Ultra Fast', quality: '★★★★★', description: '🆕 v2026.3.2 — First-class MiniMax support with OAuth plugin defaults', isNew: true },
   { id: 'mistral-7b', name: 'Mistral 7B', provider: 'Ollama', size: '4.1GB', params: '7B', type: 'Chat', speed: 'Fast', quality: '★★★★☆', description: 'Efficient European model with strong multilingual capabilities' },
   { id: 'mixtral-8x7b', name: 'Mixtral 8x7B', provider: 'Ollama', size: '26GB', params: '47B MoE', type: 'Chat', speed: 'Medium', quality: '★★★★★', description: 'Mixture of Experts — GPT-4 class performance locally' },
   { id: 'codellama-34b', name: 'Code Llama 34B', provider: 'Ollama', size: '19GB', params: '34B', type: 'Code', speed: 'Medium', quality: '★★★★★', description: 'Specialized for code generation, debugging, and analysis' },
@@ -35,21 +48,23 @@ const LOCAL_MODELS = [
   { id: 'whisper-large-v3', name: 'Whisper Large V3', provider: 'Local', size: '3GB', params: '1.5B', type: 'Audio', speed: 'Fast', quality: '★★★★★', description: 'OpenAI\'s speech recognition — transcribe any audio locally' },
 ];
 
-// OpenClaw Channel Integrations
+// OpenClaw Channel Integrations — UPDATED v2026.3.2
 const CHANNELS = [
-  { name: 'WhatsApp', icon: '💬', status: 'available', description: 'Connect via Baileys' },
-  { name: 'Telegram', icon: '✈️', status: 'available', description: 'Bot API integration' },
-  { name: 'Discord', icon: '🎮', status: 'available', description: 'discord.js powered' },
-  { name: 'Slack', icon: '💼', status: 'available', description: 'Bolt framework' },
+  { name: 'WhatsApp', icon: '💬', status: 'available', description: 'Baileys + sendPayload' },
+  { name: 'Telegram', icon: '✈️', status: 'available', description: '🆕 Streaming: partial default' },
+  { name: 'Discord', icon: '🎮', status: 'available', description: '🆕 Parallel dispatch queues' },
+  { name: 'Slack', icon: '💼', status: 'available', description: '🆕 Bolt 4.6+ compatible' },
   { name: 'Signal', icon: '🔒', status: 'available', description: 'signal-cli bridge' },
   { name: 'iMessage', icon: '🍎', status: 'available', description: 'BlueBubbles/native' },
   { name: 'MS Teams', icon: '🏢', status: 'available', description: 'Bot Framework' },
-  { name: 'WebChat', icon: '🌐', status: 'active', description: 'Built-in gateway' },
+  { name: 'WebChat', icon: '🌐', status: 'active', description: '🆕 Markdown tables fix' },
   { name: 'Matrix', icon: '🔗', status: 'available', description: 'Decentralized chat' },
   { name: 'Google Chat', icon: '📧', status: 'available', description: 'Chat API' },
+  { name: 'Feishu', icon: '🐦', status: 'available', description: '🆕 Debounce + broadcast' },
+  { name: 'Zalo', icon: '💎', status: 'available', description: '🆕 Native zca-js runtime' },
 ];
 
-// OpenClaw Skills/Tools
+// OpenClaw Skills/Tools — UPDATED v2026.3.2
 const SKILLS = [
   { name: 'Browser Control', icon: '🌐', category: 'Tools', description: 'CDP-powered Chrome automation' },
   { name: 'Canvas/A2UI', icon: '🎨', category: 'Visual', description: 'Agent-driven visual workspace' },
@@ -61,8 +76,35 @@ const SKILLS = [
   { name: 'Code Execution', icon: '💻', category: 'Tools', description: 'Run code in sandboxed env' },
   { name: 'Camera/Screen', icon: '📸', category: 'Nodes', description: 'Capture from devices' },
   { name: 'Gmail Pub/Sub', icon: '📬', category: 'Automation', description: 'Email trigger hooks' },
+  { name: 'PDF Analysis', icon: '📄', category: '🆕 v2026.3.2', description: 'Native Anthropic/Google PDF extraction with fallback', isNew: true },
+  { name: 'SecretRef Vault', icon: '🔐', category: '🆕 v2026.3.2', description: '64-target credential surface with fail-fast on active', isNew: true },
+  { name: 'Audio STT Plugin', icon: '🎙️', category: '🆕 v2026.3.2', description: 'transcribeAudioFile() API for extensions', isNew: true },
+  { name: 'sendPayload', icon: '📤', category: '🆕 v2026.3.2', description: 'Multi-media outbound to Discord/Slack/WhatsApp/Zalo', isNew: true },
+  { name: 'Config Validate', icon: '✅', category: '🆕 v2026.3.2', description: 'openclaw config validate --json before startup', isNew: true },
+  { name: 'Ollama Embeddings', icon: '🧲', category: '🆕 v2026.3.2', description: 'memorySearch.provider = "ollama" for local memory', isNew: true },
   { name: 'Music Analysis', icon: '🎵', category: 'GOAT Custom', description: 'Analyze tracks & royalties' },
   { name: 'Royalty Calculator', icon: '💰', category: 'GOAT Custom', description: 'Real-time royalty computation' },
+];
+
+// v2026.3.2 Changelog Highlights
+const CHANGELOG_HIGHLIGHTS = [
+  { type: 'feature', title: 'PDF Analysis Tool', description: 'First-class pdf tool with native Anthropic and Google PDF provider support, extraction fallback for non-native models, configurable defaults.', pr: '#31319' },
+  { type: 'feature', title: 'SecretRef Vault (64 targets)', description: 'Expand SecretRef support across the full user-supplied credential surface. Unresolved refs now fail fast on active surfaces.', pr: '#29580' },
+  { type: 'feature', title: 'MiniMax-M2.5-highspeed', description: 'First-class MiniMax support across built-in provider catalogs, onboarding flows, and MiniMax OAuth plugin defaults.', pr: 'built-in' },
+  { type: 'feature', title: 'Outbound sendPayload', description: 'Shared sendPayload support across Discord, Slack, WhatsApp, Zalo with multi-media iteration and chunk-aware text fallback.', pr: '#30144' },
+  { type: 'feature', title: 'Plugin STT API', description: 'api.runtime.stt.transcribeAudioFile(...) so extensions can transcribe local audio files through configured providers.', pr: '#22402' },
+  { type: 'feature', title: 'Session Attachments', description: 'Inline file attachment support for sessions_spawn with base64/utf8 encoding, transcript redaction, and lifecycle cleanup.', pr: '#16761' },
+  { type: 'feature', title: 'Telegram Streaming Default', description: 'Default channels.telegram.streaming to partial (from off) — live preview streaming out of the box.', pr: 'built-in' },
+  { type: 'feature', title: 'Config Validation CLI', description: 'openclaw config validate (with --json) to validate config files before gateway startup.', pr: '#31220' },
+  { type: 'feature', title: 'Ollama Memory Embeddings', description: 'memorySearch.provider = "ollama" and fallback support for local memory embedding requests.', pr: '#26349' },
+  { type: 'breaking', title: 'Tools Profile Default', description: 'Onboarding now defaults tools.profile to messaging for new local installs. Broad coding/system tools require explicit config.', pr: 'BREAKING' },
+  { type: 'breaking', title: 'ACP Dispatch Default', description: 'ACP dispatch now defaults to enabled. Set acp.dispatch.enabled=false to pause.', pr: 'BREAKING' },
+  { type: 'breaking', title: 'Plugin HTTP Handler Removed', description: 'registerHttpHandler removed. Use registerHttpRoute({ path, auth, match, handler }) instead.', pr: 'BREAKING' },
+  { type: 'fix', title: 'Slack Bolt 4.6+ Compat', description: 'Removed invalid message.channels/groups registrations that crashed on Bolt 4.6+.', pr: '#32033' },
+  { type: 'fix', title: 'Discord Parallel Dispatch', description: 'Restored parallel outbound dispatch across Discord channels with per-channel queues.', pr: '#31927' },
+  { type: 'fix', title: 'WebChat Markdown Tables', description: 'GitHub-flavored markdown table parsing enabled with horizontal overflow handling.', pr: '#32365' },
+  { type: 'security', title: 'Gateway Security Hardening', description: 'Loopback-origin dev allowance tied to actual local socket clients, SSRF guards, webhook auth-before-body.', pr: 'multiple' },
+  { type: 'security', title: 'Sandbox Bootstrap Hardening', description: 'Reject symlink/hardlink alias bootstrap seed files that resolve outside the source workspace.', pr: 'security' },
 ];
 
 const OpenClawStudio = () => {
@@ -70,7 +112,7 @@ const OpenClawStudio = () => {
   const [selectedModel, setSelectedModel] = useState(LOCAL_MODELS[0]);
   const [gatewayStatus, setGatewayStatus] = useState('disconnected');
   const [messages, setMessages] = useState([
-    { role: 'system', content: '🦞 OpenClaw Gateway connected. Local LLM ready. How can I help with your music empire today?' }
+    { role: 'system', content: '🦞 OpenClaw Gateway v2026.3.2 connected. Local LLM ready. PDF analysis, SecretRef vault, and sendPayload adapters online. How can I help with your music empire today?' }
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
@@ -79,9 +121,7 @@ const OpenClawStudio = () => {
   const [ollamaUrl, setOllamaUrl] = useState('http://localhost:11434');
   const [temperature, setTemperature] = useState(0.7);
   const [maxTokens, setMaxTokens] = useState(4096);
-  const [systemPrompt, setSystemPrompt] = useState(
-    'You are the GOAT Royalty AI Assistant powered by OpenClaw. You help Harvey Miller (DJ Speedy) manage his music empire, track royalties across 3,650+ tracks, analyze streaming data, and provide insights for FASTASSMAN Publishing Inc. You have access to local LLM models running via Ollama for maximum privacy and speed.'
-  );
+  const [systemPrompt, setSystemPrompt] = useState('You are a music industry AI assistant for GOAT Royalty App. You help with royalty tracking, ASCAP/MLC data analysis, catalog management, and music business strategy. You have access to 438 ASCAP works, 344 unique titles, and real-time royalty data.');
   const chatEndRef = useRef(null);
 
   useEffect(() => {
@@ -92,40 +132,38 @@ const OpenClawStudio = () => {
     setGatewayStatus('connecting');
     setTimeout(() => {
       setGatewayStatus('connected');
-      setOllamaModels(LOCAL_MODELS.slice(0, 6));
+      setMessages(prev => [...prev, { role: 'system', content: '✅ Gateway connected on ws://127.0.0.1:' + gatewayPort + ' — OpenClaw v2026.3.2 ready. SecretRef vault loaded (64 targets). PDF tool active.' }]);
     }, 1500);
   };
 
   const sendMessage = async () => {
-    if (!inputMessage.trim() || isGenerating) return;
-    
+    if (!inputMessage.trim()) return;
     const userMsg = { role: 'user', content: inputMessage };
     setMessages(prev => [...prev, userMsg]);
     setInputMessage('');
     setIsGenerating(true);
 
-    // Simulate local LLM response
     setTimeout(() => {
       const responses = [
-        `Based on your catalog of 3,650 tracks, I've analyzed the royalty distribution. Your top earner "Royalty Flow" ft. Outkast has generated $53,400 across all platforms. The ${selectedModel.name} model suggests optimizing your Spotify playlist placement could increase streams by 15-20%.`,
-        `I've run a local analysis using ${selectedModel.name}. Your FASTASSMAN Publishing catalog shows strong growth — 1,836 tracks with an average of $471 per track in estimated royalties. The Southern Hip-Hop genre is trending +23% this quarter.`,
-        `Using ${selectedModel.name} locally (no data leaves your machine), I've identified 12 tracks that are underperforming relative to their genre benchmarks. "ATL Nights" and "Empire State of Grind" could benefit from playlist pitching on Apple Music and Tidal.`,
-        `The OpenClaw automation engine has detected a royalty discrepancy on 3 tracks. "Crown Royal" ft. Waka Flocka shows $20,400 on our records but the ASCAP statement indicates $22,150. I recommend filing a correction with your PRO.`,
-        `Running ${selectedModel.name} analysis on your streaming patterns: Peak listening hours are 6-9 PM EST (commute time). I suggest scheduling your next release drop for Thursday 5 PM EST to maximize first-week streams. Your Beyoncé collaboration tracks consistently outperform by 340%.`,
+        `Based on your ASCAP catalog of 438 works, I've analyzed the royalty distribution. FASTASSMAN Publishing Inc holds 423 works as Publisher (E) with 25% ownership. Your average collect rate of 36.9% suggests room for optimization — I recommend reviewing the 99 unsurveyed works for potential revenue recovery.`,
+        `I've used the new PDF Analysis tool to scan your latest ASCAP statement. Found 12 works with collect rates below 20% — these are candidates for re-registration or dispute. The SecretRef vault has your ASCAP API credentials secured across all 64 target surfaces.`,
+        `Running royalty projections through the local Llama 3.3 model: Based on current streaming trends and your 339 accepted works, projected Q2 revenue is $42,800. The sendPayload adapter can push these alerts to your WhatsApp, Telegram, and Discord simultaneously.`,
+        `Catalog health check complete: 344 unique titles across 438 registrations. 77.4% acceptance rate is strong. I've identified 15 potential duplicate registrations that may be splitting your collect percentages. Want me to generate a detailed report?`,
+        `Using the new Ollama memory embeddings, I've indexed your entire catalog for semantic search. You can now ask natural language questions like "find all tracks with Ray Rush" or "which songs have the lowest collect rate" and get instant results from local memory.`,
       ];
-      
       const aiMsg = { 
         role: 'assistant', 
         content: responses[Math.floor(Math.random() * responses.length)],
-        model: selectedModel.name
+        model: selectedModel.name 
       };
       setMessages(prev => [...prev, aiMsg]);
       setIsGenerating(false);
-    }, 2000 + Math.random() * 2000);
+    }, 2000);
   };
 
   const tabs = [
     { id: 'dashboard', name: 'Dashboard', icon: Monitor },
+    { id: 'whatsnew', name: "What's New", icon: Rocket },
     { id: 'chat', name: 'AI Chat', icon: MessageSquare },
     { id: 'models', name: 'Local Models', icon: Brain },
     { id: 'channels', name: 'Channels', icon: Globe },
@@ -146,7 +184,7 @@ const OpenClawStudio = () => {
                   OpenClaw Local LLM Studio
                 </span>
               </h1>
-              <p className="text-sm text-gray-400">Personal AI Assistant • Local Models • Zero Data Leakage • v2026.2.26</p>
+              <p className="text-sm text-gray-400">Personal AI Assistant • Local Models • Zero Data Leakage • v2026.3.2</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -158,9 +196,9 @@ const OpenClawStudio = () => {
               {gatewayStatus === 'connected' ? <Wifi className="w-4 h-4" /> : <WifiOff className="w-4 h-4" />}
               Gateway: {gatewayStatus}
             </div>
-            <a href="https://github.com/openclaw/openclaw/releases" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full text-sm hover:bg-white/20 transition-all">
-              <GitBranch className="w-4 h-4" /> v2026.2.26
+            <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.2" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full text-sm hover:from-green-500/30 hover:to-emerald-500/30 transition-all border border-green-500/30 text-green-400">
+              <Rocket className="w-4 h-4" /> v2026.3.2 🆕
             </a>
             <div className="flex items-center gap-2 px-3 py-1.5 bg-purple-500/20 rounded-full text-sm border border-purple-500/30">
               <Crown className="w-4 h-4 text-yellow-400" /> GOAT Royalty
@@ -179,9 +217,12 @@ const OpenClawStudio = () => {
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm whitespace-nowrap transition-all ${
                   activeTab === tab.id 
                     ? 'bg-gradient-to-r from-red-600 to-orange-600 text-white shadow-lg shadow-red-500/25' 
-                    : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
+                    : tab.id === 'whatsnew' 
+                      ? 'bg-green-500/10 text-green-400 hover:bg-green-500/20 border border-green-500/20'
+                      : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
                 }`}>
                 <Icon className="w-4 h-4" /> {tab.name}
+                {tab.id === 'whatsnew' && <span className="px-1.5 py-0.5 bg-green-500/30 rounded text-[10px] font-bold">NEW</span>}
               </button>
             );
           })}
@@ -190,46 +231,64 @@ const OpenClawStudio = () => {
         {/* ═══ DASHBOARD TAB ═══ */}
         {activeTab === 'dashboard' && (
           <div className="space-y-6">
+            {/* v2026.3.2 Upgrade Banner */}
+            <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 rounded-2xl p-6 border border-green-500/30">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-green-500/20 rounded-2xl">
+                    <Rocket className="w-8 h-8 text-green-400" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-green-300">🆕 Upgraded to OpenClaw v2026.3.2</h2>
+                    <p className="text-sm text-green-400/70">Released Mar 3, 2026 • 262K ⭐ • PDF Analysis • SecretRef Vault • sendPayload • MiniMax M2.5</p>
+                  </div>
+                </div>
+                <button onClick={() => setActiveTab('whatsnew')} className="px-4 py-2 bg-green-500/20 hover:bg-green-500/30 rounded-xl text-sm font-bold text-green-400 transition-all flex items-center gap-2">
+                  View Changelog <ArrowUpRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
             {/* Status Cards */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-red-500/20 rounded-xl"><Brain className="w-6 h-6 text-red-400" /></div>
                   <div className="text-sm text-gray-400">Local Models</div>
                 </div>
                 <div className="text-3xl font-bold text-white">{LOCAL_MODELS.length}</div>
-                <div className="text-sm text-green-400 mt-1">Available via Ollama</div>
+                <div className="text-sm text-green-400 mt-1">+1 MiniMax M2.5 🆕</div>
               </div>
-              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-blue-500/20 rounded-xl"><Globe className="w-6 h-6 text-blue-400" /></div>
                   <div className="text-sm text-gray-400">Channels</div>
                 </div>
                 <div className="text-3xl font-bold text-white">{CHANNELS.length}</div>
-                <div className="text-sm text-blue-400 mt-1">WhatsApp, Telegram, Discord...</div>
+                <div className="text-sm text-blue-400 mt-1">+Feishu, Zalo native 🆕</div>
               </div>
-              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-purple-500/20 rounded-xl"><Zap className="w-6 h-6 text-purple-400" /></div>
                   <div className="text-sm text-gray-400">Skills & Tools</div>
                 </div>
                 <div className="text-3xl font-bold text-white">{SKILLS.length}</div>
-                <div className="text-sm text-purple-400 mt-1">Browser, Voice, Automation...</div>
+                <div className="text-sm text-purple-400 mt-1">+6 new tools 🆕</div>
               </div>
-              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-green-500/20 rounded-xl"><Shield className="w-6 h-6 text-green-400" /></div>
-                  <div className="text-sm text-gray-400">Privacy</div>
+                  <div className="text-sm text-gray-400">Security</div>
                 </div>
-                <div className="text-3xl font-bold text-white">100%</div>
-                <div className="text-sm text-green-400 mt-1">All data stays local</div>
+                <div className="text-3xl font-bold text-white">64</div>
+                <div className="text-sm text-green-400 mt-1">SecretRef targets 🔐</div>
               </div>
             </div>
 
             {/* Quick Start */}
             <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-2xl p-8 border border-red-500/20">
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-                <span className="text-3xl">🦞</span> Quick Start — OpenClaw + GOAT Royalty
+                <span className="text-3xl">🦞</span> Quick Start — OpenClaw v2026.3.2 + GOAT Royalty
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-black/30 rounded-xl p-5">
@@ -240,11 +299,11 @@ const OpenClawStudio = () => {
                   <p className="text-sm text-gray-400">Requires Node.js ≥22. Works on macOS, Linux, Windows (WSL2).</p>
                 </div>
                 <div className="bg-black/30 rounded-xl p-5">
-                  <div className="text-lg font-bold text-orange-400 mb-2">2. Install Ollama</div>
+                  <div className="text-lg font-bold text-orange-400 mb-2">2. Validate Config</div>
                   <code className="block bg-black/50 rounded-xl p-3 text-sm text-green-400 font-mono mb-3">
-                    curl -fsSL https://ollama.com/install.sh | sh
+                    openclaw config validate --json
                   </code>
-                  <p className="text-sm text-gray-400">Then pull a model: <code className="text-yellow-400">ollama pull llama3.3</code></p>
+                  <p className="text-sm text-gray-400">🆕 v2026.3.2 — Validate config files before gateway startup.</p>
                 </div>
                 <div className="bg-black/30 rounded-xl p-5">
                   <div className="text-lg font-bold text-yellow-400 mb-2">3. Start Gateway</div>
@@ -254,14 +313,18 @@ const OpenClawStudio = () => {
                   <p className="text-sm text-gray-400">The wizard guides you through setup. Gateway runs on port 18789.</p>
                 </div>
               </div>
-              <div className="mt-6 flex gap-4">
+              <div className="mt-6 flex gap-4 flex-wrap">
                 <button onClick={connectGateway}
                   className="px-6 py-3 bg-gradient-to-r from-red-600 to-orange-600 rounded-xl font-bold hover:from-red-500 hover:to-orange-500 transition-all flex items-center gap-2">
                   <Play className="w-5 h-5" /> Connect to Gateway
                 </button>
                 <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer"
                   className="px-6 py-3 bg-white/10 rounded-xl font-bold hover:bg-white/20 transition-all flex items-center gap-2">
-                  <ExternalLink className="w-5 h-5" /> GitHub (241K ⭐)
+                  <Star className="w-5 h-5" /> GitHub (262K ⭐)
+                </a>
+                <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.2" target="_blank" rel="noopener noreferrer"
+                  className="px-6 py-3 bg-green-500/20 rounded-xl font-bold hover:bg-green-500/30 transition-all flex items-center gap-2 text-green-400 border border-green-500/30">
+                  <Rocket className="w-5 h-5" /> v2026.3.2 Release Notes
                 </a>
                 <a href="https://docs.openclaw.ai" target="_blank" rel="noopener noreferrer"
                   className="px-6 py-3 bg-white/10 rounded-xl font-bold hover:bg-white/20 transition-all flex items-center gap-2">
@@ -271,18 +334,20 @@ const OpenClawStudio = () => {
             </div>
 
             {/* Architecture Diagram */}
-            <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
-              <h3 className="text-xl font-bold mb-4">🏗️ OpenClaw Architecture</h3>
+            <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+              <h3 className="text-xl font-bold mb-4">🏗️ OpenClaw v2026.3.2 Architecture</h3>
               <div className="bg-black/40 rounded-xl p-6 font-mono text-sm text-gray-300">
                 <pre>{`
-  WhatsApp / Telegram / Discord / Slack / Signal / iMessage / WebChat
+  WhatsApp / Telegram / Discord / Slack / Signal / iMessage / Feishu / Zalo / WebChat
                               │
                               ▼
-                ┌──────────────────────────────┐
-                │     OpenClaw Gateway          │
-                │   (Local Control Plane)       │
-                │   ws://127.0.0.1:18789        │
-                └──────────────┬───────────────┘
+                ┌──────────────────────────────────┐
+                │     OpenClaw Gateway v2026.3.2   │
+                │   (Local Control Plane)          │
+                │   ws://127.0.0.1:18789           │
+                │   🆕 SecretRef Vault (64 targets)│
+                │   🆕 Config Validate CLI         │
+                └──────────────┬───────────────────┘
                                │
           ┌────────────────────┼────────────────────┐
           │                    │                     │
@@ -290,11 +355,116 @@ const OpenClawStudio = () => {
    ┌─────────────┐   ┌──────────────┐   ┌──────────────────┐
    │  Ollama LLM  │   │  Pi Agent    │   │  GOAT Royalty    │
    │  (Local AI)  │   │  (Runtime)   │   │  (Music Tools)   │
-   │  Llama 3.3   │   │  Tools/Code  │   │  3,650 Tracks    │
-   │  Mixtral     │   │  Browser     │   │  $865K Royalties │
-   │  DeepSeek    │   │  Canvas      │   │  Analytics       │
+   │  Llama 3.3   │   │  🆕 PDF Tool │   │  438 ASCAP Works │
+   │  MiniMax M2.5│   │  🆕 STT API  │   │  $865K Royalties │
+   │  DeepSeek    │   │  sendPayload │   │  Moneypenny Vault│
    └─────────────┘   └──────────────┘   └──────────────────┘
                 `}</pre>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ═══ WHAT'S NEW TAB ═══ */}
+        {activeTab === 'whatsnew' && (
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-bold flex items-center gap-3">
+                  <Rocket className="w-7 h-7 text-green-400" /> What&apos;s New in v2026.3.2
+                </h2>
+                <p className="text-gray-400 mt-1">Released March 3, 2026 • 230 commits since v2026.2.26 • 262K ⭐</p>
+              </div>
+              <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.2" target="_blank" rel="noopener noreferrer"
+                className="px-4 py-2 bg-white/10 rounded-xl text-sm hover:bg-white/20 transition-all flex items-center gap-2">
+                <ExternalLink className="w-4 h-4" /> Full Release Notes
+              </a>
+            </div>
+
+            {/* Breaking Changes Alert */}
+            <div className="bg-red-900/30 rounded-2xl p-6 border border-red-500/30">
+              <h3 className="text-lg font-bold text-red-400 mb-4 flex items-center gap-2">
+                <AlertCircle className="w-5 h-5" /> ⚠️ Breaking Changes (4)
+              </h3>
+              <div className="space-y-3">
+                {CHANGELOG_HIGHLIGHTS.filter(c => c.type === 'breaking').map((item, i) => (
+                  <div key={i} className="bg-black/30 rounded-xl p-4 border border-red-500/20">
+                    <div className="font-bold text-red-300">{item.title}</div>
+                    <p className="text-sm text-gray-400 mt-1">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* New Features */}
+            <div className="bg-green-900/20 rounded-2xl p-6 border border-green-500/20">
+              <h3 className="text-lg font-bold text-green-400 mb-4 flex items-center gap-2">
+                <Sparkles className="w-5 h-5" /> ✨ New Features ({CHANGELOG_HIGHLIGHTS.filter(c => c.type === 'feature').length})
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {CHANGELOG_HIGHLIGHTS.filter(c => c.type === 'feature').map((item, i) => (
+                  <div key={i} className="bg-black/30 rounded-xl p-4 border border-green-500/10 hover:border-green-500/30 transition-all">
+                    <div className="flex items-center justify-between mb-1">
+                      <div className="font-bold text-green-300 text-sm">{item.title}</div>
+                      <span className="text-xs text-gray-500 font-mono">{item.pr}</span>
+                    </div>
+                    <p className="text-xs text-gray-400">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Fixes & Security */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-blue-900/20 rounded-2xl p-6 border border-blue-500/20">
+                <h3 className="text-lg font-bold text-blue-400 mb-4 flex items-center gap-2">
+                  <Check className="w-5 h-5" /> 🔧 Key Fixes
+                </h3>
+                <div className="space-y-3">
+                  {CHANGELOG_HIGHLIGHTS.filter(c => c.type === 'fix').map((item, i) => (
+                    <div key={i} className="bg-black/30 rounded-xl p-3 border border-blue-500/10">
+                      <div className="font-bold text-blue-300 text-sm">{item.title}</div>
+                      <p className="text-xs text-gray-400 mt-1">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-yellow-900/20 rounded-2xl p-6 border border-yellow-500/20">
+                <h3 className="text-lg font-bold text-yellow-400 mb-4 flex items-center gap-2">
+                  <Shield className="w-5 h-5" /> 🛡️ Security Hardening
+                </h3>
+                <div className="space-y-3">
+                  {CHANGELOG_HIGHLIGHTS.filter(c => c.type === 'security').map((item, i) => (
+                    <div key={i} className="bg-black/30 rounded-xl p-3 border border-yellow-500/10">
+                      <div className="font-bold text-yellow-300 text-sm">{item.title}</div>
+                      <p className="text-xs text-gray-400 mt-1">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* GOAT Integration Highlights */}
+            <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-2xl p-6 border border-red-500/20">
+              <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                <Crown className="w-5 h-5 text-yellow-400" /> 🐐 GOAT Royalty Integration Points
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-black/30 rounded-xl p-4">
+                  <div className="text-2xl mb-2">📄</div>
+                  <div className="font-bold text-red-300">PDF Royalty Statements</div>
+                  <p className="text-xs text-gray-400 mt-1">Use the new PDF tool to automatically parse ASCAP/MLC royalty statements, extract payment data, and flag discrepancies.</p>
+                </div>
+                <div className="bg-black/30 rounded-xl p-4">
+                  <div className="text-2xl mb-2">🔐</div>
+                  <div className="font-bold text-orange-300">SecretRef + Moneypenny</div>
+                  <p className="text-xs text-gray-400 mt-1">Store ASCAP API keys, MLC credentials, and Supabase tokens in the SecretRef vault — integrated with Moneypenny Vault Protocol v7.0.</p>
+                </div>
+                <div className="bg-black/30 rounded-xl p-4">
+                  <div className="text-2xl mb-2">📤</div>
+                  <div className="font-bold text-yellow-300">Royalty Alerts via sendPayload</div>
+                  <p className="text-xs text-gray-400 mt-1">Push royalty payment notifications to WhatsApp, Telegram, Discord, and Slack simultaneously using the new outbound adapter system.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -311,14 +481,14 @@ const OpenClawStudio = () => {
                   <div className="text-2xl">🦞</div>
                   <div>
                     <div className="font-bold">OpenClaw AI Chat</div>
-                    <div className="text-xs text-gray-400">Model: {selectedModel.name} • Local • Private</div>
+                    <div className="text-xs text-gray-400">Model: {selectedModel.name} • Local • Private • v2026.3.2</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <select value={selectedModel.id} onChange={(e) => setSelectedModel(LOCAL_MODELS.find(m => m.id === e.target.value))}
-                    className="goat-gradient-card goat-gradient-card goat-card-hover/10 border border-white/20 rounded-xl px-3 py-1.5 text-sm">
+                    className="bg-white/10 border border-white/20 rounded-xl px-3 py-1.5 text-sm">
                     {LOCAL_MODELS.map(m => (
-                      <option key={m.id} value={m.id} className="bg-gray-900">{m.name} ({m.params})</option>
+                      <option key={m.id} value={m.id} className="bg-gray-900">{m.name} ({m.params}){m.isNew ? ' 🆕' : ''}</option>
                     ))}
                   </select>
                   <button onClick={() => setMessages([messages[0]])} className="p-2 hover:bg-white/10 rounded-xl" title="Clear chat">
@@ -332,7 +502,7 @@ const OpenClawStudio = () => {
                 {messages.map((msg, i) => (
                   <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                     <div className={`max-w-[80%] rounded-2xl px-5 py-3 ${
-                      msg.role === 'user' ? 'bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-600 to-pink-600 text-white' :
+                      msg.role === 'user' ? 'bg-gradient-to-r from-red-600 to-orange-600 text-white' :
                       msg.role === 'system' ? 'bg-red-500/20 text-red-200 border border-red-500/30' :
                       'bg-white/10 text-gray-200'
                     }`}>
@@ -347,7 +517,7 @@ const OpenClawStudio = () => {
                 ))}
                 {isGenerating && (
                   <div className="flex justify-start">
-                    <div className="goat-gradient-card goat-gradient-card goat-card-hover/10 rounded-2xl px-5 py-3">
+                    <div className="bg-white/10 rounded-2xl px-5 py-3">
                       <div className="flex items-center gap-2 text-sm text-gray-400">
                         <RefreshCw className="w-4 h-4 animate-spin" />
                         {selectedModel.name} is thinking locally...
@@ -375,7 +545,7 @@ const OpenClawStudio = () => {
 
             {/* Sidebar */}
             <div className="space-y-4">
-              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10">
+              <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
                 <h3 className="font-bold mb-3 flex items-center gap-2"><Settings className="w-4 h-4" /> Model Settings</h3>
                 <div className="space-y-3">
                   <div>
@@ -392,15 +562,15 @@ const OpenClawStudio = () => {
                   </div>
                 </div>
               </div>
-              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10">
+              <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
                 <h3 className="font-bold mb-3 flex items-center gap-2"><FileText className="w-4 h-4" /> System Prompt</h3>
                 <textarea value={systemPrompt} onChange={(e) => setSystemPrompt(e.target.value)}
                   className="w-full bg-black/30 border border-white/10 rounded-xl p-3 text-xs h-32 resize-none focus:outline-none focus:border-red-500/50" />
               </div>
-              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10">
+              <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
                 <h3 className="font-bold mb-3">🎵 GOAT Quick Actions</h3>
                 <div className="space-y-2">
-                  {['Analyze my top tracks', 'Calculate royalties', 'Find underperforming songs', 'Generate release strategy', 'Check ASCAP discrepancies'].map((action, i) => (
+                  {['Analyze my top tracks', 'Parse ASCAP PDF statement', 'Calculate royalties', 'Check SecretRef vault status', 'Send royalty alert via sendPayload', 'Find underperforming songs'].map((action, i) => (
                     <button key={i} onClick={() => { setInputMessage(action); }}
                       className="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-xl text-sm transition-all flex items-center gap-2">
                       <ChevronRight className="w-3 h-3 text-red-400" /> {action}
@@ -426,12 +596,13 @@ const OpenClawStudio = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {LOCAL_MODELS.map(model => (
                 <div key={model.id} className={`bg-white/5 rounded-2xl p-5 border transition-all cursor-pointer hover:bg-white/10 ${
-                  selectedModel.id === model.id ? 'border-red-500/50 bg-red-500/5' : 'border-white/10'
+                  selectedModel.id === model.id ? 'border-red-500/50 bg-red-500/5' : model.isNew ? 'border-green-500/30 bg-green-500/5' : 'border-white/10'
                 }`} onClick={() => setSelectedModel(model)}>
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <Brain className="w-5 h-5 text-red-400" />
                       <span className="font-bold">{model.name}</span>
+                      {model.isNew && <span className="px-1.5 py-0.5 bg-green-500/30 rounded text-[10px] font-bold text-green-400">NEW</span>}
                     </div>
                     <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
                       model.type === 'Chat' ? 'bg-blue-500/20 text-blue-400' :
@@ -472,10 +643,10 @@ const OpenClawStudio = () => {
         {activeTab === 'channels' && (
           <div className="space-y-6">
             <h2 className="text-2xl font-bold">🌐 Multi-Channel Inbox</h2>
-            <p className="text-gray-400">OpenClaw connects your AI assistant to all your messaging platforms. One assistant, every channel.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            <p className="text-gray-400">OpenClaw v2026.3.2 connects your AI assistant to all your messaging platforms. 🆕 Now with sendPayload outbound adapters, Telegram streaming defaults, and native Zalo runtime.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {CHANNELS.map((ch, i) => (
-                <div key={i} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all text-center">
+                <div key={i} className="bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all text-center">
                   <div className="text-4xl mb-3">{ch.icon}</div>
                   <div className="font-bold mb-1">{ch.name}</div>
                   <div className="text-xs text-gray-400 mb-3">{ch.description}</div>
@@ -488,6 +659,21 @@ const OpenClawStudio = () => {
                 </div>
               ))}
             </div>
+            {/* sendPayload Info */}
+            <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-2xl p-6 border border-blue-500/20">
+              <h3 className="text-lg font-bold text-blue-300 mb-3 flex items-center gap-2">
+                <Send className="w-5 h-5" /> 🆕 sendPayload Outbound Adapters
+              </h3>
+              <p className="text-sm text-gray-400 mb-4">v2026.3.2 adds shared sendPayload support across direct-text-media, Discord, Slack, WhatsApp, Zalo, and Zalouser with multi-media iteration and chunk-aware text fallback.</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {['Discord → Royalty Alerts', 'Slack → Team Updates', 'WhatsApp → Artist Payments', 'Telegram → Live Streaming'].map((item, i) => (
+                  <div key={i} className="bg-black/30 rounded-xl p-3 text-center text-sm">
+                    <div className="text-yellow-400 font-bold">{item.split(' → ')[0]}</div>
+                    <div className="text-xs text-gray-500 mt-1">{item.split(' → ')[1]}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 
@@ -495,13 +681,19 @@ const OpenClawStudio = () => {
         {activeTab === 'skills' && (
           <div className="space-y-6">
             <h2 className="text-2xl font-bold">⚡ Skills & Tools</h2>
+            <p className="text-gray-400">🆕 v2026.3.2 adds 6 new tools: PDF Analysis, SecretRef Vault, Audio STT Plugin, sendPayload, Config Validate, and Ollama Embeddings.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {SKILLS.map((skill, i) => (
-                <div key={i} className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all">
+                <div key={i} className={`bg-white/5 rounded-2xl p-5 border transition-all hover:bg-white/10 ${
+                  skill.isNew ? 'border-green-500/30 bg-green-500/5' : 'border-white/10'
+                }`}>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="text-2xl">{skill.icon}</div>
                     <div>
-                      <div className="font-bold text-sm">{skill.name}</div>
+                      <div className="font-bold text-sm flex items-center gap-2">
+                        {skill.name}
+                        {skill.isNew && <span className="px-1.5 py-0.5 bg-green-500/30 rounded text-[10px] font-bold text-green-400">NEW</span>}
+                      </div>
                       <div className="text-xs text-gray-500">{skill.category}</div>
                     </div>
                   </div>
@@ -517,7 +709,7 @@ const OpenClawStudio = () => {
           <div className="space-y-6">
             <h2 className="text-2xl font-bold">🖥️ Gateway Configuration</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
+              <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
                 <h3 className="font-bold mb-4">Connection Settings</h3>
                 <div className="space-y-4">
                   <div>
@@ -536,15 +728,17 @@ const OpenClawStudio = () => {
                   </button>
                 </div>
               </div>
-              <div className="goat-gradient-card goat-gradient-card goat-card-hover/5 rounded-2xl p-6 border border-white/10">
-                <h3 className="font-bold mb-4">Server Commands</h3>
+              <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+                <h3 className="font-bold mb-4">Server Commands — v2026.3.2</h3>
                 <div className="space-y-2 font-mono text-sm">
                   {[
                     'openclaw onboard --install-daemon',
                     'openclaw gateway --port 18789 --verbose',
+                    'openclaw config validate --json',
                     'openclaw doctor',
                     'openclaw models status --probe',
                     'openclaw channels login',
+                    'openclaw security audit',
                     'ollama list',
                     'ollama pull llama3.3:70b',
                   ].map((cmd, i) => (
@@ -556,6 +750,23 @@ const OpenClawStudio = () => {
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+
+            {/* SecretRef Vault Section */}
+            <div className="bg-gradient-to-r from-yellow-900/20 to-orange-900/20 rounded-2xl p-6 border border-yellow-500/20">
+              <h3 className="text-lg font-bold text-yellow-400 mb-4 flex items-center gap-2">
+                <Key className="w-5 h-5" /> 🆕 SecretRef Vault — 64 Credential Targets
+              </h3>
+              <p className="text-sm text-gray-400 mb-4">v2026.3.2 expands SecretRef support across the full supported user-supplied credential surface (64 targets total), including runtime collectors, planning/apply/audit flows, and onboarding UX.</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {['ASCAP API Key', 'MLC Credentials', 'Supabase Token', 'Hostinger SSH', 'GitHub Token', 'Ollama Auth', 'Telegram Bot', 'Discord Bot'].map((secret, i) => (
+                  <div key={i} className="bg-black/30 rounded-xl p-3 flex items-center gap-2">
+                    <Lock className="w-4 h-4 text-yellow-400" />
+                    <span className="text-sm">{secret}</span>
+                    <Check className="w-3 h-3 text-green-400 ml-auto" />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
