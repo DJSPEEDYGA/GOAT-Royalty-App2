@@ -9,7 +9,7 @@ import {
   Crown, Home, BarChart3, Music, DollarSign, Globe, Shield, 
   Video, Sparkles, Cpu, Shirt, Zap, Users, FileText, Camera,
   Headphones, TrendingUp, Package, Calendar, Monitor, Mic, Target,
-  Film, Clapperboard
+  Film, Clapperboard, Lock
 } from 'lucide-react';
 
 const MainNavigation = () => {
@@ -90,6 +90,15 @@ const MainNavigation = () => {
         { name: 'Super Ninja AI', href: '/super-ninja-dashboard', icon: Zap },
         { name: 'Ms Vanessa', href: '/ms-vanessa', icon: Shield }
       ]
+    },
+    {
+      title: 'Vault & Catalog',
+      items: [
+        { name: '🔐 Moneypenny Vault', href: '/vault', icon: Shield },
+        { name: '🎵 ASCAP Catalog', href: '/catalog', icon: Music },
+        { name: 'Royalty Engine', href: '/royalty-engine', icon: DollarSign },
+        { name: 'Publishing', href: '/publishing', icon: FileText }
+      ]
     }
   ];
 
@@ -114,6 +123,11 @@ const MainNavigation = () => {
 
           {/* Quick Links */}
           <div className="hidden lg:flex items-center gap-2">
+            <Link href="/vault">
+              <button className="flex items-center gap-2 bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black px-4 py-2 rounded-xl font-bold transition-all shadow-yellow-500/20">
+                🔐 Vault
+              </button>
+            </Link>
             <Link href="/complete-platform">
               <button className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white px-4 py-2 rounded-xl font-bold transition-all goat-glow shadow-red-500/20">
                 Complete Platform
@@ -125,7 +139,7 @@ const MainNavigation = () => {
               </button>
             </Link>
             <Link href="/dashboard">
-              <button className="goat-gradient-card goat-gradient-card goat-card-hover/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl font-semibold transition-all border border-white/10 hover:border-red-500/30">
+              <button className="goat-gradient-card goat-card-hover/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl font-semibold transition-all border border-white/10 hover:border-red-500/30">
                 Dashboard
               </button>
             </Link>
