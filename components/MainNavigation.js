@@ -26,6 +26,7 @@ const MainNavigation = () => {
     {
       title: 'AI & Intelligence',
       items: [
+        { name: '✦ Gemini AI LLM', href: '/gemini-ai', icon: Sparkles },
         { name: 'Analytics', href: '/analytics', icon: BarChart3 },
         { name: 'Interactive AI', href: '/interactive', icon: Zap },
         { name: 'Search', href: '/search', icon: Globe }
