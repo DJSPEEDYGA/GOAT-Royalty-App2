@@ -26,6 +26,7 @@ const MainNavigation = () => {
     {
       title: 'AI & Intelligence',
       items: [
+        { name: '✦ Gemini AI LLM', href: '/gemini-ai', icon: Sparkles },
         { name: '🔥 AI Studio', href: '/ai-studio', icon: Sparkles },
         { name: '🛠️ AI Tools Suite', href: '/ai-tools', icon: Zap },
         { name: '🎨 AI Image Studio', href: '/ai-image-studio', icon: Camera },
