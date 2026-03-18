@@ -5,7 +5,7 @@
 # ============================================
 # 
 # Usage: SSH into your VPS and run:
-#   curl -sSL https://raw.githubusercontent.com/DJSPEEDYGA/GOAT-Royalty-App2/feature/gemini-ai-llm/deploy-production.sh | bash
+#   curl -sSL https://raw.githubusercontent.com/DJSPEEDYGA/GOAT-Royalty-App2/GOAT-APP/deploy-production.sh | bash
 #
 # Or copy this script to the server and run:
 #   chmod +x deploy-production.sh && ./deploy-production.sh
@@ -27,13 +27,13 @@ echo ""
 echo -e "${GREEN}╔══════════════════════════════════════════════╗${NC}"
 echo -e "${GREEN}║   🐐 GOAT ROYALTY APP - PRODUCTION DEPLOY   ║${NC}"
 echo -e "${GREEN}║   Server: 93.127.214.171                     ║${NC}"
-echo -e "${GREEN}║   Branch: feature/gemini-ai-llm              ║${NC}"
+echo -e "${GREEN}║   Branch: GOAT-APP              ║${NC}"
 echo -e "${GREEN}╚══════════════════════════════════════════════╝${NC}"
 echo ""
 
 APP_DIR="/root/goat-royalty-app"
 REPO_URL="https://github.com/DJSPEEDYGA/GOAT-Royalty-App2.git"
-BRANCH="feature/gemini-ai-llm"
+BRANCH="GOAT-APP"
 PORT=3002
 
 # ─── Step 1: System Dependencies ───
