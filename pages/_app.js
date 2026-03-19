@@ -2,9 +2,13 @@ import '../styles/globals.css'
 import '../styles/animations.css'
 import '../styles/super-goat.css'
 import { AuthProvider } from '../components/AuthProvider'
+import { AssistantProvider } from '../components/AssistantProvider'
 import ProtectedRoute from '../components/ProtectedRoute'
+import AIAssistantPanel from '../components/AIAssistantPanel'
+import AssistantTrigger from '../components/AssistantTrigger'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import { useAssistant } from '../components/AssistantProvider'
 
 // Pages that don't require authentication
 const publicPages = ['/', '/login', '/signup', '/forgot-password', '/reset-password', '/dashboard', '/media-gallery', '/streaming', '/interactive', '/deploy', '/artwork', '/documents', '/ms-vanessa', '/fingerprint-auth', '/tracks', '/super-ninja-dashboard', '/super-ninja/ai-agent', '/goat-branding-demo', '/super-goat-command', '/adobe-firefly', '/openclaw', '/cyber-warrior', '/music-player', '/royalty-engine', '/sendme-network', '/upstaxx', '/asap-catalog', '/cinema-camera', '/sora-ai-studio', '/nvidia-dgx', '/investor-demo', '/complete-platform', '/fashion-store', '/contact', '/privacy', '/terms', '/copyright', '/publishing', '/search', '/sono-studio', '/concert-booking', '/unreal-engine', '/ai-red-team', '/animation-studio', '/codex-008', '/voice-studio', '/conchord', '/ai-studio', '/ai-tools', '/ai-image-studio', '/ai-code', '/ai-writer', '/ai-research', '/deep-research', '/command-center', '/analytics', '/gemini-ai']
@@ -60,8 +64,9 @@ function GOATLoadingScreen() {
   )
 }
 
-function MyApp({ Component, pageProps }) {
+function MyAppContent({ Component, pageProps }) {
   const router = useRouter()
+  const { isOpen, closeAssistant } = useAssistant()
   const isPublicPage = publicPages.includes(router.pathname)
   const [loading, setLoading] = useState(true)
 
@@ -88,7 +93,7 @@ function MyApp({ Component, pageProps }) {
   }, [router])
 
   return (
-    <AuthProvider>
+    <>
       {loading && <GOATLoadingScreen />}
       {isPublicPage ? (
         <Component {...pageProps} />
@@ -97,6 +102,22 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </ProtectedRoute>
       )}
+      
+      {/* Global AI Assistant Panel */}
+      <AIAssistantPanel isOpen={isOpen} onClose={closeAssistant} />
+      
+      {/* Floating Assistant Trigger */}
+      <AssistantTrigger />
+    </>
+  )
+}
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <AuthProvider>
+      <AssistantProvider>
+        <MyAppContent Component={Component} pageProps={pageProps} />
+      </AssistantProvider>
     </AuthProvider>
   )
 }
