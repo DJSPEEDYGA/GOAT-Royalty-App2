@@ -9,9 +9,10 @@ import AssistantTrigger from '../components/AssistantTrigger'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { useAssistant } from '../components/AssistantProvider'
+import AIAgentSystem from '../components/AIAgentSystem'
 
 // Pages that don't require authentication
-const publicPages = ['/', '/login', '/signup', '/forgot-password', '/reset-password', '/dashboard', '/media-gallery', '/streaming', '/interactive', '/deploy', '/artwork', '/documents', '/ms-vanessa', '/fingerprint-auth', '/tracks', '/super-ninja-dashboard', '/super-ninja/ai-agent', '/goat-branding-demo', '/super-goat-command', '/adobe-firefly', '/openclaw', '/cyber-warrior', '/music-player', '/royalty-engine', '/sendme-network', '/upstaxx', '/asap-catalog', '/cinema-camera', '/sora-ai-studio', '/nvidia-dgx', '/investor-demo', '/complete-platform', '/fashion-store', '/contact', '/privacy', '/terms', '/copyright', '/publishing', '/search', '/sono-studio', '/concert-booking', '/unreal-engine', '/ai-red-team', '/animation-studio', '/codex-008', '/voice-studio', '/conchord', '/ai-studio', '/ai-tools', '/ai-image-studio', '/ai-code', '/ai-writer', '/ai-research', '/deep-research', '/command-center', '/analytics', '/gemini-ai']
+const publicPages = ['/', '/login', '/signup', '/forgot-password', '/reset-password', '/dashboard', '/media-gallery', '/streaming', '/interactive', '/deploy', '/artwork', '/documents', '/ms-vanessa', '/fingerprint-auth', '/tracks', '/super-ninja-dashboard', '/super-ninja/ai-agent', '/goat-branding-demo', '/super-goat-command', '/adobe-firefly', '/openclaw', '/cyber-warrior', '/music-player', '/royalty-engine', '/sendme-network', '/upstaxx', '/asap-catalog', '/cinema-camera', '/sora-ai-studio', '/nvidia-dgx', '/investor-demo', '/complete-platform', '/fashion-store', '/contact', '/privacy', '/terms', '/copyright', '/publishing', '/search', '/sono-studio', '/concert-booking', '/unreal-engine', '/ai-red-team', '/animation-studio', '/codex-008', '/voice-studio', '/conchord', '/ai-studio', '/ai-tools', '/ai-image-studio', '/ai-code', '/ai-writer', '/ai-research', '/deep-research', '/command-center', '/analytics', '/gemini-ai', '/model-registry']
 
 // GOAT Force Loading Screen Component
 function GOATLoadingScreen() {
@@ -69,6 +70,7 @@ function MyAppContent({ Component, pageProps }) {
   const { isOpen, closeAssistant } = useAssistant()
   const isPublicPage = publicPages.includes(router.pathname)
   const [loading, setLoading] = useState(true)
+  const [selectedAgent, setSelectedAgent] = useState(null)
 
   useEffect(() => {
     // Show loading screen for 2 seconds on initial load
@@ -108,6 +110,12 @@ function MyAppContent({ Component, pageProps }) {
       
       {/* Floating Assistant Trigger */}
       <AssistantTrigger />
+      
+      {/* Global AI Agent System — 17 Specialized Agents */}
+      <AIAgentSystem 
+        selectedAgentId={selectedAgent} 
+        onSelectAgent={setSelectedAgent}
+      />
     </>
   )
 }
