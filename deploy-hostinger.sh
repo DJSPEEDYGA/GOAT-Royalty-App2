@@ -46,10 +46,10 @@ if [ -d "$APP_DIR" ]; then
   echo "   Updating existing repo..."
   cd "$APP_DIR"
   git stash 2>/dev/null || true
-  git pull origin main
+  git pull origin GOAT-APP
 else
   echo "   Cloning repository..."
-  git clone "$REPO_URL" "$APP_DIR"
+  git clone -b GOAT-APP "$REPO_URL" "$APP_DIR"
   cd "$APP_DIR"
 fi
 

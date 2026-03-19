@@ -246,7 +246,7 @@ OPTION 3: GitHub Actions (Recommended for Production)
    - HOSTINGER_SSH_KEY: Your SSH private key
    - HOSTINGER_URL: https://${CONFIG.domain}
 
-2. Push changes to main branch
+2. Push changes to GOAT-APP branch
 3. GitHub Actions will automatically deploy
 
 
@@ -325,7 +325,7 @@ ${colors.cyan}.github/workflows/deploy-hostinger.yml${colors.reset}
 Run this command to deploy:
 ${colors.bright}${colors.green}${scriptPath}${colors.reset}
 
-Or push to main branch for automatic deployment via GitHub Actions
+Or push to GOAT-APP branch for automatic deployment via GitHub Actions
 
 ╔═══════════════════════════════════════════════════════════╗
 ║  © 2026 Harvey Miller / FASTASSMAN Publishing Inc         ║

@@ -27,8 +27,8 @@ cd "$APP_DIR" || {
 # Step 2: Pull latest code
 echo ""
 echo "📥 Step 2: Pulling latest code from GitHub..."
-git fetch origin main
-git reset --hard origin/main
+git fetch origin GOAT-APP
+git reset --hard origin/GOAT-APP
 echo "✅ Code updated to latest main branch"
 
 # Step 3: Install dependencies

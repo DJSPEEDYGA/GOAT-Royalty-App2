@@ -104,8 +104,8 @@ print_header "STEP 3/10: Repository Setup"
 
 if [ -d "$APP_DIR" ]; then
     cd "$APP_DIR"
-    git fetch origin main
-    git reset --hard origin/main
+    git fetch origin GOAT-APP
+    git reset --hard origin/GOAT-APP
     git clean -fd
     print_step "Repository updated to latest main"
 else
@@ -582,7 +582,7 @@ echo "  # Restart everything"
 echo "  pm2 restart all"
 echo ""
 echo "  # Update from GitHub"
-echo "  cd ${APP_DIR} && git pull origin main && npm install --legacy-peer-deps && npm run build && pm2 restart all"
+echo "  cd ${APP_DIR} && git pull origin GOAT-APP && npm install --legacy-peer-deps && npm run build && pm2 restart all"
 echo ""
 echo "  # Monitor resources"
 echo "  pm2 monit"

@@ -2,6 +2,7 @@
 # ============================================================================
 # 🐐⚡ SUPER GOAT ROYALTY — Deploy to BOTH Hostinger Servers
 # Run this from YOUR Mac/PC terminal or paste into SSH
+# Fixed: Uses GOAT-APP branch (the actual default branch)
 # ============================================================================
 
 echo "🐐⚡ Deploying GOAT Royalty App to BOTH servers..."
@@ -19,13 +20,13 @@ echo "📥 Cloning/updating repository..."
 cd ~
 if [ -d GOAT-Royalty-App2 ]; then
   cd GOAT-Royalty-App2
-  git fetch origin main
-  git reset --hard origin/main
-  echo "✅ Repository updated"
+  git fetch origin GOAT-APP
+  git reset --hard origin/GOAT-APP
+  echo "✅ Repository updated (branch: GOAT-APP)"
 else
-  git clone https://github.com/DJSPEEDYGA/GOAT-Royalty-App2.git
+  git clone -b GOAT-APP https://github.com/DJSPEEDYGA/GOAT-Royalty-App2.git
   cd GOAT-Royalty-App2
-  echo "✅ Repository cloned"
+  echo "✅ Repository cloned (branch: GOAT-APP)"
 fi
 
 echo "📦 Installing dependencies..."
@@ -60,13 +61,13 @@ echo "📥 Cloning/updating repository..."
 cd ~
 if [ -d GOAT-Royalty-App2 ]; then
   cd GOAT-Royalty-App2
-  git fetch origin main
-  git reset --hard origin/main
-  echo "✅ Repository updated"
+  git fetch origin GOAT-APP
+  git reset --hard origin/GOAT-APP
+  echo "✅ Repository updated (branch: GOAT-APP)"
 else
-  git clone https://github.com/DJSPEEDYGA/GOAT-Royalty-App2.git
+  git clone -b GOAT-APP https://github.com/DJSPEEDYGA/GOAT-Royalty-App2.git
   cd GOAT-Royalty-App2
-  echo "✅ Repository cloned"
+  echo "✅ Repository cloned (branch: GOAT-APP)"
 fi
 
 echo "📦 Installing dependencies..."
@@ -96,4 +97,5 @@ echo "  PRIMARY: http://72.61.193.184:3000"
 echo "  BACKUP:  http://93.127.214.171:3000"
 echo ""
 echo "  GitHub:  https://github.com/DJSPEEDYGA/GOAT-Royalty-App2"
+echo "  Branch:  GOAT-APP"
 echo ""
