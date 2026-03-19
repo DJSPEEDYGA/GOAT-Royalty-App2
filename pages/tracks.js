@@ -22,6 +22,7 @@ import {
   Eye,
   Settings
 } from 'lucide-react'
+import Head from 'next/head';
 
 export default function TracksPage() {
   const router = useRouter()
@@ -143,6 +144,11 @@ export default function TracksPage() {
   }
 
   return (
+    <>
+    <Head>
+      <title>Tracks | GOAT Royalty</title>
+      <meta name="description" content="Browse, manage, and analyze all tracks in your music catalog." />
+    </Head>
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-blue-900">
       {/* Header */}
       <header className="bg-black/50 backdrop-blur-lg border-b border-purple-500/20">
@@ -459,5 +465,6 @@ export default function TracksPage() {
         </div>
       )}
     </div>
+    </>
   )
 }

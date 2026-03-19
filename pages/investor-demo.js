@@ -10,11 +10,17 @@ import SuperNinjaPanel from '../components/SuperNinjaPanel';
 import InvestorAnalyticsDashboard from '../components/InvestorAnalyticsDashboard';
 import RealDataDashboard from '../components/RealDataDashboard';
 import { Crown, Zap, Globe, Shield, TrendingUp, Users } from 'lucide-react';
+import Head from 'next/head';
 
 export default function InvestorDemo() {
   const [activeView, setActiveView] = useState('overview');
 
   return (
+    <>
+      <Head>
+        <title>Investor Demo | GOAT Royalty</title>
+        <meta name="description" content="Interactive investor presentation showcasing platform capabilities." />
+      </Head>
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-purple-900">
       {/* Navigation */}
       <nav className="bg-black/50 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
@@ -214,5 +220,6 @@ export default function InvestorDemo() {
         {activeView === 'catalog' && <RealDataDashboard />}
       </div>
     </div>
+    </>
   );
 }

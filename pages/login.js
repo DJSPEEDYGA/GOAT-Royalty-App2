@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useAuth } from '../components/AuthProvider'
 import { Music, Lock, Mail, Eye, EyeOff, Loader, AlertCircle, CheckCircle } from 'lucide-react'
+import Head from 'next/head';
 
 export default function LoginPage() {
   const router = useRouter()
@@ -102,6 +103,11 @@ export default function LoginPage() {
   }
 
   return (
+    <>
+    <Head>
+      <title>Login | GOAT Royalty</title>
+      <meta name="description" content="Sign in to your GOAT Royalty account." />
+    </Head>
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-blue-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo/Header */}
@@ -293,5 +299,6 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }

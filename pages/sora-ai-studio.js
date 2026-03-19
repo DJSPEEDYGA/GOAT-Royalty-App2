@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { Sparkles, Video, Wand2, Image, Type, Zap, Download, Play, RefreshCw } from 'lucide-react';
+import Head from 'next/head';
 
 export default function SoraAIStudio() {
   const [prompt, setPrompt] = useState('');
@@ -103,6 +104,11 @@ export default function SoraAIStudio() {
   };
 
   return (
+    <>
+      <Head>
+        <title>Sora AI Studio | GOAT Royalty</title>
+        <meta name="description" content="AI-powered video generation studio for music content creation." />
+      </Head>
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-purple-900 p-6">
       {/* Header */}
       <div className="mb-8">
@@ -315,5 +321,6 @@ export default function SoraAIStudio() {
         </div>
       </div>
     </div>
+    </>
   );
 }

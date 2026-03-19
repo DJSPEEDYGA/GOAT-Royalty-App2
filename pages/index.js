@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import { 
   Music, 
   TrendingUp, 
@@ -57,6 +58,13 @@ const EnhancedLandingPage = () => {
   }, []);
 
   return (
+    <>
+    <Head>
+      <title>GOAT Force | Royalty Command Center - AI-Powered Music Publishing</title>
+      <meta name="description" content="Track royalties, manage catalogs, and maximize your music publishing revenue with AI-powered analytics and real-time insights." />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
     <div className="relative min-h-screen overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a0000 0%, #0A0A0A 40%, #0A0A0A 60%, #1a0505 100%)' }}>
       {/* Enhanced Video Background with GOAT Branding */}
       <EnhancedVideoBackground
@@ -418,6 +426,7 @@ const EnhancedLandingPage = () => {
         </section>
       </div>
     </div>
+    </>
   );
 };
 

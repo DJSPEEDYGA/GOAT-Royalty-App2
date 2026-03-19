@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { Cpu, Zap, Activity, TrendingUp, Server, Cloud, Gauge, AlertCircle } from 'lucide-react';
+import Head from 'next/head';
 
 export default function NvidiaDGX() {
   const [gpuLoad, setGpuLoad] = useState(67);
@@ -69,6 +70,11 @@ export default function NvidiaDGX() {
   ];
 
   return (
+    <>
+      <Head>
+        <title>NVIDIA DGX Integration | GOAT Royalty</title>
+        <meta name="description" content="High-performance AI computing powered by NVIDIA DGX infrastructure." />
+      </Head>
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-green-900 p-6">
       {/* Header */}
       <div className="mb-8">
@@ -317,5 +323,6 @@ export default function NvidiaDGX() {
         </div>
       </div>
     </div>
+    </>
   );
 }

@@ -16,6 +16,7 @@ import {
   User,
   Building
 } from 'lucide-react';
+import Head from 'next/head';
 
 const PublishingPage = () => {
   const [publishingData, setPublishingData] = useState([]);
@@ -66,6 +67,11 @@ const PublishingPage = () => {
   }
 
   return (
+    <>
+      <Head>
+        <title>Publishing | GOAT Royalty</title>
+        <meta name="description" content="Manage your music publishing catalog, rights, and royalty splits." />
+      </Head>
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
@@ -278,6 +284,7 @@ const PublishingPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
