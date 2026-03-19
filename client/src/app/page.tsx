@@ -7,6 +7,7 @@ import { RoyaltyChart } from '@/components/charts/RoyaltyChart';
 import { RecentActivity } from '@/components/dashboard/RecentActivity';
 import { QuickActions } from '@/components/dashboard/QuickActions';
 import { IntegrationsHub } from '@/components/integrations/IntegrationsHub';
+import { UltimateEngineCoPilot } from '@/components/integrations/UltimateEngineCoPilot';
 
 export default function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +45,11 @@ export default function Dashboard() {
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Ultimate Engine CoPilot - Featured */}
+          <div className="lg:col-span-3">
+            <UltimateEngineCoPilot />
+          </div>
+          
           {/* Royalty Chart */}
           <div className="lg:col-span-2">
             <RoyaltyChart />

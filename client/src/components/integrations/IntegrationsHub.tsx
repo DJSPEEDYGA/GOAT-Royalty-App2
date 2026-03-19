@@ -11,7 +11,10 @@ import {
   ExternalLink,
   CheckCircle,
   AlertCircle,
-  Settings
+  Settings,
+  Zap,
+  Crown,
+  Code
 } from 'lucide-react';
 
 interface Integration {
@@ -26,6 +29,16 @@ interface Integration {
 }
 
 const integrations: Integration[] = [
+  {
+    id: 'ultimate-engine-copilot',
+    name: 'Ultimate Engine CoPilot',
+    description: 'AI copilot for Unreal Engine - analyze architecture, build scenes, refactor Blueprints',
+    icon: <Crown className="h-6 w-6" />,
+    status: 'connected',
+    category: 'Gaming',
+    features: ['Blueprint Analyzer', 'Scene generation', 'Multi-model support', 'Local LLM'],
+    lastSync: 'Just now'
+  },
   {
     id: 'fashionforge',
     name: 'FashionForge Studio',
@@ -81,9 +94,10 @@ const integrations: Integration[] = [
     name: 'Epic Games Integration',
     description: 'Gaming and interactive content',
     icon: <Gamepad2 className="h-6 w-6" />,
-    status: 'error',
+    status: 'connected',
     category: 'Gaming',
-    features: ['Game royalties', 'In-game content', 'Digital assets']
+    features: ['Game royalties', 'In-game content', 'Digital assets'],
+    lastSync: '1 day ago'
   },
   {
     id: 'text-to-speech',
