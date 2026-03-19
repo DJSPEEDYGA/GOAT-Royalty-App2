@@ -10,6 +10,7 @@
  */
 
 import { ASSISTANTS, getAssistantById } from '../../../lib/ai-assistants';
+import { withAISecurity } from '../../../lib/api-security';
 
 export const config = {
   api: {
@@ -17,10 +18,7 @@ export const config = {
   },
 };
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+async function handler(req, res) {
   
   const apiKey = process.env.GOOGLE_AI_API_KEY;
   if (!apiKey) {
@@ -167,3 +165,5 @@ export default async function handler(req, res) {
     }
   }
 }
+
+export default withAISecurity(handler, { rateLimit: 30 });

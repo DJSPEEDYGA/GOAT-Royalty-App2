@@ -18,6 +18,7 @@
  */
 
 import { getGeminiService, PERSONAS } from '../../lib/gemini-llm-service';
+import { withAISecurity } from '../../lib/api-security';
 
 export const config = {
   api: {
@@ -34,10 +35,7 @@ const ALLOWED_MODELS = [
   'gemini-1.5-flash',
 ];
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+async function handler(req, res) {
 
   const apiKey = process.env.GOOGLE_AI_API_KEY;
   if (!apiKey) {
@@ -117,3 +115,5 @@ function getPersonaDescription(personaId) {
   };
   return descriptions[personaId] || 'AI assistant';
 }
+
+export default withAISecurity(handler, { rateLimit: 30 });

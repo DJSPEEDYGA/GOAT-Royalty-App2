@@ -10,6 +10,7 @@
  */
 
 import { getGeminiService } from '../../lib/gemini-llm-service';
+import { withAISecurity } from '../../lib/api-security';
 
 export const config = {
   api: {
@@ -33,10 +34,7 @@ const ALLOWED_MIME_TYPES = [
   'image/heif',
 ];
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+async function handler(req, res) {
 
   const apiKey = process.env.GOOGLE_AI_API_KEY;
   if (!apiKey) {
@@ -110,3 +108,5 @@ export default async function handler(req, res) {
     });
   }
 }
+
+export default withAISecurity(handler, { rateLimit: 20, maxBodySize: 20 * 1024 * 1024 });
