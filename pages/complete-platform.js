@@ -12,6 +12,7 @@ import InvestorAnalyticsDashboard from '../components/InvestorAnalyticsDashboard
 import RealDataDashboard from '../components/RealDataDashboard';
 import StreamingPlatformsHub from '../components/StreamingPlatformsHub';
 import PaymentProcessingHub from '../components/PaymentProcessingHub';
+import Head from 'next/head';
 
 export default function CompletePlatform() {
   const [activeSection, setActiveSection] = useState('overview');
@@ -26,6 +27,11 @@ export default function CompletePlatform() {
   ];
 
   return (
+    <>
+      <Head>
+        <title>Complete Platform | GOAT Royalty</title>
+        <meta name="description" content="Full overview of the GOAT Royalty platform features and capabilities." />
+      </Head>
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-purple-900">
       {/* Top Navigation */}
       <nav className="bg-black/80 backdrop-blur-md border-b border-yellow-500/30 sticky top-0 z-50">
@@ -181,5 +187,6 @@ export default function CompletePlatform() {
         {activeSection === 'catalog' && <RealDataDashboard />}
       </div>
     </div>
+    </>
   );
 }

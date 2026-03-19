@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Lock, Eye, EyeOff, CheckCircle, AlertCircle, Loader, ArrowLeft } from 'lucide-react'
+import Head from 'next/head';
 
 export default function ResetPasswordPage() {
   const router = useRouter()
@@ -58,6 +59,11 @@ export default function ResetPasswordPage() {
   const strength = getPasswordStrength(password)
 
   return (
+    <>
+    <Head>
+      <title>Reset Password | GOAT Royalty</title>
+      <meta name="description" content="Create a new password for your GOAT Royalty account." />
+    </Head>
     <div style={{
       minHeight: '100vh',
       background: 'linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%)',
@@ -216,5 +222,6 @@ export default function ResetPasswordPage() {
         input:focus { border-color: rgba(139,92,246,0.5) !important; }
       `}</style>
     </div>
+    </>
   )
 }

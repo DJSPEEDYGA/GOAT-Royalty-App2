@@ -5,6 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Search, Music, DollarSign, TrendingUp } from 'lucide-react';
+import Head from 'next/head';
 
 const SearchPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -52,6 +53,11 @@ const SearchPage = () => {
   }, []);
 
   return (
+    <>
+      <Head>
+        <title>Search | GOAT Royalty</title>
+        <meta name="description" content="Search across your catalog, tracks, artists, and documents." />
+      </Head>
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="max-w-4xl mx-auto p-6">
         {/* Header */}
@@ -199,6 +205,7 @@ const SearchPage = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

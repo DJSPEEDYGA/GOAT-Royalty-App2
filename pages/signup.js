@@ -1,6 +1,7 @@
 // Signup Page — redirects to login with signup mode active
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Head from 'next/head';
 
 export default function SignupPage() {
   const router = useRouter()
@@ -11,6 +12,11 @@ export default function SignupPage() {
   }, [router])
 
   return (
+    <>
+    <Head>
+      <title>Sign Up | GOAT Royalty</title>
+      <meta name="description" content="Create your GOAT Royalty account and start managing your royalties." />
+    </Head>
     <div style={{
       minHeight: '100vh',
       background: '#0a0a0a',
@@ -25,5 +31,6 @@ export default function SignupPage() {
         <p style={{ color: '#888' }}>Redirecting to signup...</p>
       </div>
     </div>
+    </>
   )
 }

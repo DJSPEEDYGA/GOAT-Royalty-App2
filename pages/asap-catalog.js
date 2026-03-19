@@ -19,6 +19,7 @@ import {
   CheckCircle,
   AlertCircle
 } from 'lucide-react';
+import Head from 'next/head';
 
 const ASAPCatalogPage = () => {
   const [catalogData, setCatalogData] = useState(null);
@@ -116,6 +117,11 @@ const ASAPCatalogPage = () => {
   }
 
   return (
+    <>
+      <Head>
+        <title>ASAP Catalog | GOAT Royalty</title>
+        <meta name="description" content="Browse and manage your ASCAP/BMI music catalog entries." />
+      </Head>
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
@@ -345,6 +351,7 @@ const ASAPCatalogPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -5,7 +5,16 @@
 
 import React from 'react';
 import RealDataDashboard from '../components/RealDataDashboard';
+import Head from 'next/head';
 
 export default function Dashboard() {
-  return <RealDataDashboard />;
+  return (
+    <>
+      <Head>
+        <title>Dashboard | GOAT Royalty</title>
+        <meta name="description" content="Your central command dashboard for royalties, catalog, and analytics." />
+      </Head>
+      <RealDataDashboard />
+    </>
+  );
 }

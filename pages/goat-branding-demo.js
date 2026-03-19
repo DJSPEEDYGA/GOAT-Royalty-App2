@@ -1,6 +1,7 @@
 // GOAT Branding Demo Page — GOAT Force Entertainment
 import { useState } from 'react'
 import { Crown, Music, Zap, Star, Shield, Globe, Download, Copy, Check, Palette, Layout, Type } from 'lucide-react'
+import Head from 'next/head';
 
 const brandColors = {
   purple: { primary: '#8b5cf6', secondary: '#6d28d9', name: 'Royal Purple' },
@@ -65,6 +66,11 @@ export default function GOATBrandingDemo() {
   ]
 
   return (
+    <>
+    <Head>
+      <title>Branding Demo | GOAT Royalty</title>
+      <meta name="description" content="Explore the GOAT Royalty brand identity and design system." />
+    </Head>
     <div style={{
       minHeight: '100vh',
       background: darkMode ? '#0a0a0a' : '#f8f8f8',
@@ -485,5 +491,6 @@ export default function GOATBrandingDemo() {
         )}
       </div>
     </div>
+    </>
   )
 }

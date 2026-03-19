@@ -5,6 +5,7 @@
 
 import React, { useState, useRef } from 'react';
 import { Video, Camera, Play, Pause, Square, Download, Upload, Film, Zap, Settings, Eye, Clock } from 'lucide-react';
+import Head from 'next/head';
 
 export default function CinemaCamera() {
   const [recording, setRecording] = useState(false);
@@ -38,6 +39,11 @@ export default function CinemaCamera() {
   };
 
   return (
+    <>
+      <Head>
+        <title>Cinema Camera | GOAT Royalty</title>
+        <meta name="description" content="Professional cinema-quality video tools for music content creation." />
+      </Head>
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-blue-900 p-6">
       {/* Header */}
       <div className="mb-8">
@@ -234,5 +240,6 @@ export default function CinemaCamera() {
         </div>
       </div>
     </div>
+    </>
   );
 }

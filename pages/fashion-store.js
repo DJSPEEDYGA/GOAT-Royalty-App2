@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ShoppingBag, Shirt, Star, TrendingUp, DollarSign, Package, Truck, CreditCard } from 'lucide-react';
+import Head from 'next/head';
 
 export default function FashionStore() {
   const [cart, setCart] = useState([]);
@@ -121,6 +122,11 @@ export default function FashionStore() {
   };
 
   return (
+    <>
+      <Head>
+        <title>Fashion Store | GOAT Royalty</title>
+        <meta name="description" content="Browse and shop the official GOAT Royalty merchandise collection." />
+      </Head>
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-indigo-900 p-6">
       {/* Header */}
       <div className="mb-8">
@@ -336,5 +342,6 @@ export default function FashionStore() {
         </div>
       )}
     </div>
+    </>
   );
 }

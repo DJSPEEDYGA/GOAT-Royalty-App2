@@ -1,6 +1,7 @@
 // Super Ninja Dashboard — redirects to OpenClaw AI
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Head from 'next/head';
 
 export default function SuperNinjaDashboard() {
   const router = useRouter()
@@ -9,6 +10,11 @@ export default function SuperNinjaDashboard() {
   }, [router])
 
   return (
+    <>
+    <Head>
+      <title>Super Ninja Dashboard | GOAT Royalty</title>
+      <meta name="description" content="Advanced AI-powered command center with full platform controls." />
+    </Head>
     <div style={{
       minHeight: '100vh', background: '#0a0a0a',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -19,5 +25,6 @@ export default function SuperNinjaDashboard() {
         <p style={{ color: '#888' }}>Loading Super Ninja Dashboard...</p>
       </div>
     </div>
+    </>
   )
 }

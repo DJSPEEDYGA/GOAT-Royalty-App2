@@ -1,6 +1,7 @@
 // Forgot Password Page — GOAT Royalty App
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 import { Music, Mail, ArrowLeft, CheckCircle, AlertCircle, Loader } from 'lucide-react'
 
 export default function ForgotPasswordPage() {
@@ -35,6 +36,11 @@ export default function ForgotPasswordPage() {
   }
 
   return (
+    <>
+    <Head>
+      <title>Forgot Password | GOAT Royalty</title>
+      <meta name="description" content="Reset your GOAT Royalty account password." />
+    </Head>
     <div style={{
       minHeight: '100vh',
       background: 'linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%)',
@@ -185,5 +191,6 @@ export default function ForgotPasswordPage() {
         input:focus { border-color: rgba(139,92,246,0.5) !important; }
       `}</style>
     </div>
+    </>
   )
 }

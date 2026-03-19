@@ -199,3 +199,97 @@ cd claude-installer && bash build.sh --all
 
 See [`claude-installer/README.md`](claude-installer/README.md) for full documentation.
 
+
+---
+
+## 🛠️ Developer Setup
+
+### Prerequisites
+- Node.js 18+ (recommended: 20.x)
+- npm 9+
+- Git
+
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/DJSPEEDYGA/GOAT-Royalty-App2.git
+cd GOAT-Royalty-App2
+
+# Install dependencies
+npm install
+
+# Create environment file
+cp .env.example .env.local
+# Edit .env.local with your credentials (see below)
+
+# Start development server
+npm run dev
+
+# Open http://localhost:3000
+```
+
+### Environment Variables
+
+Create a `.env.local` file in the project root:
+
+```env
+# Supabase (Required for auth & real data)
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+
+# Google AI (Required for AI features - get from https://aistudio.google.com)
+GOOGLE_AI_API_KEY=your-gemini-api-key
+
+# App Config
+NEXT_PUBLIC_APP_NAME=GOAT Royalty Force Command Center
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+NODE_ENV=development
+```
+
+> **Note:** The app runs in **demo mode** with mock data when Supabase keys are not configured, thanks to the graceful fallback system in `lib/supabase.js`.
+
+### Build Commands
+
+```bash
+npm run dev       # Start development server (port 3000)
+npm run build     # Production build
+npm run start     # Start production server
+npm run lint      # Run ESLint
+```
+
+### Project Structure
+
+```
+├── components/       # 87 React components
+├── lib/              # 10 library modules (supabase, ai-assistants, etc.)
+├── pages/            # 57 pages (Next.js Pages Router)
+│   ├── api/          # 49 API routes
+│   └── ...           # Page components
+├── public/           # Static assets
+│   ├── images/       # Branding, logos, posters
+│   ├── videos/       # Background videos
+│   ├── fonts/        # Custom fonts (Marvel, Avengeance, AmericanCaptain)
+│   ├── data/         # Catalog data (ASCAP/BMI)
+│   └── docs/         # Documents library
+├── styles/           # Global CSS
+├── .env.local        # Environment variables (create from .env.example)
+├── next.config.js    # Next.js configuration with security headers
+└── package.json      # Dependencies and scripts
+```
+
+### Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 14 (Pages Router) |
+| UI | React 18 + TailwindCSS |
+| Icons | Lucide React |
+| Auth | Supabase Auth |
+| Database | Supabase (PostgreSQL) |
+| AI | Google Gemini + 20+ Custom Agents |
+| Desktop | Electron |
+| Fonts | Marvel, Avengeance, American Captain |
+
+---

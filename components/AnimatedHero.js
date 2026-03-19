@@ -4,9 +4,11 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { Play, Sparkles, TrendingUp, Music, DollarSign } from 'lucide-react';
 
 const AnimatedHero = () => {
+  const router = useRouter();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [particles, setParticles] = useState([]);
 
@@ -136,7 +138,7 @@ const AnimatedHero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-          <button className="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold rounded-full overflow-hidden transform hover:scale-105 transition-all duration-300 goat-glow shadow-red-500/25">
+          <button onClick={() => router.push('/dashboard')} className="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold rounded-full overflow-hidden transform hover:scale-105 transition-all duration-300 goat-glow shadow-red-500/25">
             <span className="relative z-10 flex items-center space-x-2">
               <Play className="w-5 h-5" />
               <span style={{ fontFamily: "var(--font-heading)", letterSpacing: '0.08em' }}>Launch Dashboard</span>
@@ -144,7 +146,7 @@ const AnimatedHero = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
 
-          <button className="px-8 py-4 bg-white/5 backdrop-blur-md text-white font-semibold rounded-full border border-red-500/20 hover:bg-red-500/10 hover:border-red-500/40 transition-all duration-300 transform hover:scale-105">
+          <button onClick={() => router.push('/command-center')} className="px-8 py-4 bg-white/5 backdrop-blur-md text-white font-semibold rounded-full border border-red-500/20 hover:bg-red-500/10 hover:border-red-500/40 transition-all duration-300 transform hover:scale-105">
             View Demo
           </button>
         </div>

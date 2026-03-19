@@ -17,6 +17,7 @@ import {
   Eye,
   Activity
 } from 'lucide-react';
+import Head from 'next/head';
 
 const AnalyticsPage = () => {
   const [analyticsData, setAnalyticsData] = useState(null);
@@ -112,6 +113,11 @@ const AnalyticsPage = () => {
   }
 
   return (
+    <>
+      <Head>
+        <title>Analytics | GOAT Royalty</title>
+        <meta name="description" content="Track your royalty analytics, revenue trends, and performance metrics." />
+      </Head>
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
@@ -391,6 +397,7 @@ const AnalyticsPage = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
