@@ -56,7 +56,8 @@ const MainNavigation = () => {
         { name: 'Tracks', href: '/tracks', icon: Music },
         { name: 'Streaming', href: '/streaming', icon: Headphones },
         { name: 'Publishing', href: '/publishing', icon: FileText },
-        { name: 'ASAP Catalog', href: '/asap-catalog', icon: Music }
+        { name: 'ASAP Catalog', href: '/asap-catalog', icon: Music },
+        { name: 'TikTok', href: '/tiktok', icon: Music }
       ]
     },
     {
