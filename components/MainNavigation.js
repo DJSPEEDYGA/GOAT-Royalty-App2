@@ -92,6 +92,7 @@ const MainNavigation = () => {
       title: 'Social & Business',
       items: [
         { name: '💝 GOAT Connect', href: '/goat-connect', icon: Users },
+        { name: '🎵 TikTok Dashboard', href: '/tiktok-dashboard', icon: Music },
         { name: 'Concert Booking', href: '/concert-booking', icon: Mic },
         { name: 'Fashion Store', href: '/fashion-store', icon: Shirt },
         { name: 'Investor Demo', href: '/investor-demo', icon: TrendingUp }
