@@ -37,3 +37,5 @@ next-env.d.ts
 next.config.js.bak
 build-output.log
 build-test.log
+build-new-features.log
+build-security.log

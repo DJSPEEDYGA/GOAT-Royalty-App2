@@ -62,41 +62,49 @@ const MainNavigation = () => {
     {
       title: 'Business',
       items: [
-        { name: 'Fashion Store', href: '/fashion-store', icon: Shirt },
         { name: 'Copyright', href: '/copyright', icon: Shield },
         { name: 'Documents', href: '/documents', icon: FileText },
-        { name: 'Contact', href: '/contact', icon: Users }
+        { name: 'Contact', href: '/contact', icon: Users },
+        { name: 'GOAT Branding', href: '/goat-branding-demo', icon: Crown }
+      ]
+    },
+    {
+      title: 'Production',
+      items: [
+        { name: '🎹 DAW Studio', href: '/daw-studio', icon: Headphones },
+        { name: '🎬 Film Production', href: '/film-production', icon: Film },
+        { name: '🎤 Voice Studio', href: '/voice-studio', icon: Mic },
+        { name: '🎵 Sono Studio', href: '/sono-studio', icon: Music },
+        { name: '🎼 ConChord', href: '/conchord', icon: Music }
       ]
     },
     {
       title: 'Technology',
       items: [
+        { name: '⛓️ Blockchain', href: '/blockchain', icon: Shield },
+        { name: '🎭 Avatar Studio', href: '/avatar-studio', icon: Users },
         { name: 'NVIDIA DGX', href: '/nvidia-dgx', icon: Cpu },
         { name: 'Unreal Engine', href: '/unreal-engine', icon: Monitor },
-        { name: 'MS Vanessa', href: '/ms-vanessa', icon: Shield },
-        { name: 'GOAT Branding', href: '/goat-branding-demo', icon: Crown }
+        { name: '🎮 FiveM Gaming', href: '/fivem-gaming', icon: Monitor }
       ]
     },
     {
-      title: 'Booking',
+      title: 'Social & Business',
       items: [
+        { name: '💝 GOAT Connect', href: '/goat-connect', icon: Users },
         { name: 'Concert Booking', href: '/concert-booking', icon: Mic },
+        { name: 'Fashion Store', href: '/fashion-store', icon: Shirt },
         { name: 'Investor Demo', href: '/investor-demo', icon: TrendingUp }
       ]
     },
     {
-      title: 'Security',
+      title: 'Security & Agents',
       items: [
         { name: 'AI Red Team', href: '/ai-red-team', icon: Target },
-        { name: 'CyberWarrior', href: '/cyber-warrior', icon: Shield }
-      ]
-    },
-    {
-      title: 'AI Agents',
-      items: [
+        { name: 'CyberWarrior', href: '/cyber-warrior', icon: Shield },
         { name: '🔐 Agent Codex 008', href: '/codex-008', icon: Cpu },
         { name: 'Super Ninja AI', href: '/super-ninja-dashboard', icon: Zap },
-        { name: 'Ms Vanessa', href: '/ms-vanessa', icon: Shield }
+        { name: 'MS Vanessa', href: '/ms-vanessa', icon: Shield }
       ]
     }
   ];
