@@ -8,6 +8,7 @@ import { RecentActivity } from '@/components/dashboard/RecentActivity';
 import { QuickActions } from '@/components/dashboard/QuickActions';
 import { IntegrationsHub } from '@/components/integrations/IntegrationsHub';
 import { UltimateEngineCoPilot } from '@/components/integrations/UltimateEngineCoPilot';
+import { WakaRapDictionary } from '@/components/dictionary/WakaRapDictionary';
 
 export default function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
@@ -66,6 +67,9 @@ export default function Dashboard() {
 
         {/* Integrations Hub */}
         <IntegrationsHub />
+
+        {/* Waka's Rap Dictionary */}
+        <WakaRapDictionary />
       </div>
     </DashboardLayout>
   );
