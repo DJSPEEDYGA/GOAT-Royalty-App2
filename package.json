@@ -28,9 +28,11 @@
   },
   "build": {
     "appId": "com.goatroyalty.app",
-    "productName": "GOAT Royalty App",
+    "productName": "SUPER GOAT ROYALTIES APP",
+    "copyright": "Copyright © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST. All rights reserved.",
     "directories": {
-      "output": "dist"
+      "output": "dist",
+      "buildResources": "public"
     },
     "files": [
       "main.js",
@@ -44,25 +46,44 @@
       "lib/**/*",
       "node_modules/**/*",
       "package.json",
-      "next.config.js"
+      "next.config.js",
+      "jsconfig.json",
+      "tailwind.config.js",
+      "postcss.config.js"
+    ],
+    "extraResources": [
+      {
+        "from": "public",
+        "to": "public",
+        "filter": ["**/*"]
+      }
     ],
     "win": {
       "target": [
-        "nsis",
-        "portable"
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
       ],
       "icon": "public/icon.ico",
-      "sign": null
+      "artifactName": "${productName}-${version}-${arch}-Setup.${ext}"
     },
     "mac": {
       "target": [
-        "dmg",
-        "zip"
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
       ],
       "category": "public.app-category.music",
       "icon": "public/icon.icns",
       "hardenedRuntime": true,
-      "gatekeeperAssess": false
+      "gatekeeperAssess": false,
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
     },
     "dmg": {
       "contents": [
@@ -76,16 +97,48 @@
           "type": "link",
           "path": "/Applications"
         }
-      ]
+      ],
+      "artifactName": "${productName}-${version}-macOS.${ext}"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
+      "createStartMenuShortcut": true,
+      "installerIcon": "public/icon.ico",
+      "uninstallerIcon": "public/icon.ico",
+      "installerHeaderIcon": "public/icon.ico",
+      "license": null,
+      "artifactName": "${productName}-${version}-Windows-Setup.${ext}"
     },
     "portable": {
-      "artifactName": "GOAT-Royalty-App-Portable.exe"
+      "artifactName": "${productName}-${version}-Portable.exe"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        },
+        {
+          "target": "tar.gz",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "AudioVideo;Audio;Music;",
+      "icon": "public/icon.png",
+      "artifactName": "${productName}-${version}-Linux-${arch}.${ext}"
+    },
+    "appImage": {
+      "artifactName": "${productName}-${version}-Linux-AppImage.${ext}"
+    },
+    "deb": {
+      "artifactName": "${productName}-${version}-Linux-Deb.${ext}",
+      "depends": ["libgtk-3-0", "libnotify4", "libnss3", "libxss1", "libxtst6", "xdg-utils"]
     },
     "publish": null
   },
