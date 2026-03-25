@@ -16,14 +16,22 @@
     "build": "next build",
     "start": "next start",
     "electron": "electron .",
-    "start-electron": "npm run build &amp;&amp; electron .",
-    "build:win": "electron-builder --win",
-    "build:portable": "electron-builder --win portable",
-    "electron:build:win": "electron-builder --win",
-    "electron:build:mac": "electron-builder --mac",
-    "electron:build:linux": "electron-builder --linux",
+    "start-electron": "npm run build && electron .",
+    "build:win": "npm run build && electron-builder --win --config electron-builder.yml",
+    "build:mac": "npm run build && electron-builder --mac --config electron-builder.yml",
+    "build:linux": "npm run build && electron-builder --linux --config electron-builder.yml",
+    "build:portable": "npm run build && electron-builder --win portable --config electron-builder.yml",
+    "build:all": "npm run build && electron-builder --win --mac --linux --config electron-builder.yml",
+    "build:win-exe": "npm run build && electron-builder --win nsis --config electron-builder.yml",
+    "build:dmg": "npm run build && electron-builder --mac dmg --config electron-builder.yml",
+    "build:appimage": "npm run build && electron-builder --linux AppImage --config electron-builder.yml",
+    "build:deb": "npm run build && electron-builder --linux deb --config electron-builder.yml",
+    "electron:build:win": "electron-builder --win --config electron-builder.yml",
+    "electron:build:mac": "electron-builder --mac --config electron-builder.yml",
+    "electron:build:linux": "electron-builder --linux --config electron-builder.yml",
     "electron-builder": "electron-builder",
-    "postinstall": "echo 'Postinstall complete'"
+    "postinstall": "echo 'Postinstall complete'",
+    "release": "npm run build && electron-builder --win --mac --linux --publish always --config electron-builder.yml"
   },
   "build": {
     "appId": "com.goatroyalty.app",
@@ -40,6 +48,7 @@
       "pages/**/*",
       "components/**/*",
       "styles/**/*",
+      "lib/**/*",
       "node_modules/**/*",
       "package.json",
       "next.config.js"
@@ -70,10 +79,42 @@
     "portable": {
       "artifactName": "GOAT-Royalty-App-Portable.exe"
     },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "public/icon.icns",
+      "category": "public.app-category.productivity"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Office",
+      "maintainer": "Harvey L Miller Jr <harvey@goatroyaltyapp.com>"
+    },
     "publish": null
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "@supabase/auth-helpers-nextjs": "^0.15.0",
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.78.0",
     "axios": "^1.6.0",
