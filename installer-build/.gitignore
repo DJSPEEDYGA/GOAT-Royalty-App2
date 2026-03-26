@@ -1,0 +1,22 @@
+# Large binary files - use GitHub Releases for distribution
+output/*.zip
+output/*.tar.gz
+output/*.deb
+output/*.AppImage
+output/*.dmg
+output/*.exe
+output/portable/
+output/linux-unpacked/
+output/win-unpacked/
+output/mac/
+output/*.blockmap
+
+# Build artifacts
+electron/node_modules/
+electron/*.log
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db

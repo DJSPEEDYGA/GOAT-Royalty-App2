@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPER GOAT ROYALTIES APP - Downloads</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, #e94560, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            color: #a0a0a0;
+            font-size: 1.2rem;
+        }
+        .version {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .download-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .download-card.featured {
+            border-color: #e94560;
+            background: rgba(233, 69, 96, 0.1);
+        }
+        .os-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .download-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .download-card p {
+            color: #a0a0a0;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .file-info {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.85rem;
+        }
+        .file-info div {
+            margin: 5px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(90deg, #e94560, #ff6b6b);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+        .features {
+            margin-top: 60px;
+            text-align: center;
+        }
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+        }
+        .feature-item h4 {
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+        .feature-item p {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+        .requirements {
+            margin-top: 60px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 20px;
+        }
+        .requirements h2 {
+            margin-bottom: 30px;
+        }
+        .req-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .req-item h4 {
+            color: #e94560;
+            margin-bottom: 15px;
+        }
+        .req-item ul {
+            list-style: none;
+        }
+        .req-item li {
+            padding: 5px 0;
+            color: #a0a0a0;
+        }
+        .req-item li:before {
+            content: "✓ ";
+            color: #4CAF50;
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+        }
+        .checksums {
+            margin-top: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
+        }
+        .checksums h4 {
+            margin-bottom: 15px;
+            color: #e94560;
+        }
+        .checksums code {
+            display: block;
+            padding: 5px 0;
+            word-break: break-all;
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐐 SUPER GOAT ROYALTIES APP</h1>
+            <p class="tagline">Music Royalty Management Platform</p>
+            <span class="version">Version 1.0.0</span>
+        </header>
+
+        <div class="downloads-grid">
+            <!-- Portable Version (Featured) -->
+            <div class="download-card featured">
+                <div class="os-icon">📦</div>
+                <h3>Portable Version</h3>
+                <p>Cross-platform, no installation required. Perfect for USB drives and quick demos.</p>
+                <div class="file-info">
+                    <div><strong>ZIP:</strong> SUPER-GOAT-ROYALTIES-Portable-1.0.0.zip</div>
+                    <div><strong>Size:</strong> ~621 MB</div>
+                    <div><strong>Platform:</strong> Windows, macOS, Linux</div>
+                </div>
+                <a href="SUPER-GOAT-ROYALTIES-Portable-1.0.0.zip" class="btn">Download ZIP</a>
+                <br><br>
+                <a href="SUPER-GOAT-ROYALTIES-Portable-1.0.0.tar.gz" class="btn btn-secondary">Download TAR.GZ</a>
+            </div>
+
+            <!-- Windows -->
+            <div class="download-card">
+                <div class="os-icon">🪟</div>
+                <h3>Windows</h3>
+                <p>Install script for Windows 10/11 with desktop shortcuts.</p>
+                <div class="file-info">
+                    <div><strong>Installer:</strong> install-windows.bat</div>
+                    <div><strong>Requires:</strong> Portable ZIP above</div>
+                    <div><strong>Architecture:</strong> x64</div>
+                </div>
+                <a href="install-windows.bat" class="btn btn-secondary">Download Installer Script</a>
+            </div>
+
+            <!-- macOS -->
+            <div class="download-card">
+                <div class="os-icon">🍎</div>
+                <h3>macOS</h3>
+                <p>Creates .app bundle in Applications folder.</p>
+                <div class="file-info">
+                    <div><strong>Installer:</strong> install-macos.sh</div>
+                    <div><strong>Requires:</strong> Portable TAR.GZ above</div>
+                    <div><strong>Supports:</strong> Intel & Apple Silicon</div>
+                </div>
+                <a href="install-macos.sh" class="btn btn-secondary">Download Installer Script</a>
+            </div>
+
+            <!-- Linux -->
+            <div class="download-card">
+                <div class="os-icon">🐧</div>
+                <h3>Linux</h3>
+                <p>System-wide or user installation with desktop entry.</p>
+                <div class="file-info">
+                    <div><strong>Installer:</strong> install-linux.sh</div>
+                    <div><strong>Requires:</strong> Portable TAR.GZ above</div>
+                    <div><strong>Formats:</strong> .deb, .tar.gz supported</div>
+                </div>
+                <a href="install-linux.sh" class="btn btn-secondary">Download Installer Script</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>Application Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>242 API Endpoints</h4>
+                    <p>Comprehensive REST API for all royalty management operations</p>
+                </div>
+                <div class="feature-item">
+                    <h4>6 AI Engines</h4>
+                    <p>Integrated AI capabilities for smart analysis and automation</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Self-Healing System</h4>
+                    <p>Automatic error recovery and system monitoring</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Voice Commands</h4>
+                    <p>Hands-free operation with voice recognition</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Real-time Dashboard</h4>
+                    <p>Live analytics and performance metrics</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Cross-Platform</h4>
+                    <p>Works on Windows, macOS, and Linux</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="requirements">
+            <h2>System Requirements</h2>
+            <div class="req-grid">
+                <div class="req-item">
+                    <h4>Windows</h4>
+                    <ul>
+                        <li>Windows 10 or later (64-bit)</li>
+                        <li>Node.js 18.x or later</li>
+                        <li>4 GB RAM minimum</li>
+                        <li>2 GB free disk space</li>
+                    </ul>
+                </div>
+                <div class="req-item">
+                    <h4>macOS</h4>
+                    <ul>
+                        <li>macOS 10.15 (Catalina) or later</li>
+                        <li>Node.js 18.x or later</li>
+                        <li>4 GB RAM minimum</li>
+                        <li>2 GB free disk space</li>
+                    </ul>
+                </div>
+                <div class="req-item">
+                    <h4>Linux</h4>
+                    <ul>
+                        <li>Ubuntu 20.04+ or equivalent</li>
+                        <li>Node.js 18.x or later</li>
+                        <li>4 GB RAM minimum</li>
+                        <li>2 GB free disk space</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="checksums">
+            <h4>SHA-256 Checksums (for verification)</h4>
+            <code>0901d79239500468dbf3d695adae1b725b3b05681bf59bbc71834ba39a639e6d  SUPER-GOAT-ROYALTIES-Portable-1.0.0.tar.gz</code>
+            <code>0039ba3ced1e0d0b4d96b9fc8ee62d7aa1d8bac69497cd2fa760c5cd3ce94977  SUPER-GOAT-ROYALTIES-Portable-1.0.0.zip</code>
+        </div>
+
+        <footer>
+            <p>© 2024 GOAT Royalties. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.85rem;">
+                Need help? Check the <a href="README.txt" style="color: #e94560;">README</a> or 
+                <a href="../BUILD_GUIDE.md" style="color: #e94560;">Build Guide</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
