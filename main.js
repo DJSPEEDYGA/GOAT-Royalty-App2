@@ -1,59 +1,12 @@
-const { app, BrowserWindow, dialog } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const { spawn } = require('child_process');
 const http = require('http');
 
 let mainWindow;
-let serverProcess;
 const PORT = 3000;
 
-// Function to start the Next.js server
-function startNextServer() {
-  return new Promise((resolve, reject) => {
-    console.log('Starting Next.js server...');
-    
-    const isDev = !app.isPackaged;
-    
-    if (isDev) {
-      // In development, the user should run npm run dev separately
-      console.log('Development mode - assuming server is already running');
-      resolve();
-      return;
-    }
-    
-    // In production, start the server
-    const appPath = app.getAppPath();
-    const nextPath = path.join(appPath, 'node_modules', 'next', 'dist', 'bin', 'next');
-    
-    console.log('App path:', appPath);
-    console.log('Next path:', nextPath);
-    
-    serverProcess = spawn('node', [nextPath, 'start'], {
-      cwd: appPath,
-      env: { ...process.env, PORT: PORT.toString() },
-      stdio: ['ignore', 'pipe', 'pipe']
-    });
-    
-    serverProcess.stdout.on('data', (data) => {
-      console.log(`Server stdout: ${data}`);
-    });
-    
-    serverProcess.stderr.on('data', (data) => {
-      console.error(`Server stderr: ${data}`);
-    });
-    
-    serverProcess.on('error', (err) => {
-      console.error('Failed to start server:', err);
-      reject(err);
-    });
-    
-    // Give the server time to start
-    setTimeout(resolve, 2000);
-  });
-}
-
 // Simple function to check if server is responding
-function waitForServer(maxAttempts = 60) {
+function waitForServer(maxAttempts = 30) {
   return new Promise((resolve, reject) => {
     let attempts = 0;
     
@@ -89,17 +42,13 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1400,
     height: 900,
-    minWidth: 1024,
-    minHeight: 700,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false
     },
     icon: path.join(__dirname, 'public', 'icon.png'),
-    show: false,
-    backgroundColor: '#0A0A0A',
-    title: 'GOAT Royalty App'
+    show: false
   });
 
   mainWindow.once('ready-to-show', () => {
@@ -117,17 +66,6 @@ function createWindow() {
     mainWindow = null;
   });
 
-  // Handle navigation
-  mainWindow.webContents.on('will-navigate', (event, url) => {
-    // Allow internal navigation
-    if (url.startsWith('http://localhost')) {
-      return;
-    }
-    // Open external links in default browser
-    event.preventDefault();
-    require('electron').shell.openExternal(url);
-  });
-
   // Reload on fail
   mainWindow.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
     console.error('Failed to load:', errorCode, errorDescription);
@@ -140,16 +78,11 @@ function createWindow() {
 }
 
 app.whenReady().then(async () => {
-  console.log('GOAT Royalty App starting...');
+  console.log('Electron app starting...');
   console.log('App is packaged:', app.isPackaged);
   console.log('App path:', app.getAppPath());
   
   try {
-    // Start the Next.js server if packaged
-    if (app.isPackaged) {
-      await startNextServer();
-    }
-    
     console.log('Waiting for Next.js server on port', PORT);
     await waitForServer();
     console.log('Creating window...');
@@ -158,6 +91,7 @@ app.whenReady().then(async () => {
     console.error('Failed to connect to server:', error);
     
     // Show error dialog
+    const { dialog } = require('electron');
     dialog.showErrorBox(
       'Server Error',
       'Could not connect to the application server.\n\n' +
@@ -181,11 +115,5 @@ app.whenReady().then(async () => {
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
     app.quit();
-  }
-});
-
-app.on('before-quit', () => {
-  if (serverProcess) {
-    serverProcess.kill();
   }
 });

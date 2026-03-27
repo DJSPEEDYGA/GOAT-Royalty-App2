@@ -171,7 +171,7 @@ export default function MusicStudioWithRealData() {
         </div>
         <button
           onClick={() => setShowAddModal(true)}
-          className="flex items-center space-x-2 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 text-white px-4 py-2 rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all"
+          className="flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all"
         >
           <Plus className="w-5 h-5" />
           <span>Add Track</span>
@@ -186,23 +186,23 @@ export default function MusicStudioWithRealData() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search tracks..."
-          className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
         />
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
+        <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
           <p className="text-gray-400 text-sm mb-1">Total Tracks</p>
           <p className="text-2xl font-bold text-white">{tracks.length}</p>
         </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
+        <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
           <p className="text-gray-400 text-sm mb-1">Total Plays</p>
           <p className="text-2xl font-bold text-white">
             {tracks.reduce((sum, t) => sum + (t.plays || 0), 0).toLocaleString()}
           </p>
         </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
+        <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
           <p className="text-gray-400 text-sm mb-1">Total Streams</p>
           <p className="text-2xl font-bold text-white">
             {tracks.reduce((sum, t) => sum + (t.streams || 0), 0).toLocaleString()}
@@ -211,10 +211,10 @@ export default function MusicStudioWithRealData() {
       </div>
 
       {/* Tracks List */}
-      <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+      <div className="bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
         {filteredTracks.length === 0 ? (
           <div className="text-center py-12">
-            <Music className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+            <Music className="w-16 h-16 text-gray-600 mx-auto mb-4" />
             <p className="text-gray-400 mb-4">
               {searchQuery ? 'No tracks found' : 'No tracks yet'}
             </p>
@@ -238,7 +238,7 @@ export default function MusicStudioWithRealData() {
                   <div className="flex items-center space-x-4 flex-1">
                     <button
                       onClick={() => setPlayingTrack(playingTrack === track.id ? null : track.id)}
-                      className="p-2 bg-purple-500/10 rounded-xl hover:bg-purple-500/20 transition-colors"
+                      className="p-2 bg-purple-500/10 rounded-lg hover:bg-purple-500/20 transition-colors"
                     >
                       {playingTrack === track.id ? (
                         <Pause className="w-5 h-5 text-purple-500" />
@@ -282,7 +282,7 @@ export default function MusicStudioWithRealData() {
       {/* Add/Edit Modal */}
       {(showAddModal || editingTrack) && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-gray-800 rounded-xl max-w-md w-full p-6 border border-gray-700">
+          <div className="bg-gray-800 rounded-lg max-w-md w-full p-6 border border-gray-700">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-white">
                 {editingTrack ? 'Edit Track' : 'Add New Track'}
@@ -308,7 +308,7 @@ export default function MusicStudioWithRealData() {
                   type="text"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                   required
                 />
               </div>
@@ -321,7 +321,7 @@ export default function MusicStudioWithRealData() {
                   type="text"
                   value={formData.artist}
                   onChange={(e) => setFormData({ ...formData, artist: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                   required
                 />
               </div>
@@ -334,7 +334,7 @@ export default function MusicStudioWithRealData() {
                   type="text"
                   value={formData.album}
                   onChange={(e) => setFormData({ ...formData, album: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
               </div>
 
@@ -347,7 +347,7 @@ export default function MusicStudioWithRealData() {
                     type="number"
                     value={formData.duration}
                     onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
 
@@ -359,7 +359,7 @@ export default function MusicStudioWithRealData() {
                     type="text"
                     value={formData.genre}
                     onChange={(e) => setFormData({ ...formData, genre: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
               </div>
@@ -372,7 +372,7 @@ export default function MusicStudioWithRealData() {
                   type="text"
                   value={formData.isrc}
                   onChange={(e) => setFormData({ ...formData, isrc: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="US-XXX-XX-XXXXX"
                 />
               </div>
@@ -385,14 +385,14 @@ export default function MusicStudioWithRealData() {
                   type="date"
                   value={formData.release_date}
                   onChange={(e) => setFormData({ ...formData, release_date: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
               </div>
 
               <div className="flex space-x-3 pt-4">
                 <button
                   type="submit"
-                  className="flex-1 flex items-center justify-center space-x-2 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 text-white py-2 rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all"
+                  className="flex-1 flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-2 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all"
                 >
                   <Save className="w-5 h-5" />
                   <span>{editingTrack ? 'Update' : 'Add'} Track</span>
@@ -404,7 +404,7 @@ export default function MusicStudioWithRealData() {
                     setEditingTrack(null)
                     resetForm()
                   }}
-                  className="px-6 py-2 bg-gray-700 text-white rounded-xl hover:bg-gray-600 transition-colors"
+                  className="px-6 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
                 >
                   Cancel
                 </button>

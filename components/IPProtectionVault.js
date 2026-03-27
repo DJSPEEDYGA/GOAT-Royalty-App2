@@ -118,7 +118,7 @@ const IPProtectionVault = () => {
           <CardContent>
             <div className="space-y-3">
               {copyrights.map((copyright) => (
-                <div key={copyright.id} className="flex items-center justify-between p-4 bg-gray-900/50 rounded-xl">
+                <div key={copyright.id} className="flex items-center justify-between p-4 bg-gray-900/50 rounded-lg">
                   <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                       copyright.status === 'Registered' ? 'bg-green-500/20' : 'bg-yellow-500/20'
@@ -166,9 +166,9 @@ const IPProtectionVault = () => {
           <CardContent>
             <div className="space-y-3">
               {trademarks.map((trademark) => (
-                <div key={trademark.id} className="flex items-center justify-between p-4 bg-gray-900/50 rounded-xl">
+                <div key={trademark.id} className="flex items-center justify-between p-4 bg-gray-900/50 rounded-lg">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                       <Lock className="w-5 h-5 text-blue-400" />
                     </div>
                     <div>
@@ -204,7 +204,7 @@ const IPProtectionVault = () => {
           <CardContent>
             <div className="space-y-3">
               {contracts.map((contract) => (
-                <div key={contract.id} className="flex items-center justify-between p-4 bg-gray-900/50 rounded-xl">
+                <div key={contract.id} className="flex items-center justify-between p-4 bg-gray-900/50 rounded-lg">
                   <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                       contract.status === 'Expiring Soon' ? 'bg-yellow-500/20' : 'bg-green-500/20'

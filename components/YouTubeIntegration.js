@@ -117,7 +117,7 @@ const YouTubeIntegration = () => {
           <Play className="w-8 h-8 mr-2 text-red-600" />
           <h1 className="text-3xl font-bold">YouTube Integration</h1>
         </div>
-        <p className="text-gray-400 max-w-2xl mx-auto">
+        <p className="text-gray-600 max-w-2xl mx-auto">
           Connect your YouTube channel to track video performance, calculate royalties, and analyze content monetization.
         </p>
       </div>
@@ -133,7 +133,7 @@ const YouTubeIntegration = () => {
         <CardContent>
           {isConnected ? (
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-red-50 rounded-xl">
+              <div className="flex items-center justify-between p-4 bg-red-50 rounded-lg">
                 <div className="flex items-center">
                   <img 
                     src={channelData?.thumbnailUrl} 
@@ -142,7 +142,7 @@ const YouTubeIntegration = () => {
                   />
                   <div>
                     <p className="font-semibold">{channelData?.title || 'YouTube Channel'}</p>
-                    <p className="text-sm text-gray-400">{channelData?.subscribers?.toLocaleString() || 0} subscribers</p>
+                    <p className="text-sm text-gray-600">{channelData?.subscribers?.toLocaleString() || 0} subscribers</p>
                   </div>
                 </div>
                 <Button 
@@ -179,36 +179,36 @@ const YouTubeIntegration = () => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="p-4 bg-red-50 rounded-xl">
+              <div className="p-4 bg-red-50 rounded-lg">
                 <div className="flex items-center justify-between">
                   <Play className="w-8 h-8 text-red-500" />
                   <span className="text-2xl font-bold">{videos.length}</span>
                 </div>
-                <p className="text-sm text-gray-400 mt-2">Total Videos</p>
+                <p className="text-sm text-gray-600 mt-2">Total Videos</p>
               </div>
               
-              <div className="p-4 bg-blue-50 rounded-xl">
+              <div className="p-4 bg-blue-50 rounded-lg">
                 <div className="flex items-center justify-between">
                   <Eye className="w-8 h-8 text-blue-500" />
                   <span className="text-2xl font-bold">{getTotalViews().toLocaleString()}</span>
                 </div>
-                <p className="text-sm text-gray-400 mt-2">Total Views</p>
+                <p className="text-sm text-gray-600 mt-2">Total Views</p>
               </div>
               
-              <div className="p-4 bg-green-50 rounded-xl">
+              <div className="p-4 bg-green-50 rounded-lg">
                 <div className="flex items-center justify-between">
                   <Users className="w-8 h-8 text-green-500" />
                   <span className="text-2xl font-bold">{channelData?.subscribers?.toLocaleString() || 0}</span>
                 </div>
-                <p className="text-sm text-gray-400 mt-2">Subscribers</p>
+                <p className="text-sm text-gray-600 mt-2">Subscribers</p>
               </div>
               
-              <div className="p-4 bg-purple-50 rounded-xl">
+              <div className="p-4 bg-purple-50 rounded-lg">
                 <div className="flex items-center justify-between">
                   <DollarSign className="w-8 h-8 text-purple-500" />
                   <span className="text-2xl font-bold">${getTotalEstimatedRevenue()}</span>
                 </div>
-                <p className="text-sm text-gray-400 mt-2">Est. Revenue</p>
+                <p className="text-sm text-gray-600 mt-2">Est. Revenue</p>
               </div>
             </div>
           </CardContent>
@@ -227,16 +227,16 @@ const YouTubeIntegration = () => {
           <CardContent>
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4 bg-yellow-50 rounded-xl">
+                <div className="p-4 bg-yellow-50 rounded-lg">
                   <h4 className="font-semibold mb-2">Content ID Matches</h4>
                   <p className="text-2xl font-bold text-yellow-600">{royaltyData.contentIdMatches || 0}</p>
-                  <p className="text-sm text-gray-400">Videos with claimed content</p>
+                  <p className="text-sm text-gray-600">Videos with claimed content</p>
                 </div>
                 
-                <div className="p-4 bg-indigo-50 rounded-xl">
+                <div className="p-4 bg-indigo-50 rounded-lg">
                   <h4 className="font-semibold mb-2">Monthly Royalty Revenue</h4>
                   <p className="text-2xl font-bold text-indigo-600">${royaltyData.monthlyRevenue || '0.00'}</p>
-                  <p className="text-sm text-gray-400">Estimated monthly earnings</p>
+                  <p className="text-sm text-gray-600">Estimated monthly earnings</p>
                 </div>
               </div>
               
@@ -245,9 +245,9 @@ const YouTubeIntegration = () => {
                   <h4 className="font-semibold mb-2">Recent Content Claims</h4>
                   <div className="space-y-2">
                     {royaltyData.recentClaims.slice(0, 3).map((claim, index) => (
-                      <div key={index} className="p-3 border rounded-xl">
+                      <div key={index} className="p-3 border rounded-lg">
                         <p className="font-medium">{claim.videoTitle}</p>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-gray-600">
                           {claim.views?.toLocaleString() || 0} views • 
                           ${claim.revenue || '0.00'} revenue
                         </p>
@@ -270,15 +270,15 @@ const YouTubeIntegration = () => {
           <CardContent>
             <div className="space-y-4">
               {videos.slice(0, 5).map((video) => (
-                <div key={video.id} className="flex items-center p-4 border rounded-xl">
+                <div key={video.id} className="flex items-center p-4 border rounded-lg">
                   <img 
                     src={video.thumbnailUrl} 
                     alt={video.title}
-                    className="w-16 h-16 rounded-xl object-cover mr-4"
+                    className="w-16 h-16 rounded-lg object-cover mr-4"
                   />
                   <div className="flex-1">
                     <h3 className="font-semibold">{video.title}</h3>
-                    <p className="text-sm text-gray-400">{video.description}</p>
+                    <p className="text-sm text-gray-600">{video.description}</p>
                     <div className="flex items-center mt-2 text-sm text-gray-500">
                       <span className="mr-4">{video.viewCount?.toLocaleString() || 0} views</span>
                       <span className="mr-4">${calculateEstimatedRevenue(video.viewCount || 0)} est. revenue</span>

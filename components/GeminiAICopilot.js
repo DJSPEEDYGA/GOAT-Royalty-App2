@@ -107,11 +107,11 @@ export default function GeminiAICopilot() {
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-200px)] bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+    <div className="flex flex-col h-[calc(100vh-200px)] bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 text-white">
+      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white">
         <div className="flex items-center space-x-3">
-          <div className="p-2 bg-white/20 rounded-xl">
+          <div className="p-2 bg-white/20 rounded-lg">
             <Sparkles className="w-6 h-6" />
           </div>
           <div>
@@ -121,7 +121,7 @@ export default function GeminiAICopilot() {
         </div>
         <button
           onClick={clearChat}
-          className="p-2 hover:bg-white/20 rounded-xl transition-colors"
+          className="p-2 hover:bg-white/20 rounded-lg transition-colors"
           title="Clear chat"
         >
           <Trash2 className="w-5 h-5" />
@@ -144,8 +144,8 @@ export default function GeminiAICopilot() {
               <div
                 className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                   message.role === 'user'
-                    ? 'bg-gradient-to-r from-red-500 via-yellow-500 to-red-500-500 to-cyan-500'
-                    : 'bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500'
+                    ? 'bg-gradient-to-r from-blue-500 to-cyan-500'
+                    : 'bg-gradient-to-r from-purple-500 to-pink-500'
                 }`}
               >
                 {message.role === 'user' ? (
@@ -170,7 +170,7 @@ export default function GeminiAICopilot() {
                 {/* Copy Button */}
                 <button
                   onClick={() => copyToClipboard(message.content, index)}
-                  className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-600 hover:bg-gray-500 text-white p-1.5 rounded-xl"
+                  className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-600 hover:bg-gray-500 text-white p-1.5 rounded-lg"
                   title="Copy message"
                 >
                   {copiedIndex === index ? (
@@ -187,7 +187,7 @@ export default function GeminiAICopilot() {
         {/* Loading Indicator */}
         {loading && (
           <div className="flex justify-start">
-            <div className="flex items-center space-x-2 bg-gray-700 rounded-xl p-3">
+            <div className="flex items-center space-x-2 bg-gray-700 rounded-lg p-3">
               <Loader className="w-5 h-5 text-purple-500 animate-spin" />
               <span className="text-gray-300">Thinking...</span>
             </div>
@@ -206,7 +206,7 @@ export default function GeminiAICopilot() {
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Ask me anything about royalties, contracts, music industry..."
-            className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+            className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
             rows={1}
             style={{
               minHeight: '48px',
@@ -220,7 +220,7 @@ export default function GeminiAICopilot() {
           <button
             onClick={handleSend}
             disabled={!input.trim() || loading}
-            className="p-3 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600-500 to-pink-500 text-white rounded-xl hover:from-purple-600 hover:to-pink-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             <Send className="w-5 h-5" />
           </button>

@@ -68,13 +68,13 @@ const EnhancedDashboard = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">GOAT Royalty Dashboard</h1>
-          <p className="text-gray-400">Comprehensive overview of your royalty earnings and content performance</p>
+          <p className="text-gray-600">Comprehensive overview of your royalty earnings and content performance</p>
         </div>
         <div className="flex items-center space-x-2">
           <select
             value={timeRange}
             onChange={(e) => setTimeRange(e.target.value)}
-            className="px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="7days">Last 7 Days</option>
             <option value="30days">Last 30 Days</option>
@@ -100,7 +100,7 @@ const EnhancedDashboard = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-400">Total Revenue</p>
+                <p className="text-sm font-medium text-gray-600">Total Revenue</p>
                 <p className="text-2xl font-bold">{formatCurrency(dashboardData?.totalRevenue || 0)}</p>
                 <div className="flex items-center mt-2">
                   {getChangeIcon(dashboardData?.revenueChange)}
@@ -118,7 +118,7 @@ const EnhancedDashboard = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-400">Total Streams</p>
+                <p className="text-sm font-medium text-gray-600">Total Streams</p>
                 <p className="text-2xl font-bold">{formatNumber(dashboardData?.totalStreams || 0)}</p>
                 <div className="flex items-center mt-2">
                   {getChangeIcon(dashboardData?.streamsChange)}
@@ -136,7 +136,7 @@ const EnhancedDashboard = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-400">Active Content</p>
+                <p className="text-sm font-medium text-gray-600">Active Content</p>
                 <p className="text-2xl font-bold">{formatNumber(dashboardData?.activeContent || 0)}</p>
                 <div className="flex items-center mt-2">
                   {getChangeIcon(dashboardData?.contentChange)}
@@ -154,7 +154,7 @@ const EnhancedDashboard = () => {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-400">Audience Reach</p>
+                <p className="text-sm font-medium text-gray-600">Audience Reach</p>
                 <p className="text-2xl font-bold">{formatNumber(dashboardData?.audienceReach || 0)}</p>
                 <div className="flex items-center mt-2">
                   {getChangeIcon(dashboardData?.audienceChange)}
@@ -181,17 +181,17 @@ const EnhancedDashboard = () => {
           <CardContent>
             <div className="space-y-4">
               {dashboardData?.platformPerformance?.map((platform, index) => (
-                <div key={index} className="flex items-center justify-between p-3 border rounded-xl">
+                <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
                   <div className="flex items-center">
                     {platform.icon}
                     <div className="ml-3">
                       <p className="font-medium">{platform.name}</p>
-                      <p className="text-sm text-gray-400">{platform.contentCount} pieces of content</p>
+                      <p className="text-sm text-gray-600">{platform.contentCount} pieces of content</p>
                     </div>
                   </div>
                   <div className="text-right">
                     <p className="font-semibold">{formatCurrency(platform.revenue)}</p>
-                    <p className="text-sm text-gray-400">{formatNumber(platform.views)} views</p>
+                    <p className="text-sm text-gray-600">{formatNumber(platform.views)} views</p>
                   </div>
                 </div>
               ))}
@@ -238,7 +238,7 @@ const EnhancedDashboard = () => {
         <CardContent>
           <div className="space-y-4">
             {dashboardData?.recentActivity?.map((activity, index) => (
-              <div key={index} className="flex items-center p-3 border rounded-xl">
+              <div key={index} className="flex items-center p-3 border rounded-lg">
                 <div className={`w-2 h-2 rounded-full mr-3 ${
                   activity.type === 'revenue' ? 'bg-green-500' :
                   activity.type === 'content' ? 'bg-blue-500' :
@@ -246,7 +246,7 @@ const EnhancedDashboard = () => {
                 }`}></div>
                 <div className="flex-1">
                   <p className="font-medium">{activity.title}</p>
-                  <p className="text-sm text-gray-400">{activity.description}</p>
+                  <p className="text-sm text-gray-600">{activity.description}</p>
                 </div>
                 <div className="text-right">
                   <p className="text-sm text-gray-500">{new Date(activity.timestamp).toLocaleDateString()}</p>
@@ -271,14 +271,14 @@ const EnhancedDashboard = () => {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {dashboardData?.topContent?.map((content, index) => (
-              <div key={index} className="border rounded-xl p-4">
+              <div key={index} className="border rounded-lg p-4">
                 <img 
                   src={content.thumbnailUrl} 
                   alt={content.title}
-                  className="w-full h-32 object-cover rounded-xl mb-3"
+                  className="w-full h-32 object-cover rounded-lg mb-3"
                 />
                 <h3 className="font-semibold truncate">{content.title}</h3>
-                <p className="text-sm text-gray-400 mb-2">{content.platform}</p>
+                <p className="text-sm text-gray-600 mb-2">{content.platform}</p>
                 <div className="flex items-center justify-between text-sm">
                   <span>{formatNumber(content.views)} views</span>
                   <span className="font-semibold text-green-600">{formatCurrency(content.revenue)}</span>

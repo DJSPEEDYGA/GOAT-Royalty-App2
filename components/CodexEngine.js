@@ -118,9 +118,9 @@ const CodexEngine = () => {
         <CardContent>
           <div className="space-y-3">
             {platforms.map((platform, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-gray-900/50 rounded-xl">
+              <div key={index} className="flex items-center justify-between p-3 bg-gray-900/50 rounded-lg">
                 <div className="flex items-center gap-4 flex-1">
-                  <div className="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center">
+                  <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
                     <Music className="w-5 h-5 text-purple-400" />
                   </div>
                   <div>

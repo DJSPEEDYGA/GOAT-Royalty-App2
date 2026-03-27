@@ -19,28 +19,28 @@ export default async function handler(req, res) {
       platformPerformance: [
         {
           name: 'TikTok',
-          icon: "video",
+          icon: <Video className="w-5 h-5 text-black" />,
           contentCount: 45,
           revenue: 12567.80,
           views: 1245678
         },
         {
           name: 'YouTube',
-          icon: "play",
+          icon: <Play className="w-5 h-5 text-red-600" />,
           contentCount: 38,
           revenue: 18934.20,
           views: 892456
         },
         {
           name: 'Instagram',
-          icon: "camera",
+          icon: <Camera className="w-5 h-5 text-pink-600" />,
           contentCount: 32,
           revenue: 8923.40,
           views: 567234
         },
         {
           name: 'Spotify',
-          icon: "music",
+          icon: <Music className="w-5 h-5 text-green-600" />,
           contentCount: 28,
           revenue: 5253.50,
           views: 142195

@@ -1,201 +1,162 @@
-# 🐐⚡ Super GOAT Royalty App
+# GOAT Royalty App
 
-> **The Ultimate AI-Powered Music Production & Royalty Management Command Center**
+Copyright © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST. All rights reserved.
 
-Built by **Harvey Miller (DJ Speedy)** — merging the power of GOAT Royalty + SuperNinja AI into one unified platform.
+## Owners
+- **HARVEY L MILLER JR**
+- **JUAQUIN J MALPHURS**  
+- **KEVIN W HALLINGQUEST**
 
----
+## Description
+GOAT Royalty App - Music Royalty Management Platform
 
-## 🚀 What is Super GOAT Royalty?
+A comprehensive music royalty management platform for artists and rights holders. Streamline royalty collection, tracking, and management across all major streaming platforms including Spotify, Apple Music, YouTube, TikTok, and more.
 
-Super GOAT Royalty is a full-stack music industry platform that combines AI-powered tools, royalty management, music production, browser automation, and developer tools into a single command center.
+### Key Features
+- **Real-time Royalty Tracking**: Monitor royalties from all major streaming platforms
+- **Automated Calculation**: Advanced algorithms for accurate royalty computations
+- **Multi-Platform Integration**: Connect with Spotify, Apple Music, YouTube, TikTok, and others
+- **Financial Analytics**: Comprehensive reporting and insights
+- **Artist Dashboard**: User-friendly interface for royalty management
+- **Payment Processing**: Secure and timely royalty distributions
 
-### 📊 Platform Stats
-- **346 Tracks** in catalog
-- **1.2B+ Total Streams** across all platforms
-- **$865,420+** Estimated Royalties
-- **6 Streaming Platforms** tracked (Spotify, Apple Music, YouTube, Amazon, Tidal, Deezer)
-- **5 Active Automation Bots** running 24/7
+## Technology Stack
+- **Frontend**: React, Next.js, Tailwind CSS
+- **Backend**: Node.js, Express
+- **Database**: Supabase
+- **Authentication**: NextAuth
+- **APIs**: Spotify, Apple Music, YouTube, TikTok, and more
+- **AI Integration**: Google Generative AI for insights
 
----
+## Created
+December 19, 2024
 
-## ⚡ Features
+## Legal Notice
+All code, documentation, algorithms, and related materials are protected by copyright laws and international copyright treaties.
 
-### 🧠 AI Command Center
-- Multi-LLM support: Google Gemini, OpenAI GPT-4o, Anthropic Claude
-- Context-aware music industry assistant
-- Smart fallback responses when APIs are unavailable
+**License:** All Rights Reserved
 
-### 💰 Royalty Calculator
-- Real-time earnings across 6 streaming platforms
-- Per-stream rate analysis
-- Monthly growth tracking
-- Pending payment alerts
+**Copyright:** © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST
 
-### 🎵 Track Manager
-- Full catalog management (346+ tracks)
-- FASTASSMAN Publishing Inc (ASCAP) integration
-- Harvey L Miller Writers catalog
-- Stream counts, revenue, and trend analysis
+**Important:** Unauthorized use, reproduction, modification, or distribution of this code is strictly prohibited without prior written consent from all owners.
 
-### 🤖 Browser Automation (Axiom Engine)
-- Spotify Playlist Scraper
-- YouTube Analytics Collector
-- Social Media Monitor
-- Royalty Report Generator
-- Copyright Infringement Scanner
-- 8 pre-built bot templates
+## Repository Information
+- **Owner:** DJSPEEDYGA
+- **Repository:** GOAT-Royalty-App2
+- **URL:** https://github.com/DJSPEEDYGA/GOAT-Royalty-App2
 
-### 💻 Developer Tools
-- Integrated Terminal
-- Code Editor with syntax highlighting
-- File Manager
-- Git operations
+## Intellectual Property Protection
 
-### 📈 Streaming Analytics
-- Platform-by-platform breakdown
-- 30-day trend visualization
-- Growth rate analysis
-- Viral track detection
+### Protected Components
+- Royalty calculation algorithms
+- Streaming platform integration methods
+- Music data processing systems
+- User interface designs
+- API connection protocols
+- Financial transaction processing
+- Artist analytics and insights
 
-### 🎹 Music Production
-- Active project management
-- AI-assisted beat making
-- Vocal processing
-- Sample library (10,000+ samples)
-- Mastering suite
-- Stem separator
-- Chord generator
+### Music Industry Compliance
+- Performance Rights Organization (PRO) compliance
+- Music licensing regulations
+- Digital Service Provider (DSP) standards
+- International music law compliance
 
-### 🔒 Security & IP Protection
-- Fingerprint authentication
-- IP Protection Vault
-- Copyright management
-- NVIDIA DGX Cloud integration
+## Contact
+For licensing inquiries, please contact:
+- **Email:** contact@goatroyaltyapp.com
+- **Legal:** legal@goatroyaltyapp.com
 
----
+## Development Setup
 
-## 🛠️ Tech Stack
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+- Supabase account
 
-| Layer | Technology |
-|-------|-----------|
-| **Frontend** | Next.js 14, React 18, Tailwind CSS |
-| **AI** | Google Gemini, OpenAI, Anthropic Claude |
-| **Database** | Supabase (PostgreSQL) |
-| **Desktop** | Electron (Win/Mac/Linux) |
-| **Automation** | Custom Axiom-style browser automation engine |
-| **Deployment** | PM2, Ubuntu 24.04, NGINX |
-| **CI/CD** | GitHub Actions |
-
----
-
-## 🚀 Quick Start
-
-### Web App (Development)
+### Installation
 ```bash
+# Clone the repository
 git clone https://github.com/DJSPEEDYGA/GOAT-Royalty-App2.git
 cd GOAT-Royalty-App2
+
+# Install dependencies
 npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your API keys
+
+# Run the development server
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) — then navigate to `/super-goat-command`
 
-### Desktop App
-```bash
-cd super-ninja-app
-npm install
-npm start
-```
+### Available Scripts
 
-### Production Deployment
-```bash
-npm run build
-pm2 start npm --name "super-goat" -- start -- -p 3002 -H 0.0.0.0
-```
+#### `npm run dev`
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
----
+#### `npm run build`
+Builds the app for production to the `.next` folder.
 
-## 📁 Project Structure
+#### `npm run start`
+Starts the production server.
 
-```
-GOAT-Royalty-App2/
-├── pages/                    # Next.js pages
-│   ├── index.js              # Landing page with Super GOAT CTA
-│   ├── super-goat-command.js # 🐐 Super GOAT Command Center
-│   ├── dashboard.js          # Classic dashboard
-│   ├── analytics.js          # Analytics page
-│   ├── publishing.js         # Publishing management
-│   ├── tracks.js             # Track management
-│   └── api/
-│       └── ai-chat.js        # Multi-LLM AI chat endpoint
-├── components/
-│   ├── SuperGOATCommandCenter.js  # 🐐 Main unified component
-│   ├── EnhancedDashboard.js       # Enhanced dashboard
-│   ├── 60+ more components...
-├── styles/
-│   ├── super-goat.css        # Super GOAT unified theme
-│   ├── globals.css           # Global styles
-│   └── animations.css        # Animation library
-├── automation/               # Automation scripts
-│   ├── daily-monitor.js      # Daily track monitoring
-│   ├── royalty-calculator.js  # Monthly royalty calculations
-│   └── social-media-monitor.js # Social media intelligence
-├── super-ninja-app/          # Electron desktop app
-│   ├── src/
-│   │   ├── main.js           # Electron main process
-│   │   ├── renderer/         # Desktop UI
-│   │   └── axiom/            # Browser automation engine
-│   └── package.json          # Desktop build config
-└── .github/workflows/        # CI/CD pipelines
-```
+#### `npm run electron`
+Runs the Electron desktop application.
 
----
+#### `npm run build:win`
+Builds the Windows executable.
 
-## 👥 Authors & Copyright
+#### `npm run build:portable`
+Builds the portable Windows executable.
 
-**© 2025 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST**
+## API Integrations
 
-All rights reserved. GOAT Royalty™ is a trademark of Harvey Miller (DJ Speedy).
+### Supported Platforms
+- **Spotify**: Track streaming data and calculate royalties
+- **Apple Music**: Comprehensive revenue tracking
+- **YouTube**: Content ID and monetization tracking
+- **TikTok**: Viral content royalty monitoring
+- **SoundCloud**: Independent artist revenue tracking
+
+### API Documentation
+For detailed API documentation, see: [API_DOCUMENTATION.md](./API_DOCUMENTATION.md)
+
+## Security & Privacy
+- End-to-end encryption for sensitive data
+- Compliance with music industry security standards
+- GDPR and privacy regulation compliance
+- Secure API integrations with all platforms
+
+## Support
+For technical support and questions:
+- **Email:** support@goatroyaltyapp.com
+- **Documentation:** See additional guides in the repository
+
+## Legal & Compliance
+- **Terms of Service:** [/terms](/terms)
+- **Privacy Policy:** [/privacy](/privacy)
+- **Copyright Notice:** [/copyright](/copyright)
+- **Contact/DMCA:** [/contact](/contact)
 
 ---
 
-## 📥 Desktop Downloads
+## 🚨 Legal Disclaimer
 
-Download the latest desktop app from [GitHub Releases](https://github.com/DJSPEEDYGA/GOAT-Royalty-App2/releases):
+This software is the proprietary property of HARVEY L MILLER JR, JUAQUIN J MALPHURS, and KEVIN W HALLINGQUEST. All rights reserved.
 
-| Platform | File | Architecture |
-|----------|------|-------------|
-| 🪟 Windows | Super-GOAT-Royalty-Setup.exe | x64 |
-| 🪟 Windows | Super-GOAT-Royalty-Portable.exe | x64 |
-| 🍎 macOS | Super-GOAT-Royalty.zip | x64 + arm64 |
-| 🐧 Linux | Super-GOAT-Royalty.AppImage | x64 |
-| 🐧 Linux | Super-GOAT-Royalty.deb | x64 |
+Unauthorized use, reproduction, modification, distribution, or creation of derivative works is strictly prohibited and may result in legal action including:
+- Civil penalties up to $150,000 per infringement
+- Criminal prosecution for copyright violations
+- Injunctive relief to prevent further violations
+- Recovery of attorney's fees and court costs
+
+For licensing and partnership inquiries, contact: business@goatroyaltyapp.com
 
 ---
 
-*Built with 🐐 energy by DJ Speedy & the GOAT Royalty team*
----
-
-## 🔧 Claude Code Installer (Multi-Platform)
-
-Included in the `claude-installer/` directory is a professional-grade, multi-platform installer for **Claude Code CLI** — Anthropic's AI coding assistant.
-
-### Features
-- **Enhanced Shell Installer** (991 lines) with 30+ improvements: retry logic, progress bars, colored output, proxy support, file logging, and 15+ CLI flags
-- **Windows**: NSIS `.exe` installer + PowerShell script
-- **macOS**: `.dmg` builder with `.app` bundle
-- **Linux**: `.deb` package builder (amd64 + arm64)
-- **Portable**: Cross-platform archive builder
-
-### Quick Install (Linux/macOS)
-```bash
-bash claude-installer/scripts/install-claude.sh
-```
-
-### Build All Packages
-```bash
-cd claude-installer && bash build.sh --all
-```
-
-See [`claude-installer/README.md`](claude-installer/README.md) for full documentation.
-
+**Last Updated:** December 19, 2024
+**Version:** 1.0.0
+**Copyright © 2024 HARVEY L MILLER JR / JUAQUIN J MALPHURS / KEVIN W HALLINGQUEST. All rights reserved.**

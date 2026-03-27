@@ -57,9 +57,9 @@ const CinemaCamera = () => {
             <CardTitle className="text-white">Camera Preview</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="aspect-video bg-gray-900 rounded-xl flex items-center justify-center border-2 border-gray-700">
+            <div className="aspect-video bg-gray-900 rounded-lg flex items-center justify-center border-2 border-gray-700">
               <div className="text-center">
-                <Camera className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <Camera className="w-16 h-16 text-gray-600 mx-auto mb-4" />
                 <div className="text-gray-400">Camera Preview</div>
                 {isRecording && (
                   <div className="mt-4 flex items-center justify-center gap-2">

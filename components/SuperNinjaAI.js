@@ -84,7 +84,7 @@ const SuperNinjaAI = () => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                   placeholder="Ask me anything about your royalties..."
-                  className="flex-1 px-4 py-2 bg-gray-900 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500"
+                  className="flex-1 px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500"
                 />
                 <Button onClick={handleSend} className="bg-yellow-600 hover:bg-yellow-700">
                   Send
@@ -100,15 +100,15 @@ const SuperNinjaAI = () => {
               <CardTitle className="text-white text-sm">AI Insights</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm">
-              <div className="p-3 bg-green-500/10 border border-green-500/20 rounded-xl">
+              <div className="p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
                 <div className="text-green-400 font-medium mb-1">Revenue Opportunity</div>
                 <div className="text-gray-300">Your track "Summer Vibes" could earn 15% more with playlist placement</div>
               </div>
-              <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+              <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
                 <div className="text-blue-400 font-medium mb-1">Trending Alert</div>
                 <div className="text-gray-300">"Midnight Dreams" is gaining traction in Europe</div>
               </div>
-              <div className="p-3 bg-purple-500/10 border border-purple-500/20 rounded-xl">
+              <div className="p-3 bg-purple-500/10 border border-purple-500/20 rounded-lg">
                 <div className="text-purple-400 font-medium mb-1">Contract Reminder</div>
                 <div className="text-gray-300">Publishing agreement expires in 30 days</div>
               </div>

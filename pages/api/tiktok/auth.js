@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js';
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -47,15 +47,7 @@ export default async function handler(req, res) {
     }
 
     // Get Supabase client
-    const supabase = createClient(
-         process.env.NEXT_PUBLIC_SUPABASE_URL,
-         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-         {
-           auth: {
-             autoRefreshToken: false,
-           },
-         }
-       );
+    const supabase = createServerSupabaseClient(req, res);
 
     // Store TikTok connection in database
     const { data: { user } } = await supabase.auth.getUser();
