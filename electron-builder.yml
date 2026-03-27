@@ -103,8 +103,4 @@ deb:
   priority: optional
 
 # Publish Configuration (GitHub Releases)
-publish:
-  provider: github
-  owner: BrickSquadMonopoly
-  repo: GOAT-Royalty-App2
-  releaseType: release
+publish: never
