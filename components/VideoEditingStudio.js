@@ -411,7 +411,7 @@ const VideoEditingStudio = () => {
                       {/* Track label */}
                       <div className="w-24 flex-shrink-0 p-2 bg-gray-700/50 rounded">
                         <div className="flex items-center gap-1">
-                          <track.type === 'video' ? <Video className="w-3 h-3 text-blue-400" /> :
+                          {track.type === 'video' ? <Video className="w-3 h-3 text-blue-400" /> :
                            track.type === 'audio' ? <Music className="w-3 h-3 text-green-400" /> :
                            track.type === 'text' ? <Type className="w-3 h-3 text-yellow-400" /> :
                            track.type === 'effect' ? <Sparkles className="w-3 h-3 text-purple-400" /> :
