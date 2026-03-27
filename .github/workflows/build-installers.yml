@@ -52,7 +52,7 @@ jobs:
         run: npm run build
 
       - name: 🚀 Build Windows EXE installer
-        run: npx electron-builder --win --config electron-builder.yml
+        run: npx electron-builder --win --config electron-builder.yml --publish never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -89,7 +89,7 @@ jobs:
         run: npm run build
 
       - name: 🚀 Build macOS DMG installer
-        run: npx electron-builder --mac --config electron-builder.yml
+        run: npx electron-builder --mac --config electron-builder.yml --publish never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -132,7 +132,7 @@ jobs:
         run: npm run build
 
       - name: 🚀 Build Linux packages
-        run: npx electron-builder --linux --config electron-builder.yml
+        run: npx electron-builder --linux --config electron-builder.yml --publish never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

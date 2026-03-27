@@ -102,5 +102,3 @@ deb:
   artifactName: ${productName}_${version}_${arch}.deb
   priority: optional
 
-# Publish Configuration (GitHub Releases)
-publish: never
