@@ -6,8 +6,18 @@ import {
   Activity, Zap, Shield, Globe, Database, Link2,
   Play, Pause, RefreshCw, CheckCircle, AlertCircle,
   Coins, Wallet, Hash, Clock, Cpu, HardDrive,
-  BarChart3, PieChart, ArrowUpRight, ArrowDownRight
+  BarChart3, PieChart, ArrowUpRight, ArrowDownRight,
+  CreditCard, Send, Receive, Link, Unlink
 } from 'lucide-react';
+
+// Cash App Integration State
+const CASHAPP_STATE = {
+  linked: false,
+  cashtag: '',
+  btcAddress: '',
+  lightningAddress: '',
+  balance: { btc: 0, usd: 0 }
+};
 
 // ============================================================
 // GOAT BLOCKCHAIN & CRYPTO MINING HUB
@@ -86,6 +96,11 @@ const BlockchainMiningHub = () => {
     workers: 0,
     totalHashRate: 0
   });
+  const [cashApp, setCashApp] = useState(CASHAPP_STATE);
+  const [cashAppInput, setCashAppInput] = useState('');
+  const [cashAppAmount, setCashAppAmount] = useState('');
+  const [cashAppAddress, setCashAppAddress] = useState('');
+  const [cashAppNote, setCashAppNote] = useState('');
 
   // Initialize demo data
   useEffect(() => {
@@ -183,6 +198,7 @@ const BlockchainMiningHub = () => {
             { id: 'smart-contracts', label: 'Smart Contracts', icon: Hash },
             { id: 'wallet', label: 'Wallet', icon: Wallet },
             { id: 'nft-minting', label: 'NFT Minting', icon: Coins },
+            { id: 'cashapp', label: 'Cash App', icon: CreditCard },
           ].map(tab => (
             <Button
               key={tab.id}
@@ -629,27 +645,15 @@ const BlockchainMiningHub = () => {
                     <div className="space-y-4">
                       <div>
                         <label className="text-gray-300 text-sm mb-2 block">Track Name</label>
-                        <input
-                          type="text"
-                          placeholder="Enter track name..."
-                          className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white"
-                        />
+                        <input type="text" placeholder="Enter track name..." className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white" />
                       </div>
                       <div>
                         <label className="text-gray-300 text-sm mb-2 block">Artist</label>
-                        <input
-                          type="text"
-                          placeholder="Enter artist name..."
-                          className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white"
-                        />
+                        <input type="text" placeholder="Enter artist name..." className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white" />
                       </div>
                       <div>
                         <label className="text-gray-300 text-sm mb-2 block">Royalty Percentage</label>
-                        <input
-                          type="number"
-                          placeholder="10"
-                          className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white"
-                        />
+                        <input type="number" placeholder="10" className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white" />
                       </div>
                     </div>
                     <div className="bg-gray-700/30 rounded-lg p-4 flex items-center justify-center">
@@ -667,42 +671,104 @@ const BlockchainMiningHub = () => {
                 </CardContent>
               </Card>
             </div>
-
-            {/* NFT Benefits */}
             <div className="space-y-4">
               <Card className="bg-gradient-to-br from-pink-500/10 to-purple-500/10 border-pink-500/20">
                 <CardContent className="py-4">
                   <h3 className="text-white font-medium mb-3">NFT Benefits</h3>
                   <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2 text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-400" />
-                      Permanent royalty tracking
-                    </li>
-                    <li className="flex items-center gap-2 text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-400" />
-                      Secondary sale royalties
-                    </li>
-                    <li className="flex items-center gap-2 text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-400" />
-                      Proof of ownership
-                    </li>
-                    <li className="flex items-center gap-2 text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-400" />
-                      Global marketplace access
-                    </li>
+                    <li className="flex items-center gap-2 text-gray-300"><CheckCircle className="w-4 h-4 text-green-400" />Permanent royalty tracking</li>
+                    <li className="flex items-center gap-2 text-gray-300"><CheckCircle className="w-4 h-4 text-green-400" />Secondary sale royalties</li>
+                    <li className="flex items-center gap-2 text-gray-300"><CheckCircle className="w-4 h-4 text-green-400" />Proof of ownership</li>
+                    <li className="flex items-center gap-2 text-gray-300"><CheckCircle className="w-4 h-4 text-green-400" />Global marketplace access</li>
                   </ul>
                 </CardContent>
               </Card>
-
               <Card className="bg-gray-800/50 border-gray-700">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-white text-sm">Your NFTs</CardTitle>
-                </CardHeader>
+                <CardHeader className="pb-2"><CardTitle className="text-white text-sm">Your NFTs</CardTitle></CardHeader>
                 <CardContent>
                   <div className="text-center py-4">
                     <Coins className="w-8 h-8 text-gray-500 mx-auto mb-2" />
                     <p className="text-gray-400 text-sm">No NFTs minted yet</p>
                   </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'cashapp' && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="md:col-span-2">
+              <Card className="bg-gray-800/50 border-gray-700">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-2">
+                    <CreditCard className="w-5 h-5 text-green-400" />
+                    Cash App Bitcoin Integration
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {!cashApp.linked ? (
+                    <div className="space-y-4">
+                      <div className="text-center py-8">
+                        <CreditCard className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+                        <p className="text-gray-400 mb-4">Link your Cash App to send and receive Bitcoin</p>
+                        <div className="flex gap-2 max-w-md mx-auto">
+                          <input type="text" value={cashAppInput} onChange={(e) => setCashAppInput(e.target.value)} placeholder="Enter your $cashtag" className="flex-1 px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white" />
+                          <Button onClick={() => { if (cashAppInput) { setCashApp({ linked: true, cashtag: cashAppInput.replace('$', '').toLowerCase(), btcAddress: `bc1q${Math.random().toString(36).substring(2, 12)}`, lightningAddress: `${cashAppInput.replace('$', '').toLowerCase()}@cash.app`, balance: { btc: 0.00125, usd: 83.75 } }); } }} className="bg-green-600 hover:bg-green-700"><Link className="w-4 h-4 mr-2" />Link</Button>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="space-y-6">
+                      <div className="flex items-center justify-between p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
+                        <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center"><span className="text-white text-xl font-bold">$</span></div>
+                          <div><div className="text-white font-medium">${cashApp.cashtag}</div><div className="text-green-400 text-sm">Connected</div></div>
+                        </div>
+                        <Button variant="outline" size="sm" onClick={() => setCashApp(CASHAPP_STATE)} className="text-red-400 border-red-500/30"><Unlink className="w-4 h-4 mr-2" />Unlink</Button>
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="p-4 bg-gray-700/30 rounded-lg"><div className="text-gray-400 text-sm mb-1">BTC Balance</div><div className="text-2xl font-bold text-white">{cashApp.balance.btc.toFixed(8)} BTC</div></div>
+                        <div className="p-4 bg-gray-700/30 rounded-lg"><div className="text-gray-400 text-sm mb-1">USD Value</div><div className="text-2xl font-bold text-white">${cashApp.balance.usd.toFixed(2)}</div></div>
+                      </div>
+                      <div className="space-y-3">
+                        <div><label className="text-gray-400 text-sm">Bitcoin Deposit Address</label><div className="flex gap-2 mt-1"><code className="flex-1 p-2 bg-gray-900 rounded text-green-400 text-sm">{cashApp.btcAddress}</code><Button variant="outline" size="sm" className="text-gray-300"><Copy className="w-4 h-4" /></Button></div></div>
+                        <div><label className="text-gray-400 text-sm">Lightning Address</label><div className="flex gap-2 mt-1"><code className="flex-1 p-2 bg-gray-900 rounded text-yellow-400 text-sm">{cashApp.lightningAddress}</code><Button variant="outline" size="sm" className="text-gray-300"><Copy className="w-4 h-4" /></Button></div></div>
+                      </div>
+                      <div className="border-t border-gray-700 pt-4">
+                        <h4 className="text-white font-medium mb-3">Send Bitcoin</h4>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-2 gap-3">
+                            <input type="number" value={cashAppAmount} onChange={(e) => setCashAppAmount(e.target.value)} placeholder="Amount (BTC)" className="px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white" />
+                            <input type="text" value={cashAppAddress} onChange={(e) => setCashAppAddress(e.target.value)} placeholder="Destination Address" className="px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white" />
+                          </div>
+                          <input type="text" value={cashAppNote} onChange={(e) => setCashAppNote(e.target.value)} placeholder="Note (optional)" className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white" />
+                          <Button className="w-full bg-green-600 hover:bg-green-700"><Send className="w-4 h-4 mr-2" />Send Bitcoin</Button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+            <div className="space-y-4">
+              <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20">
+                <CardContent className="py-4">
+                  <h3 className="text-white font-medium mb-3">Cash App Features</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-center gap-2 text-gray-300"><CheckCircle className="w-4 h-4 text-green-400" />Instant Bitcoin transfers</li>
+                    <li className="flex items-center gap-2 text-gray-300"><CheckCircle className="w-4 h-4 text-green-400" />Lightning Network support</li>
+                    <li className="flex items-center gap-2 text-gray-300"><CheckCircle className="w-4 h-4 text-green-400" />Royalty payouts to Cash App</li>
+                    <li className="flex items-center gap-2 text-gray-300"><CheckCircle className="w-4 h-4 text-green-400" />Mining rewards direct</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              <Card className="bg-gray-800/50 border-gray-700">
+                <CardHeader className="pb-2"><CardTitle className="text-white text-sm">Quick Convert</CardTitle></CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="flex items-center justify-between text-sm"><span className="text-gray-400">1 BTC</span><span className="text-white">$67,000.00</span></div>
+                  <div className="flex items-center justify-between text-sm"><span className="text-gray-400">0.01 BTC</span><span className="text-white">$670.00</span></div>
+                  <div className="flex items-center justify-between text-sm"><span className="text-gray-400">0.001 BTC</span><span className="text-white">$67.00</span></div>
                 </CardContent>
               </Card>
             </div>
